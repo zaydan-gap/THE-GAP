@@ -41,34 +41,92 @@ a { text-decoration: none; }
 
 /* ═══ NAV ═══ */
 .nav {
-  position: fixed; inset: 0 0 auto; z-index: 200;
-  display: grid; grid-template-columns: auto 1fr auto;
-  align-items: center; gap: 0;
-  height: 60px; padding: 0 48px;
-  background: rgba(6,6,6,0.92);
-  backdrop-filter: blur(20px) saturate(1.5);
+  position: fixed; inset: 0 0 auto; z-index: 300;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; padding: 0 48px;
+  background: rgba(6,6,6,0.95);
+  backdrop-filter: blur(24px) saturate(1.6);
   border-bottom: 1px solid var(--rule);
+  transition: border-color 0.3s;
 }
-.nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; }
-.nav-tabs { display: flex; justify-content: center; gap: 2px; }
-.nav-tab {
-  font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--white3); background: none; border: none; cursor: pointer;
-  padding: 8px 18px; transition: color 0.2s; position: relative;
+.nav-logo {
+  font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900;
+  color: var(--white); letter-spacing: -0.5px; cursor: pointer;
 }
-.nav-tab::after { content: ''; position: absolute; bottom: 0; left: 18px; right: 18px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.2s; }
-.nav-tab:hover { color: var(--white); }
-.nav-tab.active { color: var(--white); }
-.nav-tab.active::after { transform: scaleX(1); }
+.nav-logo span { color: var(--gold); }
+.nav-center {
+  font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--white3);
+  position: absolute; left: 50%; transform: translateX(-50%);
+  pointer-events: none;
+}
+.nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-apply {
   font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
   background: var(--gold); color: var(--black); border: none; cursor: pointer;
-  padding: 9px 20px; font-weight: 700; transition: background 0.2s;
+  padding: 9px 22px; font-weight: 700; transition: background 0.2s;
 }
 .nav-apply:hover { background: var(--gold2); }
+.nav-menu-btn {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
+  gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 44px; height: 44px;
+}
+.nav-menu-btn span {
+  display: block; height: 1px; background: var(--white); transition: all 0.3s ease;
+}
+.nav-menu-btn span:nth-child(1) { width: 22px; }
+.nav-menu-btn span:nth-child(2) { width: 14px; }
+.nav-menu-btn.open span:nth-child(1) { width: 18px; transform: translateY(6px) rotate(45deg); }
+.nav-menu-btn.open span:nth-child(2) { width: 18px; transform: translateY(0) rotate(-45deg); }
+
+/* ═══ MENU OVERLAY ═══ */
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 250;
+  background: rgba(4,4,4,0.97);
+  display: flex; flex-direction: column;
+  padding: 100px 60px 60px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.menu-overlay.open { opacity: 1; pointer-events: all; }
+
+.menu-overlay-top {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--rule); flex: 1;
+}
+.menu-nav-links { border-right: 1px solid var(--rule); padding: 48px 0; display: flex; flex-direction: column; gap: 0; }
+.menu-nav-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0; border-bottom: 1px solid var(--rule);
+  cursor: pointer; background: none; border-left: none; border-right: none; border-top: none; width: 100%;
+  text-align: left; transition: padding-left 0.2s;
+}
+.menu-nav-item:hover { padding-left: 12px; }
+.menu-nav-item:hover .menu-nav-name { color: var(--gold); }
+.menu-nav-item:first-child { border-top: none; }
+.menu-nav-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--white3); letter-spacing: 0.1em; margin-right: 20px; }
+.menu-nav-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: var(--white); transition: color 0.2s; flex: 1; }
+.menu-nav-sub { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white3); text-align: right; }
+.menu-nav-item.active .menu-nav-name { color: var(--gold); }
+
+.menu-side { padding: 48px 0 48px 60px; display: flex; flex-direction: column; justify-content: space-between; }
+.menu-side-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white3); margin-bottom: 20px; }
+.menu-side-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(16px, 2vw, 24px); color: var(--white2); line-height: 1.6; max-width: 380px; }
+.menu-side-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+
+.menu-bottom { border-top: 1px solid var(--rule); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.menu-bottom-copy { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white3); }
+
+@media (max-width: 768px) {
+  .menu-overlay { padding: 100px 24px 40px; }
+  .menu-overlay-top { grid-template-columns: 1fr; }
+  .menu-side { display: none; }
+  .nav { padding: 0 20px; }
+  .nav-center { display: none; }
+}
 
 /* ═══ PAGES ═══ */
-.page { display: none; min-height: 100vh; padding-top: 60px; }
+.page { display: none; min-height: 100vh; padding-top: 64px; }
 .page.active { display: block; }
 
 /* ═══ BUTTONS ═══ */
@@ -101,7 +159,7 @@ a { text-decoration: none; }
 .hero-content { position: relative; z-index: 1; }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
 .hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
-.hero-title { font-size: clamp(72px, 11vw, 140px; letter-spacing: -5px; margin-bottom: 28px; }
+.hero-title { font-size: clamp(72px, 11vw, 140px); letter-spacing: -5px; margin-bottom: 28px; }
 .hero-sub { font-size: clamp(16px, 1.8vw, 20px); max-width: 520px; margin-bottom: 48px; }
 .hero-stats { display: flex; gap: 0; margin-top: 64px; }
 .hero-stat { padding: 0 32px 0 0; border-right: 1px solid var(--rule); margin-right: 32px; }
@@ -227,32 +285,56 @@ a { text-decoration: none; }
 .gear-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
 .gear-card { background: var(--dark2); overflow: hidden; }
 
-/* Product mockup images */
-.product-mockup { aspect-ratio: 3/4; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.pm-tee { background: linear-gradient(145deg, #0c0c0c 0%, #111 100%); }
-.pm-hoodie { background: linear-gradient(145deg, #0a0a0a 0%, #0f0f0f 100%); }
-.pm-jacket { background: linear-gradient(145deg, #080d0a 0%, #0d1209 100%); }
-.pm-water { background: linear-gradient(145deg, #06080e 0%, #0a0e18 100%); }
-
-/* Mock fabric texture */
-.pm-fabric { position: absolute; inset: 0; opacity: 0.025; background-image: repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 1px, transparent 5px), repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 1px, transparent 5px); }
-
-/* Mock garment silhouette */
-.pm-garment { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.pm-tee-shape { width: 70%; height: 75%; position: relative; }
-.pm-tee-shape::before { content: ''; position: absolute; inset: 15% 0 0; background: rgba(255,255,255,0.04); border-radius: 0 0 8px 8px; }
-.pm-tee-shape::after { content: ''; position: absolute; top: 0; left: 15%; right: 15%; height: 20%; background: rgba(255,255,255,0.04); border-radius: 50px 50px 0 0; }
-.pm-sleeve-l { position: absolute; top: 8%; left: 0; width: 15%; height: 30%; background: rgba(255,255,255,0.03); transform: rotate(-10deg); border-radius: 4px; }
-.pm-sleeve-r { position: absolute; top: 8%; right: 0; width: 15%; height: 30%; background: rgba(255,255,255,0.03); transform: rotate(10deg); border-radius: 4px; }
-
-/* Product text print */
-.pm-print { position: relative; z-index: 2; text-align: center; }
-.pm-print-main { font-family: 'Playfair Display', serif; font-weight: 900; color: rgba(201,168,76,0.2); line-height: 0.9; display: block; }
-.pm-print-sub { font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.07); display: block; margin-top: 8px; }
-
-/* Hover zoom effect on products */
-.gear-card:hover .product-mockup { }
-.gear-card:hover .pm-print-main { color: rgba(201,168,76,0.3); transition: color 0.3s; }
+/* ── Product mockup ── */
+.product-mockup {
+  aspect-ratio: 3/4; position: relative; overflow: hidden;
+  background: #080808;
+}
+.pm-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: brightness(0.55) saturate(0.4) contrast(1.1);
+  transition: transform 0.55s ease, filter 0.4s ease;
+}
+.gear-card:hover .pm-photo {
+  transform: scale(1.05);
+  filter: brightness(0.65) saturate(0.45) contrast(1.1);
+}
+/* design overlay — blends onto the fabric */
+.pm-design {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.pm-wordmark {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  color: rgba(201,168,76,0.55); line-height: 0.88;
+  text-align: center; letter-spacing: -1px;
+}
+.pm-sub {
+  font-family: 'Space Mono', monospace; font-size: 7px;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: rgba(201,168,76,0.28); margin-top: 10px;
+  text-align: center;
+}
+.pm-arc {
+  font-family: 'Space Mono', monospace; font-size: 7px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.18); text-align: center; margin-top: 6px;
+}
+/* small woven label in corner */
+.pm-label {
+  position: absolute; bottom: 14px; right: 14px;
+  background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18);
+  padding: 4px 8px;
+  font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(201,168,76,0.45);
+  mix-blend-mode: screen;
+}
+/* dark gradient at bottom so info reads cleanly */
+.pm-shadow { position: absolute; inset: 60% 0 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5)); pointer-events: none; }
 
 .gear-info { padding: 16px; }
 .gear-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white3); margin-bottom: 3px; }
@@ -360,16 +442,62 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav">
-  <div class="nav-logo">THE GAP</div>
-  <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPage('home')">Home</button>
-    <button class="nav-tab" onclick="showPage('program')">Full Immersion</button>
-    <button class="nav-tab" onclick="showPage('immersions')">Micro Immersions</button>
-    <button class="nav-tab" onclick="showPage('gear')">Gear</button>
-    <button class="nav-tab" onclick="showPage('about')">About</button>
+  <div class="nav-logo" onclick="showPage('home')">THE <span>GAP</span></div>
+  <div class="nav-center" id="nav-page-label">Home</div>
+  <div class="nav-right">
+    <button class="nav-apply" onclick="showPage('apply')">Apply 2026</button>
+    <button class="nav-menu-btn" id="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span>
+    </button>
   </div>
-  <button class="nav-apply" onclick="showPage('apply')">Apply 2026</button>
 </nav>
+
+<!-- ═══ MENU OVERLAY ═══ -->
+<div class="menu-overlay" id="menu-overlay">
+  <div class="menu-overlay-top">
+    <nav class="menu-nav-links">
+      <button class="menu-nav-item active" onclick="showPage('home');toggleMenu()">
+        <span class="menu-nav-num">01</span>
+        <span class="menu-nav-name">Home</span>
+        <span class="menu-nav-sub">Overview</span>
+      </button>
+      <button class="menu-nav-item" onclick="showPage('program');toggleMenu()">
+        <span class="menu-nav-num">02</span>
+        <span class="menu-nav-name">Full Immersion</span>
+        <span class="menu-nav-sub">90 Days · 5 Countries</span>
+      </button>
+      <button class="menu-nav-item" onclick="showPage('immersions');toggleMenu()">
+        <span class="menu-nav-num">03</span>
+        <span class="menu-nav-name">Micro Immersions</span>
+        <span class="menu-nav-sub">5–14 Days</span>
+      </button>
+      <button class="menu-nav-item" onclick="showPage('gear');toggleMenu()">
+        <span class="menu-nav-num">04</span>
+        <span class="menu-nav-name">Gear</span>
+        <span class="menu-nav-sub">Built for the program</span>
+      </button>
+      <button class="menu-nav-item" onclick="showPage('about');toggleMenu()">
+        <span class="menu-nav-num">05</span>
+        <span class="menu-nav-name">About</span>
+        <span class="menu-nav-sub">The founder + philosophy</span>
+      </button>
+    </nav>
+    <div class="menu-side">
+      <div>
+        <div class="menu-side-label">The North Star</div>
+        <div class="menu-side-quote">"90 days to find out who you are when the noise stops."</div>
+      </div>
+      <div class="menu-side-actions">
+        <button class="btn btn-gold" onclick="showPage('apply');toggleMenu()">Apply for 2026</button>
+        <a href="https://files.catbox.moe/aw02b9.pdf" target="_blank" class="btn btn-outline" onclick="toggleMenu()">Download Itinerary PDF</a>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bottom">
+    <span class="menu-bottom-copy">THE GAP · Bridge the Gap · 2026</span>
+    <span class="menu-bottom-copy">apply@thegapprogram.com</span>
+  </div>
+</div>
 
 <!-- ════════════════════════════════════
      HOME PAGE
@@ -818,19 +946,16 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
         <div class="gear-cat-label">Everyday</div>
         <div class="gear-grid">
 
+          <!-- Meraki Tee -->
           <div class="gear-card">
-            <div class="product-mockup pm-tee">
-              <div class="pm-fabric"></div>
-              <div class="pm-garment">
-                <div class="pm-tee-shape">
-                  <div class="pm-sleeve-l"></div>
-                  <div class="pm-sleeve-r"></div>
-                </div>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:52px;">THE<br>GAP</div>
+                <div class="pm-sub">Meraki · 270gsm</div>
               </div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:52px;">THE<br>GAP</span>
-                <span class="pm-print-sub">Meraki · 270gsm</span>
-              </div>
+              <div class="pm-label">270gsm</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Heavyweight Tee</div>
@@ -840,45 +965,54 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
+          <!-- Gap Hoodie -->
           <div class="gear-card">
-            <div class="product-mockup pm-hoodie">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:14px;letter-spacing:0.2em;">BRIDGE<br>THE GAP</span>
-                <span class="pm-print-sub">400gsm French Terry</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:13px;letter-spacing:0.22em;">BRIDGE<br>THE GAP</div>
+                <div class="pm-sub">400gsm French Terry</div>
               </div>
+              <div class="pm-label">Embroidered</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Hoodie</div>
               <div class="gear-name">The Gap Hoodie</div>
-              <div class="gear-desc">400gsm French terry. "Bridge The Gap" embroidered.</div>
+              <div class="gear-desc">400gsm French terry. "Bridge The Gap" embroidered chest.</div>
               <div class="gear-price">$118</div>
             </div>
           </div>
 
+          <!-- Route Long Sleeve -->
           <div class="gear-card">
-            <div class="product-mockup pm-tee">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:11px;letter-spacing:0.2em;line-height:2.2;">NZ · BALI<br>THAI · COL<br>CRI</span>
-                <span class="pm-print-sub">The Route · Long Sleeve</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.22em;line-height:2.1;">NZ · BALI<br>THAI · COL<br>COSTA RICA</div>
+                <div class="pm-sub">The Route · Long Sleeve</div>
               </div>
+              <div class="pm-label">Sleeve print</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Long Sleeve</div>
               <div class="gear-name">The Route Tee</div>
-              <div class="gear-desc">Countries down the back sleeve. Lightweight.</div>
+              <div class="gear-desc">Countries printed down the back sleeve. Lightweight.</div>
               <div class="gear-price">$52</div>
             </div>
           </div>
 
+          <!-- Gap Cap -->
           <div class="gear-card">
-            <div class="product-mockup pm-hoodie" style="background:linear-gradient(145deg,#0c0c0c,#111);">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:10px;letter-spacing:0.18em;line-height:2.4;">BRIDGE<br>THE GAP</span>
-                <span class="pm-print-sub">Low Profile Cap</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&q=85');background-position:center 30%;"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.28em;">THE GAP</div>
+                <div class="pm-sub">Low Profile · Washed</div>
               </div>
+              <div class="pm-label">Woven label</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Headwear</div>
@@ -887,6 +1021,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-price">$48</div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -895,69 +1030,82 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
         <div class="gear-cat-label">Adventure</div>
         <div class="gear-grid">
 
+          <!-- Wind Shell -->
           <div class="gear-card">
-            <div class="product-mockup pm-jacket">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:12px;letter-spacing:0.15em;line-height:1.8;">PACK<br>EVERY<br>WHERE</span>
-                <span class="pm-print-sub">Stuffs into chest pocket</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.18em;line-height:2;">PACK<br>EVERYWHERE</div>
+                <div class="pm-sub">Stuffs into chest pocket</div>
               </div>
+              <div class="pm-label">Wind Shell</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Wind Shell</div>
               <div class="gear-name">Packable Wind Shell</div>
-              <div class="gear-desc">Stuffs into its own chest pocket. No excuses.</div>
+              <div class="gear-desc">Stuffs into its own chest pocket. Always with you.</div>
               <div class="gear-price">$138</div>
             </div>
           </div>
 
+          <!-- Do-Everything Short -->
           <div class="gear-card">
-            <div class="product-mockup pm-jacket">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:12px;letter-spacing:0.12em;line-height:1.9;">DO<br>EVERY<br>THING</span>
-                <span class="pm-print-sub">4-way stretch · Trail to ocean</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1562886878-c1f16a9ba9e1?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.16em;line-height:2.1;">DO<br>EVERYTHING</div>
+                <div class="pm-sub">4-way stretch · Trail to ocean</div>
               </div>
+              <div class="pm-label">4-way stretch</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Short</div>
               <div class="gear-name">The Do-Everything Short</div>
-              <div class="gear-desc">4-way stretch. Trail to ocean. Built for everything.</div>
+              <div class="gear-desc">4-way stretch. Trail to ocean without changing.</div>
               <div class="gear-price">$88</div>
             </div>
           </div>
 
+          <!-- Gap Pack -->
           <div class="gear-card">
-            <div class="product-mockup pm-jacket" style="background:linear-gradient(145deg,#080c09,#0c1009);">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:52px;opacity:0.12;">▣</span>
-                <span class="pm-print-sub">Gap Pack · 26L · Carry-on legal</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:13px;letter-spacing:0.2em;">THE GAP<br>PACK</div>
+                <div class="pm-sub">26L · Carry-on legal</div>
               </div>
+              <div class="pm-label">26 Litres</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Pack</div>
               <div class="gear-name">The Gap Pack 26L</div>
-              <div class="gear-desc">Carry-on legal. Daypack when needed.</div>
+              <div class="gear-desc">Carry-on legal. Detaches as a daypack.</div>
               <div class="gear-price">$168</div>
             </div>
           </div>
 
+          <!-- Midlayer Fleece -->
           <div class="gear-card">
-            <div class="product-mockup pm-jacket">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:9px;letter-spacing:0.12em;line-height:2.4;">THE TARGET<br>IS THE<br>SELF</span>
-                <span class="pm-print-sub">Midlayer · 320gsm</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:10px;letter-spacing:0.16em;line-height:2.2;">THE TARGET<br>IS THE SELF</div>
+                <div class="pm-sub">Midlayer · 320gsm</div>
               </div>
+              <div class="pm-label">Collar text</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Fleece</div>
               <div class="gear-name">The Midlayer Fleece</div>
-              <div class="gear-desc">"The target is the self." inside the collar.</div>
+              <div class="gear-desc">"The target is the self." inside the collar. 320gsm.</div>
               <div class="gear-price">$124</div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -966,13 +1114,16 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
         <div class="gear-cat-label">Water</div>
         <div class="gear-grid">
 
+          <!-- Rash Guard -->
           <div class="gear-card">
-            <div class="product-mockup pm-water">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:11px;letter-spacing:0.15em;line-height:2;">UPF 50+<br>RECYCLED<br>NYLON</span>
-                <span class="pm-print-sub">Freedive built</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1509699756234-df49dae92e57?w=600&q=85');background-position:center 20%;"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.2em;line-height:2.1;">THE GAP<br>FREEDIVE</div>
+                <div class="pm-sub">UPF 50+ · Recycled nylon</div>
               </div>
+              <div class="pm-label">UPF 50+</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Rash Guard</div>
@@ -982,13 +1133,16 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
+          <!-- Route Board Short -->
           <div class="gear-card">
-            <div class="product-mockup pm-water" style="background:linear-gradient(145deg,#070a12,#0a0e18);">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:10px;letter-spacing:0.15em;line-height:2.2;">AMED<br>TO<br>ULUWATU</span>
-                <span class="pm-print-sub">Route Board Short · Quick dry</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:10px;letter-spacing:0.2em;line-height:2.2;">AMED<br>TO<br>ULUWATU</div>
+                <div class="pm-sub">Route Board Short</div>
               </div>
+              <div class="pm-label">Quick dry</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Board Short</div>
@@ -998,13 +1152,16 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
+          <!-- Water Bag -->
           <div class="gear-card">
-            <div class="product-mockup pm-water" style="background:linear-gradient(145deg,#060a08,#0a100c);">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:52px;opacity:0.1;">◎</span>
-                <span class="pm-print-sub">Water Bag · 20L · Floats</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=85');filter:brightness(0.45) saturate(0.3) contrast(1.1);"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:13px;letter-spacing:0.18em;">GAP<br>WATER</div>
+                <div class="pm-sub">20L · Roll-top · Floats</div>
               </div>
+              <div class="pm-label">20 Litres</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Dry Bag</div>
@@ -1014,13 +1171,16 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
+          <!-- Gap Flask -->
           <div class="gear-card">
-            <div class="product-mockup pm-water" style="background:linear-gradient(145deg,#07080c,#0a0c10);">
-              <div class="pm-fabric"></div>
-              <div class="pm-print">
-                <span class="pm-print-main" style="font-size:10px;letter-spacing:0.12em;line-height:2.2;">LIVE<br>POURED<br>OUT</span>
-                <span class="pm-print-sub">Gap Flask · 32oz</span>
+            <div class="product-mockup">
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&q=85')"></div>
+              <div class="pm-design">
+                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.16em;line-height:2.1;">LIVE<br>POURED OUT</div>
+                <div class="pm-sub">Gap Flask · 32oz</div>
               </div>
+              <div class="pm-label">Engraved</div>
+              <div class="pm-shadow"></div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Flask</div>
@@ -1201,20 +1361,45 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
 </div>
 
 <script>
+const PAGE_LABELS = {
+  home: 'Home',
+  program: 'Full Immersion',
+  immersions: 'Micro Immersions',
+  gear: 'Gear',
+  about: 'About',
+  apply: 'Apply 2026'
+};
+
 function showPage(id) {
-  // Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  // Show target
   document.getElementById('page-' + id).classList.add('active');
-  // Update nav tabs
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  const tabs = { home: 0, program: 1, immersions: 2, gear: 3, about: 4 };
-  if (tabs[id] !== undefined) {
-    document.querySelectorAll('.nav-tab')[tabs[id]]?.classList.add('active');
-  }
-  // Scroll to top
+  // Update center label
+  const label = document.getElementById('nav-page-label');
+  if (label) label.textContent = PAGE_LABELS[id] || '';
+  // Update active menu item
+  document.querySelectorAll('.menu-nav-item').forEach(el => el.classList.remove('active'));
+  const order = ['home','program','immersions','gear','about'];
+  const idx = order.indexOf(id);
+  if (idx >= 0) document.querySelectorAll('.menu-nav-item')[idx]?.classList.add('active');
   window.scrollTo(0, 0);
 }
+
+function toggleMenu() {
+  const overlay = document.getElementById('menu-overlay');
+  const btn = document.getElementById('menu-btn');
+  const isOpen = overlay.classList.contains('open');
+  overlay.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+// Close menu on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('menu-overlay');
+    if (overlay.classList.contains('open')) toggleMenu();
+  }
+});
 </script>
 </body>
 </html>
