@@ -353,6 +353,10 @@ a { text-decoration: none; }
 .gear-price { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--gold); }
 .gear-fit { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white3); margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
 .gear-fit span { color: rgba(255,255,255,0.35); margin: 0 6px; }
+.gear-cta { margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.gear-cta-badge { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white3); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 2px; }
+.gear-cta-btn { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid rgba(201,168,76,0.4); padding: 6px 12px; cursor: pointer; transition: all 0.2s; border-radius: 2px; white-space: nowrap; }
+.gear-cta-btn:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); }
 
 .gear-waitlist { background: var(--dark2); padding: 48px 60px; margin-top: 2px; text-align: center; }
 .gear-waitlist p { color: var(--white2); font-size: 14px; margin-bottom: 20px; }
@@ -799,26 +803,25 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
     <div class="wrap">
       <span class="t-eyebrow" style="display:block;margin-bottom:16px;">Where It Starts</span>
       <h1 class="t-heading" style="font-size:clamp(36px,5vw,60px);margin-bottom:20px;">Micro Immersions.<br>This is the door.</h1>
-      <p class="t-subhead" style="max-width:620px;font-size:16px;line-height:1.8;">There's a feeling most people have touched once — in the water at sunrise, on a trail above the clouds, in the middle of something hard and real. Fully alive. Fully present. No gap between where you are and where you're supposed to be. Micro immersions exist to take you back to that feeling. Deliberately. With people who are actually in it.</p>
+      <p class="t-subhead" style="max-width:580px;font-size:16px;line-height:1.8;">There's a feeling most people touch once and spend the rest of their lives chasing. Fully present. No gap between where you are and where you're supposed to be. Micro immersions exist to take you back there — deliberately, with people who are actually in it.</p>
 
-      <!-- The Feeling strip -->
-      <div style="margin-top:48px;padding:36px 40px;background:rgba(201,168,76,0.06);border-left:2px solid var(--gold);max-width:700px;">
-        <p class="t-body" style="font-size:15px;line-height:1.9;font-style:italic;color:var(--white);">"The gap isn't a place between where you are and where you want to be. It's the space between who you are and who you're capable of becoming. Most people live their whole lives on the wrong side of it. These immersions are built to close it — one practice, one week, one real experience at a time."</p>
-        <div class="t-eyebrow" style="display:block;margin-top:16px;color:var(--gold);">— Zaydan Verjee, Founder</div>
+      <div style="margin-top:40px;padding:28px 36px;background:rgba(201,168,76,0.06);border-left:2px solid var(--gold);max-width:620px;">
+        <p class="t-body" style="font-size:14px;line-height:1.9;font-style:italic;color:var(--white);">"The gap is the space between who you are and who you're capable of becoming. These immersions are built to close it — one practice, one week, one real experience at a time."</p>
+        <div class="t-eyebrow" style="display:block;margin-top:12px;color:var(--gold);">— Zaydan Verjee, Founder</div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-top:56px;padding-top:48px;border-top:1px solid var(--rule);">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:48px;padding-top:40px;border-top:1px solid var(--rule);">
         <div>
-          <div class="t-eyebrow" style="display:block;margin-bottom:12px;color:var(--gold);">Why short?</div>
-          <p class="t-body" style="font-size:13.5px;line-height:1.8;">Most people can't disappear for 90 days. But almost everyone can carve out a week or two. Micro immersions are built on that reality. The timeline is short. The depth isn't. 5–14 days of total immersion — no familiar context, no half-presence — bridges more gap than most people close in a year of ordinary life.</p>
+          <div class="t-eyebrow" style="display:block;margin-bottom:10px;color:var(--gold);">Why short?</div>
+          <p class="t-body" style="font-size:13px;line-height:1.75;">5–14 days of total immersion bridges more gap than most people close in a year of ordinary life. The timeline is short. The depth isn't.</p>
         </div>
         <div>
-          <div class="t-eyebrow" style="display:block;margin-bottom:12px;color:var(--gold);">Why one thing?</div>
-          <p class="t-body" style="font-size:13.5px;line-height:1.8;">Most people spend their whole lives sampling. A little of this, a little of that — never going deep enough to feel what a discipline actually gives you. Single-pointed focus changes that. One practice. One teacher. One group. That's when the real learning happens — not when you're comfortable, but when you're completely in it.</p>
+          <div class="t-eyebrow" style="display:block;margin-bottom:10px;color:var(--gold);">Why one thing?</div>
+          <p class="t-body" style="font-size:13px;line-height:1.75;">Most people sample all their lives and never go deep enough to feel what a discipline actually gives. One practice. One teacher. One group. That's when it lands.</p>
         </div>
         <div>
-          <div class="t-eyebrow" style="display:block;margin-bottom:12px;color:var(--gold);">Why with others?</div>
-          <p class="t-body" style="font-size:13.5px;line-height:1.8;">You could hire a private instructor. You could take a course online. You'd learn the technique. But you wouldn't learn what you learn from the person next to you who's scared of the same thing — and does it anyway. The group is the curriculum. The master teaches the practice. The people teach you who you are under pressure.</p>
+          <div class="t-eyebrow" style="display:block;margin-bottom:10px;color:var(--gold);">Why with others?</div>
+          <p class="t-body" style="font-size:13px;line-height:1.75;">The master teaches the practice. The group teaches you who you are under pressure. Both are essential. Neither works without the other.</p>
         </div>
       </div>
     </div>
@@ -1019,6 +1022,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">270gsm Supima cotton — the longest, softest cotton fiber, holds color indefinitely. Men's cut is slightly boxy with a dropped shoulder and straight hem. Women's cut follows the same clean silhouette with a slightly more tapered torso and shorter front hem. Both pre-shrunk. Small embroidered THE GAP hit at the left chest. The shirt you'll reach for first and still own in ten years.</div>
               <div class="gear-price">$58</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1036,6 +1040,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">400gsm brushed French terry, 85% Supima cotton / 15% recycled poly. Kangaroo pocket, flat-lock seams, ribbed cuffs. Men's is boxy with dropped shoulders. Women's has a relaxed fit that sits slightly longer at the back hem. Small embroidered THE GAP on the left chest. Heavy enough to matter, clean enough to wear anywhere.</div>
               <div class="gear-price">$138</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1053,6 +1058,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">140gsm merino-cotton blend — naturally temperature-regulating, odor-resistant, doesn't cling. Men's is a performance athletic fit through the shoulders and chest. Women's is contoured through the torso with a slightly longer back hem. Small woven THE GAP tab at the hem. Built for moving in cold starts and warm middays without stopping to change.</div>
               <div class="gear-price">$64</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1070,6 +1076,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">6-panel, unstructured, washed organic cotton canvas. One size fits all — brass buckle back strap adjusts to any head. Gets better as it takes your shape, whether that's a pulled-back bun or a shaved head. Small embroidered THE GAP on the front. "Bridge The Gap" woven tape inside.</div>
               <div class="gear-price">$56</div>
               <div class="gear-fit">Unisex · <span>|</span> · One Size</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1095,6 +1102,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">2.5-layer 20D ripstop nylon, PFC-free DWR, fully seam-taped. Articulated knees, ankle zips, thigh vent zip. Men's runs straight through the hip. Women's has a slightly higher rise and more room through the seat without adding bulk. Both pack to a fist. Small THE GAP woven tag at the hip. When the cloud drops, you're already covered.</div>
               <div class="gear-price">$188</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1112,6 +1120,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">Polartec Thermal Pro 200-weight fleece. Elastic waist, two zip hand pockets, slim taper to ankle. Men's runs slim through the leg. Women's has a slightly higher waist and fitted through the hip. Small embroidered THE GAP at the left thigh. Made for the cold camp morning. Layers under the Rain Pant as a complete system.</div>
               <div class="gear-price">$138</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1129,6 +1138,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">20D ripstop nylon, PFC-free DWR, fully taped seams. 180g total — stuffs into its own chest pocket. Men's is a regular fit with clean lines. Women's is cut with a slightly longer torso and shaped at the waist without restricting movement. Both have the same minimal silhouette. Embroidered THE GAP at the left chest. When the weather turns on the ridge and you have 3 seconds, this is what you reach for.</div>
               <div class="gear-price">$158</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1146,6 +1156,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">88% recycled nylon / 12% elastane, 4-way stretch, UPF 30, quick-dry in 60 seconds. Men's has a 7-inch inseam with a relaxed seat and straight leg. Women's has a 4-inch inseam, higher waist, and contoured through the hip for full movement. Both have mesh liner, interior key clip, hidden zip pocket. Small THE GAP heat-transfer at the left leg. Trail to ocean without changing.</div>
               <div class="gear-price">$98</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1163,6 +1174,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">420D ripstop nylon, YKK zippers, Woojin hardware. 26L main, pass-through sleeve, top grab handle, packable sternum strap + hipbelt. Unisex design — shoulder straps are adjustable and torso-length fits both. Small woven THE GAP tag on the front. Carry-on legal. Goes everywhere — trail, flight, market, all of it.</div>
               <div class="gear-price">$195</div>
               <div class="gear-fit">Unisex · <span>|</span> · Adjustable Fit</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1180,6 +1192,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">Polartec Thermal Pro 300-weight — the benchmark for technical fleece. Full-zip, chin guard, two hand pockets with YKK zips. Men's is slim-athletic through the torso. Women's has a slightly shaped waist and is cut longer at the hip. Small embroidered THE GAP at the left chest. "The target is the self." printed inside the collar.</div>
               <div class="gear-price">$148</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1205,6 +1218,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">Wide-brim technical surf bucket hat. UPF 50+, quick-dry recycled nylon, crushable brim, chin strap with cord lock. One size, adjustable — works whether you're paddling with a braid or cropped short. Small THE GAP embroidery on the front panel. Stays on in whitecaps. Looks right everywhere else.</div>
               <div class="gear-price">$68</div>
               <div class="gear-fit">Unisex · <span>|</span> · One Size</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1222,6 +1236,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">82% Econyl recycled nylon / 18% Xtra Life Lycra — chlorine-resistant, recovers its stretch after every session. Flatlock seams, UPF 50+. Men's is a long-sleeve full-coverage fit. Women's is available as a long sleeve or a cropped long sleeve that pairs with a bikini top or surf bottom. Small THE GAP hit at the left chest. Doesn't restrict at depth. Doesn't move at the surface.</div>
               <div class="gear-price">$94</div>
               <div class="gear-fit">Men's · <span>|</span> · Women's</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1239,6 +1254,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">100% Repreve recycled polyester, 4-way stretch, quick-dry. Men's is a classic 17-inch board short — relaxed through the seat, tapered to the knee. Women's is a 3-inch surf bikini bottom with the same recycled fabric, flattering high cut, and tie closure — built for actual surfing, not just looking like it. Both have a small embroidered THE GAP at the left hip.</div>
               <div class="gear-price">$98</div>
               <div class="gear-fit">Men's Board Short · <span>|</span> · Women's Surf Bottom</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1256,6 +1272,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">500D TPU-laminated nylon, heat-sealed seams, rated to 1m depth. Roll-top closure locks down with a side-release buckle — "THE GAP" debossed on the face. Padded removable shoulder strap, D-ring lash point. The 20L is the expedition size: river crossings, whitewater days, overnight rain. Floats loaded. Compresses flat when empty. Carries everything you can't afford to lose.</div>
               <div class="gear-price">$118</div>
               <div class="gear-fit">Unisex · <span>|</span> · 20L</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
@@ -1273,6 +1290,7 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
               <div class="gear-desc">Same 500D TPU-laminated nylon and heat-sealed construction as the 20L — half the volume, half the weight. The 10L is the daily carry: phone, passport, dry clothes, camera. Fits inside the Gap Pack 26L for full waterproofing when the weather turns. Roll-top with clip buckle, "THE GAP" debossed on face. Wrist loop at the base for quick grabs. Goes from the reef to the river without thinking twice.</div>
               <div class="gear-price">$72</div>
               <div class="gear-fit">Unisex · <span>|</span> · 10L</div>
+              <div class="gear-cta"><span class="gear-cta-badge">Coming Soon</span><button class="gear-cta-btn" onclick="showPage('apply')">Express Interest →</button></div>
             </div>
           </div>
 
