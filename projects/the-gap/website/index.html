@@ -293,48 +293,41 @@ a { text-decoration: none; }
 .pm-photo {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  filter: brightness(0.55) saturate(0.4) contrast(1.1);
-  transition: transform 0.55s ease, filter 0.4s ease;
+  filter: brightness(0.72) saturate(0.55) contrast(1.05);
+  transition: transform 0.6s ease, filter 0.4s ease;
 }
 .gear-card:hover .pm-photo {
-  transform: scale(1.05);
-  filter: brightness(0.65) saturate(0.45) contrast(1.1);
+  transform: scale(1.04);
+  filter: brightness(0.82) saturate(0.6) contrast(1.05);
 }
-/* design overlay — blends onto the fabric */
-.pm-design {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  mix-blend-mode: screen;
+/* subtle dark overlay bottom */
+.pm-shadow {
+  position: absolute; inset: 50% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.55));
   pointer-events: none;
 }
-.pm-wordmark {
-  font-family: 'Playfair Display', serif; font-weight: 900;
-  color: rgba(201,168,76,0.55); line-height: 0.88;
-  text-align: center; letter-spacing: -1px;
+/* small logo — top-left, like a real outdoor brand tag */
+.pm-logo-tag {
+  position: absolute; top: 16px; left: 16px;
+  display: flex; flex-direction: column; gap: 3px;
+  pointer-events: none;
 }
-.pm-sub {
-  font-family: 'Space Mono', monospace; font-size: 7px;
-  letter-spacing: 0.35em; text-transform: uppercase;
-  color: rgba(201,168,76,0.28); margin-top: 10px;
-  text-align: center;
+.pm-logo-tag-name {
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); line-height: 1;
 }
-.pm-arc {
-  font-family: 'Space Mono', monospace; font-size: 7px;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: rgba(255,255,255,0.18); text-align: center; margin-top: 6px;
+.pm-logo-tag-line {
+  width: 18px; height: 1px; background: rgba(201,168,76,0.6);
 }
-/* small woven label in corner */
-.pm-label {
+/* small spec badge bottom-right */
+.pm-spec {
   position: absolute; bottom: 14px; right: 14px;
-  background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18);
-  padding: 4px 8px;
-  font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: 0.15em;
-  text-transform: uppercase; color: rgba(201,168,76,0.45);
-  mix-blend-mode: screen;
+  font-family: 'Space Mono', monospace; font-size: 7px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  pointer-events: none;
 }
-/* dark gradient at bottom so info reads cleanly */
-.pm-shadow { position: absolute; inset: 60% 0 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5)); pointer-events: none; }
 
 .gear-info { padding: 16px; }
 .gear-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white3); margin-bottom: 3px; }
@@ -946,73 +939,61 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
         <div class="gear-cat-label">Everyday</div>
         <div class="gear-grid">
 
-          <!-- Meraki Tee -->
+          <!-- Meraki Tee — person on rocky summit, small chest tag -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:52px;">THE<br>GAP</div>
-                <div class="pm-sub">Meraki · 270gsm</div>
-              </div>
-              <div class="pm-label">270gsm</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=85');background-position:center 20%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">270gsm · Heavyweight</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Heavyweight Tee</div>
               <div class="gear-name">The Meraki Tee</div>
-              <div class="gear-desc">270gsm. Tonal gold chest print. Slightly boxy.</div>
+              <div class="gear-desc">270gsm. Small gold chest tag. Slightly boxy cut.</div>
               <div class="gear-price">$48</div>
             </div>
           </div>
 
-          <!-- Gap Hoodie -->
+          <!-- Gap Hoodie — person in mountains in dark hoodie -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:13px;letter-spacing:0.22em;">BRIDGE<br>THE GAP</div>
-                <div class="pm-sub">400gsm French Terry</div>
-              </div>
-              <div class="pm-label">Embroidered</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1509335035496-c47fc7b1d006?w=600&q=85');background-position:center 15%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">400gsm · French Terry</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Hoodie</div>
               <div class="gear-name">The Gap Hoodie</div>
-              <div class="gear-desc">400gsm French terry. "Bridge The Gap" embroidered chest.</div>
+              <div class="gear-desc">400gsm French terry. Embroidered chest. Built for cold mornings.</div>
               <div class="gear-price">$118</div>
             </div>
           </div>
 
-          <!-- Route Long Sleeve -->
+          <!-- Route Long Sleeve — trail running, arms visible -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.22em;line-height:2.1;">NZ · BALI<br>THAI · COL<br>COSTA RICA</div>
-                <div class="pm-sub">The Route · Long Sleeve</div>
-              </div>
-              <div class="pm-label">Sleeve print</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=85');background-position:center 25%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">Route print · Long Sleeve</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Long Sleeve</div>
               <div class="gear-name">The Route Tee</div>
-              <div class="gear-desc">Countries printed down the back sleeve. Lightweight.</div>
+              <div class="gear-desc">Countries printed down the back sleeve. Runs light.</div>
               <div class="gear-price">$52</div>
             </div>
           </div>
 
-          <!-- Gap Cap -->
+          <!-- Gap Cap — person outdoors in cap, landscape behind -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&q=85');background-position:center 30%;"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.28em;">THE GAP</div>
-                <div class="pm-sub">Low Profile · Washed</div>
-              </div>
-              <div class="pm-label">Woven label</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1521119989659-a83eee488004?w=600&q=85');background-position:center 20%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">Low Profile · Washed</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Headwear</div>
@@ -1030,16 +1011,13 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
         <div class="gear-cat-label">Adventure</div>
         <div class="gear-grid">
 
-          <!-- Wind Shell -->
+          <!-- Wind Shell — person on ridge in wind -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.18em;line-height:2;">PACK<br>EVERYWHERE</div>
-                <div class="pm-sub">Stuffs into chest pocket</div>
-              </div>
-              <div class="pm-label">Wind Shell</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=85');background-position:center 30%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">Packable · Wind Shell</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Wind Shell</div>
@@ -1049,16 +1027,13 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
-          <!-- Do-Everything Short -->
+          <!-- Do-Everything Short — trail / outdoor movement -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1562886878-c1f16a9ba9e1?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.16em;line-height:2.1;">DO<br>EVERYTHING</div>
-                <div class="pm-sub">4-way stretch · Trail to ocean</div>
-              </div>
-              <div class="pm-label">4-way stretch</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=85');background-position:center 50%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">4-way stretch · Trail to ocean</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Short</div>
@@ -1068,35 +1043,29 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
-          <!-- Gap Pack -->
+          <!-- Gap Pack — person with pack on trail, mountain view -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:13px;letter-spacing:0.2em;">THE GAP<br>PACK</div>
-                <div class="pm-sub">26L · Carry-on legal</div>
-              </div>
-              <div class="pm-label">26 Litres</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1501554728187-ce583db33af7?w=600&q=85');background-position:center 25%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">26L · Carry-on legal</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Pack</div>
               <div class="gear-name">The Gap Pack 26L</div>
-              <div class="gear-desc">Carry-on legal. Detaches as a daypack.</div>
+              <div class="gear-desc">Carry-on legal. Compact enough to go everywhere.</div>
               <div class="gear-price">$168</div>
             </div>
           </div>
 
-          <!-- Midlayer Fleece -->
+          <!-- Midlayer Fleece — cold alpine environment -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:10px;letter-spacing:0.16em;line-height:2.2;">THE TARGET<br>IS THE SELF</div>
-                <div class="pm-sub">Midlayer · 320gsm</div>
-              </div>
-              <div class="pm-label">Collar text</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=85');background-position:center 40%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">320gsm · Midlayer</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Fleece</div>
@@ -1114,16 +1083,13 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
         <div class="gear-cat-label">Water</div>
         <div class="gear-grid">
 
-          <!-- Rash Guard -->
+          <!-- Rash Guard — underwater / freediving shot -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1509699756234-df49dae92e57?w=600&q=85');background-position:center 20%;"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.2em;line-height:2.1;">THE GAP<br>FREEDIVE</div>
-                <div class="pm-sub">UPF 50+ · Recycled nylon</div>
-              </div>
-              <div class="pm-label">UPF 50+</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=85');background-position:center 30%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">UPF 50+ · Freedive</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Rash Guard</div>
@@ -1133,16 +1099,13 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
-          <!-- Route Board Short -->
+          <!-- Board Short — surf / beach -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:10px;letter-spacing:0.2em;line-height:2.2;">AMED<br>TO<br>ULUWATU</div>
-                <div class="pm-sub">Route Board Short</div>
-              </div>
-              <div class="pm-label">Quick dry</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&q=85');background-position:center 40%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">Quick dry · Route print</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Board Short</div>
@@ -1152,16 +1115,13 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
-          <!-- Water Bag -->
+          <!-- Water Bag — river / wet environment -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=85');filter:brightness(0.45) saturate(0.3) contrast(1.1);"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:13px;letter-spacing:0.18em;">GAP<br>WATER</div>
-                <div class="pm-sub">20L · Roll-top · Floats</div>
-              </div>
-              <div class="pm-label">20 Litres</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=85');background-position:center 50%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">20L · Roll-top · Floats</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Dry Bag</div>
@@ -1171,16 +1131,13 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
             </div>
           </div>
 
-          <!-- Gap Flask -->
+          <!-- Flask — campfire / outdoor camp -->
           <div class="gear-card">
             <div class="product-mockup">
-              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&q=85')"></div>
-              <div class="pm-design">
-                <div class="pm-wordmark" style="font-size:11px;letter-spacing:0.16em;line-height:2.1;">LIVE<br>POURED OUT</div>
-                <div class="pm-sub">Gap Flask · 32oz</div>
-              </div>
-              <div class="pm-label">Engraved</div>
+              <div class="pm-photo" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=85');background-position:center 40%;"></div>
               <div class="pm-shadow"></div>
+              <div class="pm-logo-tag"><span class="pm-logo-tag-name">THE GAP</span><div class="pm-logo-tag-line"></div></div>
+              <div class="pm-spec">32oz · Engraved</div>
             </div>
             <div class="gear-info">
               <div class="gear-tag">Flask</div>
