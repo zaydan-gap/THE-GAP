@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE GAP — 6-Month Group Immersion</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --black: #0c0c0c;
+  --off-white: #f6f3ee;
+  --cream: #faf8f4;
+  --gold: #b8973a;
+  --gold-light: #d4b05a;
+  --muted: #6b6560;
+  --border: #ddd8d0;
+  --dark: #111111;
+  --green: #2d4a2d;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); font-size: 14px; line-height: 1.75; }
+
+/* COVER */
+.cover { background: var(--dark); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 60px; position: relative; overflow: hidden; }
+.cover::after { content: ''; position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%); width: 900px; height: 900px; background: radial-gradient(circle, rgba(184,151,58,0.1) 0%, transparent 65%); pointer-events: none; }
+.cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.cover-brand { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.cover-edition { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,243,238,0.25); }
+.cover-main { text-align: center; position: relative; z-index: 1; }
+.cover-sub { font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; }
+.cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(90px, 18vw, 160px); font-weight: 900; color: var(--off-white); line-height: 0.85; letter-spacing: -0.03em; margin-bottom: 36px; }
+.cover-tagline { font-family: 'Playfair Display', serif; font-size: clamp(15px, 2.2vw, 22px); font-style: italic; color: rgba(246,243,238,0.55); max-width: 520px; margin: 0 auto 48px; line-height: 1.55; }
+.cover-line { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 48px; }
+.cover-stats { display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
+.cover-stat .num { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--off-white); display: block; line-height: 1; font-weight: 700; }
+.cover-stat .lbl { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(246,243,238,0.3); display: block; margin-top: 6px; }
+.cover-bottom { display: flex; justify-content: space-between; }
+.cover-bottom p { font-size: 11px; color: rgba(246,243,238,0.2); letter-spacing: 0.1em; }
+
+/* TOC */
+.toc { background: var(--off-white); padding: 80px 80px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; border-bottom: 3px solid var(--black); }
+.toc-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
+.toc h2 { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 900; margin-bottom: 40px; }
+.toc-row { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--black); }
+.toc-phase { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); width: 72px; flex-shrink: 0; }
+.toc-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; flex: 1; }
+.toc-detail { font-size: 11px; color: var(--muted); font-style: italic; }
+.toc-weeks { font-size: 10px; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; }
+
+/* PAGE */
+.page { max-width: 900px; margin: 0 auto; padding: 72px 60px; }
+
+/* EYEBROW / HEADINGS */
+.eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 10px; }
+h2.st { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
+
+/* PHILOSOPHY CARDS */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+.pcard { border: 1px solid var(--border); background: white; padding: 28px; }
+.pcard .ico { font-size: 22px; margin-bottom: 10px; display: block; }
+.pcard .sub { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 8px; display: block; }
+.pcard h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.pcard p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.7; }
+
+/* PHASE BANNER */
+.phase-banner { background: var(--dark); color: var(--off-white); padding: 56px 60px; display: grid; grid-template-columns: 100px 1fr; gap: 32px; align-items: center; border-bottom: 2px solid var(--gold); }
+.p-num { font-family: 'Playfair Display', serif; font-size: 88px; font-weight: 900; color: rgba(255,255,255,0.06); line-height: 1; }
+.p-info .p-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; display: block; }
+.p-info h2 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; margin-bottom: 6px; line-height: 1; }
+.p-info .p-sub { font-size: 14px; color: rgba(246,243,238,0.5); font-style: italic; }
+.p-info .p-wk { margin-top: 12px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+
+/* MONTH */
+.month-hd { padding: 44px 60px 28px; display: flex; justify-content: space-between; align-items: flex-start; background: var(--cream); border-bottom: 1px solid var(--border); }
+.month-hd-left .m-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; display: block; }
+.month-hd h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; line-height: 1.1; margin-bottom: 10px; }
+.m-theme { display: inline-block; background: var(--black); color: var(--off-white); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 12px; font-weight: 700; }
+.m-flag { font-size: 48px; line-height: 1; }
+
+/* WEEK BLOCK */
+.week-block { padding: 36px 60px; background: white; border-bottom: 1px solid var(--border); }
+.week-hdr { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.wk-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.wk-days { font-size: 11px; color: var(--muted); }
+.week-block h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; margin-bottom: 20px; line-height: 1.25; }
+
+/* DAY CARDS */
+.day-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.day-card { border: 1px solid var(--border); padding: 18px 20px; background: var(--cream); }
+.day-card .d-num { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+.day-card .d-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.2; }
+.day-card .d-body { font-size: 12.5px; color: #3a3733; line-height: 1.65; }
+.day-card.highlight { background: var(--dark); border-color: var(--gold); }
+.day-card.highlight .d-num { color: var(--gold-light); }
+.day-card.highlight .d-title { color: var(--off-white); }
+.day-card.highlight .d-body { color: rgba(246,243,238,0.72); }
+.day-card.full { grid-column: 1 / -1; background: white; }
+.day-card.full .d-body { font-size: 13px; }
+
+/* SOLO vs GROUP TAG */
+.tag { display: inline-block; font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; padding: 3px 8px; margin-bottom: 6px; font-weight: 700; border-radius: 2px; }
+.tag-solo { background: rgba(184,151,58,0.12); color: var(--gold); }
+.tag-group { background: rgba(45,74,45,0.1); color: var(--green); }
+.tag-hard { background: rgba(12,12,12,0.07); color: var(--black); }
+.tag-service { background: rgba(45,74,45,0.18); color: var(--green); }
+
+/* INSIGHT */
+.insight { background: var(--off-white); border-left: 3px solid var(--gold); padding: 14px 18px; margin: 16px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: #3a3530; line-height: 1.6; }
+
+/* SERVICE */
+.svc { background: var(--dark); color: var(--off-white); padding: 24px 28px; margin: 20px 0; }
+.svc .svc-ey { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; display: block; }
+.svc h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: white; margin-bottom: 8px; line-height: 1.3; }
+.svc p { color: rgba(246,243,238,0.7); font-size: 13px; margin: 0; line-height: 1.7; }
+
+/* FINANCE TABLE */
+.finance-table { width: 100%; border-collapse: collapse; margin-top: 28px; }
+.finance-table th { text-align: left; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 9px 14px; background: var(--off-white); border-bottom: 2px solid var(--black); }
+.finance-table td { padding: 11px 14px; font-size: 13.5px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.finance-table .cat { background: var(--off-white); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; padding: 9px 14px; }
+.finance-table .amt { font-weight: 600; font-family: 'Playfair Display', serif; font-size: 15px; white-space: nowrap; }
+.finance-table .total td { background: var(--dark); color: white; font-weight: 700; border-bottom: none; padding: 14px; }
+.finance-table .total .amt { color: var(--gold-light); font-size: 20px; }
+
+/* WORLD SCHOOL NUMBERS */
+.ws-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 28px 0; }
+.ws-n { background: white; padding: 32px 20px; text-align: center; }
+.ws-n .big { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; display: block; line-height: 1; margin-bottom: 6px; }
+.ws-n .lbl { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); display: block; }
+
+/* CLOSING */
+.closing { background: var(--dark); color: var(--off-white); padding: 100px 60px; text-align: center; }
+.closing blockquote { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.8vw, 28px); font-style: italic; max-width: 600px; margin: 44px auto; line-height: 1.55; color: rgba(246,243,238,0.85); }
+.gold-line { width: 48px; height: 1px; background: var(--gold); margin: 0 auto; }
+.closing .sub { font-size: 13px; color: rgba(246,243,238,0.38); max-width: 460px; margin: 0 auto; line-height: 1.8; }
+
+/* PRINT / RESPONSIVE */
+@media print { body { background: white; font-size: 12px; } .phase-banner { page-break-before: always; } .week-block { page-break-inside: avoid; } }
+@media (max-width: 660px) {
+  .cover, .toc, .page, .phase-banner, .week-block, .month-hd { padding: 36px 24px; }
+  .grid2, .day-grid, .ws-nums { grid-template-columns: 1fr; }
+  .day-card.full { grid-column: auto; }
+  .p-num { display: none; }
+  .phase-banner { grid-template-columns: 1fr; }
+  .cover h1 { font-size: 80px; }
+  .cover-stats { gap: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <span class="cover-brand">The Gap Program</span>
+    <span class="cover-edition">Group Immersion · v2.0</span>
+  </div>
+  <div class="cover-main">
+    <div class="cover-sub">A Six-Month Group Adventure</div>
+    <h1>THE<br>GAP</h1>
+    <p class="cover-tagline">Bridge the gap between who you're told to be<br>and who you actually are.</p>
+    <div class="cover-line"></div>
+    <div class="cover-stats">
+      <div class="cover-stat"><span class="num">6</span><span class="lbl">Countries</span></div>
+      <div class="cover-stat"><span class="num">91</span><span class="lbl">Days</span></div>
+      <div class="cover-stat"><span class="num">10–20</span><span class="lbl">People</span></div>
+      <div class="cover-stat"><span class="num">3</span><span class="lbl">Phases</span></div>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <p>Decondition → Encounter → Return</p>
+    <p>Meraki · Ikigai</p>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <span class="toc-eyebrow">Contents</span>
+  <h2>What's Inside</h2>
+  <a class="toc-row" href="#philosophy"><span class="toc-phase">Intro</span><span class="toc-name">Philosophy &amp; Framework</span><span class="toc-detail">The why behind everything</span></a>
+  <a class="toc-row" href="#phase1"><span class="toc-phase">Phase 1</span><span class="toc-name">Decondition</span><span class="toc-weeks">Days 1–56 · NZ + Bali + Thailand</span></a>
+  <a class="toc-row" href="#phase2"><span class="toc-phase">Phase 2</span><span class="toc-name">Encounter</span><span class="toc-weeks">Days 57–70 · Japan + Portugal + Morocco</span></a>
+  <a class="toc-row" href="#phase3"><span class="toc-phase">Phase 3</span><span class="toc-name">Return</span><span class="toc-weeks">Days 71–91 · Colombia + Costa Rica</span></a>
+  <a class="toc-row" href="#finances"><span class="toc-phase">Finance</span><span class="toc-name">Full Budget Breakdown</span><span class="toc-detail">Per person + group costs</span></a>
+  <a class="toc-row" href="#worldschool"><span class="toc-phase">After</span><span class="toc-name">The World School</span><span class="toc-detail">Running this for others</span></a>
+</div>
+
+<!-- PHILOSOPHY -->
+<div id="philosophy">
+<div class="page">
+  <span class="eyebrow">The Question</span>
+  <h2 class="st">This program isn't for everyone.<br>It's for the right people.</h2>
+  <p style="color:#3a3733;margin-bottom:16px;">Most people will look at what you're about to read and say no. And that's fine — it's not for them. THE GAP is for the ones who've always felt like they were living slightly sideways from their own life. Like there's a version of themselves they haven't met yet.</p>
+  <p style="color:#3a3733;margin-bottom:24px;">This is 91 days of doing things that society told you were either too dangerous, too impractical, or too weird — and finding out that the person who emerges on the other side is the one you were supposed to be all along.</p>
+  <p style="color:#3a3733;margin-bottom:16px;"><strong>This is a group experience.</strong> You go through it together — 10 to 20 people. The hard moments hit harder because you're not alone in them. The wild moments become stories you carry forever. The connections formed are forged, not built.</p>
+
+  <div class="insight">"Know why you're here. Pour everything into it." — The two words beneath everything: <strong>Ikigai</strong> (your compass) + <strong>Meraki</strong> (your fuel)</div>
+
+  <div class="grid2" style="margin-top:40px;">
+    <div class="pcard"><span class="ico">⬇</span><span class="sub">Phase 1 · Days 1–56</span><h4>Decondition</h4><p>Strip the noise. Get your body back. Do hard and wild things. Stop performing who you're supposed to be.</p></div>
+    <div class="pcard"><span class="ico">👁</span><span class="sub">Phase 2 · Days 57–70</span><h4>Encounter</h4><p>Meet masters, elders, guides. See what it looks like when people actually chose themselves. Let it rearrange you.</p></div>
+    <div class="pcard"><span class="ico">↑</span><span class="sub">Phase 3 · Days 71–91</span><h4>Return</h4><p>Come back as the guide. Lead others. Give it away. Service isn't an add-on — it's the final exam.</p></div>
+    <div class="pcard"><span class="ico">🌊</span><span class="sub">Every Day · All 91</span><h4>The Only Rule</h4><p>Cold water every morning. Move your body every day. One real conversation with a stranger. Everything else is flexible — these three are not.</p></div>
+  </div>
+
+  <div style="margin-top:32px;padding:24px 28px;background:var(--dark);color:var(--off-white);">
+    <p style="font-size:13px;color:rgba(246,243,238,0.6);margin:0;">How each day is structured: <strong style="color:var(--gold-light);">Morning cold immersion → Movement → Main adventure (solo or group) → Shared meal → Open evening</strong>. The structure is light by design. The experience is the teacher.</p>
+  </div>
+</div>
+</div>
+
+<!-- ═══ PHASE 1 ═══ -->
+<div id="phase1">
+<div class="phase-banner">
+  <div class="p-num">01</div>
+  <div class="p-info">
+    <span class="p-label">Phase One</span>
+    <h2>Decondition</h2>
+    <p class="p-sub">New Zealand → Bali → Thailand</p>
+    <p class="p-wk">Days 1–56 · 8 Weeks · Strip the old story</p>
+  </div>
+</div>
+
+<!-- NZ -->
+<div>
+  <div class="month-hd">
+    <div class="month-hd-left">
+      <span class="m-label">Month One · Days 1–28</span>
+      <h2>New Zealand</h2>
+      <span class="m-theme">Shake Everything Loose</span>
+    </div>
+    <span class="m-flag">🇳🇿</span>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Week 1</span><span class="wk-days">Days 1–7 · Silence Before the Storm</span></div>
+    <h3>Arrive. Breathe. Hear Yourself.</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Day 1</div><span class="tag tag-solo">Solo</span><div class="d-title">Land in the Wild</div><div class="d-body">Group arrives in Auckland, drives straight to remote wilderness baches in Coromandel. No plan. First night: fire, food, ocean. Cold water plunge as the sun goes down. You're here.</div></div>
+      <div class="day-card"><div class="d-num">Day 2</div><span class="tag tag-solo">Solo</span><div class="d-title">2 Hours. No Phone.</div><div class="d-body">Everyone splits off alone with zero agenda. Walk, sit, wade in a river. Reunite for a group dinner and one question: <em>"When did you last feel completely yourself?"</em> No right answers. Just listen.</div></div>
+      <div class="day-card"><div class="d-num">Day 3–4</div><span class="tag tag-group">Group</span><div class="d-title">Routeburn Track</div><div class="d-body">Multi-day alpine hike, hut-to-hut. 32km. Everyone carries their own pack. The group finds its rhythm. Who helps? Who goes quiet? Who surprises themselves? Mountains reveal people fast.</div></div>
+      <div class="day-card"><div class="d-num">Day 5</div><span class="tag tag-group">Group</span><div class="d-title">Milford Sound at Dawn</div><div class="d-body">Sea kayak through fjords, waterfalls, ancient cliffs. Start before any other boats are on the water. Total silence broken only by paddles and bird calls. Optional: swim under a waterfall.</div></div>
+      <div class="day-card"><div class="d-num">Day 6</div><span class="tag tag-group">Group</span><div class="d-title">Wild Swim Day</div><div class="d-body">Drive the west coast. Rule: swim in every blue river you cross. No exceptions. By the time you stop driving, everyone has been in 4–6 different rivers. Dry off on the road.</div></div>
+      <div class="day-card"><div class="d-num">Day 7</div><span class="tag tag-group">Group</span><div class="d-title">Open Fire Night</div><div class="d-body">Rest day. Group cooks together. Long evening around the fire. Music, stories, no schedule. The first real night of just being together without the world telling you what to do.</div></div>
+    </div>
+    <div class="insight">"The mountains will tell you who's in the group within 24 hours — faster than any icebreaker ever could."</div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Week 2</span><span class="wk-days">Days 8–14 · Maori + Water</span></div>
+    <h3>The Land Knows Who You Are</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Day 9</div><span class="tag tag-group">Group</span><div class="d-title">Waipoua Forest + Maori Guide</div><div class="d-body">Full day with a Maori guide in ancient kauri forest. Learn whakapapa — you are not just yourself, you are all the people who came before you. Indigenous answers to questions modern culture forgot to ask.</div></div>
+      <div class="day-card"><div class="d-num">Day 10</div><span class="tag tag-group">Group</span><div class="d-title">4-Hour Ocean Kayak</div><div class="d-body">Bay of Islands. Open water, arms failing before mind does. Snorkel the reef after. One hour underwater in total quiet. Optional: someone stays down for 2 minutes. Group celebrates whoever's first.</div></div>
+      <div class="day-card"><div class="d-num">Day 11–12</div><span class="tag tag-group">Group</span><div class="d-title">Learn to Surf</div><div class="d-body">West coast, Raglan. Two full days. Lessons in the morning, free surf in the afternoon. The unwritten rule of surfing: falling is part of it. You fall, you laugh, you paddle back. Apply this everywhere.</div></div>
+      <div class="day-card"><div class="d-num">Day 13</div><span class="tag tag-service">Service</span><div class="d-title">Maori Youth Program</div><div class="d-body">Guide local Maori youth through a trail they've never done. You become the guide for one day. The group leads. No saving — just showing up and moving alongside people.</div></div>
+      <div class="day-card full"><div class="d-num">Day 14</div><span class="tag tag-group">Group</span><div class="d-title">Night Hike Under the Southern Stars</div><div class="d-body">No headlights. Your eyes adjust within 20 minutes to a sky brighter than you've ever seen in the northern hemisphere. The Southern Cross. The Milky Way as a road. Sit on the summit together in total silence for 15 minutes. No one will want to leave.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Week 3</span><span class="wk-days">Days 15–21 · Queenstown</span></div>
+    <h3>Adrenaline Is a Truth Serum</h3>
+    <p style="color:var(--muted);font-size:13px;font-style:italic;margin-bottom:20px;">The principle: in the 3 seconds before you jump, you cannot maintain a story about who you are. All masks dissolve. The group uses adrenaline as an instrument — not entertainment.</p>
+    <div class="day-grid">
+      <div class="day-card highlight"><div class="d-num">Day 16</div><span class="tag tag-hard">Hard</span><div class="d-title">Bungee — The Original</div><div class="d-body">AJ Hackett, 43m, the first commercial bungee in the world. Group rule: immediately after, before talking to anyone, go somewhere alone and sit with what just happened. 10 minutes. Then come back.</div></div>
+      <div class="day-card highlight"><div class="d-num">Day 18</div><span class="tag tag-hard">Hard</span><div class="d-title">Skydive — 15,000 feet</div><div class="d-body">60 seconds of freefall at 200km/h. No past, no future — just now. That level of presence is available without the plane. The whole program is learning to access it on the ground.</div></div>
+      <div class="day-card"><div class="d-num">Day 19</div><span class="tag tag-group">Group</span><div class="d-title">Canyon Swing + Whitewater</div><div class="d-body">Canyon swing in the morning, Shotover River rafting in the afternoon. Group builds language through shared chaos. Inside jokes form. This is where friendship happens.</div></div>
+      <div class="day-card"><div class="d-num">Day 20</div><span class="tag tag-solo">Solo</span><div class="d-title">Queenstown Hill — Alone</div><div class="d-body">Everyone hikes up separately. 45 minutes at the summit without a phone. Don't photograph it yet. Just be somewhere you earned with your body. Reunite at the bottom for dinner.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Week 4</span><span class="wk-days">Days 22–28 · Glaciers + Departure</span></div>
+    <h3>The Last Week is the Best Week</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Day 22</div><span class="tag tag-group">Group</span><div class="d-title">Fox Glacier Walk</div><div class="d-body">Walk on ancient ice. Crampons, blue crevasses, the sound of a glacier moving. Then swim in the glacial river below. The contrast of temperatures is the contrast of the whole program.</div></div>
+      <div class="day-card"><div class="d-num">Day 23</div><span class="tag tag-group">Group</span><div class="d-title">West Coast Road Day</div><div class="d-body">Drive the most beautiful highway in New Zealand. Rule: swim in every blue river you cross. By sundown the group is 6 rivers deep, soaking wet, completely alive.</div></div>
+      <div class="day-card"><div class="d-num">Day 24</div><span class="tag tag-group">Group</span><div class="d-title">Full Day Kayak, Milford Sound</div><div class="d-body">Paddle through one of the most dramatic landscapes on earth. Optional: 2-hour side kayak into a remote fiord branch, alone with whoever wants silence.</div></div>
+      <div class="day-card"><div class="d-num">Day 27</div><span class="tag tag-group">Group</span><div class="d-title">Closing Ceremony — NZ</div><div class="d-body">Group gathers around a fire. One question: <em>"What did New Zealand show you about yourself that home never could?"</em> Everyone speaks. The guide closes it. Then you sleep, and tomorrow you leave for Bali.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BALI + THAILAND -->
+<div>
+  <div class="month-hd">
+    <div class="month-hd-left">
+      <span class="m-label">Month Two · Days 29–56</span>
+      <h2>Bali + Thailand</h2>
+      <span class="m-theme">Water Mastery + Warrior Discipline</span>
+    </div>
+    <span class="m-flag">🇮🇩🇹🇭</span>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 5–6</span><span class="wk-days">Days 29–42 · Bali</span></div>
+    <h3>The Quietest Place You'll Ever Go</h3>
+    <div class="day-grid">
+      <div class="day-card highlight"><div class="d-num">Days 30–34</div><span class="tag tag-hard">Hard + Wild</span><div class="d-title">AIDA Freediving Certification</div><div class="d-body">Group takes AIDA 2 together in Amed. 10–15 meters on a single breath. The ocean rewards calm — which means every anxious thought is a physical liability. Some people will cry after their first deep dive. Don't fight it. It's relief.</div></div>
+      <div class="day-card"><div class="d-num">Day 36</div><span class="tag tag-group">Group</span><div class="d-title">Uluwatu at Dawn</div><div class="d-body">Surf below a 1,000-year-old clifftop temple. Paddle out before sunrise. When light hits the water, you understand why people gave their lives to the ocean. Group surf all day — wipeouts celebrated equally with rides.</div></div>
+      <div class="day-card"><div class="d-num">Day 33</div><span class="tag tag-group">Group</span><div class="d-title">Balinese Homestay</div><div class="d-body">Group splits into pairs and stays with local Balinese families in Ubud for 3 nights. Eat their food. Wake to their rhythm. Attend a ceremony if invited. Different world, same humanity.</div></div>
+      <div class="day-card"><div class="d-num">Day 35</div><span class="tag tag-group">Group</span><div class="d-title">Breathwork + Ice Bath</div><div class="d-body">Wim Hof breathwork session as a group. Round after round, together. Then ice bath challenge — group stays in until everyone's been in. The power was always internal. Today you prove it.</div></div>
+      <div class="day-card"><div class="d-num">Day 37</div><span class="tag tag-service">Service</span><div class="d-title">Reef Cleanup Dive</div><div class="d-body">The ocean gave you everything this week. Group spends a full morning on a reef cleanup dive with a local conservation org. Service doesn't need to be complicated — show up, do the work, go back in the water.</div></div>
+      <div class="day-card"><div class="d-num">Day 40</div><span class="tag tag-group">Group</span><div class="d-title">Cliff Jump + Night Swim</div><div class="d-body">Nusa Penida cliff jump. Then nighttime ocean swim — bioluminescence if the season is right. Swimming in water that glows beneath you is one of the most disorienting and beautiful experiences on earth.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 7–8</span><span class="wk-days">Days 43–56 · Muay Thai Camp, Thailand</span></div>
+    <h3>The Ring Teaches What the Classroom Cannot</h3>
+    <div class="day-grid">
+      <div class="day-card full"><div class="d-num">Days 43–56 · Every Day</div><span class="tag tag-hard">Hard</span><div class="d-title">Train Like a Fighter</div><div class="d-body"><strong>Morning session (6am):</strong> 5km run → shadowboxing → bag work → pad work → technique. <strong>Afternoon session (4pm):</strong> clinch → sparring → conditioning. No exceptions. Days 4–6, everyone will want to quit. That's the exact moment the program is designed around. Stay. By day 10 you stop thinking and start moving. That shift is the whole point.</div></div>
+      <div class="day-card highlight"><div class="d-num">Day 45</div><span class="tag tag-hard">Hard + Wild</span><div class="d-title">First Sparring</div><div class="d-body">The moment another person's glove connects, your brain's public-image-management system goes completely offline. Who you are in that response — without any filter — is information. Group debriefs together that evening: what did you find out about yourself?</div></div>
+      <div class="day-card"><div class="d-num">Day 50</div><span class="tag tag-group">Group</span><div class="d-title">The Wall</div><div class="d-body">By Day 8 something shifts. You stop thinking about your hands. The trainer nods once. Your body is learning a new language. The group is visibly different from who arrived. Talk about it.</div></div>
+      <div class="day-card highlight"><div class="d-num">Day 56</div><span class="tag tag-hard">Milestone</span><div class="d-title">Optional White Collar Bout</div><div class="d-body">Whoever wants it gets a fight. You don't need to win. You need to know what it feels like to walk into the ring and not run. The 30 meters to the ring is the whole program condensed.</div></div>
+      <div class="day-card"><div class="d-num">Days 54–56</div><span class="tag tag-service">Service</span><div class="d-title">Kids at the Camp</div><div class="d-body">Most Muay Thai camps have local kids training. Final 3 days: hold pads, teach footwork, just show up. You came here as students. Now you're guides — for a few days. Notice how that changes you.</div></div>
+    </div>
+    <div class="insight">"Days 4–6 is the exact moment the program is built around. Choosing to stay when everything says go is when you begin to actually meet yourself."</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ PHASE 2 ═══ -->
+<div id="phase2">
+<div class="phase-banner">
+  <div class="p-num">02</div>
+  <div class="p-info">
+    <span class="p-label">Phase Two</span>
+    <h2>Encounter</h2>
+    <p class="p-sub">Japan → Portugal → Morocco</p>
+    <p class="p-wk">Days 57–70 · Meet People Who Chose Themselves</p>
+  </div>
+</div>
+
+<!-- JAPAN -->
+<div>
+  <div class="month-hd">
+    <div class="month-hd-left">
+      <span class="m-label">Month Three · Days 57–70</span>
+      <h2>Japan</h2>
+      <span class="m-theme">Precision · Stillness · Mastery</span>
+    </div>
+    <span class="m-flag">🇯🇵</span>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 9–10</span><span class="wk-days">Days 57–63 · The Alps + Nakasendo</span></div>
+    <h3>Walk Where Samurai Walked. No Headphones.</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Days 57–60</div><span class="tag tag-group">Group</span><div class="d-title">Nakasendo Trail</div><div class="d-body">4-day walk along the ancient samurai road. Sleep in ryokans. The rule is strict: no headphones, the entire walk. Just footfall on 500-year-old stone, mountain air, and each other. Group conversations on the road go deeper than anything in a sitting circle.</div></div>
+      <div class="day-card"><div class="d-num">Days 61–63</div><span class="tag tag-group">Group</span><div class="d-title">Japanese Alps</div><div class="d-body">Multi-day alpine traverse. Harder than New Zealand. But you're not the same people who landed in Auckland. Onsen (hot spring) every evening — sore bodies, mountain silence, recovery as ritual.</div></div>
+      <div class="day-card"><div class="d-num">One Morning</div><span class="tag tag-group">Group</span><div class="d-title">4:30am Temple, Kyoto</div><div class="d-body">Wake before dawn. Walk to a Zen temple in silence. Watch monks begin their morning practice. You're not there to participate — just to observe people who made their whole life a practice. Let that land.</div></div>
+      <div class="day-card"><div class="d-num">Week 10</div><span class="tag tag-service">Service</span><div class="d-title">Mountain Rescue Volunteers</div><div class="d-body">Spend a day with Japan's mountain rescue volunteer teams — people who give their weekends to keep mountains safe for strangers, with zero pay and zero recognition. Work trail maintenance alongside them. Pure service. No spotlight.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Week 11–12</span><span class="wk-days">Days 64–70 · Mastery + Fuji</span></div>
+    <h3>Study How They Hold the Craft</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Days 64–68</div><span class="tag tag-group">Group</span><div class="d-title">Apprenticeship Week</div><div class="d-body">Group splits by interest — Aikido, Judo, Kyudo (archery), ceramics, calligraphy. One real sensei. One full week. You're not learning the skill. You're learning <em>how they hold the craft</em>. The patience, the obsession with small things. Stay for that.</div></div>
+      <div class="day-card highlight"><div class="d-num">Days 68–69</div><span class="tag tag-hard">Hard + Wild</span><div class="d-title">Mt. Fuji — Night Ascent</div><div class="d-body">Group climbs through the night. Summit at sunrise — 1,300 years of people climbing this mountain to witness this light. You're in that line. 15 minutes at the top with no phones. Together. Then whatever you need to do.</div></div>
+      <div class="day-card full"><div class="d-num">Days 71–73 (Optional)</div><span class="tag tag-hard">Hardest Day in the Program</span><div class="d-title">Zen Sesshin — 3-Day Silent Retreat</div><div class="d-body">For those who want it: a 3-day Zen silent retreat. 12 hours of meditation per day in complete silence. This is harder than Muay Thai. Every story you tell about yourself will surface. Most won't survive. Whoever does it reports it as a turning point. Not required — but for the right person, it's everything.</div></div>
+    </div>
+    <div class="insight">"You're not studying the skill. You're studying how they hold the craft — the patience, the obsession with small things, the way they inhabit a room."</div>
+  </div>
+</div>
+
+<!-- PORTUGAL + MOROCCO -->
+<div>
+  <div class="month-hd">
+    <div class="month-hd-left">
+      <span class="m-label">Month Four</span>
+      <h2>Portugal + Morocco</h2>
+      <span class="m-theme">Atlantic Edge · Desert · Mid-Program Reset</span>
+    </div>
+    <span class="m-flag">🇵🇹🇲🇦</span>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 13–14</span><span class="wk-days">2 Weeks · Ericeira + Nazaré</span></div>
+    <h3>Find the Watermen. Listen to the Ocean.</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Daily</div><span class="tag tag-group">Group</span><div class="d-title">Surf Ericeira Every Day</div><div class="d-body">Base in Europe's only World Surfing Reserve. Cold Atlantic — different beast than the Pacific. Dawn sessions before crowds. Anyone who doesn't surf by now learns here.</div></div>
+      <div class="day-card"><div class="d-num">Mid-Week</div><span class="tag tag-group">Group</span><div class="d-title">Find the Watermen</div><div class="d-body">Group mission: find the people who've surfed this coast for 20+ years. Buy them dinner. Ask them nothing specific — just ask them to talk about the sea. Mentorship without a program. Real knowledge gets passed this way.</div></div>
+      <div class="day-card"><div class="d-num">One Day</div><span class="tag tag-group">Group</span><div class="d-title">Nazaré — Stand on the Cliff</div><div class="d-body">Drive to Nazaré where 30-meter waves break. Stand on the cliff. Let the scale of it recalibrate your relationship to your own problems. Then swim in the calmer south beach. Ocean in, ocean out.</div></div>
+      <div class="day-card"><div class="d-num">Week 14</div><span class="tag tag-service">Service</span><div class="d-title">Surf Program, Taghazout Kids</div><div class="d-body">Cross into Morocco. Taghazout beach has emerging surf programs for local kids. Group spends 3 days helping: paddling, water safety, showing them the ocean belongs to them. No agenda. Just show up, move with people.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 15–16</span><span class="wk-days">Atlas Mountains + Sahara</span></div>
+    <h3>The Desert Does Something to People.</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Week 15</div><span class="tag tag-group">Group</span><div class="d-title">Atlas Mountain Trek — Berber Guide</div><div class="d-body">Hire a local Berber guide — not a tourist company. His knowledge of the Atlas is 500 years deep. Walk slow. Ask him everything. What the land means to him. What time means to him. Different answers than you're used to.</div></div>
+      <div class="day-card highlight"><div class="d-num">One Night</div><span class="tag tag-solo">Solo</span><div class="d-title">Alone in the Sahara</div><div class="d-body">The group spends one night in the desert — but scattered, alone, out of sight of each other. No tent. Mat, fire, stars. Zero light pollution. The Milky Way bright enough to throw shadow. In the morning: come back and talk. Don't pre-empt the silence with what it should have felt like.</div></div>
+      <div class="day-card full"><div class="d-num">Day After</div><span class="tag tag-group">Group</span><div class="d-title">Morning Circle: What the Desert Showed You</div><div class="d-body">This is the mid-program reset. Halfway through. Nobody comes out of a night alone in the Sahara the same. The group gathers. One round of sharing. No commentary — just listening. The guide closes it: <em>"You're not the person who landed in New Zealand. Keep going."</em></div></div>
+    </div>
+    <div class="insight">"You can't be distracted by what's not there. The desert makes the question simple: Who are you when there's nothing left to perform for?"</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ PHASE 3 ═══ -->
+<div id="phase3">
+<div class="phase-banner">
+  <div class="p-num">03</div>
+  <div class="p-info">
+    <span class="p-label">Phase Three</span>
+    <h2>Return</h2>
+    <p class="p-sub">Colombia → Costa Rica</p>
+    <p class="p-wk">Days 71–91 · Give It Back · You Are the Guide Now</p>
+  </div>
+</div>
+
+<!-- COLOMBIA -->
+<div>
+  <div class="month-hd">
+    <div class="month-hd-left">
+      <span class="m-label">Month Five</span>
+      <h2>Colombia</h2>
+      <span class="m-theme">Altitude · Jungle · Human Connection</span>
+    </div>
+    <span class="m-flag">🇨🇴</span>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 9–10</span><span class="wk-days">Medellín</span></div>
+    <h3>The City That Chose to Become Something Else</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Day 1</div><span class="tag tag-group">Group</span><div class="d-title">Cable Car to the Comunas</div><div class="d-body">Arrive and go directly to the hillside comunas. Stand where the violence was. Learn what the city built instead. Medellín's transformation is one of the most powerful stories in the world. It's about what's possible when a place decides to become something different.</div></div>
+      <div class="day-card highlight"><div class="d-num">Day 2</div><span class="tag tag-group">Group</span><div class="d-title">Paraglide Over the City</div><div class="d-body">The most dangerous city in the western hemisphere, small beneath you. Group paraglides together over the Andes and the city below. The Colombian air, the scale, the improbable beauty of it all.</div></div>
+      <div class="day-card"><div class="d-num">Days 3–5</div><span class="tag tag-service">Service</span><div class="d-title">Youth Movement Program</div><div class="d-body">Medellín has incredible youth programs born from the city's recovery. Group shows up for 3 days — morning workouts, movement sessions, just being present. The rule: come back on Day 2. Anyone can show up once. Showing up again is where trust lives.</div></div>
+      <div class="day-card"><div class="d-num">Day 4</div><span class="tag tag-group">Group</span><div class="d-title">Rock Climbing + Parkour</div><div class="d-body">Rock climb in Guatapé. Then find the parkour community — train with locals, not expats. Medellín's movement scene is world-class. An afternoon of movement with people who grew up moving through this city hits different than a gym.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Week 11</span><span class="wk-days">Coffee Region + Amazon</span></div>
+    <h3>Slow Down. Then Go Deep.</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Days 65–67</div><span class="tag tag-group">Group</span><div class="d-title">Coffee Finca — Wake at 5am</div><div class="d-body">Rent bikes. Ride the mountain roads through the Eje Cafetero. Stay on a working finca. Wake at 5am with the farmers and walk the rows. Understand what it means to pour yourself into the earth every single day for decades. Meraki made physical.</div></div>
+      <div class="day-card highlight"><div class="d-num">Days 71–73</div><span class="tag tag-group">Group</span><div class="d-title">Amazon — Indigenous Community</div><div class="d-body">Go with a small Ticuna indigenous community — not an eco-lodge. Someone's home. River kayaking, jungle expedition, survival basics. Ask about how they understand time, purpose, and belonging. These concepts don't translate — that's the entire point. You'll feel small. It will feel good.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- COSTA RICA -->
+<div>
+  <div class="month-hd">
+    <div class="month-hd-left">
+      <span class="m-label">Month Six · Final 21 Days</span>
+      <h2>Costa Rica</h2>
+      <span class="m-theme">Synthesize · Lead · Launch</span>
+    </div>
+    <span class="m-flag">🇨🇷</span>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 11–12</span><span class="wk-days">Days 75–84 · Final Wild Days</span></div>
+    <h3>Notice Who You Are Now</h3>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Day 75</div><span class="tag tag-group">Group</span><div class="d-title">Arenal Volcano Hike</div><div class="d-body">Summit an active volcano. Hot springs at the base after. The same person who was scared to cold plunge in Week 1 is now hiking volcanoes without thinking about it.</div></div>
+      <div class="day-card highlight"><div class="d-num">Day 76</div><span class="tag tag-group">Group</span><div class="d-title">Rio Pacuare — World Class Whitewater</div><div class="d-body">Full day on one of the finest rivers in the world. Class III-IV rapids through pristine jungle. The river doesn't care who you were. It just asks: are you here? Yes. Obviously yes. You're always here now.</div></div>
+      <div class="day-card"><div class="d-num">Day 78</div><span class="tag tag-group">Group</span><div class="d-title">Canyoneering + Waterfall Rappel</div><div class="d-body">Rappel into jungle canyons, behind waterfalls, into cold pools below. Impossible not to feel alive. Do the hardest line. Let the water hit you. Scream if you need to.</div></div>
+      <div class="day-card"><div class="d-num">Day 80</div><span class="tag tag-solo">Solo</span><div class="d-title">Pacific Surf — Alone at Dawn</div><div class="d-body">Nosara or Tamarindo. Group goes to the beach together but pads out alone. First light. Just you and the Pacific. Sit on the board and think: who was I when I landed in Auckland? Who am I sitting on this board? The gap has narrowed. That's the work.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-hdr"><span class="wk-label">Weeks 13–14</span><span class="wk-days">Days 84–91 · The Prototype</span></div>
+    <h3>You Are the Guide Now. The Circle Closes.</h3>
+    <p style="color:var(--muted);font-size:13px;font-style:italic;margin-bottom:20px;">The group runs a 7-day mini version of THE GAP for 5–8 new participants — travelers, locals, whoever found you along the way. Charge $500–800 each. This is the proof of concept for the world school.</p>
+    <div class="day-grid">
+      <div class="day-card"><div class="d-num">Day 1</div><span class="tag tag-group">Group Leads</span><div class="d-title">Opening Circle</div><div class="d-body"><em>"What story about yourself are you most tired of carrying?"</em> Cold plunge together immediately after. Let the silence after each answer land before moving on. You are holding the space now.</div></div>
+      <div class="day-card"><div class="d-num">Day 2</div><span class="tag tag-hard">Hard</span><div class="d-title">Physical Challenge Day</div><div class="d-body">Design and run a challenge that pushes the new participants. Your group holds the people who want to quit. Because you know what it means to stay.</div></div>
+      <div class="day-card"><div class="d-num">Day 3</div><span class="tag tag-service">Service</span><div class="d-title">Local Youth Service Day</div><div class="d-body">Run a morning program with a local Costa Rican youth center. Your group guides the new participants through their first real service moment.</div></div>
+      <div class="day-card"><div class="d-num">Day 4–5</div><span class="tag tag-group">Group</span><div class="d-title">Adrenaline + Solo</div><div class="d-body">Canyoneering for the new group. Then a 4-hour solo day — no phones, no agenda. The most powerful circle of the week follows. You know — you lived it in New Zealand.</div></div>
+      <div class="day-card"><div class="d-num">Day 6</div><span class="tag tag-solo">Solo</span><div class="d-title">Create Something Real</div><div class="d-body">Each new participant creates something that reflects who they actually are. Your group witnesses without evaluating. That's all it takes.</div></div>
+      <div class="day-card highlight"><div class="d-num">Day 7</div><span class="tag tag-group">Milestone</span><div class="d-title">The Closing Circle</div><div class="d-body">Three questions: <em>"Who did you arrive as? Who are you leaving as? What are you doing differently?"</em> Your group answers last. Then one full minute of silence. You close it. 91 days after New Zealand, you are the guide.</div></div>
+    </div>
+    <div class="svc">
+      <span class="svc-ey">Final Service Moment · Day 88</span>
+      <h4>Costa Rican Youth — The First Curriculum</h4>
+      <p>Before the prototype ends, partner with a local school for 3 days. Morning hike, cold river plunge, a debrief about who they want to be. Document exactly what you did, what worked, what didn't. That document is the first draft of the world school curriculum. Everything after this is iteration.</p>
+    </div>
+    <div class="insight">"Day 91. You fly home. Not as the person who landed in Auckland. As the real one."</div>
+  </div>
+</div>
+</div>
+
+<!-- FINANCES -->
+<div id="finances">
+<div class="page">
+  <span class="eyebrow">The Numbers</span>
+  <h2 class="st">Less than a semester of university.<br>Infinitely more real.</h2>
+  <p style="color:var(--muted);margin-bottom:24px;">One year at a US private university costs $55,000–70,000. THE GAP costs $17,000–27,000 per person — and you come back with self-knowledge, lifelong relationships, and a foundation for the world school.</p>
+
+  <table class="finance-table">
+    <thead><tr><th>Category</th><th>Item</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td colspan="3" class="cat">Upfront / One-Time</td></tr>
+      <tr><td>Gear</td><td>Pack, layers, water gear, first aid</td><td class="amt">~$1,000</td></tr>
+      <tr><td>Flights</td><td>Round-the-world or multi-city</td><td class="amt">~$3,500</td></tr>
+      <tr><td>Insurance</td><td>Vaccines + 6-month travel insurance</td><td class="amt">~$700</td></tr>
+      <tr><td>Emergency</td><td>Non-negotiable reserve fund</td><td class="amt">~$2,500</td></tr>
+      <tr><td colspan="3" class="cat">Monthly Running (×6 months)</td></tr>
+      <tr><td>Accommodation</td><td>Hostels, guesthouses, homestays</td><td class="amt">$500–700/mo</td></tr>
+      <tr><td>Food</td><td>Local markets, shared meals</td><td class="amt">$400–600/mo</td></tr>
+      <tr><td>Experiences</td><td>Activities, courses, programs</td><td class="amt">$600–1,000/mo</td></tr>
+      <tr><td>Transport</td><td>Local buses, ferries, bikes</td><td class="amt">$150–250/mo</td></tr>
+      <tr><td colspan="3" class="cat">Key Program Costs (Included Above)</td></tr>
+      <tr><td>Freediving</td><td>AIDA 2 cert, Amed, Bali</td><td class="amt">~$550</td></tr>
+      <tr><td>Muay Thai</td><td>Full 2-week fight camp, all-in</td><td class="amt">~$1,000</td></tr>
+      <tr><td>Zen Sesshin</td><td>3-day silent retreat (optional)</td><td class="amt">~$200</td></tr>
+      <tr><td>Berber Guide</td><td>Atlas Mountains trek</td><td class="amt">~$300</td></tr>
+      <tr><td colspan="3" class="cat">Ways to Offset</td></tr>
+      <tr><td>Work-Trade</td><td>Surf hostels — free stay for a few hrs/day</td><td class="amt">−$300/mo</td></tr>
+      <tr><td>Prototype</td><td>6 participants × $700 = Month 6 income</td><td class="amt">~$4,200</td></tr>
+      <tr><td>Grants</td><td>REI, Patagonia, NOLS programs</td><td class="amt">Variable</td></tr>
+      <tr class="total"><td colspan="2"><strong>Total Per Person · Budget → Comfortable</strong><br><span style="font-size:11px;color:rgba(246,243,238,0.4);">Net cost after prototype + offsets: ~$12,000–14,000</span></td><td class="amt">$17k – $27k</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- WORLD SCHOOL -->
+<div id="worldschool">
+<div class="page">
+  <span class="eyebrow">What Comes After</span>
+  <h2 class="st">The World School</h2>
+  <p style="color:#3a3733;margin-bottom:16px;">You finish the program with a lived curriculum, a proof of concept, relationships with local guides across 6 countries, and a story. That's the foundation for running THE GAP for others.</p>
+
+  <div class="ws-nums">
+    <div class="ws-n"><span class="big">10–20</span><span class="lbl">People per cohort</span></div>
+    <div class="ws-n"><span class="big">$15–17k</span><span class="lbl">Per person, all-in</span></div>
+    <div class="ws-n"><span class="big">$45k+</span><span class="lbl">Margin per cohort</span></div>
+  </div>
+
+  <p style="color:#3a3733;margin-bottom:16px;"><strong>Year 1:</strong> Run it yourself. Document everything. The world school isn't built from a pitch deck — it's built from that document you write in Costa Rica on Day 79.</p>
+  <p style="color:#3a3733;margin-bottom:24px;"><strong>Year 2:</strong> Recruit. Partner with every local guide, camp, and instructor you met across 6 months. They get consistent participants. You get a program that didn't exist before you built it.</p>
+
+  <div class="insight">The pitch to every person you want to bring along:<br><em>"You know that feeling — like you're living someone else's life? This is 91 days to find out who's actually in there."</em></div>
+</div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="gold-line"></div>
+  <blockquote>"Most people die with their music still in them.<br>This is the program that makes you play it."</blockquote>
+  <div class="gold-line"></div>
+  <br>
+  <p class="sub">THE GAP is not a vacation. Not a gap year in the conventional sense. It's 91 days of stripping away the false self and constructing the real one — together, with people who won't let you quit.<br><br>The goal isn't a diploma, a credential, or a story to tell at parties.<br>It's a self you can actually recognize.</p>
+  <br><br>
+  <div class="gold-line"></div>
+  <br>
+  <p style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(246,243,238,0.18);">Bridge The Gap · Meraki · Ikigai · Group Edition v2.0</p>
+</div>
+
+</body>
+</html>
