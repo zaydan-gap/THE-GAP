@@ -1,6 +1,6 @@
 # USER.md - About Your Human
 
-- **Name:** Zaydan
+- **Name:** Zaydan Verjee
 - **What to call them:** Zay
 - **Pronouns:** he/him (assumed)
 - **Timezone:** PST
