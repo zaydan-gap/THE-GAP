@@ -453,12 +453,12 @@ footer { background: var(--dark); border-top: 1px solid var(--rule); padding: 48
   footer { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 /* ── Lightbox ── */
-#lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; cursor:zoom-out; }
+#lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.96); align-items:center; justify-content:center; cursor:zoom-out; padding:24px; }
 #lightbox.open { display:flex; }
-#lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; border:1px solid rgba(255,255,255,0.08); }
-#lightbox-close { position:fixed; top:24px; right:28px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.15em; color:rgba(255,255,255,0.5); cursor:pointer; text-transform:uppercase; }
+#lightbox-close { position:fixed; top:24px; right:28px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.15em; color:rgba(255,255,255,0.5); cursor:pointer; text-transform:uppercase; z-index:10000; }
 #lightbox-close:hover { color:#fff; }
 .product-mockup { cursor:zoom-in; }
+@media(max-width:600px) { #lightbox-inner { flex-direction:column !important; } #lightbox-inner img { max-width:85vw !important; max-height:40vh !important; } }
 </style>
 </head>
 <body>
@@ -1526,14 +1526,25 @@ document.addEventListener('keydown', e => {
 <!-- Lightbox -->
 <div id="lightbox" onclick="closeLightbox()">
   <span id="lightbox-close">✕ Close</span>
-  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-inner" onclick="event.stopPropagation()" style="display:flex;gap:16px;align-items:center;max-width:92vw;max-height:90vh;">
+    <div id="lightbox-a" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <img id="lightbox-img-a" src="" alt="" style="max-height:80vh;max-width:44vw;object-fit:contain;border:1px solid rgba(255,255,255,0.08);">
+      <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Male</span>
+    </div>
+    <div id="lightbox-b" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <img id="lightbox-img-b" src="" alt="" style="max-height:80vh;max-width:44vw;object-fit:contain;border:1px solid rgba(255,255,255,0.08);">
+      <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Female</span>
+    </div>
+  </div>
 </div>
 
 <script>
-function openLightbox(src) {
+function openLightbox(srcA, srcB) {
   const lb = document.getElementById('lightbox');
-  const img = document.getElementById('lightbox-img');
-  img.src = src;
+  document.getElementById('lightbox-img-a').src = srcA || '';
+  document.getElementById('lightbox-img-b').src = srcB || '';
+  document.getElementById('lightbox-a').style.display = srcA ? 'flex' : 'none';
+  document.getElementById('lightbox-b').style.display = srcB ? 'flex' : 'none';
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1543,18 +1554,19 @@ function closeLightbox() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-// Attach click to all gear product mockups
+function getBgUrl(el) {
+  if (!el) return null;
+  const bg = el.style.backgroundImage;
+  return bg ? bg.replace(/url\(['"]?(.*?)['"]?\)/, '$1') : null;
+}
+
 document.querySelectorAll('.product-mockup').forEach(el => {
   el.addEventListener('click', () => {
-    // Get the currently visible photo (a or b)
+    const photoA = el.querySelector('.pm-photo-a') || el.querySelector('.pm-photo');
     const photoB = el.querySelector('.pm-photo-b');
-    const photoA = el.querySelector('.pm-photo, .pm-photo-a');
-    // Check if hovering (b is visible) — use a data attribute approach
-    const activePhoto = (photoB && parseFloat(getComputedStyle(photoB).opacity) > 0.5) ? photoB : photoA;
-    if (!activePhoto) return;
-    const bg = activePhoto.style.backgroundImage;
-    const url = bg.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
-    if (url) openLightbox(url);
+    const urlA = getBgUrl(photoA);
+    const urlB = getBgUrl(photoB);
+    if (urlA || urlB) openLightbox(urlA, urlB);
   });
 });
 </script>
