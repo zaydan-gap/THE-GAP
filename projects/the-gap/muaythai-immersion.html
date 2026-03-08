@@ -9,17 +9,16 @@
 
 :root {
   --ink: #1a1a1a;
-  --ink2: #333;
-  --ink3: #555;
+  --ink2: #2e2e2e;
+  --ink3: #4a4a4a;
   --gold: #b8922a;
   --gold-light: #d4ac4e;
-  --gold-bg: #fdf6e3;
+  --gold-bg: #fdf8ee;
   --cream: #fafaf7;
   --white: #ffffff;
   --rule: #e0d8c8;
-  --sidebar: #f5f0e8;
-  --thai-red: #8b1a1a;
-  --thai-red-light: #f8eaea;
+  --sidebar: #f4f0e8;
+  --dark: #111111;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,340 +31,432 @@ body {
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
-
 @media print {
   .page-break { page-break-before: always; }
   .no-break { page-break-inside: avoid; }
-  body { background: white; font-size: 11px; }
+  body { font-size: 11px; }
 }
 
-/* ══════ COVER ══════ */
+/* ════════════════════
+   COVER
+════════════════════ */
 .cover {
-  background: #0d0d0d;
+  background: #0c0c0c;
   color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 80px 80px 60px;
+  padding: 72px 80px 56px;
   page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: 'MUAY THAI';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.015);
+  letter-spacing: -8px;
+  white-space: nowrap;
+  pointer-events: none;
 }
 .cover-top {
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  padding-bottom: 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 28px;
 }
-.cover-label {
+.cover-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.5px;
+}
+.cover-brand span { color: var(--gold-light); }
+.cover-series {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.3em;
-  color: var(--gold-light);
+  color: rgba(255,255,255,0.3);
   text-transform: uppercase;
 }
-.cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 80px 0; }
+.cover-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 0 48px;
+}
 .cover-eyebrow {
   font-family: 'Space Mono', monospace;
   font-size: 9px;
   letter-spacing: 0.35em;
-  color: rgba(255,255,255,0.35);
+  color: var(--gold-light);
   text-transform: uppercase;
-  margin-bottom: 24px;
+  display: block;
+  margin-bottom: 28px;
 }
 .cover-title {
   font-family: 'Playfair Display', serif;
-  font-size: 96px;
+  font-size: 112px;
   font-weight: 900;
-  line-height: 0.88;
-  letter-spacing: -3px;
+  line-height: 0.85;
+  letter-spacing: -5px;
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .cover-title-sub {
   font-family: 'Playfair Display', serif;
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 400;
   font-style: italic;
-  color: var(--gold-light);
+  color: rgba(255,255,255,0.35);
   letter-spacing: -1px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
-.cover-rule { width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px; }
-.cover-sub {
+.cover-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 36px; }
+.cover-intro {
   font-family: 'Playfair Display', serif;
-  font-size: 19px;
+  font-size: 17px;
   font-style: italic;
-  font-weight: 400;
-  color: rgba(255,255,255,0.6);
-  max-width: 520px;
-  line-height: 1.6;
-  margin-bottom: 64px;
+  color: rgba(255,255,255,0.55);
+  max-width: 540px;
+  line-height: 1.65;
+  margin-bottom: 56px;
 }
 .cover-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: rgba(255,255,255,0.08);
-  max-width: 580px;
+  background: rgba(255,255,255,0.07);
+  max-width: 640px;
 }
-.cover-stat { background: #0d0d0d; padding: 28px 24px; }
-.cover-stat-num {
+.cover-stat { background: #0c0c0c; padding: 24px 20px; }
+.cover-stat-n {
   font-family: 'Playfair Display', serif;
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 700;
   color: var(--gold-light);
   line-height: 1;
   display: block;
   margin-bottom: 4px;
 }
-.cover-stat-label {
+.cover-stat-l {
   font-family: 'Space Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.35);
+  font-size: 7.5px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.28);
   text-transform: uppercase;
 }
 .cover-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-.cover-mission {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  max-width: 460px;
+.cover-note {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.35);
+  max-width: 420px;
   line-height: 1.75;
   font-style: italic;
 }
-
-/* ══════ DOC SECTIONS ══════ */
-.doc-section { max-width: 860px; margin: 0 auto; padding: 72px 60px; }
-.section-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 8px; }
-.section-tag {
+.cover-contact {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.25em;
-  color: var(--gold);
-  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
 }
-.section-rule { flex: 1; height: 1px; background: var(--rule); }
 
-h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; line-height: 1.05; color: var(--ink); margin-bottom: 24px; }
-h2 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 20px; }
-h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
-h4 { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink2); margin-bottom: 8px; }
-p { color: var(--ink3); line-height: 1.8; margin-bottom: 14px; font-size: 13.5px; }
-p:last-child { margin-bottom: 0; }
-strong { color: var(--ink); font-weight: 600; }
-
-/* ══════ PHILOSOPHY BOX ══════ */
-.philosophy-box {
-  background: var(--ink);
-  color: white;
-  padding: 56px 60px;
-  margin: 40px 0;
+/* ════════════════════
+   PAGE STRUCTURE
+════════════════════ */
+.doc-page { max-width: 840px; margin: 0 auto; padding: 72px 64px; }
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 8px;
 }
-.philosophy-box .phil-tag {
+.eyebrow-tag {
   font-family: 'Space Mono', monospace;
   font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.eyebrow-rule { flex: 1; height: 1px; background: var(--rule); }
+
+h1 { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 900; line-height: 1.0; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 28px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 14px; margin-top: 32px; }
+h4 { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink2); margin-bottom: 8px; }
+p { color: var(--ink3); line-height: 1.82; margin-bottom: 16px; font-size: 13.5px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+/* ════════════════════
+   DARK BLOCK (QUOTE)
+════════════════════ */
+.dark-block {
+  background: var(--dark);
+  padding: 52px 56px;
+  margin: 40px 0;
+}
+.dark-block-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
   letter-spacing: 0.3em;
-  color: var(--gold-light);
+  color: rgba(255,255,255,0.3);
   text-transform: uppercase;
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-.philosophy-box blockquote {
+.dark-block blockquote {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  font-size: 24px;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.55;
   color: white;
+  margin: 0 0 24px 0;
   font-weight: 400;
-  border: none;
-  padding: 0;
-  margin: 0 0 28px 0;
 }
-.philosophy-box .phil-body {
-  color: rgba(255,255,255,0.6);
-  font-size: 13px;
-  line-height: 1.8;
-}
-.philosophy-box .phil-body p { color: rgba(255,255,255,0.6); font-size: 13px; }
+.dark-block p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.82; }
 
-/* ══════ PILLAR GRID ══════ */
-.pillar-grid {
+/* ════════════════════
+   FRAMEWORK GRID
+════════════════════ */
+.framework-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1px;
   background: var(--rule);
   margin: 36px 0;
 }
-.pillar-cell { background: var(--cream); padding: 32px 28px; }
-.pillar-icon { font-size: 24px; margin-bottom: 12px; }
-.pillar-name {
+.fw-cell { background: var(--cream); padding: 32px 28px; }
+.fw-num {
   font-family: 'Playfair Display', serif;
-  font-size: 17px;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.fw-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 10px;
+  line-height: 1.2;
 }
-.pillar-body { font-size: 12.5px; color: var(--ink3); line-height: 1.75; }
+.fw-body { font-size: 12.5px; color: var(--ink3); line-height: 1.75; }
 
-/* ══════ DAILY ITINERARY ══════ */
-.day-block {
+/* ════════════════════
+   TEACHER
+════════════════════ */
+.teacher-wrap {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 0;
-  border: 1px solid var(--rule);
-  margin-bottom: 16px;
-}
-.day-sidebar {
-  background: var(--sidebar);
-  padding: 28px 24px;
-  border-right: 1px solid var(--rule);
-}
-.day-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  display: block;
-  margin-bottom: 4px;
-}
-.day-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  color: var(--ink3);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 16px;
-}
-.day-title-side {
-  font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-.day-meta {
-  font-family: 'Space Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  color: var(--ink3);
-  line-height: 1.8;
-  text-transform: uppercase;
-}
-.day-body { padding: 28px 32px; }
-.day-phase {
-  font-family: 'Space Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-.day-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 12px;
-}
-.day-desc { font-size: 13px; color: var(--ink3); line-height: 1.8; margin-bottom: 16px; }
-.sessions {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-top: 16px;
-}
-.session-block {
-  background: var(--sidebar);
-  padding: 14px 16px;
-  border-left: 2px solid var(--gold);
-}
-.session-time {
-  font-family: 'Space Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 4px;
-}
-.session-content { font-size: 11.5px; color: var(--ink2); font-weight: 500; line-height: 1.4; }
-.session-detail { font-size: 11px; color: var(--ink3); line-height: 1.5; margin-top: 4px; }
-
-/* Highlight block within day */
-.day-highlight {
-  background: var(--gold-bg);
-  border-left: 3px solid var(--gold);
-  padding: 14px 18px;
-  margin-top: 14px;
-  font-size: 12.5px;
-  color: var(--ink2);
-  line-height: 1.7;
-}
-
-/* ══════ TEACHER BLOCK ══════ */
-.teacher-block {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 0;
+  grid-template-columns: 190px 1fr;
   border: 1px solid var(--rule);
   margin: 36px 0;
 }
 .teacher-left {
-  background: var(--ink);
-  padding: 40px 28px;
+  background: var(--dark);
+  padding: 36px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.teacher-name {
+.teacher-name-block { }
+.t-name {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: white;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: 8px;
 }
-.teacher-title-tag {
+.t-tag {
   font-family: 'Space Mono', monospace;
   font-size: 8px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold-light);
+  line-height: 1.7;
 }
-.teacher-right { padding: 40px 36px; }
-.teacher-right p { font-size: 13px; color: var(--ink3); line-height: 1.85; }
-.teacher-credentials {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.cred-item {
-  background: var(--sidebar);
-  padding: 12px 16px;
-}
-.cred-label {
+.t-lineage {
   font-family: 'Space Mono', monospace;
   font-size: 8px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.22);
+  text-transform: uppercase;
+  line-height: 1.9;
+}
+.teacher-right { padding: 36px 40px; }
+.teacher-right p { font-size: 13px; color: var(--ink3); line-height: 1.85; }
+.cred-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+.cred-cell { background: var(--sidebar); padding: 14px 16px; }
+.cred-l {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
   display: block;
   margin-bottom: 4px;
 }
-.cred-value { font-size: 12px; font-weight: 600; color: var(--ink); }
+.cred-v { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
 
-/* ══════ LOGISTICS TABLE ══════ */
+/* ════════════════════
+   DAY BLOCK
+════════════════════ */
+.day-block {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  border: 1px solid var(--rule);
+  margin-bottom: 14px;
+}
+.day-block.accent-gold { border-left: 3px solid var(--gold); }
+.day-block.accent-dark { border-left: 3px solid var(--dark); }
+.d-side {
+  background: var(--sidebar);
+  padding: 24px 20px;
+  border-right: 1px solid var(--rule);
+}
+.d-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 2px;
+}
+.d-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  color: var(--ink3);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+.d-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.d-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  text-transform: uppercase;
+  line-height: 1.9;
+}
+.d-body { padding: 24px 30px; }
+.d-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.d-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.d-desc { font-size: 12.5px; color: var(--ink3); line-height: 1.82; margin-bottom: 14px; }
+.d-desc:last-child { margin-bottom: 0; }
+.sessions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+.sess {
+  background: var(--sidebar);
+  padding: 12px 14px;
+  border-left: 2px solid var(--gold);
+}
+.sess-time {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3px;
+}
+.sess-title { font-size: 11.5px; font-weight: 600; color: var(--ink2); line-height: 1.35; }
+.sess-sub { font-size: 10.5px; color: var(--ink3); line-height: 1.5; margin-top: 3px; }
+.d-callout {
+  background: var(--gold-bg);
+  border-left: 3px solid var(--gold);
+  padding: 13px 16px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+/* ════════════════════
+   SERVICE BLOCK
+════════════════════ */
+.service-block {
+  background: #1a1a2e;
+  color: white;
+  padding: 48px 52px;
+  margin: 36px 0;
+}
+.service-block .s-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 18px;
+}
+.service-block .s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+.service-block p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.85; }
+
+/* ════════════════════
+   LOGISTICS
+════════════════════ */
 .logistics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -373,714 +464,723 @@ strong { color: var(--ink); font-weight: 600; }
   background: var(--rule);
   margin: 28px 0;
 }
-.logistics-cell { background: var(--cream); padding: 24px 28px; }
-.logistics-label {
+.lg-cell { background: var(--cream); padding: 22px 26px; }
+.lg-l {
   font-family: 'Space Mono', monospace;
-  font-size: 8px;
+  font-size: 7.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   display: block;
   margin-bottom: 6px;
 }
-.logistics-value { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.5; }
-.logistics-sub { font-size: 11.5px; color: var(--ink3); margin-top: 4px; }
+.lg-v { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.lg-sub { font-size: 11.5px; color: var(--ink3); margin-top: 4px; line-height: 1.5; }
 
-/* ══════ WHAT'S INCLUDED ══════ */
+/* ════════════════════
+   INCLUDED
+════════════════════ */
 .include-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 28px 0;
+  gap: 10px;
+  margin: 24px 0;
 }
-.include-item {
+.inc-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 16px 18px;
   background: var(--sidebar);
+  padding: 14px 16px;
 }
-.include-check {
-  font-size: 14px;
-  color: var(--gold);
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.include-text { font-size: 12.5px; color: var(--ink2); line-height: 1.5; }
-.include-text strong { font-size: 12.5px; }
+.inc-mark { color: var(--gold); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.inc-text { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+.inc-text strong { font-size: 12.5px; display: block; margin-bottom: 2px; }
 
-/* ══════ FRAMEWORK STRIP ══════ */
-.framework-strip {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1px;
-  background: var(--rule);
-  margin: 36px 0;
-}
-.framework-cell { background: var(--cream); padding: 28px 24px; }
-.framework-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 900;
-  color: var(--gold);
-  opacity: 0.25;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.framework-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-.framework-body { font-size: 12px; color: var(--ink3); line-height: 1.7; }
-
-/* ══════ SERVICE BLOCK ══════ */
-.service-block {
-  background: var(--thai-red);
-  color: white;
-  padding: 48px 52px;
-  margin: 36px 0;
-}
-.service-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 20px;
-}
-.service-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-.service-body { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.85; }
-.service-body p { color: rgba(255,255,255,0.75); font-size: 13px; }
-
-/* ══════ CLOSING PAGE ══════ */
+/* ════════════════════
+   CLOSING
+════════════════════ */
 .closing {
-  background: var(--ink);
+  background: var(--dark);
   color: white;
-  min-height: 60vh;
+  min-height: 55vh;
   padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.closing-title {
+.closing-h {
   font-family: 'Playfair Display', serif;
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -2px;
+  line-height: 0.88;
+  letter-spacing: -2.5px;
   color: white;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 .closing-sub {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-size: 17px;
   font-style: italic;
-  color: rgba(255,255,255,0.55);
-  max-width: 480px;
-  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  max-width: 460px;
+  line-height: 1.65;
   margin-bottom: 48px;
 }
-.closing-contact {
+.closing-contacts { display: flex; gap: 48px; }
+.cc-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  display: block;
+  margin-bottom: 5px;
+}
+.cc-val {
   font-family: 'Space Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   color: var(--gold-light);
 }
-
+.closing-footer {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.closing-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1px;
+}
+.closing-footer-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
+<!-- ══════════════════════════════════════════
      COVER
-═══════════════════════════════════════ -->
+══════════════════════════════════════════ -->
 <div class="cover">
   <div class="cover-top">
-    <span class="cover-label">The Gap · Micro Immersion Series</span>
-    <span class="cover-label">Chiang Mai, Thailand</span>
+    <div class="cover-brand">THE <span>GAP</span></div>
+    <span class="cover-series">Micro Immersion Series · Discipline No. 01</span>
   </div>
 
   <div class="cover-main">
-    <span class="cover-eyebrow">Discipline No. 01 · The Art of Eight Limbs</span>
+    <span class="cover-eyebrow">The Art of Eight Limbs · Chiang Mai, Thailand</span>
     <div class="cover-title">Muay<br>Thai.</div>
     <div class="cover-title-sub">14 Days in the North.</div>
     <div class="cover-rule"></div>
-    <p class="cover-sub">You learn to fight. You learn to stay calm when something is coming at you. You learn what you're actually made of when the training is real and the teacher doesn't go easy. These are the same lessons. Just learned in a ring.</p>
-
+    <p class="cover-intro">You come to Chiang Mai to learn to fight. But what Muay Thai actually teaches — what every fighter who has trained seriously will tell you — is that the discipline is a system for becoming calm under pressure. You learn to stop reacting and start reading. To be present when something real is happening. That skill transfers to everything else.</p>
     <div class="cover-stats">
       <div class="cover-stat">
-        <span class="cover-stat-num">14</span>
-        <span class="cover-stat-label">Days</span>
+        <span class="cover-stat-n">14</span>
+        <span class="cover-stat-l">Days</span>
       </div>
       <div class="cover-stat">
-        <span class="cover-stat-num">8</span>
-        <span class="cover-stat-label">Spots</span>
+        <span class="cover-stat-n">8</span>
+        <span class="cover-stat-l">Spots</span>
       </div>
       <div class="cover-stat">
-        <span class="cover-stat-num">2×</span>
-        <span class="cover-stat-label">Daily</span>
+        <span class="cover-stat-n">2×</span>
+        <span class="cover-stat-l">Daily</span>
       </div>
       <div class="cover-stat">
-        <span class="cover-stat-num">1</span>
-        <span class="cover-stat-label">Discipline</span>
+        <span class="cover-stat-n">2</span>
+        <span class="cover-stat-l">Fight Nights</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">1</span>
+        <span class="cover-stat-l">Ceremony</span>
       </div>
     </div>
   </div>
 
   <div class="cover-bottom">
-    <p class="cover-mission">No prior experience required. No martial arts background. No fitness test. The only requirement is that you show up fully — to every session, every day, for 14 days — and do the work.</p>
-    <span class="cover-label">apply@bridgethegap.com</span>
+    <p class="cover-note">No prior Muay Thai experience required. No martial arts background. The only requirement: show up to every session, do the work, and let the 14 days be what they are.</p>
+    <span class="cover-contact">apply@bridgethegap.com</span>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+
+<!-- ══════════════════════════════════════════
      THE PHILOSOPHY
-═══════════════════════════════════════ -->
-<div class="doc-section page-break">
-  <div class="section-header">
-    <span class="section-tag">The Philosophy</span>
-    <div class="section-rule"></div>
+══════════════════════════════════════════ -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Philosophy</span>
+    <div class="eyebrow-rule"></div>
   </div>
 
   <h1>Why fight?</h1>
 
-  <p>Muay Thai is called <em>the art of eight limbs</em> — fists, elbows, knees, shins. But the most important thing it teaches has nothing to do with striking. It teaches you how to be present when something is genuinely trying to hurt you. That's rare. Most disciplines let you opt out of the difficult moment. Muay Thai doesn't.</p>
+  <p>Muay Thai is called <em>the art of eight limbs</em>. Fists, elbows, knees, shins — every striking surface of the human body put into service as a weapon. It is one of the oldest martial arts still practiced in its original form. Thai fighters have been competing since the 16th century, and the techniques used by professional fighters at Lumpini Stadium in Bangkok tonight are the same ones your Kru will teach you on Day 2.</p>
 
-  <p>The Wai Kru — the ritualistic bow performed before every fight — isn't theater. It's a fighter asking for protection, thanking their teacher, and centering themselves before stepping into the unknown. You learn to do it on Day 2. By Day 12, it means something different.</p>
+  <p>But the reason this discipline is in THE GAP framework has nothing to do with fighting. It has to do with what serious training — the kind where you show up twice a day, six days a week, and don't stop when it's hard — does to a person's relationship with pressure, discomfort, and self-knowledge.</p>
 
-  <p>The training is hard. Morning session runs two hours. Evening session runs another two. You'll sweat more than you've sweated in your life. You'll wake up sore and do it again. By Day 6 you won't want to stop. By Day 14 you'll understand why fighters say Muay Thai is a way of life, not a sport.</p>
+  <p>Most people have never been in a situation where they had to stay calm while something was actively trying to knock them off. Muay Thai puts you in that situation repeatedly, with progressively less padding and progressively more consequence, until calm under pressure stops being a phrase and becomes a physical skill. You stop thinking. You breathe. You respond instead of react. That's what you take home.</p>
 
-  <div class="philosophy-box">
-    <span class="phil-tag">The Gap · Core Belief</span>
-    <blockquote>"Mastery in one discipline changes how you approach everything else. You learn to stay calm under pressure, to trust your body, to read other people. You learn that you're more capable than you thought. That's the actual curriculum."</blockquote>
-    <div class="phil-body">
-      <p>This immersion is built around one belief: going genuinely deep in a single discipline — not dabbling, not sampling, not doing a class — is one of the most transformative things a person can do. Muay Thai is the vehicle. Presence, discipline, and self-knowledge are what you leave with.</p>
-    </div>
+  <div class="dark-block">
+    <span class="dark-block-tag">The Gap · Core Belief</span>
+    <blockquote>"The goal isn't to become a fighter. The goal is to discover what happens to you when the training is real, the teacher doesn't go easy, and quitting costs you something. That discovery — of what you do when it's actually hard — is the curriculum."</blockquote>
+    <p>Every discipline in THE GAP framework is chosen because it teaches something that can't be learned in a classroom. Muay Thai teaches presence, composure, and the ability to read another person while staying inside your own body. These are not small things. They are foundational.</p>
   </div>
 
-  <div class="framework-strip">
-    <div class="framework-cell">
-      <div class="framework-num">01</div>
-      <div class="framework-name">Adventure + Adrenaline</div>
-      <p class="framework-body">Train twice daily with Krus who have fought at Lumpini Stadium. Spar with real partners. Watch professional fight nights ringside. Summit Thailand's highest peak on your rest day. Swim under waterfalls you drove an hour to reach.</p>
+  <h2>The Wai Kru</h2>
+
+  <p>Before every professional Muay Thai bout in Thailand — from the smallest village ring to the main stage at Rajadamnern Stadium — both fighters perform the Wai Kru. It is a ritual honoring the teacher (Kru), asking for protection, and centering the mind before combat. Each fighter's Wai Kru is unique — a personal expression of their lineage, their belief, and their relationship to the sport.</p>
+
+  <p>The group learns the Wai Kru on Day 2. The Kru explains the meaning of the mongkong (the headband placed on the fighter by the teacher before a bout) and the prachiads (sacred rope armbands). On Day 12, the full ceremony is performed in the ring, with the Kru present.</p>
+
+  <p>The Wai Kru is not a cultural exercise or a photo opportunity. By the time you perform it, you will understand what you're doing and why. That's the only condition under which it means anything.</p>
+
+  <div class="framework-grid">
+    <div class="fw-cell">
+      <div class="fw-num">01</div>
+      <div class="fw-name">Adventure + Adrenaline</div>
+      <p class="fw-body">Twice-daily training with Krus who have competed at Lumpini. Sparring on Day 8. Two professional fight nights ringside. Summit Doi Inthanon — Thailand's highest peak — on your rest day. Waterfall swim at 2,500m. The training is the adrenaline.</p>
     </div>
-    <div class="framework-cell">
-      <div class="framework-num">02</div>
-      <div class="framework-name">Travel + Encounter</div>
-      <p class="framework-body">Learn the Wai Kru ceremony from the inside. Eat at the places fighters eat. Walk Chiang Mai's Old City before the tourists are awake. Train in a gym where the culture of the sport still lives — not a tourist camp dressed up as one.</p>
+    <div class="fw-cell">
+      <div class="fw-num">02</div>
+      <div class="fw-name">Travel + Encounter</div>
+      <p class="fw-body">Train at a camp where the fighters eat, sleep, and live. Walk Chiang Mai's Old City before dawn. Learn the Wai Kru from the inside. Eat khao soi and larb at the places locals go. Understand the culture that produced this discipline — not just the discipline itself.</p>
     </div>
-    <div class="framework-cell">
-      <div class="framework-num">03</div>
-      <div class="framework-name">Service + Giving Back</div>
-      <p class="framework-body">Day 13: travel to Mae Hong Son and run a training session for hill tribe children at Master Boon's village camp. You teach what you learned. These kids train seriously — they'll push you as much as you push them.</p>
+    <div class="fw-cell">
+      <div class="fw-num">03</div>
+      <div class="fw-name">Service + Giving Back</div>
+      <p class="fw-body">Day 13: travel to Master Boon's hill tribe camp in Mae Hong Son and run a training session for local children. You teach what you learned. You don't take the experience and leave — you add to something that was already happening before you arrived.</p>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+
+<!-- ══════════════════════════════════════════
      THE TEACHER
-═══════════════════════════════════════ -->
-<div class="doc-section page-break">
-  <div class="section-header">
-    <span class="section-tag">The Teacher</span>
-    <div class="section-rule"></div>
+══════════════════════════════════════════ -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Teacher</span>
+    <div class="eyebrow-rule"></div>
   </div>
 
-  <h1>Master Boon</h1>
+  <h1>Master Boon<br>and Boon Lanna.</h1>
 
-  <div class="teacher-block">
+  <div class="teacher-wrap">
     <div class="teacher-left">
-      <div>
-        <div class="teacher-name">Master<br>Boon</div>
-        <div class="teacher-title-tag">Boon Lanna Muay Thai<br>Chiang Mai, Thailand</div>
+      <div class="teacher-name-block">
+        <div class="t-name">Master<br>Boon</div>
+        <div class="t-tag">Boon Lanna Muay Thai<br>Saraphi District<br>Chiang Mai</div>
       </div>
-      <div class="teacher-title-tag" style="color:rgba(255,255,255,0.3);font-size:9px;line-height:1.8;">
-        Chiang Mai<br>Hill Tribe Lineage<br>Lumpini-Trained
+      <div class="t-lineage">
+        Northern Thai<br>Hill Tribe Lineage<br>Lumpini Trained<br>Mae Hong Son<br>Village Camp
       </div>
     </div>
     <div class="teacher-right">
-      <p>Master Boon grew up in the hill tribes of northern Thailand, trained from childhood in the traditional methods that predate modern sport Muay Thai. His teacher was Andy Thompson — a former champion whose lineage runs directly through the old northern style. Boon carries that forward.</p>
-      <p>His gym, Boon Lanna, operates from Saraphi District in Chiang Mai — mountains visible from the training ring, rice paddies surrounding the camp. His Krus have competed at Lumpini and Rajadamnern, the two most prestigious stadiums in Thailand. They do not train people to look good in photos. They train people to fight, and to understand what fighting teaches.</p>
-      <p>Master Boon also maintains a dedicated training camp in Mae Hong Son — a rural mountain village where he provides fully sponsored training to children from the Chiang Mai Hill Tribes, the same way he was trained. THE GAP group visits this camp on Day 13.</p>
-      <div class="teacher-credentials">
-        <div class="cred-item">
-          <span class="cred-label">Training Base</span>
-          <div class="cred-value">Saraphi District, Chiang Mai</div>
+      <p>Master Boon grew up in the hill tribes of northern Thailand, training in the traditional Muay Thai methods that long predate the modern sport. His teacher was Andy Thompson — a former champion whose lineage runs through the old northern style, closer to Muay Boran (ancient Muay Thai) than the sport version practiced at Lumpini today. Boon carries that tradition forward while training fighters who compete at the highest levels.</p>
+      <p>His gym, Boon Lanna, is in Saraphi District — 13km south of Chiang Mai, surrounded by rice paddies and mountain views, away from the tourist traffic of the city center. The Krus who work under him have competed at Lumpini and Rajadamnern. They do not train people to look good in photos. They train people to fight well — which means training them to think clearly when something is coming at them.</p>
+      <p>Master Boon also operates a dedicated training camp in Mae Hong Son — a rural mountain village in the hills north of Chiang Mai — where he provides fully sponsored Muay Thai training to children from the local hill tribes. The same way he was trained. THE GAP group visits this camp on Day 13 and runs a session for the kids.</p>
+      <div class="cred-grid">
+        <div class="cred-cell">
+          <span class="cred-l">Training Base</span>
+          <div class="cred-v">Saraphi District, Chiang Mai</div>
         </div>
-        <div class="cred-item">
-          <span class="cred-label">Lineage</span>
-          <div class="cred-value">Northern Thai / Hill Tribe tradition</div>
+        <div class="cred-cell">
+          <span class="cred-l">Lineage</span>
+          <div class="cred-v">Northern Thai hill tribe tradition</div>
         </div>
-        <div class="cred-item">
-          <span class="cred-label">Camp 2</span>
-          <div class="cred-value">Mae Hong Son · Hill tribe youth</div>
+        <div class="cred-cell">
+          <span class="cred-l">Style</span>
+          <div class="cred-v">Traditional Muay Thai + Muay Boran</div>
         </div>
-        <div class="cred-item">
-          <span class="cred-label">Style</span>
-          <div class="cred-value">Traditional Muay Thai + Muay Boran</div>
+        <div class="cred-cell">
+          <span class="cred-l">Village Camp</span>
+          <div class="cred-v">Mae Hong Son · Sponsored youth program</div>
         </div>
       </div>
     </div>
   </div>
 
-  <h2 style="margin-top:40px;">What training looks like</h2>
-  <p>Every session begins with a run and shadow boxing warm-up. The Kru watches how you move before he corrects anything. Sessions cover: stance and footwork, the teep (push kick), jab-cross combinations, the round kick (the signature weapon of Muay Thai), the clinch (the part most people ignore and the part that decides fights), and partner pad work. Advanced students begin sparring on Day 8.</p>
+  <h2>What the training looks like</h2>
 
-  <p>Sessions run from 7:00–9:00am and 4:00–6:00pm, six days a week. The midday break is for recovery — Thai massage, ice baths, food, rest. You train your body in the morning and afternoon and let it rebuild in between. This rhythm is how Thai fighters train for their entire careers.</p>
+  <p>Every session begins with a 3km run and shadow boxing. The Kru watches how your body moves before he corrects anything — your instincts tell him more than your technique does. Sessions are built around the fundamental weapons of Muay Thai: the teep (push kick — used to control distance), the round kick (the primary power weapon — generated through full hip rotation, not the foot), the jab and cross (used to set up the legs), the elbow (used in close), and the clinch.</p>
 
-  <div class="day-highlight" style="margin-top:24px;">
-    <strong>On the Wai Kru:</strong> The pre-fight ritual performed by every Muay Thai fighter before every bout. It honors the teacher (kru), asks for protection, and settles the mind before combat. Learning it is not a cultural exercise — it is the entry point to understanding what the sport actually is and why it has been practiced for over 2,000 years.
+  <p><strong>The clinch deserves special attention.</strong> Most beginners ignore it. Most fights are decided by it. Muay Thai clinch work means you are physically locked with another person — arms inside or outside, heads close, each trying to off-balance the other for a knee strike or a throw. Learning to operate in the clinch means learning to stay composed and functional while someone is quite literally trying to upend you. It is the most uncomfortable and most instructive part of the training.</p>
+
+  <p>Sessions run 7:00–9:00am and 4:00–6:00pm, six days a week. The midday break is for active recovery: Thai massage, ice baths, namman muay (Thai boxing liniment applied to sore muscles), food, and rest. This is how professional fighters train. The rhythm is not brutal — it is sustainable. Sustainable enough to do for years.</p>
+
+  <div class="d-callout" style="border-left-color:var(--ink);background:var(--sidebar);">
+    <strong>On recovery:</strong> Thai fighters apply namman muay — a traditional boxing liniment made from camphor and menthol — to their muscles after every session. Ice baths reduce inflammation. Two-hour traditional Thai massage works the deep muscle tissue. These are not wellness add-ons. They are the methods Thai fighters have used for centuries to train twice a day, every day, for their entire careers.
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     14-DAY ITINERARY
-═══════════════════════════════════════ -->
-<div class="doc-section page-break">
-  <div class="section-header">
-    <span class="section-tag">Day by Day · Full Itinerary</span>
-    <div class="section-rule"></div>
+
+<!-- ══════════════════════════════════════════
+     ITINERARY — WEEK 1
+══════════════════════════════════════════ -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Week One · Days 1–7</span>
+    <div class="eyebrow-rule"></div>
   </div>
-  <h1>The 14 Days</h1>
-  <p style="margin-bottom:36px;">Every day is structured around two training sessions and one experience. The schedule is demanding. It is designed to be. The people who get the most out of this immersion are the ones who go to every session, who show up when they don't feel like it, and who let the difficulty be the point.</p>
+  <h1>Foundation.</h1>
+  <p style="margin-bottom:32px;">The first week is about building the base — technically, physically, and mentally. By Day 7 you will have trained six full days, watched a professional fight night, climbed Thailand's highest peak, and learned the Wai Kru. You will also be more tired than you've ever been. That is correct.</p>
 
   <!-- Day 1 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">01</span>
-      <span class="day-label">Day One</span>
-      <div class="day-title-side">Arrival</div>
-      <div class="day-meta">Chiang Mai<br>No training<br>Group dinner</div>
+    <div class="d-side">
+      <span class="d-num">01</span>
+      <span class="d-label">Arrival</span>
+      <div class="d-name">You Land</div>
+      <div class="d-meta">Chiang Mai<br>No training<br>Group dinner<br>Early sleep</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Orientation</div>
-      <div class="day-title">You land. You meet the people you're doing this with.</div>
-      <p class="day-desc">Ground transport from Chiang Mai International Airport to camp in Saraphi District — 13km south of the city, surrounded by rice paddies and mountain views. Check in, settle in. No phones at dinner. Group meal at the local restaurant the fighters use. Introductions. Early sleep — morning session starts at 7:00am.</p>
-      <div class="day-highlight">The goal of tonight: be present. You've traveled a long way. Let the place arrive around you.</div>
+    <div class="d-body">
+      <div class="d-tag">Orientation</div>
+      <div class="d-title">Arrive. Eat. Rest. Morning session is at 7:00am.</div>
+      <p class="d-desc">Ground transport from Chiang Mai International Airport to camp in Saraphi District. Check in, drop gear. The camp is not a resort — it is where fighters live and train. Mountain views, a river nearby, no tourist traffic. Group dinner at the local restaurant the fighters use — khao soi and sai ua, the food of northern Thailand. No phones at the table. Introductions around the table. Early sleep. The alarm goes off at 6:30.</p>
     </div>
   </div>
 
   <!-- Day 2 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">02</span>
-      <span class="day-label">Day Two</span>
-      <div class="day-title-side">First Contact</div>
-      <div class="day-meta">Chiang Mai<br>AM Training<br>Doi Suthep</div>
+    <div class="d-side">
+      <span class="d-num">02</span>
+      <span class="d-label">First Contact</span>
+      <div class="d-name">The Kru Reads You</div>
+      <div class="d-meta">AM Training<br>Doi Suthep<br>Wai Kru Evening</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 1 · Foundation</div>
-      <div class="day-title">The Kru watches you before he teaches you anything.</div>
-      <p class="day-desc">Morning session: movement assessment. Stance, basic teep, shadow boxing. The Kru is watching how your body moves, where your habits are, what your instincts do under a little pressure. He doesn't correct much yet. He's reading you.</p>
-      <p class="day-desc">Afternoon: Doi Suthep temple — 800 years old, 309 steps, 1,073m above the city. Walk up together. Evening: the Kru explains the Wai Kru. The headband, the armbands, the sequence of movements. What each gesture means. Why fighters do it before they're willing to get hurt.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 1 · Foundation</div>
+      <div class="d-title">The Kru watches how you move before he teaches you anything.</div>
+      <p class="d-desc">Morning: movement assessment. Shadow boxing, stance, basic teep. The Kru does not correct much — he is watching your instincts, your balance, how you respond to pressure. This tells him more than anything else. Everyone starts from zero regardless of prior martial arts experience.</p>
+      <p class="d-desc">Afternoon: Doi Suthep — Chiang Mai's guardian temple, built in 1383 at 1,073m above the city. 309 steps up through the jungle. Views of the entire valley. Evening: the Kru explains the Wai Kru. The mongkong, the prachiads, the sequence of movements. What fighters are doing when they bow and circle the ring. Why it matters.</p>
       <div class="sessions">
-        <div class="session-block">
-          <span class="session-time">07:00–09:00</span>
-          <div class="session-content">Morning: Assessment</div>
-          <div class="session-detail">Movement, stance, shadow boxing</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">14:00–16:00</span>
-          <div class="session-content">Afternoon: Doi Suthep</div>
-          <div class="session-detail">Temple climb, city views</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">Evening</span>
-          <div class="session-content">Wai Kru teaching</div>
-          <div class="session-detail">With the Kru — ritual and meaning</div>
-        </div>
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Assessment Session</div><div class="sess-sub">Shadow boxing, stance, first teep</div></div>
+        <div class="sess"><span class="sess-time">14:00–16:30</span><div class="sess-title">Doi Suthep</div><div class="sess-sub">309 steps, temple visit, valley views</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Wai Kru Teaching</div><div class="sess-sub">With the Kru — ritual, lineage, meaning</div></div>
       </div>
     </div>
   </div>
 
   <!-- Day 3 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">03</span>
-      <span class="day-label">Day Three</span>
-      <div class="day-title-side">Foundation</div>
-      <div class="day-meta">Chiang Mai<br>AM + PM Training<br>Old City</div>
+    <div class="d-side">
+      <span class="d-num">03</span>
+      <span class="d-label">Foundation</span>
+      <div class="d-name">The Weapons</div>
+      <div class="d-meta">AM + PM Training<br>Old City Evening</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 1 · Foundation</div>
-      <div class="day-title">Stance. Teep. Jab-cross. Round kick. This is where everything begins.</div>
-      <p class="day-desc">First full double-session day. Morning covers stance and footwork — the foundation that every technique builds from. Afternoon introduces the teep (push kick) and basic combinations. The round kick — Muay Thai's most powerful weapon — is broken down in detail. Technical, slow, correct. Speed comes later.</p>
-      <p class="day-desc">Evening: walk the Old City. Tha Phae Gate, the moat, night market. Khao soi at the place locals actually eat — not the tourist strip. Learn the city that exists alongside the training.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 1 · Foundation</div>
+      <div class="d-title">Stance. Teep. Jab-cross. The round kick. This is where it starts.</div>
+      <p class="d-desc">First full double-session day. Morning: stance and footwork — the foundation everything else depends on. A fighter whose footwork is wrong cannot do anything else right. Afternoon: the teep and the jab-cross as setups, then the round kick in detail. The round kick is Muay Thai's signature weapon — it is not a soccer kick. It comes from full hip rotation through the shin, not the foot. Slow, correct repetitions until the mechanics are in the body.</p>
+      <p class="d-desc">Evening: Chiang Mai Old City — the square city inside the ancient moat. Night market. Khao soi at a stall the locals queue at. Walk the moat by moonlight. The city is alive at night in a way that the daytime doesn't show.</p>
       <div class="sessions">
-        <div class="session-block">
-          <span class="session-time">07:00–09:00</span>
-          <div class="session-content">Stance + Footwork</div>
-          <div class="session-detail">Bag work, shadow boxing</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">16:00–18:00</span>
-          <div class="session-content">Teep + Round Kick</div>
-          <div class="session-detail">Pad work introduction</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">Evening</span>
-          <div class="session-content">Old City</div>
-          <div class="session-detail">Night market, khao soi dinner</div>
-        </div>
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Stance + Footwork</div><div class="sess-sub">Heavy bag, mirror work</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Teep + Round Kick</div><div class="sess-sub">Pad work introduction with Kru</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Old City</div><div class="sess-sub">Night market, khao soi, moat walk</div></div>
       </div>
     </div>
   </div>
 
   <!-- Day 4 -->
-  <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">04</span>
-      <span class="day-label">Day Four</span>
-      <div class="day-title-side">Fight Night</div>
-      <div class="day-meta">Chiang Mai<br>AM Training<br>Thai Massage<br>Stadium</div>
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">04</span>
+      <span class="d-label">Fight Night 1</span>
+      <div class="d-name">Thaphae Stadium</div>
+      <div class="d-meta">AM Training<br>Thai Massage<br>Ringside 21:00</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 1 · Encounter</div>
-      <div class="day-title">Watch the real thing. You'll train differently tomorrow morning.</div>
-      <p class="day-desc">Morning session continues pad work and combinations. Afternoon: 2-hour Thai massage at a traditional clinic — not a tourist spa. This is the recovery method fighters use. The therapist finds every muscle you didn't know was tight from the past three days.</p>
-      <p class="day-desc">Evening: Thaphae Boxing Stadium, ringside. Professional Muay Thai — full Thai crowd, real judges, real consequence. Watch the fighters perform the Wai Kru. Watch the clinch. Watch how a fighter who is calm does something different from one who isn't. You already know enough to see things most people miss.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 1 · Encounter</div>
+      <div class="d-title">Watch the real thing. You'll train differently tomorrow morning.</div>
+      <p class="d-desc">Morning session: combinations and defense. How to use the teep to control distance. How to read a round kick coming and not panic. Afternoon: 2-hour traditional Thai massage at a proper clinic — the therapist will find muscles you didn't know you had. This is not optional. This is recovery.</p>
+      <p class="d-desc">Evening: Thaphae Boxing Stadium, ringside. Professional Muay Thai — real fighters, full Thai crowd, gambling on every bout. Watch the Wai Kru. Watch how fighters use the clinch to change position. Watch the footwork of the fighter who wins. You know enough now to see things most spectators miss. Stay for every bout.</p>
       <div class="sessions">
-        <div class="session-block">
-          <span class="session-time">07:00–09:00</span>
-          <div class="session-content">Combinations</div>
-          <div class="session-detail">Pad work with Kru</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">14:00–16:00</span>
-          <div class="session-content">Thai Massage</div>
-          <div class="session-detail">2-hour traditional session</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">21:00</span>
-          <div class="session-content">Thaphae Stadium</div>
-          <div class="session-detail">Ringside · Professional bouts</div>
-        </div>
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Combinations + Defense</div><div class="sess-sub">Teep control, reading the round kick</div></div>
+        <div class="sess"><span class="sess-time">14:00–16:00</span><div class="sess-title">Thai Massage</div><div class="sess-sub">2-hour traditional — deep tissue recovery</div></div>
+        <div class="sess"><span class="sess-time">21:00</span><div class="sess-title">Thaphae Stadium</div><div class="sess-sub">Ringside · Full professional card</div></div>
       </div>
     </div>
   </div>
 
-  <!-- Days 5-6 -->
+  <!-- Day 5 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">05<br><span style="font-size:24px;opacity:0.4;">06</span></span>
-      <span class="day-label">Days 5–6</span>
-      <div class="day-title-side">The Build</div>
-      <div class="day-meta">Chiang Mai<br>AM + PM Training<br>Recovery</div>
+    <div class="d-side">
+      <span class="d-num">05</span>
+      <span class="d-label">The Clinch</span>
+      <div class="d-name">Close Contact</div>
+      <div class="d-meta">AM + PM Training<br>Ice Bath Protocol<br>Debrief</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 1 · Depth</div>
-      <div class="day-title">Double sessions. The clinch. Ice baths. Group debrief each night.</div>
-      <p class="day-desc">Two full training days. The clinch is introduced — the aspect of Muay Thai most beginners ignore and most fights are decided by. Learning to control the clinch means learning to control distance, breath, and composure while physically locked with another person. It's uncomfortable. It's the most important thing you learn.</p>
-      <p class="day-desc">Recovery protocol: ice bath every morning before training and every evening after. Cold exposure at this frequency accelerates muscle recovery significantly. Group debrief each night — what worked in training, what the body is telling you, what you noticed about yourself when it was hard.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 1 · Depth</div>
+      <div class="d-title">The clinch begins. The part most people ignore. The part that decides most fights.</div>
+      <p class="d-desc">The clinch is introduced. You will be physically locked with a partner — arms inside or outside, heads close, each trying to off-balance the other for a knee or a throw. It is uncomfortable. Most beginners either go rigid (wrong) or go loose (wrong). The Kru teaches you how to be firm and relaxed at the same time — how to maintain control of your own body while absorbing the movement of another person's. This takes a long time to understand. It starts today.</p>
+      <p class="d-desc">Ice bath protocol starts this morning: 4 minutes before training, 4 minutes after. Cold exposure at this frequency significantly accelerates muscle recovery between sessions. It also teaches something about deciding to do hard things voluntarily. Evening debrief: what worked, what the body is telling you, what you noticed about yourself when the training was difficult.</p>
       <div class="sessions">
-        <div class="session-block">
-          <span class="session-time">07:00–09:00</span>
-          <div class="session-content">Clinch + Defense</div>
-          <div class="session-detail">Partner work, control</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">16:00–18:00</span>
-          <div class="session-content">Combination Drilling</div>
-          <div class="session-detail">Speed + power with pads</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">Evening</span>
-          <div class="session-content">Group Debrief</div>
-          <div class="session-detail">What's landing. What isn't.</div>
-        </div>
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Clinch Introduction</div><div class="sess-sub">Partner work, balance, knee entry</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Clinch + Combinations</div><div class="sess-sub">Linking the ground game to striking</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Group Debrief</div><div class="sess-sub">What's landing. What the body needs.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6 -->
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">06</span>
+      <span class="d-label">Power Day</span>
+      <div class="d-name">The Elbow</div>
+      <div class="d-meta">AM + PM Training<br>Local Cook Evening</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Week 1 · Depth</div>
+      <div class="d-title">The elbow — Muay Thai's most dangerous weapon. Why it works and when to use it.</div>
+      <p class="d-desc">The elbow is the weapon that separates Muay Thai from every other striking art. At close range, when a punch is too long, the elbow is already there. It is generated through a full body rotation — the same hip mechanics as the round kick, applied at a completely different range. Once you feel it land on a pad correctly, you understand why fighters say the elbow changes everything about close-range fighting.</p>
+      <p class="d-desc">Evening: group cook at a local family's home — a family who has been hosting Muay Thai travelers for 20 years. Northern Thai food from scratch: sticky rice pounded by hand, larb, nam prik noom (roasted green chili dip), gaeng hang lay (Burmese-influenced northern curry). They feed you the same food they feed their fighters.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Elbow Mechanics</div><div class="sess-sub">Pad work — horizontal, diagonal, spinning</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Full Combination Day</div><div class="sess-sub">All weapons linked in sequence</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Home Dinner</div><div class="sess-sub">Northern Thai family — food from scratch</div></div>
       </div>
     </div>
   </div>
 
   <!-- Day 7 -->
-  <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">07</span>
-      <span class="day-label">Day Seven</span>
-      <div class="day-title-side">Rest Day</div>
-      <div class="day-meta">Doi Inthanon<br>No Training<br>Summit + Waterfall</div>
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">07</span>
+      <span class="d-label">Rest Day</span>
+      <div class="d-name">Doi Inthanon</div>
+      <div class="d-meta">No Training<br>Thailand's Highest Peak<br>Waterfall Swim</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 1 · Adventure</div>
-      <div class="day-title">Thailand's highest point. Summit at 2,565m. Waterfall swim on the way down.</div>
-      <p class="day-desc">No training today. Pre-dawn departure — summit Doi Inthanon, the highest peak in Thailand. Misty ridgeline at altitude, twin chedis (pagodas) at the top built for the King and Queen. The perspective is different after 6 days in the ring.</p>
-      <p class="day-desc">Hidden waterfall on the descent — cold, clear, off the main trail. Swim and stay as long as you want. Back to camp by mid-afternoon. Optional evening bag work for those who genuinely want it — no obligation. The body needs this day.</p>
-      <div class="day-highlight">Rest is part of training. The Kru will tell you this. The fighters who don't believe it are the ones who get injured.</div>
+    <div class="d-body">
+      <div class="d-tag">Week 1 · Adventure</div>
+      <div class="d-title">Summit at 2,565m. The highest point in Thailand. Waterfall on the way down.</div>
+      <p class="d-desc">No training today. Pre-dawn departure — the summit of Doi Inthanon, Thailand's highest mountain, wrapped in cloud forest at 2,565m. The twin chedis at the top were built for the King and Queen. The summit is cold, misty, quiet. The perspective after 6 days of hard training in a hot gym is something particular.</p>
+      <p class="d-desc">Wachirathan Waterfall on the descent — a wide, powerful fall into a clear pool, surrounded by jungle. Swim as long as you want. Lunch at a hill tribe village on the road back. Return to camp by mid-afternoon. Optional bag work for those who want it — no obligation. The Kru will tell you: rest is training.</p>
+      <div class="d-callout">
+        <strong>Why a rest day matters:</strong> Muscle tissue grows and repairs during rest, not during training. Six consecutive days of twice-daily training without a recovery day produces diminishing returns and increases injury risk. Day 7 is not optional. It is part of the program design.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     ITINERARY — WEEK 2
+══════════════════════════════════════════ -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Week Two · Days 8–14</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Depth.</h1>
+  <p style="margin-bottom:32px;">The second week is where the training stops being technical and starts being real. Sparring begins. The Wai Kru is performed in the ring. The group travels to Mae Hong Son and teaches. And for those who want it — an amateur bout on Day 14. This is the week that changes something.</p>
+
+  <!-- Day 8 -->
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">08</span>
+      <span class="d-label">Sparring</span>
+      <div class="d-name">It Gets Real</div>
+      <div class="d-meta">AM + PM Training<br>Sparring Begins<br>1-on-1 w/ Kru</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Week 2 · The Hard Part</div>
+      <div class="d-title">Sparring begins. Light contact. This is when the mental piece opens up.</div>
+      <p class="d-desc">The Kru pairs you deliberately — not always with someone your size, not always with someone slower than you. Light contact sparring means you are not trying to hurt your partner. You are applying everything you've learned against someone who is responding in real time. The technique either lands or it doesn't. You cannot think fast enough to figure out what to do — you have to let the body do it.</p>
+      <p class="d-desc">This is the moment people describe when they explain what Muay Thai changed in them. You stop being in your head. You breathe through something coming at you. You start reading the other person instead of waiting to see what they do. It is not dramatic. It is just real. And it transfers — to every other situation where something is coming at you and you need to stay present.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Technical Sparring</div><div class="sess-sub">Light contact, Kru supervised, rotation</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Advanced Pad Work</div><div class="sess-sub">Combinations, counter-attack, timing</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">1-on-1 with Kru</div><div class="sess-sub">Individual technical assessment and notes</div></div>
+      </div>
     </div>
   </div>
 
-  <!-- Days 8-9 -->
+  <!-- Day 9 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">08<br><span style="font-size:24px;opacity:0.4;">09</span></span>
-      <span class="day-label">Days 8–9</span>
-      <div class="day-title-side">Sparring</div>
-      <div class="day-meta">Chiang Mai<br>AM + PM Training<br>Sparring Begins</div>
+    <div class="d-side">
+      <span class="d-num">09</span>
+      <span class="d-label">Reading</span>
+      <div class="d-name">Stop Reacting</div>
+      <div class="d-meta">AM + PM Training<br>Sparring Continues<br>River at Dusk</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 2 · The Hard Part</div>
-      <div class="day-title">Sparring begins. Light contact, full technique. The mental piece opens up.</div>
-      <p class="day-desc">The Kru pairs you deliberately — not always with someone your size, not always with someone slower than you. Light contact sparring means you're not trying to hurt each other. You're trying to apply what you've learned with someone who is responding. This is the first time the training becomes real.</p>
-      <p class="day-desc">What you'll learn: you stop thinking. The technique either lands or it doesn't. You learn to breathe when something is coming at you. You learn to read the person in front of you instead of reacting to them. This is the moment most people describe when they talk about why Muay Thai changed something in them.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 2 · Depth</div>
+      <div class="d-title">Day two of sparring. You're no longer bracing. You start reading.</div>
+      <p class="d-desc">The difference between Day 8 and Day 9 sparring is usually visible in the way people breathe. On Day 8 most people hold their breath when something comes. On Day 9 they breathe through it. This sounds small. It is not small. Breathing under pressure is the physical expression of composure. The Kru can see it from across the room.</p>
+      <p class="d-desc">Evening: Mae Ping River, a short walk from camp. Sit on the bank at dusk. There is nothing specific to do. This is one of the last quiet evenings before the week accelerates.</p>
       <div class="sessions">
-        <div class="session-block">
-          <span class="session-time">07:00–09:00</span>
-          <div class="session-content">Technical Sparring</div>
-          <div class="session-detail">Light contact, Kru supervised</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">16:00–18:00</span>
-          <div class="session-content">Advanced Pad Work</div>
-          <div class="session-detail">Combinations + counter</div>
-        </div>
-        <div class="session-block">
-          <span class="session-time">Evening</span>
-          <div class="session-content">1-on-1 with Kru</div>
-          <div class="session-detail">Individual technical notes</div>
-        </div>
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Sparring — Reading</div><div class="sess-sub">Focus on anticipation, not reaction</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Clinch Sparring</div><div class="sess-sub">Full clinch rounds — knees and balance</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Mae Ping River</div><div class="sess-sub">Dusk. Quiet. No agenda.</div></div>
       </div>
     </div>
   </div>
 
   <!-- Day 10 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">10</span>
-      <span class="day-label">Day Ten</span>
-      <div class="day-title-side">Integration</div>
-      <div class="day-meta">Chiang Mai<br>AM + PM Training<br>Home Dinner</div>
+    <div class="d-side">
+      <span class="d-num">10</span>
+      <span class="d-label">Integration</span>
+      <div class="d-name">Full Review</div>
+      <div class="d-meta">AM + PM Training<br>Extended 1-on-1<br>Rest</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 2 · Integration</div>
-      <div class="day-title">Full technical review. Then dinner at a local family's home.</div>
-      <p class="day-desc">The Kru identifies what each person specifically needs to fix in the final days. Extended 1-on-1 pad session focused on your individual weakness — whether that's the clinch, defense, footwork, or power generation on the round kick.</p>
-      <p class="day-desc">Evening: group cook at a local family's home. Northern Thai food from scratch — sticky rice, larb, nam prik, gaeng hang lay. This family has been hosting Muay Thai travelers for 20 years. They've seen people come through who've changed dramatically in two weeks. They understand what the training does to a person.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 2 · Integration</div>
+      <div class="d-title">The Kru tells each person specifically what to fix. Then fixes it.</div>
+      <p class="d-desc">Full technical review day. The Kru has been watching for 10 days. He knows exactly what each person's weakness is and exactly what to work on. Extended 1-on-1 pad sessions — each person gets more time with the Kru than usual. He is not polite about what needs to change. This is the most useful training session of the camp for most people.</p>
+      <p class="d-desc">Afternoon: rest. Full rest. Not optional. Not a light bag session. Sleep if you can. The body needs this before the final push of the week.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">1-on-1 Technical</div><div class="sess-sub">Extended pad work, individual focus</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Sparring — Full Application</div><div class="sess-sub">Everything linked, full rounds</div></div>
+        <div class="sess"><span class="sess-time">Afternoon</span><div class="sess-title">Rest</div><div class="sess-sub">Mandatory. The body earns it.</div></div>
+      </div>
     </div>
   </div>
 
   <!-- Day 11 -->
-  <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">11</span>
-      <span class="day-label">Day Eleven</span>
-      <div class="day-title-side">Fight Night 2</div>
-      <div class="day-meta">Chiang Mai<br>AM Training<br>Kalare Stadium</div>
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">11</span>
+      <span class="d-label">Fight Night 2</span>
+      <div class="d-name">Kalare Stadium</div>
+      <div class="d-meta">AM Training<br>Massage<br>Ringside 21:00</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 2 · Encounter</div>
-      <div class="day-title">Second fight night. You see something completely different from Day 4.</div>
-      <p class="day-desc">Morning session. Rest in the afternoon. Kalare Night Bazaar Boxing Stadium — older venue, local crowd, loud, real atmosphere. Every fight night in Chiang Mai is different. This one will feel different from Thaphae.</p>
-      <p class="day-desc">What changes between the first and second fight night is what you can see. On Day 4 you watched. Tonight you'll notice the footwork. The clinch entries. Which fighter is calm and which fighter is reacting. You know these things now. You've done them.</p>
+    <div class="d-body">
+      <div class="d-tag">Week 2 · Encounter</div>
+      <div class="d-title">Second fight night. You see something completely different from Day 4.</div>
+      <p class="d-desc">Morning training. Rest and massage in the afternoon. Kalare Night Bazaar Boxing Stadium in the evening — an older, louder venue than Thaphae, local crowd, atmosphere that feels less curated. Every fight night in Chiang Mai is different.</p>
+      <p class="d-desc">What changes between the first and second fight night is what you are able to see. On Day 4 you watched. Tonight you will notice the footwork. You will see how a fighter enters the clinch. You will notice when a fighter is calm and when they're not — and you'll know the difference because you've felt it from the inside. The fights look different to you now. That's the immersion working.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Fight Prep Training</div><div class="sess-sub">Sharpening, speed, timing</div></div>
+        <div class="sess"><span class="sess-time">14:00–16:00</span><div class="sess-title">Thai Massage</div><div class="sess-sub">Recovery before the final days</div></div>
+        <div class="sess"><span class="sess-time">21:00</span><div class="sess-title">Kalare Stadium</div><div class="sess-sub">Ringside · Full card</div></div>
+      </div>
     </div>
   </div>
 
   <!-- Day 12 -->
   <div class="day-block no-break">
-    <div class="day-sidebar">
-      <span class="day-num">12</span>
-      <span class="day-label">Day Twelve</span>
-      <div class="day-title-side">Wai Kru</div>
-      <div class="day-meta">Chiang Mai<br>Full Training Day<br>Ceremony</div>
+    <div class="d-side">
+      <span class="d-num">12</span>
+      <span class="d-label">The Ceremony</span>
+      <div class="d-name">Wai Kru</div>
+      <div class="d-meta">Longest Training Day<br>Full Ceremony<br>In the Ring</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Week 2 · The Ceremony</div>
-      <div class="day-title">Longest training day. Then the Wai Kru — performed in the ring, with the Kru present.</div>
-      <p class="day-desc">Hardest training day of the camp. Double sessions, extended duration. Everyone is tired. Everyone shows up. Evening: full traditional Wai Kru ceremony in the ring. The Kru places the mongkong (headband) and prachiads (armbands) on each person individually. The group performs the ritual sequence together — the same one performed by every Thai fighter before every professional bout.</p>
-      <p class="day-desc">By this point you understand what you're doing. The gesture means something because you've done the work it's supposed to honor.</p>
-      <div class="day-highlight"><strong>The Wai Kru sequence:</strong> Begins on one knee, arms raised, three circles of the ring to honor the teacher and ask for protection. Then each fighter performs their personal Wai Kru dance — a meditation in movement before combat. The Kru teaches the traditional sequence. Everyone performs it as themselves.</div>
+    <div class="d-body">
+      <div class="d-tag">Week 2 · The Ceremony</div>
+      <div class="d-title">The hardest training day. Then the Wai Kru — in the ring, with the Kru present.</div>
+      <p class="d-desc">The longest training day of the camp. Double sessions, extended duration, maximum intensity. Everyone is tired. Everyone shows up. There is a point in every immersion where the training stops being something you're doing and becomes something you're inside. This is that day.</p>
+      <p class="d-desc">Evening: full traditional Wai Kru ceremony in the ring. The Kru places the mongkong on each person's head individually — the same act performed by every Muay Thai teacher before every professional bout. The group performs the Wai Kru sequence together: three circuits of the ring, arms raised, the prayer, the personal dance. By this point the ritual means something because you have done the work it is supposed to honor. That is the only condition under which a ceremony is real.</p>
+      <div class="d-callout">
+        <strong>The Wai Kru sequence:</strong> Begins kneeling, facing the teacher. Three circuits of the ring to mark the sacred space. The Wai Kru dance — a personal meditation in movement that each fighter performs as themselves. The mongkong is placed by the Kru and removed only after the bout. The prachiads are tied at the bicep. The bow to the four corners. Then you fight.
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     SERVICE DAY + CLOSING
-═══════════════════════════════════════ -->
-<div class="doc-section page-break">
-  <div class="section-header">
-    <span class="section-tag">Day 13 · Service</span>
-    <div class="section-rule"></div>
+
+<!-- ══════════════════════════════════════════
+     SERVICE + CLOSE
+══════════════════════════════════════════ -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">Days 13–14 · Service and Closing</span>
+    <div class="eyebrow-rule"></div>
   </div>
+  <h1>Give back.<br>Then leave.</h1>
 
   <!-- Day 13 -->
-  <div class="day-block no-break" style="margin-bottom:40px;">
-    <div class="day-sidebar">
-      <span class="day-num">13</span>
-      <span class="day-label">Day Thirteen</span>
-      <div class="day-title-side">Give Back</div>
-      <div class="day-meta">Mae Hong Son<br>Hill Tribe Camp<br>Full Day</div>
+  <div class="day-block no-break" style="margin-bottom:36px;">
+    <div class="d-side">
+      <span class="d-num">13</span>
+      <span class="d-label">Service Day</span>
+      <div class="d-name">Mae Hong Son</div>
+      <div class="d-meta">Hill Tribe Camp<br>Full Day<br>Teach and Train</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Service + Giving Back</div>
-      <div class="day-title">You travel to the mountains and teach what you've learned.</div>
-      <p class="day-desc">Travel to Mae Hong Son — Master Boon's hill tribe village camp. This is where he trains children from the local hill tribes, fully sponsored, the same way he was trained as a child. The group runs a 2-hour training session for the kids. You teach stance, the teep, basic combinations. You run the warm-up. You hold the pads.</p>
-      <p class="day-desc">These kids train seriously. Some of them are better than you after 12 days of your training. That's the point. You're not coming to perform charity — you're coming to contribute to something that was already happening before you arrived, and that will continue after you leave. Lunch with the families. Return to Chiang Mai in the evening.</p>
+    <div class="d-body">
+      <div class="d-tag">Service + Giving Back</div>
+      <div class="d-title">Travel to the mountains. Teach what you learned. Don't go easy.</div>
+      <p class="d-desc">Travel to Mae Hong Son — Master Boon's hill tribe village camp in the mountains north of Chiang Mai. This is where he trains children from the local hill tribes, fully sponsored, the same way he was trained as a child. The camp exists independently of THE GAP. It will exist after you leave.</p>
+      <p class="d-desc">The group runs a 2-hour training session for the kids. You warm them up. You teach stance and the teep. You run pad rounds with them. You are not coming to perform charity — you are coming to contribute to something that is already serious, already happening, and already mattering. These kids train. Some of them are better than you. That's the point.</p>
+      <p class="d-desc">Lunch with the families. Walk the village. Return to Chiang Mai in the evening. The drive back through the northern hills takes two hours. Use it.</p>
     </div>
   </div>
 
   <div class="service-block">
-    <span class="service-tag">Why service is not optional</span>
-    <div class="service-title">You don't just take the experience. You add to it.</div>
-    <div class="service-body">
-      <p>Every immersion in THE GAP framework ends the same way: the group gives something back to the place and the people who made the experience possible. At Boon Lanna, that means traveling to the hill tribe camp that Master Boon has been running for years — the same camp that made him who he is as a teacher.</p>
-      <p>The service component isn't a field trip. It's a transfer. You've spent 12 days learning from people who know more than you. On Day 13, you become the one who knows more. That shift — from student to teacher — is one of the most significant moments in any learning journey.</p>
-    </div>
+    <span class="s-tag">Why service is not optional</span>
+    <div class="s-title">You don't just take the experience. You add to it.</div>
+    <p>Every immersion in THE GAP framework ends with the group giving something back to the place and the people who made the experience possible. This is not philanthropy. It is the completion of the learning cycle — you move from student to teacher, from receiver to contributor. That shift is one of the most significant moments in any serious education. It also makes the experience harder to walk away from unchanged, because you have left something of yourself in it.</p>
+    <p style="margin-top:14px;">At Boon Lanna, that means going to Mae Hong Son and running a session for kids who take Muay Thai more seriously than most adults ever will. They will push you. Let them.</p>
   </div>
 
   <!-- Day 14 -->
-  <div class="day-block no-break" style="margin-top:40px;">
-    <div class="day-sidebar">
-      <span class="day-num">14</span>
-      <span class="day-label">Day Fourteen</span>
-      <div class="day-title-side">Close</div>
-      <div class="day-meta">Chiang Mai<br>Optional Bout<br>Debrief<br>Departure</div>
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">14</span>
+      <span class="d-label">Closing Day</span>
+      <div class="d-name">Depart</div>
+      <div class="d-meta">Optional Bout<br>Final Debrief<br>Afternoon Departure</div>
     </div>
-    <div class="day-body">
-      <div class="day-phase">Closing Day</div>
-      <div class="day-title">For those who want it: an amateur bout arranged through the gym. For everyone: the last conversation.</div>
-      <p class="day-desc">Morning: optional amateur bout at a local stadium, arranged through Boon Lanna for those who want to compete. Light gloves, experienced referee, no expectation of winning — just the experience of doing it for real once. Everyone else attends and supports. It's a different thing to watch when it's someone you've trained alongside for 14 days.</p>
-      <p class="day-desc">Final group debrief: not a recap of what you did, but a conversation about what changed. What feels different. What you're taking home that you didn't bring. Departure in the afternoon.</p>
-      <div class="day-highlight"><strong>What you leave with:</strong> 14 days of twice-daily Muay Thai training. The Wai Kru. Two professional fight nights. Doi Inthanon. Mae Hong Son. The ability to walk into any gym in any country and hold your own. And something harder to name — a kind of calm you didn't have when you landed.</div>
+    <div class="d-body">
+      <div class="d-tag">Closing</div>
+      <div class="d-title">For those who want it: one bout. For everyone: the last conversation.</div>
+      <p class="d-desc">Morning: optional amateur bout at a local stadium, arranged through Boon Lanna for those who choose to compete. This is not a requirement. It is an offer. Light gloves, experienced referee, no expectation of outcome — just the experience of stepping into a ring in Thailand and doing it for real, once, having earned the preparation. Everyone else comes and supports. It is a different thing to watch someone you've trained alongside for 14 days.</p>
+      <p class="d-desc">Final group debrief: not a recap of what happened, but a conversation about what changed. What the body knows now that it didn't before. What feels different. What you're taking home that you didn't bring. Departure in the afternoon.</p>
+      <div class="d-callout"><strong>What you leave with:</strong> 13 days of twice-daily Muay Thai training under a Kru with real lineage. The Wai Kru — performed properly, in the ring, meaning something. Two professional fight nights from ringside. The summit of Doi Inthanon. Mae Hong Son. The ability to walk into any gym in any country and hold your own. And something else — harder to name, easier to demonstrate. A kind of calm you didn't have when you landed in Chiang Mai.</div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+
+<!-- ══════════════════════════════════════════
      LOGISTICS
-═══════════════════════════════════════ -->
-<div class="doc-section page-break">
-  <div class="section-header">
-    <span class="section-tag">Logistics</span>
-    <div class="section-rule"></div>
+══════════════════════════════════════════ -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">Logistics · What's Included · How to Apply</span>
+    <div class="eyebrow-rule"></div>
   </div>
-  <h1>What's included.<br>What to know.</h1>
+  <h1>Everything you need<br>to know.</h1>
 
   <div class="logistics-grid">
-    <div class="logistics-cell">
-      <span class="logistics-label">Location</span>
-      <div class="logistics-value">Chiang Mai, Thailand</div>
-      <div class="logistics-sub">Training base: Saraphi District · 13km from Chiang Mai International Airport</div>
+    <div class="lg-cell">
+      <span class="lg-l">Location</span>
+      <div class="lg-v">Chiang Mai, Thailand</div>
+      <div class="lg-sub">Training base: Saraphi District · 13km south of Chiang Mai International (CNX)</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Duration</span>
-      <div class="logistics-value">14 Days</div>
-      <div class="logistics-sub">Arrive Day 1 evening · Depart Day 14 afternoon</div>
+    <div class="lg-cell">
+      <span class="lg-l">Duration</span>
+      <div class="lg-v">14 Days</div>
+      <div class="lg-sub">Arrive Day 1 evening · Depart Day 14 afternoon</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Group Size</span>
-      <div class="logistics-value">8 spots</div>
-      <div class="logistics-sub">Intentionally small. The Kru knows your name and your weak side.</div>
+    <div class="lg-cell">
+      <span class="lg-l">Group Size</span>
+      <div class="lg-v">8 spots</div>
+      <div class="lg-sub">Intentionally small. The Kru knows your name and your weak side.</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Investment</span>
-      <div class="logistics-value">$3,400</div>
-      <div class="logistics-sub">Includes everything below. Flights not included.</div>
+    <div class="lg-cell">
+      <span class="lg-l">Investment</span>
+      <div class="lg-v">$3,400</div>
+      <div class="lg-sub">All-inclusive except flights and travel insurance. See below for full breakdown.</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Age Range</span>
-      <div class="logistics-value">17–24</div>
-      <div class="logistics-sub">No prior Muay Thai or martial arts experience required</div>
+    <div class="lg-cell">
+      <span class="lg-l">Age Range</span>
+      <div class="lg-v">17–24</div>
+      <div class="lg-sub">No prior Muay Thai, martial arts, or combat sports experience required.</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Fitness</span>
-      <div class="logistics-value">Reasonably active</div>
-      <div class="logistics-sub">Ability to run 3km without stopping. No elite fitness required — the training builds it.</div>
+    <div class="lg-cell">
+      <span class="lg-l">Fitness Baseline</span>
+      <div class="lg-v">Reasonably active</div>
+      <div class="lg-sub">Able to run 3km continuously. The training builds the rest. Elite fitness is not required.</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Training</span>
-      <div class="logistics-value">2× daily, 6 days/week</div>
-      <div class="logistics-sub">07:00–09:00 AM · 16:00–18:00 PM · Sunday off</div>
+    <div class="lg-cell">
+      <span class="lg-l">Training Schedule</span>
+      <div class="lg-v">2× daily, 6 days/week</div>
+      <div class="lg-sub">07:00–09:00 AM · 16:00–18:00 PM · Sunday off (Doi Inthanon)</div>
     </div>
-    <div class="logistics-cell">
-      <span class="logistics-label">Application</span>
-      <div class="logistics-value">apply@bridgethegap.com</div>
-      <div class="logistics-sub">Brief note on who you are and why this</div>
+    <div class="lg-cell">
+      <span class="lg-l">Apply</span>
+      <div class="lg-v">apply@bridgethegap.com</div>
+      <div class="lg-sub">Brief note on who you are and why this immersion. We respond within 48 hours.</div>
     </div>
   </div>
 
-  <h2 style="margin-top:40px;margin-bottom:24px;">What's included</h2>
+  <h2 style="margin-top:40px;margin-bottom:20px;">What's included</h2>
   <div class="include-grid">
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>All training</strong> — 13 days of twice-daily Muay Thai with Kru Boon's team. Gloves and gear provided at camp.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All Muay Thai training</strong>13 days of twice-daily sessions with Kru Boon's team. Gloves, shin guards, and all striking equipment provided.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Accommodation</strong> — Private rooms near camp in Saraphi District. Clean, simple, close to the ring.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Accommodation</strong>Private rooms near camp in Saraphi District. Clean, simple, close to the ring. No resort — a fighter's camp.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Daily meals</strong> — Breakfast and lunch at camp. Group dinners together. Northern Thai food, cooked well.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Daily meals</strong>Breakfast and lunch at camp. Group dinners together. Northern Thai food throughout.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Thai massage</strong> — 2-hour traditional massage on Day 4. The recovery method fighters actually use.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>2 × Thai massage</strong>Days 4 and 11. 2-hour traditional sessions at a proper clinic. The recovery method fighters use.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Two fight nights</strong> — Ringside seats at Thaphae Boxing Stadium (Day 4) and Kalare Stadium (Day 11).</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Two fight nights, ringside</strong>Thaphae Boxing Stadium (Day 4) and Kalare Night Bazaar Stadium (Day 11). Professional bouts, full card.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Doi Inthanon</strong> — Full day summit and waterfall. Transport included.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Doi Inthanon — full day</strong>Summit at 2,565m, waterfall swim on the descent. Transport from and to camp included.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Mae Hong Son</strong> — Full day trip to hill tribe camp. Transport, lunch, full service day.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Mae Hong Son — full day</strong>Hill tribe camp visit, full teaching session, lunch with families. Transport included.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Wai Kru ceremony</strong> — Full traditional ceremony with mongkong and prachiads. With the Kru present, in the ring.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Wai Kru ceremony</strong>Full traditional ceremony in the ring. Mongkong and prachiads. With the Kru. On Day 12.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Group dinner at a local family's home</strong> — Northern Thai food, from scratch, Day 10.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Doi Suthep temple visit</strong>Day 2 afternoon. 800 years old. 309 steps. One of the most significant temple sites in Thailand.</div>
     </div>
-    <div class="include-item">
-      <span class="include-check">✦</span>
-      <div class="include-text"><strong>Airport transfers</strong> — Arrival Day 1 and departure Day 14.</div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Home dinner — Day 6</strong>Northern Thai family, food cooked from scratch. The same family has been hosting fighters for 20 years.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Airport transfers</strong>Day 1 arrival pickup and Day 14 departure drop-off at Chiang Mai International (CNX).</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Recovery protocol</strong>Ice baths, namman muay liniment, and structured rest built into the daily schedule.</div>
     </div>
   </div>
 
-  <h3 style="margin-top:36px;margin-bottom:16px;">What to bring</h3>
-  <p>Hand wraps (the Kru will teach you how to wrap). Lightweight athletic clothing — shorts and t-shirts, nothing fancy. Running shoes for the morning run. Sandals. The camp provides gloves, shin guards, and all striking equipment. Pack light. You're training, not touring.</p>
+  <h3>What to bring</h3>
+  <p>Hand wraps — the Kru will show you how to wrap correctly on Day 1. Lightweight athletic shorts and t-shirts (you will sweat through them). Running shoes. Sandals for off-training hours. A towel. The camp provides all striking equipment: gloves, shin guards, head guards, heavy bags, pads. Pack light. You are training, not touring.</p>
 
-  <h3 style="margin-top:24px;margin-bottom:16px;">What is not included</h3>
-  <p>International flights to and from Chiang Mai. Travel insurance (required — get it before you leave). Personal spending. The optional amateur bout on Day 14 (no additional cost, just optional).</p>
+  <h3>What is not included</h3>
+  <p>International flights to and from Chiang Mai (CNX). Travel insurance — required, purchase before departure. Personal spending. The optional amateur bout on Day 14 is included at no additional cost for those who choose to participate.</p>
 </div>
 
-<!-- ═══════════════════════════════════════
-     CLOSING
-═══════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════
+     CLOSING PAGE
+══════════════════════════════════════════ -->
 <div class="closing page-break">
   <div>
-    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);display:block;margin-bottom:32px;">The Gap · Micro Immersion Series</span>
-    <div class="closing-title">8 spots.<br>Chiang Mai.</div>
-    <p class="closing-sub">You don't have to have done this before. You don't have to be fit enough yet. You have to be willing to show up every morning at 7:00am, to do the work even when it's hard, and to let the 14 days be what they are. That's the only requirement.</p>
-    <div style="display:flex;gap:32px;margin-top:48px;flex-wrap:wrap;">
+    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:36px;">The Gap · Micro Immersion Series · Muay Thai</span>
+    <div class="closing-h">8 spots.<br>Chiang Mai.<br>Are you in?</div>
+    <p class="closing-sub">You do not have to be a fighter. You do not have to be fit enough yet. You have to be willing to show up at 7:00am every morning, to do the work when it is genuinely difficult, and to let the 14 days be what they are. That is the only requirement.</p>
+    <div class="closing-contacts">
       <div>
-        <span style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);display:block;margin-bottom:6px;">Register Interest</span>
-        <span style="font-family:'Space Mono',monospace;font-size:12px;color:#d4ac4e;letter-spacing:0.1em;">apply@bridgethegap.com</span>
+        <span class="cc-label">Register Interest / Apply</span>
+        <span class="cc-val">apply@bridgethegap.com</span>
       </div>
       <div>
-        <span style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);display:block;margin-bottom:6px;">Website</span>
-        <span style="font-family:'Space Mono',monospace;font-size:12px;color:#d4ac4e;letter-spacing:0.1em;">bridgethegap.com</span>
+        <span class="cc-label">Program Website</span>
+        <span class="cc-val">bridgethegap.com</span>
       </div>
     </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;display:flex;justify-content:space-between;align-items:flex-end;">
-    <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:white;letter-spacing:-1px;">THE GAP</span>
-    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Bridge The Gap · Muay Thai Micro Immersion</span>
+  <div class="closing-footer">
+    <div class="closing-logo">THE GAP</div>
+    <span class="closing-footer-tag">Bridge The Gap · Muay Thai · Chiang Mai, Thailand</span>
   </div>
 </div>
 
