@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE GAP — Cold Water + Breathwork · Iceland</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono&display=swap');
+
+:root {
+  --ink: #1a1a1a;
+  --ink2: #2e2e2e;
+  --ink3: #4a4a4a;
+  --gold: #b8922a;
+  --gold-light: #d4ac4e;
+  --gold-bg: #fdf8ee;
+  --cream: #fafaf7;
+  --white: #ffffff;
+  --rule: #e0d8c8;
+  --sidebar: #f4f0e8;
+  --dark: #111111;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 14px; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+@media print {
+  .page-break { page-break-before: always; }
+  .no-break { page-break-inside: avoid; }
+  body { font-size: 11px; }
+}
+
+.cover {
+  background: #0c0e12;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px 80px 56px;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: 'ICELAND';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.015);
+  letter-spacing: -8px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cover-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 28px; }
+.cover-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: white; letter-spacing: -0.5px; }
+.cover-brand span { color: var(--gold-light); }
+.cover-series { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; }
+.cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 72px 0 48px; }
+.cover-eyebrow { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.35em; color: var(--gold-light); text-transform: uppercase; display: block; margin-bottom: 28px; }
+.cover-title { font-family: 'Playfair Display', serif; font-size: 112px; font-weight: 900; line-height: 0.85; letter-spacing: -5px; color: white; margin-bottom: 12px; }
+.cover-title-sub { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.35); letter-spacing: -1px; margin-bottom: 48px; }
+.cover-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 36px; }
+.cover-intro { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.55); max-width: 540px; line-height: 1.65; margin-bottom: 56px; }
+.cover-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,0.07); max-width: 640px; }
+.cover-stat { background: #0c0e12; padding: 24px 20px; }
+.cover-stat-n { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--gold-light); line-height: 1; display: block; margin-bottom: 4px; }
+.cover-stat-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(255,255,255,0.28); text-transform: uppercase; }
+.cover-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.cover-note { font-size: 11.5px; color: rgba(255,255,255,0.35); max-width: 420px; line-height: 1.75; font-style: italic; }
+.cover-contact { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--gold-light); }
+
+.doc-page { max-width: 840px; margin: 0 auto; padding: 72px 64px; }
+.section-eyebrow { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
+.eyebrow-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; white-space: nowrap; }
+.eyebrow-rule { flex: 1; height: 1px; background: var(--rule); }
+
+h1 { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 900; line-height: 1.0; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 28px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 14px; margin-top: 32px; }
+p { color: var(--ink3); line-height: 1.82; margin-bottom: 16px; font-size: 13.5px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+.dark-block { background: var(--dark); padding: 52px 56px; margin: 40px 0; }
+.dark-block-tag { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; display: block; margin-bottom: 20px; }
+.dark-block blockquote { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; line-height: 1.55; color: white; margin: 0 0 24px 0; font-weight: 400; }
+.dark-block p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.82; }
+
+.framework-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); margin: 36px 0; }
+.fw-cell { background: var(--cream); padding: 32px 28px; }
+.fw-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 10px; }
+.fw-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.fw-body { font-size: 12.5px; color: var(--ink3); line-height: 1.75; }
+
+.teacher-wrap { display: grid; grid-template-columns: 190px 1fr; border: 1px solid var(--rule); margin: 36px 0; }
+.teacher-left { background: var(--dark); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; }
+.t-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 8px; }
+.t-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); line-height: 1.7; }
+.t-lineage { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: rgba(255,255,255,0.22); text-transform: uppercase; line-height: 1.9; }
+.teacher-right { padding: 36px 40px; }
+.teacher-right p { font-size: 13px; color: var(--ink3); line-height: 1.85; }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.cred-cell { background: var(--sidebar); padding: 14px 16px; }
+.cred-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+.cred-v { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+.day-block { display: grid; grid-template-columns: 168px 1fr; border: 1px solid var(--rule); margin-bottom: 14px; }
+.day-block.accent-gold { border-left: 3px solid var(--gold); }
+.day-block.accent-dark { border-left: 3px solid var(--dark); }
+.d-side { background: var(--sidebar); padding: 24px 20px; border-right: 1px solid var(--rule); }
+.d-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1; display: block; margin-bottom: 2px; }
+.d-label { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; color: var(--ink3); text-transform: uppercase; display: block; margin-bottom: 14px; }
+.d-name { font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+.d-meta { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.1em; color: var(--ink3); text-transform: uppercase; line-height: 1.9; }
+.d-body { padding: 24px 30px; }
+.d-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.d-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.3; }
+.d-desc { font-size: 12.5px; color: var(--ink3); line-height: 1.82; margin-bottom: 14px; }
+.d-desc:last-child { margin-bottom: 0; }
+.sessions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
+.sess { background: var(--sidebar); padding: 12px 14px; border-left: 2px solid var(--gold); }
+.sess-time { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 3px; }
+.sess-title { font-size: 11.5px; font-weight: 600; color: var(--ink2); line-height: 1.35; }
+.sess-sub { font-size: 10.5px; color: var(--ink3); line-height: 1.5; margin-top: 3px; }
+.d-callout { background: var(--gold-bg); border-left: 3px solid var(--gold); padding: 13px 16px; margin-top: 14px; font-size: 12px; color: var(--ink2); line-height: 1.75; }
+
+.service-block { background: #1a1a2e; color: white; padding: 48px 52px; margin: 36px 0; }
+.service-block .s-tag { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.3em; color: rgba(255,255,255,0.35); text-transform: uppercase; display: block; margin-bottom: 18px; }
+.service-block .s-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: white; margin-bottom: 16px; line-height: 1.25; }
+.service-block p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.85; }
+
+.logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 28px 0; }
+.lg-cell { background: var(--cream); padding: 22px 26px; }
+.lg-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+.lg-v { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.lg-sub { font-size: 11.5px; color: var(--ink3); margin-top: 4px; line-height: 1.5; }
+
+.include-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+.inc-item { display: flex; align-items: flex-start; gap: 12px; background: var(--sidebar); padding: 14px 16px; }
+.inc-mark { color: var(--gold); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.inc-text { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+.inc-text strong { font-size: 12.5px; display: block; margin-bottom: 2px; }
+
+.closing { background: var(--dark); color: white; min-height: 55vh; padding: 80px; display: flex; flex-direction: column; justify-content: space-between; }
+.closing-h { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; line-height: 0.88; letter-spacing: -2.5px; color: white; margin-bottom: 28px; }
+.closing-sub { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.45); max-width: 460px; line-height: 1.65; margin-bottom: 48px; }
+.closing-contacts { display: flex; gap: 48px; }
+.cc-label { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); display: block; margin-bottom: 5px; }
+.cc-val { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-light); }
+.closing-footer { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.closing-logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: white; letter-spacing: -1px; }
+.closing-footer-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">THE <span>GAP</span></div>
+    <span class="cover-series">Micro Immersion Series · Discipline No. 06</span>
+  </div>
+
+  <div class="cover-main">
+    <span class="cover-eyebrow">Cold Water + Breathwork · Reykjavik + Snæfellsnes · Iceland</span>
+    <div class="cover-title">Ice-<br>land.</div>
+    <div class="cover-title-sub">7 Days at the Edge.</div>
+    <div class="cover-rule"></div>
+    <p class="cover-intro">Most discomfort is chosen. The difference between cold water and cold water with breath is the difference between panic and presence. Iceland puts you at the edge of the comfortable world — geothermal warmth ten meters from freezing ocean — and teaches you to move deliberately between the two.</p>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <span class="cover-stat-n">7</span>
+        <span class="cover-stat-l">Days</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">8</span>
+        <span class="cover-stat-l">Spots</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">0°C</span>
+        <span class="cover-stat-l">Water Temp</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">The</span>
+        <span class="cover-stat-l">Edge</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">$2,400</span>
+        <span class="cover-stat-l">All-In</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <p class="cover-note">No cold water or breathwork experience required. The protocol is progressive and safe. You will be in the cold before you think you're ready. That's the entire point.</p>
+    <span class="cover-contact">apply@bridgethegap.com</span>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Philosophy</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>The cold is a<br>tool, not a test.</h1>
+
+  <p>Cold water immersion has been practiced in Nordic cultures for centuries — the sauna followed by a plunge into cold water, the winter swimming traditions of Finland and Iceland, the geothermal contrast bathing that is part of daily Icelandic life. The modern framework that Andri Einarsson teaches — a synthesis of the Wim Hof Method with Iceland's unique environmental resources — is not a new idea. It is a structured approach to something Icelanders have always understood: that moving between hot and cold, deliberately and regularly, changes how the nervous system operates.</p>
+
+  <p>The physiological effects of controlled cold exposure are documented: vasoconstriction and vasodilation of blood vessels, activation of brown fat (the thermogenically active tissue that generates heat), hormonal responses including increased norepinephrine and endorphins, and — with practice — a measurable reduction in the anxiety response to cold. The last of these is the most important. Cold water at 2–4°C triggers an immediate panic response in most people: gasping, elevated heart rate, the desperate urge to get out. The breathwork trains you to override that response — to enter the cold with a full breath, to exhale slowly, to let the heart rate drop rather than spike. That override — of a physical panic response through trained breath — is the skill.</p>
+
+  <p>What makes Iceland uniquely suited to this practice is the juxtaposition. Nowhere else on earth is the geothermal heat — 40°C hot springs produced by the volcanic activity that built the island — ten meters from 2°C glacial rivers. The contrast bathing protocol that Andri teaches uses both: you move between them deliberately, repeatedly, over 7 days, until the transition is something you choose rather than something that happens to you. That capacity for deliberate transition — between comfort and discomfort, between warmth and cold, between ease and effort — is the thing you take home.</p>
+
+  <div class="dark-block">
+    <span class="dark-block-tag">The Gap · Core Belief</span>
+    <blockquote>"Comfort is not the goal. The goal is the capacity to choose discomfort deliberately, to enter it fully, to stay present inside it, and to return to comfort with something you didn't have before you went in."</blockquote>
+    <p>Every discipline in THE GAP framework is chosen because it teaches something that cannot be learned in a classroom. Breathwork and cold water teach the most direct form of self-regulation: the ability to redirect the nervous system in real time, using breath as the tool. In Iceland, this is practiced in the most instructive environment in the world — where the geography itself embodies the principle.</p>
+  </div>
+
+  <h2>The Snæfellsnes Peninsula</h2>
+
+  <p>Snæfellsnes is a 90-kilometer peninsula extending west from the Reykjavik region into the North Atlantic — a landscape of black volcanic cliffs, glacier-capped volcano (Snæfellsjökull, the glacier Jules Verne sent his characters into in Journey to the Center of the Earth), fishing villages, and beaches where basalt columns rise from the surf. On Days 5 and 6, the immersion moves from Reykjavik to Snæfellsnes for the most remote and most demanding cold exposure of the week. The glacier walk and the Snæfellsnes ocean plunge are the experiential peak of the seven days.</p>
+
+  <div class="framework-grid">
+    <div class="fw-cell">
+      <div class="fw-num">01</div>
+      <div class="fw-name">Adventure + Adrenaline</div>
+      <p class="fw-body">Progressive cold exposure from geothermal contrast to glacial river swim to North Atlantic ocean plunge. Snæfellsjökull glacier walk. The adrenaline is not manufactured — it is 2°C water and the nervous system response to entering it. The breathwork is how you transform that response.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">02</div>
+      <div class="fw-name">Travel + Encounter</div>
+      <p class="fw-body">Iceland's hot/cold culture is not a wellness trend — it is the way Icelanders live. Geothermal pools in Reykjavik neighborhoods, ylstrúkur (traditional Icelandic sauna) in a countryside farm, midnight sun or Northern Lights depending on season. The geography is the philosophy made physical.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">03</div>
+      <div class="fw-name">Service + Giving Back</div>
+      <p class="fw-body">Day 6: reforestation service day. Iceland lost 96% of its birch forests after Viking settlement — the deforestation is one of the most complete in European history. There are established volunteer planting programs. You plant trees in a landscape that once had them. That's not symbolic. That's hundreds of trees in the ground.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- TEACHER -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Teacher</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>Andri Einarsson<br>and ANDRI ICELAND.</h1>
+
+  <div class="teacher-wrap">
+    <div class="teacher-left">
+      <div class="teacher-name-block">
+        <div class="t-name">Andri<br>Einarsson</div>
+        <div class="t-tag">ANDRI ICELAND<br>Reykjavik, Iceland<br>Wim Hof Certified</div>
+      </div>
+      <div class="t-lineage">
+        Wim Hof Method<br>Official Instructor<br>Cold Exposure<br>Breathwork<br>Mental Training
+      </div>
+    </div>
+    <div class="teacher-right">
+      <p>Andri Einarsson founded ANDRI ICELAND as a platform for cold exposure, breathwork, and mental training using Iceland's unique environment as the primary tool. He is an official certified Wim Hof Method instructor — the framework developed by Dutch athlete Wim Hof that combines specific breathing techniques, cold exposure, and mental commitment to develop physiological and psychological resilience. Andri is one of the few instructors anywhere who teaches this method in the actual environment it was designed to work in: extreme cold, real geothermal contrast, the edge of the habitable world.</p>
+      <p>His approach goes beyond the Wim Hof Method to incorporate Iceland's indigenous hot/cold culture — the community swimming pools heated by geothermal energy that every Icelander uses, the traditional ylstrúkur sauna practices of the countryside, the winter ocean swimming that happens in Reykjavik harbor year-round among people who simply consider it part of life. These traditions predate the wellness industry by centuries. Andri bridges the modern scientific framework with the ancient Icelandic practice.</p>
+      <p>He has led groups through cold exposure experiences ranging from beginners stepping into a hot spring for the first time to athletes completing glacial river submersions in full winter conditions. His read of each person's readiness — when to push, when to hold, when to step back — is the skill that makes the progressive protocol safe and transformative rather than traumatic.</p>
+      <div class="cred-grid">
+        <div class="cred-cell">
+          <span class="cred-l">Certification</span>
+          <div class="cred-v">Official Wim Hof Method Instructor · certified</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Specialties</span>
+          <div class="cred-v">Cold exposure, breathwork, heat therapy, mental training</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Method</span>
+          <div class="cred-v">Wim Hof + Icelandic indigenous hot/cold tradition</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Base</span>
+          <div class="cred-v">Reykjavik, Iceland · year-round operation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What the protocol looks like</h2>
+
+  <p>The Wim Hof breathing technique is specific. It is not meditation and it is not hyperventilation, though it has elements of both. The protocol: 30–40 deep, full breaths — in through the mouth, out through the nose, at a pace slightly faster than resting — followed by a retention (breath hold after exhale, when the lungs are empty). The retention extends as the body adapts to the CO2 buildup and the bloodstream alkalinity changes from the preceding breaths. The second retention is after a deep inhale. Rounds of three, then a period of stillness. The physiological effect is real and measurable: changed CO2 levels, activated sympathetic nervous system, often accompanied by tingling, warmth, or altered states of consciousness.</p>
+
+  <p><strong>The cold comes after the breath, not before.</strong> This is the key pedagogical sequence. Two or three rounds of Wim Hof breathing before entering cold water change the experience entirely — the nervous system is already activated and regulated by the breath, so the shock of the cold lands differently. It is still cold. It is still uncomfortable. But the panic response is reduced, the breath control is already established, and the body has a tool available that most people don't have when they step into cold water unprepared.</p>
+
+  <p>The progressive exposure over 7 days: Day 2 begins with geothermal contrast in a controlled setting (hot spring at 38°C alternating with cold pool at 10–12°C). By Day 4 the cold exposure is a glacial river swim in moving water. By Day 5 it is the North Atlantic ocean at Snæfellsnes. Each step is earned by the last. Andri does not push anyone into cold they have not prepared for. He also does not allow anyone to avoid cold they are ready for. The read of that boundary is his skill.</p>
+
+  <div class="d-callout" style="border-left-color:var(--ink);background:var(--sidebar);">
+    <strong>On the sauna:</strong> The ylstrúkur is the traditional Icelandic sauna — a wood-heated structure on a farm or hillside, producing dry heat at 80–100°C. It is distinct from Finnish sauna and from steam rooms. The combination of ylstrúkur and cold water forms the core of Icelandic contrast therapy. On Day 3, the group uses a traditional countryside ylstrúkur, which frames the cold differently from the urban pool protocol. The heat is more intense. The cold comes from a stream twenty meters away. The contrast is the teacher.
+  </div>
+</div>
+
+
+<!-- ITINERARY ALL 7 DAYS -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · All 7 Days</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Into the cold.<br>Out the other side.</h1>
+  <p style="margin-bottom:32px;">Seven days. Each day colder than the last. The breath is the tool. Iceland is the environment. By Day 5 you will be in the North Atlantic — voluntarily, with breath, with presence. That is not where you started.</p>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">01</span>
+      <span class="d-label">Arrival</span>
+      <div class="d-name">Reykjavik</div>
+      <div class="d-meta">No cold exposure<br>City walk<br>Group dinner<br>Hot spring evening</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Orientation</div>
+      <div class="d-title">Arrive in Reykjavik. Walk the city. Understand what is remarkable about this place.</div>
+      <p class="d-desc">Transfer from Keflavik International Airport to accommodation in central Reykjavik — 45 minutes through a black lava field landscape unlike anything in Europe. The city is small (250,000 people), low-rise, colorful corrugated metal and turf houses mixed with modern architecture. Walk the harbor. Hallgrímskirkja church from below. The northern light — in summer, it never gets fully dark; in winter, the darkness is profound. Group dinner at a Reykjavik restaurant Andri uses. Evening: optional Laugardalslaug — the city's largest geothermal public pool, used by Reykjavik residents every day, not a tourist attraction. Your first contact with the hot/cold contrast. Sit in the hot pot (44°C). Then, when you're ready — or not yet — the cold pool. Tomorrow the breath work begins.</p>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">02</span>
+      <span class="d-label">Breathwork</span>
+      <div class="d-name">The Protocol</div>
+      <div class="d-meta">AM: Wim Hof Method<br>PM: Contrast Session<br>Geothermal Pools</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Foundation</div>
+      <div class="d-title">Andri teaches the breathing protocol. Then you use it. The cold comes after.</div>
+      <p class="d-desc">Morning: full Wim Hof breathing instruction session with Andri — three complete rounds, guided. The technique: 30–40 full breaths, retention after exhale, deep breath retention, repeat. Andri guides the pace and depth, reads the group's response, adjusts. The physiological effects are real: tingling in the extremities, light-headedness, a sense of heightened alertness. This is chemistry, not imagination — altered CO2 levels, alkalinity shift, sympathetic activation. After the session, lying flat on the floor in silence, the body in a state you have not produced in it before. That state is what you take into the cold.</p>
+      <p class="d-desc">Afternoon: first formal contrast session — Reykjavik's Sundhöll baths, a historic geothermal pool facility built in 1937. Hot pots at 38–42°C alternating with a cold pool at 12°C. Three contrast cycles with Andri guiding each transition: breathe before entering the cold, exhale slowly, stay for the count, return to heat. The cold at 12°C with the breathing protocol is different from the cold at 12°C without it. That difference is the entire curriculum in miniature.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–10:00</span><div class="sess-title">Wim Hof Protocol</div><div class="sess-sub">Three full rounds, guided by Andri</div></div>
+        <div class="sess"><span class="sess-time">14:00–17:00</span><div class="sess-title">First Contrast Session</div><div class="sess-sub">Sundhöll baths — 3 hot/cold cycles</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Debrief</div><div class="sess-sub">What the body did · what changed</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">03</span>
+      <span class="d-label">Ylstrúkur</span>
+      <div class="d-name">Countryside Sauna</div>
+      <div class="d-meta">AM: Breathwork<br>PM: Traditional Sauna<br>Cold Stream</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Tradition</div>
+      <div class="d-title">The traditional Icelandic sauna and a glacial stream. 80°C to 4°C. Ten meters apart.</div>
+      <p class="d-desc">Morning: second breathwork session — Andri introduces breath-hold walking (the practice of holding breath while moving, slowly, which trains calm under mild physical stress). Also: cold shower training protocol for the morning at home. This is the most practical tool Andri teaches — how to use a cold shower as a daily practice for the techniques developed this week. Not a plunge. A deliberate, controlled approach to cold water in the context of daily life.</p>
+      <p class="d-desc">Afternoon: drive 45 minutes outside Reykjavik to a farm in the countryside. A traditional ylstrúkur — dry wood-heated sauna, 80–90°C — adjacent to a stream fed by glacial melt, running at 3–5°C. The contrast here is absolute. In the sauna, the heat is serious — 90°C requires deliberate breathing. In the stream, the cold is serious. The distance between the two is twenty meters across a field. Each cycle: 15–20 minutes in the sauna, 2–3 minutes in the stream, repeat three times. The last plunge is done without talking. Just breath, cold water, presence.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–09:30</span><div class="sess-title">Breath-Hold Walking</div><div class="sess-sub">Andri's movement protocol</div></div>
+        <div class="sess"><span class="sess-time">13:00–18:00</span><div class="sess-title">Ylstrúkur + Stream</div><div class="sess-sub">3 full cycles · 80°C to 4°C</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Farm Dinner</div><div class="sess-sub">Lamb, skyr, Icelandic hospitality</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">04</span>
+      <span class="d-label">Glacial River</span>
+      <div class="d-name">Moving Water</div>
+      <div class="d-meta">AM: Deep Breathwork<br>PM: Glacial Swim<br>Reykjavik Harbor</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Progression</div>
+      <div class="d-title">The glacial river swim. Moving water, 2–4°C. This is the step most people are nervous about.</div>
+      <p class="d-desc">Morning: extended Wim Hof session, longest and deepest of the week. Andri prepares the group physically and mentally for the afternoon. The conversation before the glacial river is not motivational — it is practical. What to expect: the gasp reflex (the involuntary inhalation when cold water hits the face), how the breath protocol overrides it, how the body's cold response changes in moving water versus still water, what safe exit points look like, what to do if the breath breaks down. Andri is thorough because he respects the experience. You should know exactly what you're walking into.</p>
+      <p class="d-desc">Afternoon: glacial river swim — a specific river site Andri has used for years, accessible and safe, fed from the glacier, running at 2–4°C. The protocol: full breathwork session on the bank, entry deliberate and slow, controlled exhale on entry, stay for the count (Andri sets the duration based on the group's condition), exit calm and controlled. Andri is in the water with the group. The first person into the water is usually the hardest moment of the week. The last person out is usually the best moment of the week.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–10:30</span><div class="sess-title">Deep Breathwork</div><div class="sess-sub">Extended session, river preparation</div></div>
+        <div class="sess"><span class="sess-time">14:00–17:00</span><div class="sess-title">Glacial River Swim</div><div class="sess-sub">Andri in water · protocol full application</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Harbor Hot Pot</div><div class="sess-sub">Reykjavik harbor geothermal pool · recovery</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">05</span>
+      <span class="d-label">Snæfellsnes</span>
+      <div class="d-name">The Atlantic</div>
+      <div class="d-meta">Glacier Walk AM<br>Ocean Plunge PM<br>Peninsula</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">The Main Event</div>
+      <div class="d-title">Snæfellsjökull glacier walk. Then the North Atlantic. The week's peak day.</div>
+      <p class="d-desc">Drive west to the Snæfellsnes Peninsula, 2.5 hours from Reykjavik. Morning: guided glacier walk on Snæfellsjökull — the glacier Jules Verne sent his characters into. The Snæfellsjökull is a volcano capped with glacial ice, rising 1,446m from sea level at the tip of the peninsula. The glacier surface is firm snow and exposed ice. The guide from the local ranger service provides crampons and leads the group 1.5 hours onto the glacier and back. The views from the glacier — the North Atlantic on three sides, the black-sand coast below, the Reykjavik skyline 150km east on clear days — are extraordinary.</p>
+      <p class="d-desc">Afternoon: ocean cold plunge at the black-sand beach at the peninsula's base — the North Atlantic, which runs at 5–8°C in summer, 2–4°C in winter. Full breathwork protocol on the beach with Andri. Entry into the ocean. Not a swimming session — a standing cold immersion in moving saltwater with breaking surf. This is the week's experiential peak. Everything before it has prepared the nervous system for this moment. If the breath is intact, the cold is manageable. If the breath is intact, the cold is even, in some sense, welcome.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">09:00–12:00</span><div class="sess-title">Glacier Walk</div><div class="sess-sub">Snæfellsjökull with ranger guide</div></div>
+        <div class="sess"><span class="sess-time">14:00–17:00</span><div class="sess-title">Atlantic Ocean Plunge</div><div class="sess-sub">Black-sand beach · full breathwork · entry</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Peninsula Accommodation</div><div class="sess-sub">Stay in Snæfellsnes overnight</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">06</span>
+      <span class="d-label">Service Day</span>
+      <div class="d-name">Reforestation</div>
+      <div class="d-meta">Full Day<br>Tree Planting<br>Give Back</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Service + Giving Back</div>
+      <div class="d-title">Iceland lost 96% of its forests. Today you plant trees in a landscape that once had them.</div>
+      <p class="d-desc">Iceland was covered in birch and willow forest when the Norse settlers arrived in the 9th century. Within 200 years, the settlers had cleared nearly all of it — for farmland, for fuel, for building materials. What was left was exposed to the wind and the cold and the volcanic soil leached away without root systems to hold it. Iceland today is one of the most deforested countries in Europe by percentage. The recovery of its forests is a multi-generational project that has been underway since the late 20th century.</p>
+      <p class="d-desc">Full day with the Icelandic Forest Service volunteer planting program — a straightforward, physical, outdoor day. Planting native Icelandic birch seedlings in a designated restoration area, working in small teams with program staff guidance. The work is physical and simple and satisfying in the specific way that physical outdoor work is satisfying. A day of tree planting by a group of 8 means several hundred trees in the ground that would not otherwise be there. The trees will be saplings when you leave. They will be a forest in 30 years.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">09:00–12:30</span><div class="sess-title">Tree Planting</div><div class="sess-sub">Native birch · restoration site</div></div>
+        <div class="sess"><span class="sess-time">Afternoon</span><div class="sess-title">Drive Back to Reykjavik</div><div class="sess-sub">2.5 hours through the lava fields</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Final Hot Pot</div><div class="sess-sub">Laugardalslaug · where the week began</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-block">
+    <span class="s-tag">Why reforestation is not optional</span>
+    <div class="s-title">Iceland gave you its cold, its water, its landscape. You plant trees in return.</div>
+    <p>The land that makes the glacial rivers, the geothermal fields, and the North Atlantic coastline possible — the Icelandic landscape that you have been using as a classroom — was stripped of its forest by human hands and has been recovering slowly, assisted by human hands. Participating in that recovery is not symbolic. It is participation in a specific, consequential, ongoing project of ecological restoration. You leave Iceland with the cold water protocol and with trees in the ground. Both are real.</p>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">07</span>
+      <span class="d-label">Closing Day</span>
+      <div class="d-name">Depart</div>
+      <div class="d-meta">Final Breathwork<br>Andri's Assessment<br>Afternoon Departure</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Closing</div>
+      <div class="d-title">One final breathwork session. Andri tells you what he saw. What changed. What to do next.</div>
+      <p class="d-desc">Final morning: Andri leads a full breathwork session in a quiet Reykjavik location — a park, a rooftop, or a studio depending on the season and weather. This is not a performance of what you've learned. It is a real session, the same protocol you started with on Day 2, now with a body and a nervous system that have been changed by the week. The difference between Day 2 and Day 7 is the education. The session shows you that difference directly.</p>
+      <p class="d-desc">Individual debrief with Andri: what changed in your pattern over 7 days, what the cold taught you specifically, how to continue the practice at home (daily cold shower protocol, morning breathwork, the progression to longer cold exposure). Andri's assessment is practical and honest — he has been reading the group since Day 1. Afternoon departure from Keflavik International.</p>
+      <div class="d-callout"><strong>What you leave with:</strong> Seven days of progressive cold exposure from 12°C to 2°C, a full Wim Hof breathwork practice, a glacial river swim, a North Atlantic ocean plunge, a glacier walk on Snæfellsjökull, trees in the ground in Iceland, and a specific, repeatable tool for managing discomfort. The cold shower at home will never feel the same again. That is the point.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGISTICS -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">Logistics · What's Included · How to Apply</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Everything you need<br>to know.</h1>
+
+  <div class="logistics-grid">
+    <div class="lg-cell">
+      <span class="lg-l">Location</span>
+      <div class="lg-v">Reykjavik + Snæfellsnes, Iceland</div>
+      <div class="lg-sub">Base: Reykjavik · Day trip to Snæfellsnes · Keflavik International (KEF)</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Duration</span>
+      <div class="lg-v">7 Days</div>
+      <div class="lg-sub">Arrive Day 1 · Depart Day 7 afternoon</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Group Size</span>
+      <div class="lg-v">8 spots</div>
+      <div class="lg-sub">Andri reads each person's readiness individually. Small group is non-negotiable.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Investment</span>
+      <div class="lg-v">$2,400</div>
+      <div class="lg-sub">All-inclusive except international flights and travel insurance.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Prerequisites</span>
+      <div class="lg-v">No cold experience required</div>
+      <div class="lg-sub">No prior cold water or breathwork background needed. Healthy cardiovascular system required.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Season Options</span>
+      <div class="lg-v">Summer or Winter</div>
+      <div class="lg-sub">Summer: midnight sun, warmer air, warmer water. Winter: Northern Lights, coldest water, darkest sky.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Medical Note</span>
+      <div class="lg-v">Consult physician</div>
+      <div class="lg-sub">Cold water immersion is contraindicated for certain cardiovascular conditions. Confirm fitness before applying.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Apply</span>
+      <div class="lg-v">apply@bridgethegap.com</div>
+      <div class="lg-sub">Include any relevant health background. Response within 48 hours.</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:40px;margin-bottom:20px;">What's included</h2>
+  <div class="include-grid">
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All breathwork instruction</strong>7 days with Andri Einarsson. Wim Hof Method certification-level curriculum.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Accommodation</strong>Reykjavik central accommodation (Days 1–5) + Snæfellsnes overnight (Day 5).</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All meals</strong>Breakfast daily, group lunches, dinners. Icelandic food throughout — skyr, lamb, fish, bread.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Geothermal pool sessions</strong>Laugardalslaug (Day 1) and Sundhöll (Day 2). Entry included.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Traditional ylstrúkur session</strong>Day 3. Countryside farm, 80–90°C sauna + glacial stream contrast. Farm dinner included.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Glacial river swim</strong>Day 4. 2–4°C moving glacial water. Andri in water throughout. Full protocol.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Snæfellsjökull glacier walk</strong>Day 5. Ranger-guided walk on the Jules Verne glacier. Crampons provided.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>North Atlantic ocean plunge</strong>Day 5. Black-sand beach at the tip of Snæfellsnes. The week's experiential peak.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Reforestation service day</strong>Day 6. Native birch planting with Icelandic Forest Service volunteer program.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Daily home practice protocol</strong>Andri's take-home framework for cold shower and breathwork practice after the immersion.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Northern Lights or midnight sun</strong>Season-dependent. Winter: Northern Lights viewing if conditions allow. Summer: midnight sun walks.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All transport in Iceland</strong>Airport transfers, Snæfellsnes round trip, countryside farm day. All included.</div>
+    </div>
+  </div>
+
+  <h3>What to bring</h3>
+  <p>Wool base layers — multiple. A serious waterproof outer layer (Iceland's weather is unpredictable and often wet). Swimwear — you will be in water every day. Wool socks. Solid walking shoes. Everything else is provided or locally available. Do not over-pack. Iceland's weather changes faster than your plan for it.</p>
+
+  <h3>What is not included</h3>
+  <p>International flights to Keflavik (KEF). Travel insurance — required. Personal spending. Northern Lights are weather and season-dependent — they cannot be guaranteed and neither can the glacial river or ocean exposure timing, which is always Andri's call based on conditions.</p>
+</div>
+
+
+<!-- CLOSING -->
+<div class="closing page-break">
+  <div>
+    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:36px;">The Gap · Micro Immersion Series · Cold Water + Breathwork · Iceland</span>
+    <div class="closing-h">8 spots.<br>Iceland.<br>Go in.</div>
+    <p class="closing-sub">No experience required. The protocol is progressive and safe. The only thing you bring is willingness to step into cold water when Andri says the breath is ready. Seven days later, you will have been in the North Atlantic with your breath intact. That is a different person than you were when you landed.</p>
+    <div class="closing-contacts">
+      <div>
+        <span class="cc-label">Register Interest / Apply</span>
+        <span class="cc-val">apply@bridgethegap.com</span>
+      </div>
+      <div>
+        <span class="cc-label">Program Website</span>
+        <span class="cc-val">bridgethegap.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="closing-footer">
+    <div class="closing-logo">THE GAP</div>
+    <span class="closing-footer-tag">Bridge The Gap · Cold Water + Breathwork · Reykjavik, Iceland</span>
+  </div>
+</div>
+
+</body>
+</html>

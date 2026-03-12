@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE GAP — Alpine Mountaineering · Chamonix</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono&display=swap');
+
+:root {
+  --ink: #1a1a1a;
+  --ink2: #2e2e2e;
+  --ink3: #4a4a4a;
+  --gold: #b8922a;
+  --gold-light: #d4ac4e;
+  --gold-bg: #fdf8ee;
+  --cream: #fafaf7;
+  --white: #ffffff;
+  --rule: #e0d8c8;
+  --sidebar: #f4f0e8;
+  --dark: #111111;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 14px; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+@media print {
+  .page-break { page-break-before: always; }
+  .no-break { page-break-inside: avoid; }
+  body { font-size: 11px; }
+}
+
+.cover {
+  background: #0a0c10;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px 80px 56px;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: 'CHAMONIX';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.015);
+  letter-spacing: -8px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cover-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 28px; }
+.cover-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: white; letter-spacing: -0.5px; }
+.cover-brand span { color: var(--gold-light); }
+.cover-series { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; }
+.cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 72px 0 48px; }
+.cover-eyebrow { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.35em; color: var(--gold-light); text-transform: uppercase; display: block; margin-bottom: 28px; }
+.cover-title { font-family: 'Playfair Display', serif; font-size: 112px; font-weight: 900; line-height: 0.85; letter-spacing: -5px; color: white; margin-bottom: 12px; }
+.cover-title-sub { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.35); letter-spacing: -1px; margin-bottom: 48px; }
+.cover-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 36px; }
+.cover-intro { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.55); max-width: 540px; line-height: 1.65; margin-bottom: 56px; }
+.cover-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,0.07); max-width: 640px; }
+.cover-stat { background: #0a0c10; padding: 24px 20px; }
+.cover-stat-n { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--gold-light); line-height: 1; display: block; margin-bottom: 4px; }
+.cover-stat-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(255,255,255,0.28); text-transform: uppercase; }
+.cover-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.cover-note { font-size: 11.5px; color: rgba(255,255,255,0.35); max-width: 420px; line-height: 1.75; font-style: italic; }
+.cover-contact { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--gold-light); }
+
+.doc-page { max-width: 840px; margin: 0 auto; padding: 72px 64px; }
+.section-eyebrow { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
+.eyebrow-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; white-space: nowrap; }
+.eyebrow-rule { flex: 1; height: 1px; background: var(--rule); }
+
+h1 { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 900; line-height: 1.0; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 28px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 14px; margin-top: 32px; }
+p { color: var(--ink3); line-height: 1.82; margin-bottom: 16px; font-size: 13.5px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+.dark-block { background: var(--dark); padding: 52px 56px; margin: 40px 0; }
+.dark-block-tag { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; display: block; margin-bottom: 20px; }
+.dark-block blockquote { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; line-height: 1.55; color: white; margin: 0 0 24px 0; font-weight: 400; }
+.dark-block p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.82; }
+
+.framework-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); margin: 36px 0; }
+.fw-cell { background: var(--cream); padding: 32px 28px; }
+.fw-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 10px; }
+.fw-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.fw-body { font-size: 12.5px; color: var(--ink3); line-height: 1.75; }
+
+.teacher-wrap { display: grid; grid-template-columns: 190px 1fr; border: 1px solid var(--rule); margin: 36px 0; }
+.teacher-left { background: var(--dark); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; }
+.t-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 8px; }
+.t-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); line-height: 1.7; }
+.t-lineage { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: rgba(255,255,255,0.22); text-transform: uppercase; line-height: 1.9; }
+.teacher-right { padding: 36px 40px; }
+.teacher-right p { font-size: 13px; color: var(--ink3); line-height: 1.85; }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.cred-cell { background: var(--sidebar); padding: 14px 16px; }
+.cred-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+.cred-v { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+.day-block { display: grid; grid-template-columns: 168px 1fr; border: 1px solid var(--rule); margin-bottom: 14px; }
+.day-block.accent-gold { border-left: 3px solid var(--gold); }
+.day-block.accent-dark { border-left: 3px solid var(--dark); }
+.d-side { background: var(--sidebar); padding: 24px 20px; border-right: 1px solid var(--rule); }
+.d-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1; display: block; margin-bottom: 2px; }
+.d-label { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; color: var(--ink3); text-transform: uppercase; display: block; margin-bottom: 14px; }
+.d-name { font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+.d-meta { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.1em; color: var(--ink3); text-transform: uppercase; line-height: 1.9; }
+.d-body { padding: 24px 30px; }
+.d-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.d-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.3; }
+.d-desc { font-size: 12.5px; color: var(--ink3); line-height: 1.82; margin-bottom: 14px; }
+.d-desc:last-child { margin-bottom: 0; }
+.sessions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
+.sess { background: var(--sidebar); padding: 12px 14px; border-left: 2px solid var(--gold); }
+.sess-time { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 3px; }
+.sess-title { font-size: 11.5px; font-weight: 600; color: var(--ink2); line-height: 1.35; }
+.sess-sub { font-size: 10.5px; color: var(--ink3); line-height: 1.5; margin-top: 3px; }
+.d-callout { background: var(--gold-bg); border-left: 3px solid var(--gold); padding: 13px 16px; margin-top: 14px; font-size: 12px; color: var(--ink2); line-height: 1.75; }
+
+.service-block { background: #1a1a2e; color: white; padding: 48px 52px; margin: 36px 0; }
+.service-block .s-tag { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.3em; color: rgba(255,255,255,0.35); text-transform: uppercase; display: block; margin-bottom: 18px; }
+.service-block .s-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: white; margin-bottom: 16px; line-height: 1.25; }
+.service-block p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.85; }
+
+.logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 28px 0; }
+.lg-cell { background: var(--cream); padding: 22px 26px; }
+.lg-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+.lg-v { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.lg-sub { font-size: 11.5px; color: var(--ink3); margin-top: 4px; line-height: 1.5; }
+
+.include-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+.inc-item { display: flex; align-items: flex-start; gap: 12px; background: var(--sidebar); padding: 14px 16px; }
+.inc-mark { color: var(--gold); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.inc-text { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+.inc-text strong { font-size: 12.5px; display: block; margin-bottom: 2px; }
+
+.closing { background: var(--dark); color: white; min-height: 55vh; padding: 80px; display: flex; flex-direction: column; justify-content: space-between; }
+.closing-h { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; line-height: 0.88; letter-spacing: -2.5px; color: white; margin-bottom: 28px; }
+.closing-sub { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.45); max-width: 460px; line-height: 1.65; margin-bottom: 48px; }
+.closing-contacts { display: flex; gap: 48px; }
+.cc-label { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); display: block; margin-bottom: 5px; }
+.cc-val { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-light); }
+.closing-footer { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.closing-logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: white; letter-spacing: -1px; }
+.closing-footer-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">THE <span>GAP</span></div>
+    <span class="cover-series">Micro Immersion Series · Discipline No. 05</span>
+  </div>
+
+  <div class="cover-main">
+    <span class="cover-eyebrow">Alpine Mountaineering · Chamonix, France · Mont Blanc Massif</span>
+    <div class="cover-title">The<br>Alps.</div>
+    <div class="cover-title-sub">10 Days in Chamonix.</div>
+    <div class="cover-rule"></div>
+    <p class="cover-intro">Mountains teach patience. The approach is long. The weather decides everything. The summit is conditional. You learn to be comfortable being small in front of something indifferent to your plans — and to move steadily toward the objective anyway.</p>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <span class="cover-stat-n">10</span>
+        <span class="cover-stat-l">Days</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">8</span>
+        <span class="cover-stat-l">Spots</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">4,808</span>
+        <span class="cover-stat-l">Meters</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">Since</span>
+        <span class="cover-stat-l">1821</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">$3,800</span>
+        <span class="cover-stat-l">All-In</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <p class="cover-note">No mountaineering experience required. Reasonable fitness and comfort at altitude are required. The oldest guiding company in the world will teach you everything else. The mountains decide what is possible.</p>
+    <span class="cover-contact">apply@bridgethegap.com</span>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Philosophy</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>The summit is<br>conditional.</h1>
+
+  <p>Mont Blanc — 4,808 meters, the highest peak in Western Europe — has been climbed since 1786. That first ascent, by Jacques Balmat and Michel-Gabriel Paccard, launched the sport of mountaineering and eventually produced the Compagnie des Guides de Chamonix, founded in 1821 as the world's first professional mountain guiding organization. The guides who will lead this immersion are the direct successors of that tradition — 180 certified high mountain guides who carry two centuries of Alpine practice forward in their instruction.</p>
+
+  <p>Alpine mountaineering is not extreme sport in the commercial sense. It is one of the oldest serious athletic traditions in the world — a practice that requires technical skill, physical preparation, route-finding ability, weather reading, and above all, judgment. The judgment to turn around when the conditions change. The judgment to wait when the summit is possible but the descent is risky. The judgment to move steadily and deliberately when the exposure is high and the consequences of a mistake are serious. That judgment — learning when to push and when not to — is the curriculum.</p>
+
+  <p>What the mountains teach that nothing else does: how to work toward an objective that is not guaranteed. The approach to any serious Alpine peak involves hours of effort with no certain outcome. The weather can close in at 4,000 meters and the summit becomes unreachable regardless of preparation. You turn around, descend, and try again the next weather window. That rhythm — sustained effort toward an uncertain goal, acceptance of conditions beyond your control, and the ability to make the same sustained effort again without bitterness — is what mountaineers develop and what the immersion is designed to build.</p>
+
+  <div class="dark-block">
+    <span class="dark-block-tag">The Gap · Core Belief</span>
+    <blockquote>"The mountain is indifferent. It does not know you are there. The conditions that keep you from the summit have nothing to do with your effort. Understanding this — and continuing to prepare carefully and move steadily toward the objective anyway — is the entire lesson."</blockquote>
+    <p>Every discipline in THE GAP framework is chosen because it teaches something that cannot be learned in a classroom. Alpine mountaineering teaches sustained patience, consequence-aware decision-making, and the ability to work in genuine exposure — physical and existential — with composure. These are not metaphors. They are the actual requirements of being on a glacier at 3,800 meters.</p>
+  </div>
+
+  <h2>The Glaciers</h2>
+
+  <p>Chamonix's glaciers are retreating. The Mer de Glace — the largest glacier in France, visible from the town below through a river of crevassed ice — has lost 150 meters of depth since 1820 and retreated 2 kilometers. The Bossons Glacier, which flows from the summit flanks of Mont Blanc, has retreated dramatically in the last 30 years. The Compagnie des Guides de Chamonix has been on these glaciers for 200 years and their guides see the change in real time across their careers.</p>
+
+  <p>The glacier monitoring day on Day 9 is not optional. You are training in one of the most visibly climate-affected landscapes in Europe, guided by people who carry the living memory of what the glaciers looked like 30 years ago. To be on a glacier and not understand what is happening to it would be an evasion. The immersion does not allow for that.</p>
+
+  <div class="framework-grid">
+    <div class="fw-cell">
+      <div class="fw-num">01</div>
+      <div class="fw-name">Adventure + Adrenaline</div>
+      <p class="fw-body">Glacier travel on the Mer de Glace. The Aiguille du Midi ridge at 3,842m. Overnight in a mountain refuge at altitude. Summit attempt of a 4,000m peak. The exposure is genuine — not engineered. The consequence of error at altitude is the teacher.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">02</div>
+      <div class="fw-name">Travel + Encounter</div>
+      <p class="fw-body">Chamonix is the capital of world mountaineering — every serious alpinist passes through. The historic routes, the refuges at altitude where climbers have slept since 1800, the bars where guides and climbers drink together after days on the mountain. A culture that is two centuries old and entirely specific to this valley.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">03</div>
+      <div class="fw-name">Service + Giving Back</div>
+      <p class="fw-body">Day 9: glacier monitoring day with Compagnie des Guides scientists — measuring glacier retreat, documenting ice condition, contributing to the scientific record. The guides have been doing this for decades. The data they collect informs European climate science. You contribute to it directly.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- TEACHER -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Teacher</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>Compagnie des Guides<br>de Chamonix.</h1>
+
+  <div class="teacher-wrap">
+    <div class="teacher-left">
+      <div class="teacher-name-block">
+        <div class="t-name">Compagnie<br>des Guides</div>
+        <div class="t-tag">Chamonix, France<br>Founded 1821<br>180 Guides</div>
+      </div>
+      <div class="t-lineage">
+        Oldest Guiding Co.<br>In the World<br>Since First Mont Blanc<br>Ascent 1786<br>200+ Year Tradition
+      </div>
+    </div>
+    <div class="teacher-right">
+      <p>The Compagnie des Guides de Chamonix was founded in 1821 — three decades after the first ascent of Mont Blanc — by the guides who had been leading climbers on the massif since the late 18th century. It is the oldest professional guiding organization in the world. Its 180 certified high mountain guides carry an unbroken tradition of Alpine practice from the age when the mountains of Europe were first being explored by humans.</p>
+      <p>The certification they hold — Aspirant Guide and then Guide de Haute Montagne — is one of the most demanding professional certifications in outdoor athletics. It requires multi-year training, comprehensive examinations in technical rock, ice, and alpine terrain, first aid and rescue qualification, and meteorological expertise. The guides who lead this immersion have spent their careers in the Mont Blanc massif and know its specific terrain — the Mer de Glace, the Aiguille du Midi, the Vallée Blanche, the 4,000m peaks of the massif — in the way that comes only from repeated, serious engagement over years.</p>
+      <p>The Compagnie also participates in scientific glacier monitoring as part of its institutional responsibility to the mountain environment it operates in. The guides who lead the monitoring day on Day 9 are not performing environmental concern — they are scientists and practitioners who have watched the glaciers retreat in their own working lifetimes.</p>
+      <div class="cred-grid">
+        <div class="cred-cell">
+          <span class="cred-l">Founded</span>
+          <div class="cred-v">1821 · Oldest guiding company on earth</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Certification</span>
+          <div class="cred-v">Guide de Haute Montagne — the highest Alpine standard</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Guides</span>
+          <div class="cred-v">180 certified guides · lifetime in the massif</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Legacy</span>
+          <div class="cred-v">Mont Blanc tradition since first ascent 1786</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What the training looks like</h2>
+
+  <p>Alpine mountaineering is a systems practice — every skill is built on the last, and no single skill is useful in isolation. The progression over 10 days covers the complete foundation of glacier travel and technical Alpine terrain: crampon technique, ice axe use and arrest, roped travel on glaciers, crevasse rescue, route-finding on snow and ice, weather reading, and the physical conditioning that altitude demands.</p>
+
+  <p><strong>Crampon technique</strong> is the foundation of everything. Crampons — the metal spikes attached to the sole of mountaineering boots — transform movement on ice and firm snow from dangerous to possible. They also demand a specific gait: feet wider than walking stance, deliberate foot placement, all points engaged. Incorrect crampon technique on exposed terrain causes falls. The guide corrects it until it is automatic.</p>
+
+  <p><strong>Ice axe arrest</strong> is the self-rescue skill that every climber must have. If you slip on a steep snow slope, the ice axe is driven into the slope to arrest the fall before it becomes a runaway slide. The technique involves immediately rolling onto the shaft and applying your body weight to the pick. On Day 3 you practice this on a 30-degree snow slope at low altitude — falling, arresting, standing up, repeating — until the motion is instinctive. It is one of the most important physical skills in the mountains. The guide does not move you forward until it is reliable.</p>
+
+  <div class="d-callout" style="border-left-color:var(--ink);background:var(--sidebar);">
+    <strong>On the Alpine start:</strong> Every summit attempt begins before dawn. The reason is physics: as the sun warms a snow slope, the snow softens and the risk of avalanche increases. In summer, many serious routes in the Alps are best climbed before noon. The alpine start — leaving the refuge at 3:00–4:00am by headlamp — is not theater. It is the technique that makes the summit safe. You will do it on multiple days. By Day 8 it will feel normal.
+  </div>
+</div>
+
+
+<!-- ITINERARY DAYS 1-6 -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Days 1–6</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Building the<br>Alpine foundation.</h1>
+  <p style="margin-bottom:32px;">The first six days build technical skills and acclimatization simultaneously — every day takes the group higher than the day before. By Day 6 you will be at the Aiguille du Midi (3,842m), roped to a guide, walking an exposed ridge with a glacier 1,000 meters below. The foundation makes that possible.</p>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">01</span>
+      <span class="d-label">Arrival</span>
+      <div class="d-name">Chamonix</div>
+      <div class="d-meta">No climbing<br>Town orientation<br>Guide intro<br>Equipment fit</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Orientation</div>
+      <div class="d-title">Arrive in Chamonix. Meet your guide. Look up at what you're going to be on.</div>
+      <p class="d-desc">Transfer from Geneva International Airport (GVA) to Chamonix — one of the most extraordinary drives in Europe: the Arve valley narrows and suddenly the Mont Blanc massif fills the entire sky. Check into accommodation in the town center. Equipment fitting in the afternoon: mountaineering boots, crampons, ice axe, harness — all provided, all fitted by the guide personally. Group dinner with the guide team at a Chamonix brasserie. The guides are not performing seriousness. They eat, drink, and talk about the mountains the way people talk about the place they have spent their lives.</p>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">02</span>
+      <span class="d-label">Foundations</span>
+      <div class="d-name">Crampons</div>
+      <div class="d-meta">AM: Technical Skills<br>PM: Glacier Entry<br>Altitude 2,200m</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Foundation</div>
+      <div class="d-title">The guide watches how you walk before he puts crampons on your feet.</div>
+      <p class="d-desc">Morning: fundamental movement skills on snow and ice at the Mer de Glace — accessed by the historic Montenvers railway (1,913m → 1,600m to glacier surface, with the ice dropping 150 meters below the historic markers on the valley wall). Crampon fitting and gait correction on firm snow. Ice axe grip, carry position, and arrest technique on a 25-degree practice slope. The guide is specific about technique from the first step.</p>
+      <p class="d-desc">Afternoon: introduction to roped travel — moving as a team on glacier terrain, proper rope coiling and management, communication between rope partners, pace maintenance on ascending terrain. The glacier surface is extraordinary: a world of blue-white ice, crevasse fields visible in every direction, the smell of cold stone and deep ice. First altitude acclimatization at 2,200m. Return to valley for dinner and sleep.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–11:00</span><div class="sess-title">Crampon + Ice Axe</div><div class="sess-sub">Gait, arrest technique, grip</div></div>
+        <div class="sess"><span class="sess-time">12:00–17:00</span><div class="sess-title">Roped Glacier Travel</div><div class="sess-sub">Mer de Glace, team movement</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Valley Rest</div><div class="sess-sub">Dinner, altitude acclimatization</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">03</span>
+      <span class="d-label">Technical Skills</span>
+      <div class="d-name">Arrest + Rescue</div>
+      <div class="d-meta">AM: Arrest Drills<br>PM: Crevasse Rescue<br>Altitude 2,500m</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Safety Skills</div>
+      <div class="d-title">Fall arrest and crevasse rescue. The skills that keep the glacier from being fatal.</div>
+      <p class="d-desc">Morning: ice axe arrest drills on a 30-degree snow slope — falling intentionally, rolling, driving the pick. The guide pushes you down the slope if you don't fall convincingly enough. The point is to practice the motion under real momentum, not on flat ground. By the end of the morning the arrest is beginning to be automatic rather than thought-out. It will be fully automatic by Day 6.</p>
+      <p class="d-desc">Afternoon: crevasse rescue — the skill required when a rope partner falls into a crevasse. How to arrest a falling partner, create an anchor in the snow, rig a pulley system to haul them out, and communicate in an emergency. The guide demonstrates, then the group practices on each other. No one on a glacier crosses a crevasse field in a rope team without knowing this protocol. Now you know it.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–11:00</span><div class="sess-title">Arrest Drills</div><div class="sess-sub">30° slope, repeated falls, real momentum</div></div>
+        <div class="sess"><span class="sess-time">12:00–17:00</span><div class="sess-title">Crevasse Rescue</div><div class="sess-sub">Pulley systems, anchors, partner extraction</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Route Review</div><div class="sess-sub">Guide reviews tomorrow's approach</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">04</span>
+      <span class="d-label">Acclimatization</span>
+      <div class="d-name">High Hike</div>
+      <div class="d-meta">Full Day Hike<br>3,200m High Point<br>No Technical Skills</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Acclimatization</div>
+      <div class="d-title">No technical climbing today. Just altitude, approach, and the mountain's scale.</div>
+      <p class="d-desc">A long acclimatization hike to 3,200m on the flanks of the massif — the Aiguilles Rouges (Red Needles) range opposite Mont Blanc, or a high valley approach toward the Argentière glacier. The goal is altitude and duration, not technical difficulty. The guide sets a pace that is slower than most people want to walk — the mountain pace, which allows for 6–8 hours of sustained movement. The difference between mountain pace and urban pace is that mountain pace arrives.</p>
+      <p class="d-desc">At 3,200m the air is noticeably thinner — you have lost roughly 30% of the oxygen density at sea level. Some people feel it as a slight headache. Some feel nothing. Everyone feels it in the legs on the descent. The view from 3,200m of the full Mont Blanc massif — the Grandes Jorasses, the Drus, the Aiguille Verte, and the summit dome of Mont Blanc above everything — is one of the great views in Europe.</p>
+      <div class="d-callout">
+        <strong>On acclimatization:</strong> The physiology of altitude is concrete: above 2,500m, the body begins to increase red blood cell production and optimize oxygen use. This process takes 48–72 hours. Day 4 is designed to accelerate that adaptation by spending extended time at altitude before the serious days begin. Skipping this step degrades performance at altitude and increases altitude sickness risk.
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">05</span>
+      <span class="d-label">Route Work</span>
+      <div class="d-name">Vallée Blanche</div>
+      <div class="d-meta">AM: Aiguille du Midi<br>PM: Vallée Blanche<br>Altitude 3,842m</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Elevation</div>
+      <div class="d-title">The Aiguille du Midi by cable car. Then the Vallée Blanche — 20km of glacier, on foot.</div>
+      <p class="d-desc">Aiguille du Midi by the Chamonix cable car — the highest cable car in the world, ascending to 3,842m in 20 minutes. The exit platform of the Aiguille du Midi is a steel walkway bolted to a granite needle 3,842 meters above sea level. The Mont Blanc summit is 1,000 meters above you and visible, conditions permitting, in full. The guide walks the group along the arête (ridge) from the cable car station — a narrow snow crest with the Chamonix valley 2,800 meters below on one side and the Vallée Blanche on the other. Roped, crampons on, ice axe in hand. This is full Alpine exposure.</p>
+      <p class="d-desc">Afternoon: descent into the Vallée Blanche — the high glacier that forms the upper plateau of the Mont Blanc massif. 20km of glacier travel to return to the valley below. The Vallée Blanche in summer is a landscape of compressed ice, seracs, crevasses, and silence at altitude. The guide narrates the geology, the history of routes, the visible evidence of glacier retreat.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–10:00</span><div class="sess-title">Aiguille du Midi</div><div class="sess-sub">Cable car, arête walk, summit views</div></div>
+        <div class="sess"><span class="sess-time">10:00–18:00</span><div class="sess-title">Vallée Blanche</div><div class="sess-sub">20km glacier traverse · full alpine day</div></div>
+        <div class="sess"><span class="sess-time">Evening</span>
+        <div class="sess-title">Refuge Dinner</div><div class="sess-sub">Or valley return depending on route</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">06</span>
+      <span class="d-label">Refuge Night</span>
+      <div class="d-name">Altitude Sleep</div>
+      <div class="d-meta">Approach AM<br>Overnight Refuge<br>3,300m+</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Alpine Encounter</div>
+      <div class="d-title">Overnight in a mountain refuge. The Alps as they have always been, in the dark before a summit.</div>
+      <p class="d-desc">Approach to a refuge in the Mont Blanc massif at 3,300m — one of the historic stone and timber refuges that have housed climbers since the late 19th century. The approach is 3–4 hours from the valley, full pack, altitude gain of 1,500m. The guide sets the pace. The refuge arrives when it arrives.</p>
+      <p class="d-desc">The refuge at altitude is its own world. Climbers from multiple nationalities preparing for various routes. The warden who has been running this refuge for 20 years and whose grandmother ran it before him. Dinner at communal tables — the same lentil soup and bread and cheese that has been served here for 100 years. By 9:00pm, everyone is asleep. The alarm for the summit attempt goes off at 3:00am.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">06:30–12:00</span><div class="sess-title">Refuge Approach</div><div class="sess-sub">1,500m altitude gain · full pack</div></div>
+        <div class="sess"><span class="sess-time">Afternoon</span><div class="sess-title">Rest + Prepare</div><div class="sess-sub">Gear check, route briefing</div></div>
+        <div class="sess"><span class="sess-time">21:00</span><div class="sess-title">Sleep</div><div class="sess-sub">Alpine start at 03:00am</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ITINERARY DAYS 7-10 -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Days 7–10</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Summit.<br>Glacier. Give back.</h1>
+  <p style="margin-bottom:32px;">Days 7 through 10 are the culmination: the summit attempt, glacier monitoring, and the close. Day 7 is the alpine start — pre-dawn, headlamps, the summit of a 4,000m peak if conditions allow. The mountain decides what is possible. The training determines whether you are ready when it says yes.</p>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">07</span>
+      <span class="d-label">Summit Day</span>
+      <div class="d-name">Alpine Start</div>
+      <div class="d-meta">03:00 Departure<br>Summit Attempt<br>4,000m+ Peak</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">The Main Event</div>
+      <div class="d-title">3:00am. Headlamps. The coldest air you have breathed. The summit is up there somewhere.</div>
+      <p class="d-desc">3:00am departure from the refuge. Headlamps, crampons, ice axes, roped in teams. The mountain is black and silent except for the crunch of crampons on hard névé and the guide's voice ahead. The stars at 3,300m are not the stars of the valley. The cold is not the cold of a winter street — it is the dry, still cold of altitude where moisture has been left 2,000 meters below.</p>
+      <p class="d-desc">The summit attempt targets a 4,000m peak in the massif accessible from the refuge — the specific peak determined by the guide based on conditions, weather, and the group's assessed ability. The guide carries the decision-making. Your job is to move steadily, breathe through the exertion, trust the rope, and arrive at the moment the guide says the summit is safe. Or to trust the guide's judgment if the conditions turn and the descent is the right call.</p>
+      <p class="d-desc">The summit — if conditions allow — is a moment that has no equivalent in less exposed environments. The valley is 4,000 meters below. The other peaks are at your level. The sunrise from above the clouds, if you are lucky with timing, is the Alpine reward for everything the week has built toward.</p>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">08</span>
+      <span class="d-label">Descent</span>
+      <div class="d-name">Return to Valley</div>
+      <div class="d-meta">Full Day Descent<br>Chamonix Town<br>Recovery</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Integration</div>
+      <div class="d-title">The descent from a summit is longer than the ascent. And more dangerous. Move carefully.</div>
+      <p class="d-desc">A full day descent from the refuge to the valley. Experienced alpinists know that most accidents happen on descents — tired legs on technical terrain, reduced focus after achieving the summit objective, snow softening as the sun warms the slope. The guide is more watchful on the descent than on the ascent. Crampon technique, rope management, pace — all the same demands, now in legs that have been working since 3:00am.</p>
+      <p class="d-desc">Return to Chamonix by early afternoon. Rest. The town after the mountain feels different — its noise and warmth and crowds carrying a particular quality of contrast that you will not fully appreciate until the next time you're in a city. Dinner in Chamonix. Sleep long.</p>
+      <div class="d-callout">
+        <strong>What the descent teaches:</strong> The guide says: the mountain is most dangerous after the summit, because the mind is ready to be done. It is not done. This applies everywhere — to projects, to relationships, to anything where the final stage is less visible than the main objective. Stay focused until you're actually off the mountain.
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">09</span>
+      <span class="d-label">Service Day</span>
+      <div class="d-name">Glacier Monitoring</div>
+      <div class="d-meta">Full Day<br>Mer de Glace<br>Scientific Record</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Service + Science</div>
+      <div class="d-title">The glacier is retreating. The guides have been measuring it for decades. Today you help.</div>
+      <p class="d-desc">Full-day glacier monitoring session on the Mer de Glace with Compagnie des Guides scientists. The monitoring protocol: fixed measurement points established decades ago, GPS coordinates documented, ice thickness measurements, surface ablation recording, crevasse pattern documentation. The guides who lead this session can point to measurements from 10 years ago and show you what the glacier looked like compared to now. The numbers are not abstract — the glacier surface is in front of you.</p>
+      <p class="d-desc">This is scientific work that contributes directly to the French glaciological record and to European climate monitoring databases. The guides participate as scientists, not as guides. Your contribution is real: additional hands for the measurement protocol, documentation, and the extended access that a full group allows. The data collected today will be in scientific literature.</p>
+    </div>
+  </div>
+
+  <div class="service-block">
+    <span class="s-tag">Why glacier monitoring is not optional</span>
+    <div class="s-title">You have trained on a glacier that is disappearing. You have a responsibility to understand that.</div>
+    <p>The Mer de Glace has lost 150 meters of depth since 1820. The Bossons Glacier, which flows from the summit of Mont Blanc itself, has retreated kilometers in the last century. The guides who have shown you how to travel on these glaciers have watched them retreat in their own careers. Spending a day participating in the scientific monitoring of glacier retreat is not an add-on — it is the completion of the week's education. The mountain you have been on is changing. The people who know it best are doing something about that. You are joining them for one day.
+    </p>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">10</span>
+      <span class="d-label">Closing Day</span>
+      <div class="d-name">Depart</div>
+      <div class="d-meta">Final Morning<br>Guide Assessment<br>Afternoon Departure</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Closing</div>
+      <div class="d-title">The last morning in Chamonix. The guide tells you what he saw. What you take home.</div>
+      <p class="d-desc">Final morning: a short technical session in the valley — crampon and ice axe review, skills consolidation, any remaining questions. The guide sits with each person individually and provides a specific assessment: what was strong, what needs development, what course or route to do next if you want to continue. These guides have been assessing alpinists for their careers. What they say is useful and true.</p>
+      <p class="d-desc">Group debrief: a conversation about the week — not a recap, but a discussion of what the mountains taught. What patience looks like as a physical experience. What conditional means when it's applied to something you have worked for. What the summit felt like, and what the weather-turn and descent felt like for those who experienced it. Afternoon departure from Geneva.</p>
+      <div class="d-callout"><strong>What you leave with:</strong> 9 days of Alpine training with the oldest guiding company in the world. Crampon and ice axe technique. Glacier travel. Crevasse rescue. The overnight refuge. An overnight alpine start toward a 4,000m summit. The Vallée Blanche traverse. A day of glacier monitoring science. And a specific relationship to patience and conditional objectives that the mountains teach and nothing else replicates.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGISTICS -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">Logistics · What's Included · How to Apply</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Everything you need<br>to know.</h1>
+
+  <div class="logistics-grid">
+    <div class="lg-cell">
+      <span class="lg-l">Location</span>
+      <div class="lg-v">Chamonix, France</div>
+      <div class="lg-sub">Mont Blanc massif · 1hr from Geneva International (GVA)</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Duration</span>
+      <div class="lg-v">10 Days</div>
+      <div class="lg-sub">Arrive Day 1 afternoon · Depart Day 10 afternoon</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Group Size</span>
+      <div class="lg-v">8 spots</div>
+      <div class="lg-sub">Two guides minimum for technical terrain. The ratio is non-negotiable for safety.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Investment</span>
+      <div class="lg-v">$3,800</div>
+      <div class="lg-sub">All-inclusive except international flights and travel insurance.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Prerequisites</span>
+      <div class="lg-v">Physically fit · no mountaineering required</div>
+      <div class="lg-sub">Able to hike 6–8 hours with a pack. No prior mountaineering or ice experience required.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Season</span>
+      <div class="lg-v">June — September</div>
+      <div class="lg-sub">Alpine season. Optimal snow conditions and refuge access.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Summit Caveat</span>
+      <div class="lg-v">Conditions-dependent</div>
+      <div class="lg-sub">Summit attempt is made on Day 7. The mountain and guide determine whether the summit is reached.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Apply</span>
+      <div class="lg-v">apply@bridgethegap.com</div>
+      <div class="lg-sub">Include hiking/fitness background. Response within 48 hours.</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:40px;margin-bottom:20px;">What's included</h2>
+  <div class="include-grid">
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All mountaineering instruction</strong>10 days with Compagnie des Guides de Chamonix — the oldest guiding company in the world.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All technical equipment</strong>Mountaineering boots, crampons, ice axe, helmet, harness, rope. Fitted by guides.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Accommodation</strong>Chamonix town accommodation + mountain refuge overnight. Valley nights in the town center.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All meals</strong>Breakfast daily, packed lunch on mountain days, group dinners. Refuge dinner and breakfast included.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Aiguille du Midi cable car</strong>Day 5. 3,842m. The arête walk. The Vallée Blanche descent. Included.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Vallée Blanche traverse</strong>Day 5 afternoon. 20km glacier crossing with guide. One of the classic Alpine experiences.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Mountain refuge overnight</strong>Day 6. A historic refuge at 3,300m+ — the Alpine tradition from the inside.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Summit attempt — 4,000m peak</strong>Day 7. Conditions-dependent. Alpine start 3:00am. The main objective of the week.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Crevasse rescue training</strong>Day 3. Full protocol — pulley system, anchors, partner extraction. A required skill for glacier travel.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Glacier monitoring day</strong>Day 9. Scientific contribution to the French glaciological record with Compagnie guides.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Montenvers railway</strong>Historic rack railway to the Mer de Glace glacier access. Included for glacier days.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Airport transfers</strong>Geneva International (GVA) pickup Day 1 and drop-off Day 10.</div>
+    </div>
+  </div>
+
+  <h3>What to bring</h3>
+  <p>Layering system: base layer (wool or synthetic), insulating mid-layer (fleece or down), waterproof shell (jacket and pants). Warm gloves and hat. Sunglasses with UV protection — glacier UV at altitude is significant. Hiking boots for approach days. All technical mountain equipment is provided. Consult the equipment list provided after acceptance.</p>
+
+  <h3>What is not included</h3>
+  <p>Flights to Geneva (GVA). Travel insurance — required, must include high altitude mountaineering coverage to at least 5,000m. Personal spending. The summit on Day 7 is subject to weather and guide assessment. No guarantee of summit — the mountain decides.</p>
+</div>
+
+
+<!-- CLOSING -->
+<div class="closing page-break">
+  <div>
+    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:36px;">The Gap · Micro Immersion Series · Alpine · Chamonix, France</span>
+    <div class="closing-h">8 spots.<br>Chamonix.<br>The summit waits.</div>
+    <p class="closing-sub">No mountaineering experience required. Physical fitness and willingness to move in genuine exposure at altitude. The oldest guiding company in the world will teach you everything else. The weather decides what is possible.</p>
+    <div class="closing-contacts">
+      <div>
+        <span class="cc-label">Register Interest / Apply</span>
+        <span class="cc-val">apply@bridgethegap.com</span>
+      </div>
+      <div>
+        <span class="cc-label">Program Website</span>
+        <span class="cc-val">bridgethegap.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="closing-footer">
+    <div class="closing-logo">THE GAP</div>
+    <span class="closing-footer-tag">Bridge The Gap · Alpine Mountaineering · Chamonix, France</span>
+  </div>
+</div>
+
+</body>
+</html>

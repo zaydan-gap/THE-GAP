@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE GAP — Whitewater Kayaking · Futaleufú</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono&display=swap');
+
+:root {
+  --ink: #1a1a1a;
+  --ink2: #2e2e2e;
+  --ink3: #4a4a4a;
+  --gold: #b8922a;
+  --gold-light: #d4ac4e;
+  --gold-bg: #fdf8ee;
+  --cream: #fafaf7;
+  --white: #ffffff;
+  --rule: #e0d8c8;
+  --sidebar: #f4f0e8;
+  --dark: #111111;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 14px; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+@media print {
+  .page-break { page-break-before: always; }
+  .no-break { page-break-inside: avoid; }
+  body { font-size: 11px; }
+}
+
+.cover {
+  background: #060c0a;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px 80px 56px;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: 'FUTALEUFU';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 160px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.015);
+  letter-spacing: -8px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cover-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 28px; }
+.cover-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: white; letter-spacing: -0.5px; }
+.cover-brand span { color: var(--gold-light); }
+.cover-series { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; }
+.cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 72px 0 48px; }
+.cover-eyebrow { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.35em; color: var(--gold-light); text-transform: uppercase; display: block; margin-bottom: 28px; }
+.cover-title { font-family: 'Playfair Display', serif; font-size: 112px; font-weight: 900; line-height: 0.85; letter-spacing: -5px; color: white; margin-bottom: 12px; }
+.cover-title-sub { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.35); letter-spacing: -1px; margin-bottom: 48px; }
+.cover-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 36px; }
+.cover-intro { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.55); max-width: 540px; line-height: 1.65; margin-bottom: 56px; }
+.cover-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,0.07); max-width: 640px; }
+.cover-stat { background: #060c0a; padding: 24px 20px; }
+.cover-stat-n { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--gold-light); line-height: 1; display: block; margin-bottom: 4px; }
+.cover-stat-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(255,255,255,0.28); text-transform: uppercase; }
+.cover-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.cover-note { font-size: 11.5px; color: rgba(255,255,255,0.35); max-width: 420px; line-height: 1.75; font-style: italic; }
+.cover-contact { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--gold-light); }
+
+.doc-page { max-width: 840px; margin: 0 auto; padding: 72px 64px; }
+.section-eyebrow { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
+.eyebrow-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; white-space: nowrap; }
+.eyebrow-rule { flex: 1; height: 1px; background: var(--rule); }
+
+h1 { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 900; line-height: 1.0; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 28px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 14px; margin-top: 32px; }
+p { color: var(--ink3); line-height: 1.82; margin-bottom: 16px; font-size: 13.5px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+.dark-block { background: var(--dark); padding: 52px 56px; margin: 40px 0; }
+.dark-block-tag { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); text-transform: uppercase; display: block; margin-bottom: 20px; }
+.dark-block blockquote { font-family: 'Playfair Display', serif; font-size: 24px; font-style: italic; line-height: 1.55; color: white; margin: 0 0 24px 0; font-weight: 400; }
+.dark-block p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.82; }
+
+.framework-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); margin: 36px 0; }
+.fw-cell { background: var(--cream); padding: 32px 28px; }
+.fw-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 10px; }
+.fw-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.fw-body { font-size: 12.5px; color: var(--ink3); line-height: 1.75; }
+
+.teacher-wrap { display: grid; grid-template-columns: 190px 1fr; border: 1px solid var(--rule); margin: 36px 0; }
+.teacher-left { background: var(--dark); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; }
+.t-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 8px; }
+.t-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); line-height: 1.7; }
+.t-lineage { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: rgba(255,255,255,0.22); text-transform: uppercase; line-height: 1.9; }
+.teacher-right { padding: 36px 40px; }
+.teacher-right p { font-size: 13px; color: var(--ink3); line-height: 1.85; }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.cred-cell { background: var(--sidebar); padding: 14px 16px; }
+.cred-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+.cred-v { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+.day-block { display: grid; grid-template-columns: 168px 1fr; border: 1px solid var(--rule); margin-bottom: 14px; }
+.day-block.accent-gold { border-left: 3px solid var(--gold); }
+.day-block.accent-dark { border-left: 3px solid var(--dark); }
+.d-side { background: var(--sidebar); padding: 24px 20px; border-right: 1px solid var(--rule); }
+.d-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1; display: block; margin-bottom: 2px; }
+.d-label { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; color: var(--ink3); text-transform: uppercase; display: block; margin-bottom: 14px; }
+.d-name { font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+.d-meta { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.1em; color: var(--ink3); text-transform: uppercase; line-height: 1.9; }
+.d-body { padding: 24px 30px; }
+.d-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.d-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.3; }
+.d-desc { font-size: 12.5px; color: var(--ink3); line-height: 1.82; margin-bottom: 14px; }
+.d-desc:last-child { margin-bottom: 0; }
+.sessions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
+.sess { background: var(--sidebar); padding: 12px 14px; border-left: 2px solid var(--gold); }
+.sess-time { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 3px; }
+.sess-title { font-size: 11.5px; font-weight: 600; color: var(--ink2); line-height: 1.35; }
+.sess-sub { font-size: 10.5px; color: var(--ink3); line-height: 1.5; margin-top: 3px; }
+.d-callout { background: var(--gold-bg); border-left: 3px solid var(--gold); padding: 13px 16px; margin-top: 14px; font-size: 12px; color: var(--ink2); line-height: 1.75; }
+
+.service-block { background: #1a1a2e; color: white; padding: 48px 52px; margin: 36px 0; }
+.service-block .s-tag { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.3em; color: rgba(255,255,255,0.35); text-transform: uppercase; display: block; margin-bottom: 18px; }
+.service-block .s-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: white; margin-bottom: 16px; line-height: 1.25; }
+.service-block p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.85; }
+
+.logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 28px 0; }
+.lg-cell { background: var(--cream); padding: 22px 26px; }
+.lg-l { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+.lg-v { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.lg-sub { font-size: 11.5px; color: var(--ink3); margin-top: 4px; line-height: 1.5; }
+
+.include-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+.inc-item { display: flex; align-items: flex-start; gap: 12px; background: var(--sidebar); padding: 14px 16px; }
+.inc-mark { color: var(--gold); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.inc-text { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+.inc-text strong { font-size: 12.5px; display: block; margin-bottom: 2px; }
+
+.closing { background: var(--dark); color: white; min-height: 55vh; padding: 80px; display: flex; flex-direction: column; justify-content: space-between; }
+.closing-h { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; line-height: 0.88; letter-spacing: -2.5px; color: white; margin-bottom: 28px; }
+.closing-sub { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.45); max-width: 460px; line-height: 1.65; margin-bottom: 48px; }
+.closing-contacts { display: flex; gap: 48px; }
+.cc-label { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); display: block; margin-bottom: 5px; }
+.cc-val { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-light); }
+.closing-footer { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.closing-logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: white; letter-spacing: -1px; }
+.closing-footer-tag { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">THE <span>GAP</span></div>
+    <span class="cover-series">Micro Immersion Series · Discipline No. 04</span>
+  </div>
+
+  <div class="cover-main">
+    <span class="cover-eyebrow">Whitewater Kayaking · Futaleufú River · Chilean Patagonia</span>
+    <div class="cover-title">The<br>River.</div>
+    <div class="cover-title-sub">12 Days in Patagonia.</div>
+    <div class="cover-rule"></div>
+    <p class="cover-intro">The river doesn't negotiate. You learn to read it — to see what's coming 50 meters ahead, to position yourself before the current makes the decision for you. That skill — anticipation, positioning, accepting what you can't control and acting on what you can — is what the Futaleufú teaches.</p>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <span class="cover-stat-n">12</span>
+        <span class="cover-stat-l">Days</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">8</span>
+        <span class="cover-stat-l">Spots</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">Class</span>
+        <span class="cover-stat-l">V</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">Pata-</span>
+        <span class="cover-stat-l">gonia</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">$3,600</span>
+        <span class="cover-stat-l">All-In</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <p class="cover-note">No kayaking experience required. Strong swimming, physical fitness, and comfort with cold water are required. The guides will take you from zero to Class IV in 12 days. You will run Class V with them.</p>
+    <span class="cover-contact">apply@bridgethegap.com</span>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Philosophy</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>The Futaleufú<br>does not wait.</h1>
+
+  <p>The Futaleufú River runs 70 kilometers through remote Chilean Patagonia — from its headwaters in the Argentine Andes across the border and through a narrow canyon system before reaching the village of Futaleufú and eventually the Pacific. In those 70 kilometers, it drops through some of the most violent and beautiful whitewater on earth. The water is turquoise-green, glacially cold, and moves with a force that is not adequately described until you are sitting in a kayak at the top of a Class V rapid, looking down at the hydraulics below, and the guide says go.</p>
+
+  <p>The Futaleufú has been sought out by the world's elite kayakers since the river was first commercially descended in the early 1990s. Bio Bio Expeditions, the outfitter who guides this immersion, was among the original operators on the Fu — their guides have spent entire careers on this specific river and know its hydraulics the way surgeons know anatomy. The canyon walls, the named rapids (Throne Room, Mundaca, Himalayas), the eddies and pour-overs — they know what the river does at every water level and every season.</p>
+
+  <p>What whitewater kayaking teaches is immediate and non-abstract: to read moving water, to position before the current takes the decision away from you, and to execute in the moment the river presents. You cannot overthink a Class V rapid. You cannot underprepare for it either. The 12 days are designed to give you exactly enough skill to be in the river honestly — to read it, position for it, and run it on its terms.</p>
+
+  <div class="dark-block">
+    <span class="dark-block-tag">The Gap · Core Belief</span>
+    <blockquote>"The Futaleufú teaches one thing: anticipation. You have to see 50 meters ahead. You have to be positioned before the current makes the choice. That skill — reading what's coming and moving before it arrives — is the curriculum."</blockquote>
+    <p>Every discipline in THE GAP framework is chosen because it teaches something that cannot be learned in a classroom. Whitewater kayaking teaches river reading, consequence management, and the ability to act decisively in high-stakes moving environments. The Futaleufú is where this is learned at the highest level of accessible instruction.</p>
+  </div>
+
+  <h2>The Fight for the River</h2>
+
+  <p>The Futaleufú has been threatened by hydroelectric dam projects for decades. In the 1990s and 2000s, large energy companies attempted to dam the river for industrial power generation — which would have destroyed the canyon, the rapids, and the ecosystem that makes it what it is. The local Futa community and conservation organizations fought back. The river remains free-flowing today because of that fight, and the fight is not fully over.</p>
+
+  <p>Bio Bio Expeditions has been a central voice in the dam opposition movement since it began. The guides who will lead this immersion have testified before the Chilean government and organized international campaigns to protect the river. The service day on Day 11 is directly connected to this ongoing effort. You are not just running a famous river — you are running a river that people have spent their lives protecting.</p>
+
+  <div class="framework-grid">
+    <div class="fw-cell">
+      <div class="fw-num">01</div>
+      <div class="fw-name">Adventure + Adrenaline</div>
+      <p class="fw-body">Progressive Class II to Class V kayaking over 12 days. The Futaleufú canyon run on Day 10. Camping on the riverbank. Patagonian wilderness with no roads. The river provides the adrenaline. The canyon provides the scale.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">02</div>
+      <div class="fw-name">Travel + Encounter</div>
+      <p class="fw-body">Remote Chilean Patagonia — gaucho culture, the village of Futaleufú, the Andes at your back. Horseback riding through the valley on the rest day. Fly fishing in the river's calmer sections. A culture that has built its entire identity around this specific place.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">03</div>
+      <div class="fw-name">Service + Giving Back</div>
+      <p class="fw-body">Day 11: community day with the village of Futaleufú — the people who live at the end of this river and have been fighting to keep it alive. River conservation conversation, local culture, direct contribution to the dam opposition network.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- TEACHER -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Teachers</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>Bio Bio Expeditions<br>and the Futa Guides.</h1>
+
+  <div class="teacher-wrap">
+    <div class="teacher-left">
+      <div class="teacher-name-block">
+        <div class="t-name">Bio Bio<br>Expeditions</div>
+        <div class="t-tag">Futaleufú River<br>Chilean Patagonia<br>Since First Descent</div>
+      </div>
+      <div class="t-lineage">
+        Original Futa Operators<br>Senior Chilean Guides<br>Dam Opposition<br>30+ Years on River<br>Patagonia Based
+      </div>
+    </div>
+    <div class="teacher-right">
+      <p>Bio Bio Expeditions was among the first commercial outfitters to run the Futaleufú River — operating since the river was first descended commercially in the early 1990s. Their senior Chilean guides have spent entire careers on the Fu. Not on rivers like the Fu — on this river, this canyon, these specific rapids at specific water levels. That depth of specific knowledge is what makes the difference between a guide who runs you safely through Class V and a guide who can teach you to read the river yourself.</p>
+      <p>The guides who lead this immersion are certified whitewater professionals with decades of experience on the Futaleufú specifically. They know the Throne Room rapid in high water and in low water, in summer and in autumn. They know which eddies to use for scouting, which hydraulics to avoid, and which lines through each rapid produce the cleanest run for an intermediate paddler. That knowledge cannot be replicated by someone who has spent a week on the river. It takes years, run after run, season after season.</p>
+      <p>Bio Bio has also been central to the fight against hydroelectric development on the Futaleufú. They bring that advocacy to every trip — the guests who run the river with them understand what is at stake in its protection. The guides' knowledge of the river is inseparable from their commitment to its survival.</p>
+      <div class="cred-grid">
+        <div class="cred-cell">
+          <span class="cred-l">Experience</span>
+          <div class="cred-v">Original operators since first descent · 30+ years</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Guides</span>
+          <div class="cred-v">Senior Chilean certified guides · career-long on Fu</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Highest Rapid</span>
+          <div class="cred-v">Class V — Throne Room, Mundaca, Himalayas</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Conservation</span>
+          <div class="cred-v">Dam opposition · Futa community partnerships</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What the progression looks like</h2>
+
+  <p>Kayaking is a technical skill that builds in layers. You cannot skip the foundation. The first three days focus on fundamental paddle strokes and boat control in Class II water — forward stroke, back stroke, draw, brace, eddy turn, peel-out. The guide is specific about mechanics from the first session: blade angle, torso rotation, hip snap. These details matter more at Class V than anywhere else, because at Class V you do not have time to think about technique. It has to be in the body.</p>
+
+  <p><strong>The eskimo roll</strong> is the most important skill in whitewater kayaking — it is how you recover from a capsize without exiting the boat. It is practiced intensively from Day 2 in calm water, then in current, then in mild whitewater. By Day 6 the roll should be reliable. By Day 10, when you run the canyon, it should be automatic. If it is not reliable by Day 6, the guide will tell you, and the program will adjust — there is no shame in running a rapid in a guide's boat rather than attempting it alone before you're ready.</p>
+
+  <p>The progression: Class II (Days 2–3) → Class III (Days 4–6) → Class IV (Days 7–9) → Class V canyon run with guides (Day 10). Each step is earned. Each step builds on the last. The river decides when you're ready to move up — the guide reads the river and reads you, and makes the call.</p>
+
+  <div class="d-callout" style="border-left-color:var(--ink);background:var(--sidebar);">
+    <strong>On reading water:</strong> The guides spend as much time teaching you to read the river as they spend teaching you to paddle. You will learn to identify a hydraulic from upstream before you can see it — by the color of the water, the sound, the way the surface boils. You will learn what a keeper hydraulic looks like versus a flushing one. You will learn what a pillow wave means, what a pourover means, and what the difference is between a standing wave and a breaking wave. The guide is not driving you down the river. He is teaching you to drive yourself.
+  </div>
+</div>
+
+
+<!-- ITINERARY DAYS 1-7 -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Days 1–7</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Foundation<br>to Class IV.</h1>
+  <p style="margin-bottom:32px;">The first seven days take you from zero to Class IV. Every skill is built on the last. The river is the teacher — the guide is the interpreter. By Day 7 you will have run whitewater that was unimaginable on Day 1.</p>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">01</span>
+      <span class="d-label">Arrival</span>
+      <div class="d-name">Futaleufú</div>
+      <div class="d-meta">No paddling<br>River walk<br>Camp setup<br>Group dinner</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Orientation</div>
+      <div class="d-title">Arrive in Futaleufú. Walk to the river. Understand what you're in for.</div>
+      <p class="d-desc">Fly into Chaitén or Puerto Montt and transfer by road to the village of Futaleufú — a town of a few hundred people in a valley surrounded by the Andes, 10 kilometers from the Argentine border. The river is visible from the main street. After settling into camp — a riverside lodge run by Bio Bio — walk to the riverbank with the guide for a first look: the water is turquoise-green, glacially clear, moving fast even in this calm upper section. The sound is constant. Group dinner with the guides. Tomorrow the paddling begins at 8:00am.</p>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">02</span>
+      <span class="d-label">Foundations</span>
+      <div class="d-name">Into the Boat</div>
+      <div class="d-meta">AM: Lake Strokes<br>PM: River Entry<br>First Eskimo Roll</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Foundation</div>
+      <div class="d-title">The guide watches how you sit in the boat before he teaches you anything else.</div>
+      <p class="d-desc">Morning: fundamental paddle strokes in a calm lake adjacent to camp — forward stroke, reverse stroke, draw stroke, sweep stroke. The guide corrects from the first paddle: torso rotation drives power, not the arms. This is the single most important technical correction in kayaking and most people never fully absorb it. He drills it until it begins to feel natural.</p>
+      <p class="d-desc">Afternoon: first river entry — a calm section of the upper Fu, Class I. Moving water changes everything about a kayak. The boat responds differently. The guide introduces the eddy turn — how to cross the boundary between flowing current and calm eddy — and the peel-out, its reverse. These are the foundational navigation tools. You will use them 200 times before the trip is over. Evening: first eskimo roll attempt in calm water.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–11:00</span><div class="sess-title">Lake Fundamentals</div><div class="sess-sub">All four strokes, torso rotation</div></div>
+        <div class="sess"><span class="sess-time">14:00–17:00</span><div class="sess-title">River Entry</div><div class="sess-sub">Eddy turns, peel-outs, Class I</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Roll Clinic</div><div class="sess-sub">First attempts, mechanics explained</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">03</span>
+      <span class="d-label">Class II</span>
+      <div class="d-name">Moving Water</div>
+      <div class="d-meta">AM: Roll Practice<br>PM: Class II Section<br>Reading Upstream</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Progression</div>
+      <div class="d-title">Class II — where the river starts talking and you start listening.</div>
+      <p class="d-desc">Morning: eskimo roll practice — the guide works with each person individually. The hip snap is the hinge of the roll; most people try to pull themselves up with the paddle arm. The guide shows you the mechanics of the right way until it clicks. The roll will not be reliable today. It will begin to be reliable by Day 6.</p>
+      <p class="d-desc">Afternoon: first Class II section of the Futaleufú — defined waves, clear lines, no serious hazards. The guide paddles first, shows the line, eddies out, watches each person run it. After each rapid he debriefs: what line did you actually take versus what you planned? What happened between the two? The gap between plan and execution is where learning lives. Evening: river reading walk — the guide stops at a Class II rapid and asks the group to describe the line before he says anything. Then he shows them what he sees.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–10:00</span><div class="sess-title">Roll Practice</div><div class="sess-sub">Individual work · hip snap focus</div></div>
+        <div class="sess"><span class="sess-time">13:00–17:00</span><div class="sess-title">Class II Section</div><div class="sess-sub">Running rapids, eddy catches, debrief</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">River Reading Walk</div><div class="sess-sub">Describe the line before being told</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">04</span>
+      <span class="d-label">Rest Day</span>
+      <div class="d-name">Patagonia</div>
+      <div class="d-meta">Horseback Riding<br>Valley + Andes<br>Gaucho Lunch</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Encounter</div>
+      <div class="d-title">Horseback through a Patagonian valley. This is the landscape the river moves through.</div>
+      <p class="d-desc">No kayaking today. Horseback riding through the valley with a local gaucho family — a half-day ride through open estancia land with the Andes rising immediately on both sides. The horses are working horses, not trail horses — responsive and honest. The gaucho speaks Spanish and will communicate mostly through demonstration and presence. Lunch with the family: asado — beef grilled over an open fire, the Patagonian way. Chimichurri from a jar that has been on their kitchen table for 20 years.</p>
+      <p class="d-desc">The valley context is important. The Futaleufú is not just a river in an abstract landscape — it is the center of a specific culture and a specific way of life for the families who have ranched here for generations. Understanding who lives here changes what the dam-opposition service day on Day 11 means.</p>
+      <div class="d-callout">
+        <strong>On rest in Patagonia:</strong> The days on the river are physically and mentally demanding. The rest day is not a detour — it is the context that makes everything else meaningful. The river flows through this valley. The valley is these people's lives. The gaucho who takes you through the Andes this morning lives with the knowledge that a dam would end all of it.
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">05</span>
+      <span class="d-label">Class III</span>
+      <div class="d-name">The River Speaks</div>
+      <div class="d-meta">AM: Roll Confidence<br>PM: Class III<br>Swim Practice</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Progression</div>
+      <div class="d-title">Class III. The river is now requiring decisions. The guide is no longer choosing your line.</div>
+      <p class="d-desc">Class III rapids require real decisions. The water is faster, the hydraulics more complex, the consequence of the wrong line significant. The guide runs each rapid first, shows the line, and then each person chooses: run the main line, or take the safer sneak route around the edge? There is no wrong choice. There is only honest self-assessment. The guide watches which choice each person makes and whether the reasoning matches the execution.</p>
+      <p class="d-desc">Swim practice in a controlled section: flip the kayak on purpose and swim the rapid in your personal flotation device. Learning how to swim whitewater — on your back, feet downstream, toes up, reading the current — removes the fear of swimming. If you know you can handle a swim, the fear of capsizing loses its grip on your decision-making in the boat. That freedom is what allows you to run the harder lines on Days 8 and 9.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–10:00</span><div class="sess-title">Roll Confidence Session</div><div class="sess-sub">In moving water · Class I–II current</div></div>
+        <div class="sess"><span class="sess-time">13:00–17:00</span><div class="sess-title">Class III Section</div><div class="sess-sub">Decision-making, line choice, swim practice</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Campfire Debrief</div><div class="sess-sub">What the river showed today</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">06</span>
+      <span class="d-label">Playboating</span>
+      <div class="d-name">The Hole</div>
+      <div class="d-meta">AM: Surfing Waves<br>PM: Hole Play<br>Fly Fishing</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Depth</div>
+      <div class="d-title">Playboating — using the river's features as a partner, not an obstacle.</div>
+      <p class="d-desc">Playboating is a dimension of kayaking that most beginners don't encounter: surfing standing waves, spinning in holes, using the river's hydraulic features as a playground rather than a hazard to navigate around. The guide introduces it in a safe, feature-rich section of the upper Fu. A standing wave here holds a kayak in a stable surf — you paddle into it, find the sweet spot, and ride it without going forward or backward. The river is doing all the work. Your job is to stay balanced inside it.</p>
+      <p class="d-desc">Afternoon: fly fishing in a calm section of the river with a local guide — the Futaleufú is one of the premier fly fishing rivers in South America. Brown and rainbow trout in glacier-cold turquoise water. Whether or not you catch anything is irrelevant. The activity of standing in the river in waders, reading the current for holding lies where fish rest, making accurate casts — it is a different way of reading the same water the kayak has been teaching you.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–11:00</span><div class="sess-title">Wave Surfing</div><div class="sess-sub">Standing waves, balance, river play</div></div>
+        <div class="sess"><span class="sess-time">13:00–16:00</span><div class="sess-title">Fly Fishing</div><div class="sess-sub">Local guide, trout water, river reading</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Riverside Camp</div><div class="sess-sub">Dinner on the riverbank</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">07</span>
+      <span class="d-label">Class IV</span>
+      <div class="d-name">Commitment</div>
+      <div class="d-meta">Full River Day<br>Class IV Section<br>Canyon Approach</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Elevation</div>
+      <div class="d-title">Class IV. Once you enter this rapid, the river is in charge until you exit.</div>
+      <p class="d-desc">Class IV marks the transition from technical to committing. A Class IV rapid on the Futaleufú means powerful hydraulics, complex lines, and consequence for the wrong decision that will not be comfortable. The guide scouts each rapid before running it — standing on shore reading the water, identifying the line, identifying the hazards, identifying the rescue points if someone swims. This scouting process is part of the instruction: you are learning to assess risk accurately, not to avoid it.</p>
+      <p class="d-desc">The first Class IV run of the trip is a marked moment. The river ahead of the entry point looks blue and calm. Then you paddle around a bend and the sound changes and the world ahead drops, and you have a few seconds to orient and commit to the line you scouted. That few seconds — between seeing it and running it — is the distillation of everything the river teaches. After: the eddy below the rapid, breathing, the other paddlers coming through. The canyon run on Day 10 becomes real.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–12:00</span><div class="sess-title">Class IV Approach</div><div class="sess-sub">Scout, commit, run, eddy below</div></div>
+        <div class="sess"><span class="sess-time">13:00–17:00</span><div class="sess-title">Class IV Extension</div><div class="sess-sub">Multiple rapids, guide in water safety</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Camp on River</div><div class="sess-sub">Sleep above the canyon</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ITINERARY DAYS 8-12 -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Days 8–12</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>The canyon<br>run.</h1>
+  <p style="margin-bottom:32px;">The final stretch builds to Day 10 — the full Futaleufú canyon run, the river's most consequential and most beautiful section. Days 11 and 12 are the service day and the close. By the time you leave, the Futaleufú will be something you know from the inside.</p>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">08</span>
+      <span class="d-label">Advanced IV</span>
+      <div class="d-name">Throne Room</div>
+      <div class="d-meta">Full River Day<br>Named Rapids<br>Scout + Run</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Depth</div>
+      <div class="d-title">The Throne Room. The most famous rapid on the Futaleufú — today you scout it. Maybe you run it.</div>
+      <p class="d-desc">The Throne Room is a rapid that has been in kayaking films for 30 years — a massive, complex Class IV/V rapid that splits around a central boulder and produces competing hydraulics on both sides. The guide scouts it thoroughly. He describes the history of the rapid — who has run it, who has swum it, what conditions change its character. The decision to run or portage is individual and made with the guide's assessment. Running it is not the point. Being honest about your readiness is the point.</p>
+      <p class="d-desc">Two more named Class IV+ rapids on the same day. By Day 8 the group is paddling with a fluency that was impossible on Day 3. The guide notices it. The debrief tonight is longer than usual — he talks about what he's observed in each person's paddling over the week, what has solidified, what to focus on before the canyon run.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–17:00</span><div class="sess-title">Named Rapids Day</div><div class="sess-sub">Throne Room + two Class IV+ runs</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Extended Debrief</div><div class="sess-sub">Individual assessment before canyon</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">09</span>
+      <span class="d-label">Preparation</span>
+      <div class="d-name">Pre-Canyon</div>
+      <div class="d-meta">AM: Final Skills<br>PM: Canyon Scout<br>Night Before</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Canyon Eve</div>
+      <div class="d-title">Tomorrow is the canyon. Today you prepare — technically, physically, mentally.</div>
+      <p class="d-desc">Morning: targeted skills work based on each person's remaining gaps. The roll. The brace. The eddy entry at speed. The guide drills whatever needs shoring up. This is the last technical session before the canyon run. By the afternoon there is nothing left to do but rest and prepare mentally.</p>
+      <p class="d-desc">Afternoon: shore scout of the canyon section — walking the bank, reading the water from above, identifying the sequence of rapids. The guide walks through the canyon line: where to enter, what to look for in each major rapid, where the eddies are for regrouping, what the swim scenario looks like at each stage if it comes to that. He has run this canyon hundreds of times. His calm about it is not performance. It is the genuine calm of complete familiarity.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">08:00–11:00</span><div class="sess-title">Skills Refinement</div><div class="sess-sub">Individual corrections, final technical work</div></div>
+        <div class="sess"><span class="sess-time">14:00–17:00</span><div class="sess-title">Canyon Shore Scout</div><div class="sess-sub">Walk the line, identify every feature</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Quiet Night</div><div class="sess-sub">Early sleep. Canyon at 8am.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">10</span>
+      <span class="d-label">The Canyon</span>
+      <div class="d-name">Futaleufú</div>
+      <div class="d-meta">Full Day<br>Canyon Run<br>Class V</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">The Main Event</div>
+      <div class="d-title">The Futaleufú canyon. The reason people come from everywhere on earth to paddle here.</div>
+      <p class="d-desc">The full canyon run — the section of the Futaleufú that made this river famous. Class IV and Class V rapids in a narrow canyon of granite walls rising 200 feet on both sides, turquoise water so clear you can see the boulders ten feet below. The guides run safety positions throughout: one at the top of each major rapid, one at the exit, one with the group. This is not unsupported. This is the most careful and most guided day of the trip.</p>
+      <p class="d-desc">What happens in the canyon cannot be adequately described before you are in it. The scale is vertical as well as horizontal — the walls make the river feel intimate and enormous simultaneously. The sound changes inside the canyon. The water color changes. The rapids that seemed serious in open valley feel different here, where the walls take away your peripheral vision and the sound reverberates. Every person who has run this section describes it the same way: the most beautiful water they have ever been in.</p>
+      <p class="d-desc">Post-canyon: the take-out point. The guides have cold drinks and food waiting. The group sits at the river's edge for a long time and says very little.</p>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">11</span>
+      <span class="d-label">Service Day</span>
+      <div class="d-name">Futa Village</div>
+      <div class="d-meta">Full Day<br>Community<br>River Conservation</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Service + Giving Back</div>
+      <div class="d-title">The village of Futaleufú. The people who have been fighting to keep this river alive.</div>
+      <p class="d-desc">Community day in the village of Futaleufú — the small town at the end of the river that bears its name. The families who live here have been fighting hydroelectric development for thirty years. Their livelihoods — fishing, tourism, ranching — depend on the river remaining free. The Bio Bio guides have deep relationships with the community and this day is organized through those relationships: conversation with community leaders about the ongoing conservation effort, a river cleanup of the lower section, and participation in whatever local community project is current.</p>
+      <p class="d-desc">This is not a tourist activity. The conversation about dams and water rights and Patagonian futures is real and ongoing, and the people having it have skin in the game. You have now run this river. You understand what is at stake in a physical, not abstract, way. That changes the quality of the conversation.</p>
+    </div>
+  </div>
+
+  <div class="service-block">
+    <span class="s-tag">Why conservation is part of the curriculum</span>
+    <div class="s-title">The river taught you. The community protects it. You add to both.</div>
+    <p>The Futaleufú's Class V rapids exist because the river flows freely through an unaltered canyon. If the proposed dams had been built, the canyon would be a reservoir. The guides who taught you to read the river have spent years fighting to keep it that way. Spending a day with the Futa community — understanding their relationship to the water, contributing to the conservation effort — is the completion of a relationship that began when you first put a boat in the water.</p>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">12</span>
+      <span class="d-label">Closing Day</span>
+      <div class="d-name">Depart</div>
+      <div class="d-meta">Final Paddle<br>Guide Assessment<br>Afternoon Departure</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Closing</div>
+      <div class="d-title">One last morning on the river. The guide tells you what changed.</div>
+      <p class="d-desc">Final morning session: a mellow paddle on a beautiful section of the upper Fu — no pressure, no progression goal, just moving water and the Andes and the turquoise river you now know from the inside. The guide paddles beside each person and tells them specifically what he observed over 12 days: what changed, what to work on next, what stays. These are not generic compliments. The guides at Bio Bio have been reading paddlers for decades. What they say is specific and true.</p>
+      <p class="d-desc">Group debrief on the river bank. Departure from Futaleufú to Puerto Montt or Chaitén in the early afternoon. The drive out through Patagonia is long and beautiful. Use it.</p>
+      <div class="d-callout"><strong>What you leave with:</strong> 11 days of progressive whitewater training from Class II to Class V on one of the most demanding rivers in the world. The canyon run. An understanding of river reading that applies well beyond a kayak. And a specific experience of anticipation — of reading what's coming and positioning before the current takes the choice away from you. That skill does not stay on the water.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGISTICS -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">Logistics · What's Included · How to Apply</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Everything you need<br>to know.</h1>
+
+  <div class="logistics-grid">
+    <div class="lg-cell">
+      <span class="lg-l">Location</span>
+      <div class="lg-v">Futaleufú River, Chilean Patagonia</div>
+      <div class="lg-sub">Access via Puerto Montt (PMC) or Chaitén · 5–6hr drive to Futaleufú village</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Duration</span>
+      <div class="lg-v">12 Days</div>
+      <div class="lg-sub">Arrive Day 1 evening · Depart Day 12 afternoon</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Group Size</span>
+      <div class="lg-v">8 spots</div>
+      <div class="lg-sub">One guide per two paddlers at minimum. Small groups only.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Investment</span>
+      <div class="lg-v">$3,600</div>
+      <div class="lg-sub">All-inclusive except international flights and travel insurance.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Prerequisites</span>
+      <div class="lg-v">Strong swimmer · physical fitness</div>
+      <div class="lg-sub">Comfortable swimming 200m in moving water. No kayaking experience required.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Season</span>
+      <div class="lg-v">November — March</div>
+      <div class="lg-sub">Southern hemisphere summer. Water levels optimal for learning progression.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Training Schedule</span>
+      <div class="lg-v">River daily · 8:00am</div>
+      <div class="lg-sub">Full-day river sessions with rest on Day 4. Canyon run on Day 10.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Apply</span>
+      <div class="lg-v">apply@bridgethegap.com</div>
+      <div class="lg-sub">Include swimming ability and fitness background. Response within 48 hours.</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:40px;margin-bottom:20px;">What's included</h2>
+  <div class="include-grid">
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All kayaking instruction</strong>12 days with Bio Bio senior Chilean guides. Class II to Class V progression.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All kayaking equipment</strong>Kayak, paddle, helmet, PFD, spray skirt, wetsuit. Everything. You bring nothing except athletic swimwear.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Accommodation</strong>Bio Bio riverside lodge and riverside camping. Simple, excellent, on the water.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All meals</strong>Full catering throughout — breakfast, lunch on river, dinner at camp. Chilean Patagonian food.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Full canyon run</strong>Day 10. The Futaleufú canyon with guide safety coverage throughout.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Horseback riding day</strong>Day 4. Full day with gaucho family in the valley. Asado lunch included.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Fly fishing session</strong>Day 6 afternoon. Local guide, trout water, the river from a different angle.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Futa village community day</strong>Day 11. River conservation and community engagement with local dam-opposition network.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Swim training session</strong>Controlled whitewater swimming — removing the fear of a capsize before it's a problem.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Playboating session</strong>Day 6 morning. Using the river's features as a partner rather than an obstacle.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All transport in Patagonia</strong>Puerto Montt or Chaitén pickup and drop-off included. All in-country transport.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>River reading curriculum</strong>Shore scouting, water feature identification, line choice methodology — taught throughout.</div>
+    </div>
+  </div>
+
+  <h3>What to bring</h3>
+  <p>Quick-dry athletic clothes. Wool or fleece base layer — Patagonian water is cold even in summer. Running shoes for shore walks. Sunscreen and sunglasses. Everything for the water is provided. The lodge has laundry facilities. Pack for two weeks in a remote location with variable weather.</p>
+
+  <h3>What is not included</h3>
+  <p>International flights to Chile (Santiago SCL, then Puerto Montt PMC). Travel insurance — required, must include adventure sports coverage. Personal spending. The canyon run on Day 10 is subject to guide assessment of individual readiness and current conditions.</p>
+</div>
+
+
+<!-- CLOSING -->
+<div class="closing page-break">
+  <div>
+    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:36px;">The Gap · Micro Immersion Series · Whitewater · Futaleufú, Patagonia</span>
+    <div class="closing-h">8 spots.<br>Patagonia.<br>Run the canyon.</div>
+    <p class="closing-sub">You don't need to have paddled before. You need to be a strong swimmer, physically fit, and willing to enter water that is moving faster than you can run. The guides will take care of the rest. The river will take care of the curriculum.</p>
+    <div class="closing-contacts">
+      <div>
+        <span class="cc-label">Register Interest / Apply</span>
+        <span class="cc-val">apply@bridgethegap.com</span>
+      </div>
+      <div>
+        <span class="cc-label">Program Website</span>
+        <span class="cc-val">bridgethegap.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="closing-footer">
+    <div class="closing-logo">THE GAP</div>
+    <span class="closing-footer-tag">Bridge The Gap · Whitewater Kayaking · Futaleufú, Chilean Patagonia</span>
+  </div>
+</div>
+
+</body>
+</html>

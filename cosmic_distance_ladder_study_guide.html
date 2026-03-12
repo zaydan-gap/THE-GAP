@@ -5,133 +5,60 @@
 <title>Cosmic Distance Ladder – Study Guide</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 11pt;
-    color: #111;
-    background: #fff;
-    line-height: 1.7;
-  }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt; color: #111; background: #fff; line-height: 1.7; }
 
-  .page { padding: 36px 52px; page-break-after: always; }
-  .page:last-child { page-break-after: auto; }
+  .page { padding: 32px 48px; page-break-after: always; break-after: page; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
 
-  /* Cover */
-  .cover {
-    text-align: center;
-    padding: 80px 52px 60px 52px;
-    page-break-after: always;
-    border-bottom: 3px solid #111;
-  }
+  .cover { text-align: center; padding: 70px 52px 50px 52px; page-break-after: always; break-after: page; border-bottom: 3px solid #111; }
   .cover h1 { font-size: 26pt; margin-bottom: 10px; letter-spacing: 1px; }
   .cover h2 { font-size: 13pt; font-weight: normal; margin-bottom: 6px; color: #333; }
-  .cover .sub { font-size: 10pt; color: #555; margin-top: 20px; line-height: 2; }
-  .cover .ladder {
-    display: inline-block;
-    text-align: left;
-    margin: 30px auto;
-    font-family: 'Courier New', monospace;
-    font-size: 10pt;
-    border: 1px solid #aaa;
-    padding: 16px 24px;
-    line-height: 2;
-  }
+  .cover .ladder { display: inline-block; text-align: left; margin: 24px auto; font-family: 'Courier New', monospace; font-size: 10pt; border: 1px solid #aaa; padding: 14px 22px; line-height: 2; }
 
-  /* Section title */
-  .sec {
-    font-size: 14pt;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    border-top: 3px solid #111;
-    border-bottom: 1px solid #111;
-    padding: 5px 0;
-    margin: 24px 0 14px 0;
-  }
+  .sec { font-size: 13.5pt; font-weight: bold; font-family: Arial, sans-serif; border-top: 3px solid #111; border-bottom: 1px solid #111; padding: 5px 0; margin: 22px 0 12px 0; }
   .sec:first-child { margin-top: 0; }
+  .subsec { font-size: 11.5pt; font-weight: bold; font-family: Arial, sans-serif; border-bottom: 1.5px solid #555; padding-bottom: 2px; margin: 16px 0 8px 0; color: #222; }
+  h3 { font-size: 11pt; font-family: Arial, sans-serif; font-weight: bold; margin: 14px 0 5px 0; text-decoration: underline; }
+  h4 { font-size: 10.5pt; font-family: Arial, sans-serif; font-weight: bold; margin: 10px 0 4px 0; }
+  p { margin-bottom: 7px; font-size: 10.5pt; }
+  ul, ol { padding-left: 22px; margin: 4px 0 9px 0; }
+  li { margin-bottom: 4px; font-size: 10.5pt; }
 
-  h3 {
-    font-size: 12pt;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    margin: 18px 0 6px 0;
-    text-decoration: underline;
-  }
+  .formula { text-align: center; font-family: 'Courier New', monospace; font-size: 13pt; font-weight: bold; margin: 12px auto; padding: 10px 16px; border-top: 1.5px solid #777; border-bottom: 1.5px solid #777; }
+  .formula .sub { display: block; font-size: 9pt; font-family: Georgia, serif; font-weight: normal; color: #444; margin-top: 4px; }
 
-  h4 {
-    font-size: 11pt;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    margin: 12px 0 4px 0;
-  }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 10px 0; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 10px 0; }
+  .col-box { border: 1px solid #bbb; padding: 10px 12px; border-radius: 4px; }
 
-  p { margin-bottom: 8px; font-size: 11pt; }
-  ul, ol { padding-left: 22px; margin: 4px 0 10px 0; }
-  li { margin-bottom: 4px; font-size: 11pt; }
-
-  /* Formula — plain centered display */
-  .formula {
-    text-align: center;
-    font-family: 'Courier New', monospace;
-    font-size: 14pt;
-    font-weight: bold;
-    margin: 14px auto;
-    padding: 10px;
-    border-top: 1px solid #888;
-    border-bottom: 1px solid #888;
-  }
-  .formula .sub {
-    display: block;
-    font-size: 9pt;
-    font-family: Georgia, serif;
-    font-weight: normal;
-    color: #444;
-    margin-top: 5px;
-  }
-
-  /* Two column layout */
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 10px 0; }
-
-  /* Table */
-  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt; font-family: Arial, sans-serif; }
-  th { background: #111; color: #fff; padding: 7px 10px; text-align: left; font-size: 10pt; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; font-family: Arial, sans-serif; }
+  th { background: #111; color: #fff; padding: 7px 10px; text-align: left; font-size: 9.5pt; }
   td { border: 1px solid #bbb; padding: 6px 10px; vertical-align: top; }
   tr:nth-child(even) td { background: #f5f5f5; }
 
-  /* Diagram container — just a clean border */
-  .diagram {
-    border: 1.5px solid #888;
-    margin: 16px 0;
-    page-break-inside: avoid;
-  }
-  .diagram .dtitle {
-    background: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    font-size: 9.5pt;
-    font-weight: bold;
-    padding: 5px 12px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
+  .diagram { border: 1.5px solid #888; margin: 14px 0; page-break-inside: avoid; }
+  .diagram .dtitle { background: #111; color: #fff; font-family: Arial, sans-serif; font-size: 9pt; font-weight: bold; padding: 5px 12px; letter-spacing: 0.5px; text-transform: uppercase; }
   .diagram svg { display: block; width: 100%; height: auto; }
 
-  /* Practice question */
-  .pq { border-left: 3px solid #111; padding: 8px 12px; margin: 8px 0; }
+  .pq { border-left: 3px solid #333; padding: 8px 12px; margin: 8px 0; background: #fafafa; }
   .pq .qn { font-weight: bold; font-family: Arial, sans-serif; font-size: 10pt; margin-bottom: 4px; }
   .pq p { font-size: 10.5pt; margin-bottom: 3px; }
 
-  /* Person */
-  .person { border: 1.5px solid #555; padding: 12px 14px; margin: 10px 0; }
+  .person { border: 1.5px solid #555; padding: 11px 14px; margin: 9px 0; }
   .person .name { font-size: 12pt; font-weight: bold; font-family: Arial, sans-serif; margin-bottom: 2px; }
-  .person .dates { font-size: 9pt; color: #555; margin-bottom: 7px; font-style: italic; }
+  .person .dates { font-size: 9pt; color: #555; margin-bottom: 6px; font-style: italic; }
 
-  /* Note */
-  .note { font-style: italic; color: #444; font-size: 10.5pt; margin: 8px 0; }
+  .note { font-style: italic; color: #444; font-size: 10pt; margin: 7px 0; padding-left: 12px; border-left: 2px solid #888; }
+  .callout { background: #f8f8f8; border: 1px solid #ccc; padding: 9px 13px; margin: 10px 0; font-size: 10pt; }
+  .callout strong { font-family: Arial, sans-serif; }
 
+  @page { size: letter portrait; margin: 0.55in; }
   @media print {
     body { font-size: 10pt; }
-    .page { padding: 28px 40px; }
-    .cover { padding: 50px 40px 40px 40px; }
+    .page { padding: 0; page-break-after: always !important; break-after: page !important; }
+    .cover { padding: 50px 0 40px 0; page-break-after: always !important; break-after: page !important; }
+    .page:last-child { page-break-after: auto !important; break-after: auto !important; }
+    .diagram { page-break-inside: avoid; break-inside: avoid; }
   }
 </style>
 </head>
@@ -140,723 +67,733 @@
 <!-- ══ COVER ══ -->
 <div class="cover">
   <h1>Cosmic Distance Ladder</h1>
-  <h2>Study Guide — Honors Astronomy &amp; Astrophysics</h2>
-  <p style="color:#444;">UNL NAAP Modules 5–14 &nbsp;·&nbsp; The Glass Universe, Part III (Ch. 11–12)</p>
-
+  <h2>Comprehensive Study Guide — Honors Astronomy &amp; Astrophysics</h2>
+  <p style="color:#444; font-size:10pt;">UNL NAAP Modules 5–14 &nbsp;·&nbsp; The Glass Universe, Part III (Ch. 11–12)</p>
   <div class="ladder">
-    Rung 6 · Type Ia Supernovae .............. ~1 billion ly<br>
+    Rung 6 · Type Ia Supernovae ...................... ~1 billion ly<br>
     Rung 5 · Cepheid Variables (Leavitt's Law) ~100 million ly<br>
-    Rung 4 · Spectroscopic Parallax .......... ~10,000 ly<br>
-    Rung 3 · Main-Sequence Fitting ........... ~50,000 ly<br>
-    Rung 2 · Distance Modulus ................ ~1,000 ly<br>
-    Rung 1 · Trigonometric Parallax .......... ~1,000 ly
+    Rung 4 · Spectroscopic Parallax .................. ~10,000 ly<br>
+    Rung 3 · Main-Sequence Fitting ..................... ~50,000 ly<br>
+    Rung 2 · Distance Modulus ............................. ~1,000 ly<br>
+    Rung 1 · Trigonometric Parallax ..................... ~1,000 ly
   </div>
-
-  <div class="sub">
-    Exam format: 10–15 short-response questions + distance modulus calculations<br>
-    Open notes · Open <em>The Glass Universe</em> · Calculator required
-  </div>
+  <p style="color:#555; font-size:10pt;">Exam: 10–15 short-response questions + distance modulus calculations<br>
+  Open notes · Open <em>The Glass Universe</em> · Calculator required</p>
 </div>
 
-<!-- ══ PAGE 1: PARALLAX ══ -->
+<!-- ══════════════════════════════════════════════
+     PAGE 1: PARALLAX & PARSEC
+══════════════════════════════════════════════ -->
 <div class="page">
-
   <div class="sec">Rung 1 — Trigonometric Parallax &amp; the Parsec</div>
 
   <h3>What is Trigonometric Parallax?</h3>
-  <p>Parallax is the apparent shift in a nearby star's position against background stars, caused by Earth's movement around the Sun. We observe the star in January, then again in July, and measure how much it appears to shift.</p>
+  <p>Parallax is the apparent shift in a nearby star's position against the background of distant stars, caused by Earth's movement around the Sun over the course of a year. It is the most direct and geometrically rigorous method of measuring stellar distances, and it forms the foundation of the entire distance ladder.</p>
   <ul>
-    <li>The angle of shift is the <strong>parallax angle p</strong>, measured in arcseconds</li>
-    <li>Closer stars have a larger parallax angle; farther stars have a smaller angle</li>
-    <li>The baseline is 1 AU (the Earth–Sun distance)</li>
-    <li>Works reliably only up to about 1,000 light-years</li>
+    <li>Observe a star in January, then again in July — Earth is on opposite sides of its orbit</li>
+    <li>The nearby star appears to shift slightly relative to background stars (which are too far away to shift measurably)</li>
+    <li>The <strong>parallax angle p</strong> = half the total angular shift, measured in arcseconds</li>
+    <li><strong>Closer stars</strong> have a larger parallax angle; <strong>farther stars</strong> have a smaller angle</li>
+    <li>The baseline used is <strong>1 AU</strong> (the Earth–Sun distance, ~93 million miles)</li>
   </ul>
 
   <div class="diagram">
-    <div class="dtitle">How Parallax Works</div>
-    <svg viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
-      <!-- Background stars label -->
-      <text x="290" y="22" fill="#999" font-size="10" text-anchor="middle">— Distant background stars (no apparent movement) —</text>
-      <!-- Background stars -->
-      <text x="60"  y="42" fill="#bbb" font-size="12">★</text>
-      <text x="110" y="38" fill="#bbb" font-size="12">★</text>
-      <text x="165" y="44" fill="#bbb" font-size="12">★</text>
-      <text x="220" y="36" fill="#bbb" font-size="12">★</text>
-      <text x="275" y="42" fill="#bbb" font-size="12">★</text>
-      <text x="330" y="37" fill="#bbb" font-size="12">★</text>
-      <text x="385" y="43" fill="#bbb" font-size="12">★</text>
-      <text x="440" y="38" fill="#bbb" font-size="12">★</text>
-      <text x="495" y="42" fill="#bbb" font-size="12">★</text>
-
-      <!-- January apparent star position -->
-      <text x="215" y="90" fill="#555" font-size="14">✦</text>
-      <text x="195" y="78" fill="#555" font-size="8">Jan position</text>
-
-      <!-- July apparent star position -->
-      <text x="335" y="90" fill="#555" font-size="14">✦</text>
-      <text x="328" y="78" fill="#555" font-size="8">Jul position</text>
-
-      <!-- Double-headed arrow showing total shift -->
-      <line x1="222" y1="85" x2="338" y2="85" stroke="#333" stroke-width="1"/>
-      <polygon points="222,82 215,85 222,88" fill="#333"/>
-      <polygon points="338,82 345,85 338,88" fill="#333"/>
-      <text x="280" y="80" fill="#333" font-size="9" text-anchor="middle">← total shift →</text>
-
-      <!-- "p" label (half shift) -->
-      <line x1="280" y1="88" x2="338" y2="88" stroke="#555" stroke-width="0.5" stroke-dasharray="3,2"/>
-      <text x="310" y="98" fill="#555" font-size="8" text-anchor="middle">p = half of this</text>
-
-      <!-- Dashed lines from sun to star positions -->
-      <line x1="222" y1="88" x2="222" y2="145" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
-      <line x1="345" y1="88" x2="345" y2="145" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
-
+    <div class="dtitle">Parallax Geometry — How the Angle is Measured</div>
+    <svg viewBox="0 0 580 225" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
+      <text x="290" y="20" fill="#888" font-size="9.5" text-anchor="middle">— Distant background stars (no measurable movement) —</text>
+      <text x="55" y="38" fill="#ccc" font-size="11">★</text><text x="105" y="34" fill="#ccc" font-size="11">★</text>
+      <text x="160" y="40" fill="#ccc" font-size="11">★</text><text x="215" y="33" fill="#ccc" font-size="11">★</text>
+      <text x="270" y="39" fill="#ccc" font-size="11">★</text><text x="325" y="34" fill="#ccc" font-size="11">★</text>
+      <text x="380" y="40" fill="#ccc" font-size="11">★</text><text x="435" y="34" fill="#ccc" font-size="11">★</text>
+      <text x="490" y="38" fill="#ccc" font-size="11">★</text>
+      <!-- Nearby star two positions -->
+      <text x="210" y="88" fill="#555" font-size="13">✦</text>
+      <text x="188" y="76" fill="#333" font-size="8">Jan position</text>
+      <text x="330" y="88" fill="#555" font-size="13">✦</text>
+      <text x="328" y="76" fill="#333" font-size="8">Jul position</text>
+      <!-- Arrow showing total shift -->
+      <line x1="218" y1="83" x2="333" y2="83" stroke="#333" stroke-width="1"/>
+      <polygon points="218,80 211,83 218,86" fill="#333"/>
+      <polygon points="333,80 340,83 333,86" fill="#333"/>
+      <text x="276" y="78" fill="#333" font-size="8.5" text-anchor="middle">← total apparent shift →</text>
+      <!-- p angle label -->
+      <text x="292" y="97" fill="#555" font-size="8" text-anchor="middle">p = half this angle</text>
+      <!-- Lines from earth positions to star -->
+      <line x1="219" y1="86" x2="219" y2="148" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="340" y1="86" x2="340" y2="148" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
       <!-- Sun -->
-      <circle cx="283" cy="148" r="14" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="278" y="152" fill="#333" font-size="9" font-weight="bold">SUN</text>
-
-      <!-- Orbit line -->
-      <ellipse cx="283" cy="148" rx="160" ry="28" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="5,4"/>
-
+      <circle cx="280" cy="152" r="13" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="274" y="156" fill="#333" font-size="8.5" font-weight="bold">SUN</text>
+      <!-- Orbit ellipse -->
+      <ellipse cx="280" cy="152" rx="155" ry="26" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="5,4"/>
       <!-- Earth Jan -->
-      <circle cx="123" cy="148" r="9" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="118" y="152" fill="#333" font-size="7">🌍</text>
-      <text x="108" y="170" fill="#444" font-size="9">Earth (Jan)</text>
-
+      <circle cx="125" cy="152" r="9" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="121" y="155.5" fill="#333" font-size="7">🌍</text>
+      <text x="105" y="172" fill="#444" font-size="9">Earth (Jan)</text>
       <!-- Earth Jul -->
-      <circle cx="443" cy="148" r="9" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="438" y="152" fill="#333" font-size="7">🌍</text>
-      <text x="428" y="170" fill="#444" font-size="9">Earth (Jul)</text>
-
+      <circle cx="435" cy="152" r="9" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="431" y="155.5" fill="#333" font-size="7">🌍</text>
+      <text x="415" y="172" fill="#444" font-size="9">Earth (Jul)</text>
       <!-- 1 AU label -->
-      <line x1="125" y1="180" x2="283" y2="180" stroke="#555" stroke-width="1"/>
-      <polygon points="125,177 118,180 125,183" fill="#555"/>
-      <polygon points="283,177 290,180 283,183" fill="#555"/>
-      <text x="204" y="195" fill="#555" font-size="9" text-anchor="middle">← 1 AU →</text>
+      <line x1="127" y1="183" x2="280" y2="183" stroke="#555" stroke-width="1"/>
+      <polygon points="127,180 120,183 127,186" fill="#555"/>
+      <polygon points="280,180 287,183 280,186" fill="#555"/>
+      <text x="204" y="197" fill="#555" font-size="9" text-anchor="middle">← 1 AU (baseline) →</text>
+      <text x="430" y="197" fill="#555" font-size="8.5" text-anchor="middle">1 AU = 93 million miles</text>
     </svg>
   </div>
 
   <h3>What is a Parsec?</h3>
-  <p>A parsec is the distance at which a star would have a parallax angle of exactly 1 arcsecond. It is the standard unit used in astronomy for stellar distances.</p>
-  <p><strong>1 parsec = 3.26 light-years = 206,265 AU</strong></p>
+  <p>A <strong>parsec (pc)</strong> is defined as the distance at which a star would have a parallax angle of exactly 1 arcsecond. It is the standard unit of distance in professional astronomy.</p>
+  <p><strong>1 parsec = 3.26 light-years = 206,265 AU = 3.09 × 10¹³ km</strong></p>
 
-  <div class="formula">
-    d (parsecs) = 1 ÷ p (arcseconds)
-    <span class="sub">Example: parallax angle = 0.5 arcseconds → d = 1 ÷ 0.5 = 2 parsecs = 6.52 light-years</span>
+  <div class="formula">d (parsecs) = 1 ÷ p (arcseconds)<div class="sub">Closer star = larger p. Farther star = smaller p. The relationship is inverse.</div></div>
+
+  <div class="cols">
+    <div class="col-box">
+      <h4>Examples</h4>
+      <ul>
+        <li>Proxima Centauri: p = 0.772" → d = 1.30 pc = 4.24 ly</li>
+        <li>p = 0.5" → d = 2 pc = 6.52 ly</li>
+        <li>p = 0.1" → d = 10 pc = 32.6 ly</li>
+        <li>p = 0.01" → d = 100 pc = 326 ly</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h4>Critical Limitation</h4>
+      <p>Parallax only works reliably out to about <strong>1,000 light-years (~300 pc)</strong>. Beyond that, the angular shift is smaller than our instruments can accurately resolve. This is why the higher rungs of the ladder exist — each one is calibrated using the rung below it.</p>
+    </div>
   </div>
-
-  <table>
-    <thead><tr><th>Parallax Angle (p)</th><th>Distance (parsecs)</th><th>Distance (light-years)</th></tr></thead>
-    <tbody>
-      <tr><td>1.000 arcsec</td><td>1 pc</td><td>3.26 ly</td></tr>
-      <tr><td>0.500 arcsec</td><td>2 pc</td><td>6.52 ly</td></tr>
-      <tr><td>0.100 arcsec</td><td>10 pc</td><td>32.6 ly</td></tr>
-      <tr><td>0.010 arcsec</td><td>100 pc</td><td>326 ly</td></tr>
-      <tr><td>&lt; 0.003 arcsec</td><td>&gt; 300 pc</td><td>too far — method fails</td></tr>
-    </tbody>
-  </table>
-
-  <p class="note">Limitation: Parallax only works reliably out to about 1,000 light-years. Beyond that, the angle is too small to measure accurately, which is why we need higher rungs of the ladder.</p>
-
 </div>
 
-<!-- ══ PAGE 2: DISTANCE MODULUS ══ -->
+<!-- ══════════════════════════════════════════════
+     PAGE 2: DISTANCE MODULUS — EXPANDED
+══════════════════════════════════════════════ -->
 <div class="page">
+  <div class="sec">Rung 2 — The Distance Modulus (In Depth)</div>
 
-  <div class="sec">Rung 2 — The Distance Modulus</div>
+  <div class="subsec">The Foundation: Apparent vs. Absolute Magnitude</div>
+  <p>The magnitude scale is counterintuitive: <strong>lower numbers are brighter</strong>. It dates back to ancient Greece, where Hipparchus called the brightest stars "first magnitude" and the faintest "sixth magnitude." The modern system is logarithmic — each step of 5 magnitudes corresponds to a factor of exactly 100 in brightness.</p>
 
-  <h3>Apparent vs. Absolute Magnitude</h3>
   <div class="cols">
-    <div>
+    <div class="col-box">
       <h4>Apparent Magnitude (m)</h4>
-      <p>How bright a star <em>looks</em> from Earth. Depends on both the star's true brightness and its distance. Lower number = brighter.</p>
-      <p style="font-size:9.5pt; color:#555;">Sun: m = −26.7 &nbsp;|&nbsp; Faintest visible to naked eye: m = +6</p>
+      <p>How bright a star <em>appears</em> from Earth. This depends on both the star's intrinsic brightness AND its distance — a dim star nearby can look the same as a bright star far away.</p>
+      <ul>
+        <li>Sun: m = −26.7</li>
+        <li>Full Moon: m = −12.6</li>
+        <li>Sirius: m = −1.46</li>
+        <li>Faintest naked eye: m ≈ +6</li>
+        <li>Hubble limit: m ≈ +31</li>
+      </ul>
     </div>
-    <div>
+    <div class="col-box">
       <h4>Absolute Magnitude (M)</h4>
-      <p>How bright a star <em>truly is</em> — its intrinsic luminosity. Defined as what its apparent magnitude would be if it were placed exactly 10 parsecs away.</p>
-      <p style="font-size:9.5pt; color:#555;">Sun: M = +4.83 &nbsp;|&nbsp; Rigel: M = −7.0</p>
+      <p>How bright a star <em>truly is</em> — its intrinsic luminosity. Defined as the apparent magnitude a star would have if placed exactly <strong>10 parsecs away</strong> from Earth.</p>
+      <ul>
+        <li>Sun: M = +4.83</li>
+        <li>Sirius: M = +1.42</li>
+        <li>Rigel: M = −7.0</li>
+        <li>Type Ia supernova peak: M ≈ −19.3</li>
+      </ul>
     </div>
   </div>
 
-  <h3>The Formulas</h3>
+  <div class="subsec">The Distance Modulus Formula — Derived and Explained</div>
+  <p>The relationship between apparent magnitude, absolute magnitude, and distance comes from how light spreads out in space. As distance doubles, the same light spreads over 4× the area — this is the <em>inverse square law</em>. Combined with the logarithmic magnitude scale, this gives us:</p>
 
-  <div class="formula">
-    m − M = 5 × log₁₀(d) − 5
-    <span class="sub">m = apparent magnitude &nbsp;|&nbsp; M = absolute magnitude &nbsp;|&nbsp; d = distance in parsecs</span>
-  </div>
+  <div class="formula">m − M = 5 × log₁₀(d) − 5<div class="sub">m = apparent magnitude &nbsp;|&nbsp; M = absolute magnitude &nbsp;|&nbsp; d = distance in parsecs<br>The quantity (m − M) is called the "distance modulus" and is often written as μ</div></div>
 
-  <div class="formula">
-    d = 10 ^ ( (m − M + 5) ÷ 5 )
-    <span class="sub">Use this form when you need to solve for distance</span>
-  </div>
+  <div class="formula">d = 10 ^ ( (m − M + 5) ÷ 5 )<div class="sub">Rearranged to solve for distance. If m − M = 0, then d = 10^(5÷5) = 10^1 = 10 pc ✓</div></div>
+
+  <div class="subsec">Understanding What m − M Tells You</div>
 
   <div class="diagram">
-    <div class="dtitle">Understanding the Distance Modulus (m − M)</div>
-    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff; padding:10px;">
-      <!-- Number line -->
-      <line x1="30" y1="52" x2="530" y2="52" stroke="#333" stroke-width="2"/>
-      <!-- Arrow heads -->
-      <polygon points="530,48 540,52 530,56" fill="#333"/>
-      <polygon points="30,48 20,52 30,56" fill="#333"/>
-
-      <!-- Center mark: m-M = 0 -->
-      <line x1="280" y1="42" x2="280" y2="62" stroke="#111" stroke-width="2"/>
-      <text x="280" y="75" fill="#111" font-size="10" text-anchor="middle" font-weight="bold">m − M = 0</text>
-      <text x="280" y="86" fill="#444" font-size="8.5" text-anchor="middle">star is at exactly 10 pc</text>
-
-      <!-- Left: closer -->
-      <line x1="120" y1="44" x2="120" y2="60" stroke="#555" stroke-width="1.5"/>
-      <text x="120" y="75" fill="#333" font-size="9" text-anchor="middle">m − M &lt; 0</text>
-      <text x="120" y="86" fill="#555" font-size="8" text-anchor="middle">closer than 10 pc</text>
-
-      <!-- Right: farther -->
-      <line x1="440" y1="44" x2="440" y2="60" stroke="#555" stroke-width="1.5"/>
-      <text x="440" y="75" fill="#333" font-size="9" text-anchor="middle">m − M &gt; 0</text>
-      <text x="440" y="86" fill="#555" font-size="8" text-anchor="middle">farther than 10 pc</text>
-
-      <!-- Direction labels -->
-      <text x="25" y="38" fill="#777" font-size="9">Closer</text>
-      <text x="495" y="38" fill="#777" font-size="9">Farther</text>
-      <text x="280" y="22" fill="#777" font-size="9" text-anchor="middle">Larger m − M = farther away</text>
+    <div class="dtitle">Interpreting the Distance Modulus</div>
+    <svg viewBox="0 0 580 105" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff; padding:8px;">
+      <line x1="35" y1="52" x2="545" y2="52" stroke="#333" stroke-width="2"/>
+      <polygon points="535,48 545,52 535,56" fill="#333"/>
+      <polygon points="45,48 35,52 45,56" fill="#333"/>
+      <!-- Zero mark -->
+      <line x1="290" y1="42" x2="290" y2="62" stroke="#111" stroke-width="2.5"/>
+      <text x="290" y="76" fill="#111" font-size="10" text-anchor="middle" font-weight="bold">m − M = 0</text>
+      <text x="290" y="88" fill="#333" font-size="8.5" text-anchor="middle">star is exactly 10 pc away</text>
+      <text x="290" y="98" fill="#555" font-size="8" text-anchor="middle">(definition of absolute magnitude)</text>
+      <!-- Negative side -->
+      <line x1="110" y1="44" x2="110" y2="60" stroke="#555" stroke-width="1.5"/>
+      <text x="110" y="74" fill="#333" font-size="9.5" text-anchor="middle">m − M &lt; 0</text>
+      <text x="110" y="85" fill="#555" font-size="8" text-anchor="middle">CLOSER than 10 pc</text>
+      <text x="110" y="95" fill="#555" font-size="8" text-anchor="middle">star appears brighter than M</text>
+      <!-- Positive side -->
+      <line x1="470" y1="44" x2="470" y2="60" stroke="#555" stroke-width="1.5"/>
+      <text x="470" y="74" fill="#333" font-size="9.5" text-anchor="middle">m − M &gt; 0</text>
+      <text x="470" y="85" fill="#555" font-size="8" text-anchor="middle">FARTHER than 10 pc</text>
+      <text x="470" y="95" fill="#555" font-size="8" text-anchor="middle">star appears dimmer than M</text>
+      <!-- Arrow labels -->
+      <text x="42" y="40" fill="#777" font-size="8.5">← Closer</text>
+      <text x="480" y="40" fill="#777" font-size="8.5">Farther →</text>
+      <text x="290" y="25" fill="#555" font-size="8.5" text-anchor="middle">Every 5 units of distance modulus = ×10 in distance</text>
     </svg>
   </div>
 
-  <h3>Distance Modulus Reference Table</h3>
+  <div class="subsec">The Logarithm — How to Use It</div>
+  <p>The formula uses log base 10 (log₁₀). On a calculator: press LOG, then the number.</p>
+  <ul>
+    <li>log₁₀(10) = 1 &nbsp;&nbsp; log₁₀(100) = 2 &nbsp;&nbsp; log₁₀(1000) = 3 &nbsp;&nbsp; log₁₀(10,000) = 4</li>
+    <li>log₁₀(500) = 2.699 &nbsp;&nbsp; log₁₀(50) = 1.699 &nbsp;&nbsp; log₁₀(300) = 2.477</li>
+  </ul>
+  <p>When solving d = 10^x, this means "10 to the power of x." Example: 10^3 = 1,000. 10^4.5 = 31,623.</p>
+
+  <div class="subsec">Distance Modulus Reference Table</div>
   <table>
-    <thead><tr><th>m − M</th><th>Distance (parsecs)</th><th>Distance (light-years)</th><th>Where this puts you</th></tr></thead>
+    <thead><tr><th>m − M</th><th>Distance (pc)</th><th>Distance (ly)</th><th>What this means</th></tr></thead>
     <tbody>
-      <tr><td>0</td><td>10 pc</td><td>32.6 ly</td><td>Reference point (definition of M)</td></tr>
+      <tr><td>−5</td><td>1 pc</td><td>3.26 ly</td><td>Very nearby — closer than almost any star</td></tr>
+      <tr><td>0</td><td>10 pc</td><td>32.6 ly</td><td>Reference distance (definition of M)</td></tr>
       <tr><td>5</td><td>100 pc</td><td>326 ly</td><td>Local stellar neighborhood</td></tr>
-      <tr><td>10</td><td>1,000 pc</td><td>3,260 ly</td><td>Within the Milky Way</td></tr>
-      <tr><td>15</td><td>10,000 pc</td><td>32,600 ly</td><td>Milky Way disk</td></tr>
-      <tr><td>20</td><td>100,000 pc</td><td>326,000 ly</td><td>Magellanic Clouds</td></tr>
-      <tr><td>25</td><td>1,000,000 pc (1 Mpc)</td><td>3.26 million ly</td><td>Andromeda Galaxy region</td></tr>
+      <tr><td>10</td><td>1,000 pc = 1 kpc</td><td>3,260 ly</td><td>Within the Milky Way disk</td></tr>
+      <tr><td>12</td><td>2,512 pc</td><td>~8,200 ly</td><td>Deep in the Milky Way</td></tr>
+      <tr><td>15</td><td>10,000 pc = 10 kpc</td><td>32,600 ly</td><td>Outer Milky Way</td></tr>
+      <tr><td>18.5</td><td>~50,000 pc</td><td>~163,000 ly</td><td>Large Magellanic Cloud</td></tr>
+      <tr><td>20</td><td>100,000 pc = 100 kpc</td><td>326,000 ly</td><td>Magellanic Clouds region</td></tr>
+      <tr><td>24.4</td><td>~750,000 pc</td><td>~2.5 million ly</td><td>Andromeda Galaxy (M31)</td></tr>
+      <tr><td>25</td><td>1 Mpc</td><td>3.26 million ly</td><td>Local Group boundary</td></tr>
+      <tr><td>30</td><td>10 Mpc</td><td>32.6 million ly</td><td>Nearby galaxy clusters</td></tr>
+      <tr><td>35</td><td>100 Mpc</td><td>326 million ly</td><td>Cepheid limit</td></tr>
+      <tr><td>43</td><td>~4 Gpc</td><td>~13 billion ly</td><td>Farthest Type Ia SNe observed</td></tr>
     </tbody>
   </table>
-
-  <h3>Worked Examples</h3>
-  <div class="pq">
-    <div class="qn">Example 1 — Find distance</div>
-    <p>A star has m = +8.5 and M = +3.5. Find its distance.</p>
-    <p>m − M = 8.5 − 3.5 = <strong>5.0</strong></p>
-    <p>d = 10^((5.0 + 5) ÷ 5) = 10^2 = <strong>100 pc</strong> = 326 light-years</p>
-  </div>
-  <div class="pq">
-    <div class="qn">Example 2 — Negative M (bright star)</div>
-    <p>A Cepheid has m = +12, M = −3. Find its distance.</p>
-    <p>m − M = 12 − (−3) = 12 + 3 = <strong>15</strong></p>
-    <p>d = 10^((15 + 5) ÷ 5) = 10^4 = <strong>10,000 pc</strong> = 32,600 light-years</p>
-  </div>
-  <div class="pq">
-    <div class="qn">Example 3 — Find apparent magnitude</div>
-    <p>Star is at 500 pc, M = +2. What does it look like from Earth?</p>
-    <p>m − M = 5 × log(500) − 5 = 5 × 2.699 − 5 = 13.495 − 5 = <strong>8.495</strong></p>
-    <p>m = 2 + 8.495 = <strong>+10.5</strong></p>
-  </div>
-
 </div>
 
-<!-- ══ PAGE 3: HR DIAGRAM & CLUSTERS ══ -->
+<!-- ══════════════════════════════════════════════
+     PAGE 3: DISTANCE MODULUS WORKED EXAMPLES
+══════════════════════════════════════════════ -->
 <div class="page">
+  <div class="sec">Distance Modulus — Worked Examples &amp; Practice</div>
 
-  <div class="sec">Rungs 2–3 — HR Diagrams, Main-Sequence Fitting &amp; Cluster Ages</div>
+  <div class="subsec">Type 1: Finding Distance from m and M</div>
+
+  <div class="pq">
+    <div class="qn">Example A — Basic</div>
+    <p>A star has apparent magnitude m = +8.5 and absolute magnitude M = +3.5. Find its distance.</p>
+    <p><strong>Step 1:</strong> m − M = 8.5 − 3.5 = <strong>5.0</strong></p>
+    <p><strong>Step 2:</strong> d = 10^((5.0 + 5) ÷ 5) = 10^(10 ÷ 5) = 10^2.0 = <strong>100 pc</strong> = 326 light-years</p>
+  </div>
+
+  <div class="pq">
+    <div class="qn">Example B — Negative M (luminous star or Cepheid)</div>
+    <p>A Cepheid variable has apparent magnitude m = +12 and absolute magnitude M = −3. Find its distance.</p>
+    <p><strong>Step 1:</strong> m − M = 12 − (−3) = 12 + 3 = <strong>15</strong></p>
+    <p><em>Remember: subtracting a negative = adding. This is the most common error!</em></p>
+    <p><strong>Step 2:</strong> d = 10^((15 + 5) ÷ 5) = 10^(20 ÷ 5) = 10^4 = <strong>10,000 pc</strong> = 32,600 light-years</p>
+  </div>
+
+  <div class="pq">
+    <div class="qn">Example C — Type Ia Supernova (the most extreme distances)</div>
+    <p>A Type Ia supernova is observed with m = +24. Since all Type Ia peak at M ≈ −19.3, find its distance.</p>
+    <p><strong>Step 1:</strong> m − M = 24 − (−19.3) = 24 + 19.3 = <strong>43.3</strong></p>
+    <p><strong>Step 2:</strong> d = 10^((43.3 + 5) ÷ 5) = 10^(48.3 ÷ 5) = 10^9.66 ≈ <strong>4.6 × 10⁹ pc ≈ 4.6 Gpc</strong> (billions of light-years)</p>
+  </div>
+
+  <div class="subsec">Type 2: Finding m when you know d and M</div>
+
+  <div class="pq">
+    <div class="qn">Example D — Using log to find m</div>
+    <p>A star is 500 pc away and has M = +2. What is its apparent magnitude?</p>
+    <p><strong>Step 1:</strong> m − M = 5 × log₁₀(500) − 5 = 5 × 2.699 − 5 = 13.495 − 5 = <strong>8.495</strong></p>
+    <p><strong>Step 2:</strong> m = M + 8.495 = 2 + 8.495 = <strong>+10.5</strong></p>
+  </div>
+
+  <div class="pq">
+    <div class="qn">Example E — Finding M when you know d and m (spectroscopic parallax situation)</div>
+    <p>A star is known from parallax to be 50 pc away, and its apparent magnitude is m = +7.5. What is its absolute magnitude?</p>
+    <p><strong>Step 1:</strong> m − M = 5 × log₁₀(50) − 5 = 5 × 1.699 − 5 = 8.495 − 5 = <strong>3.495</strong></p>
+    <p><strong>Step 2:</strong> M = m − 3.495 = 7.5 − 3.495 = <strong>+4.0</strong> (similar to our Sun — this is a G-type dwarf)</p>
+  </div>
+
+  <div class="subsec">Type 3: The "Why Is This Useful?" Logic — Standard Candles</div>
+  <div class="callout">
+    <strong>The core principle:</strong> The distance modulus is only useful for measuring distance if you can determine M <em>independently</em> of distance. This is why we need "standard candles" — objects whose absolute magnitude M is known from physics, not from observation. If you know M and measure m, you get distance for free. The entire distance ladder is built on finding clever ways to know M for different types of objects.
+    <ul style="margin-top:6px;">
+      <li><strong>Main-sequence stars:</strong> M known from spectral type (Payne's work)</li>
+      <li><strong>Cepheid variables:</strong> M known from period (Leavitt's Law)</li>
+      <li><strong>Type Ia supernovae:</strong> M always ≈ −19.3 (Chandrasekhar limit)</li>
+    </ul>
+  </div>
+
+  <div class="subsec">Common Mistakes to Avoid</div>
+  <table>
+    <thead><tr><th>Mistake</th><th>How to Avoid It</th></tr></thead>
+    <tbody>
+      <tr><td>Forgetting to add 5 before dividing: d = 10^((m−M)/5)</td><td>Always write the full formula: d = 10^((m−M+5)/5)</td></tr>
+      <tr><td>Subtracting wrong when M is negative: m − (−3) = m − 3</td><td>m − M = m − (−3) = m + 3. Subtracting a negative = adding!</td></tr>
+      <tr><td>Forgetting that parsecs ≠ light-years</td><td>Multiply by 3.26 to convert pc → ly. Divide by 3.26 to go ly → pc.</td></tr>
+      <tr><td>Confusing which is m and which is M</td><td>lowercase m = what you measure (observed). Capital M = true brightness.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4: HR DIAGRAMS & CLUSTERS
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sec">Rungs 2–3 — HR Diagrams, Clusters &amp; Age Determination</div>
 
   <h3>The Hertzsprung-Russell (HR) Diagram</h3>
-  <p>A graph that plots stars by temperature (x-axis, hot on the left to cool on the right) against luminosity or absolute magnitude (y-axis, dim at the bottom to bright at the top). Most stars fall along a diagonal band called the main sequence.</p>
+  <p>The HR diagram plots stars by temperature (x-axis: hot left, cool right) against luminosity or absolute magnitude (y-axis: bright top, dim bottom). It reveals that most stars aren't randomly distributed — they cluster into distinct groups based on their evolutionary stage.</p>
 
   <div class="diagram">
-    <div class="dtitle">The HR Diagram</div>
-    <svg viewBox="0 0 580 310" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
-      <!-- Axes -->
-      <line x1="72" y1="18" x2="72" y2="272" stroke="#333" stroke-width="2"/>
+    <div class="dtitle">The HR Diagram — Star Populations</div>
+    <svg viewBox="0 0 580 300" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
+      <line x1="72" y1="15" x2="72" y2="272" stroke="#333" stroke-width="2"/>
       <line x1="72" y1="272" x2="558" y2="272" stroke="#333" stroke-width="2"/>
-
-      <!-- Y axis arrow + label -->
-      <polygon points="68,18 72,8 76,18" fill="#333"/>
-      <text transform="rotate(-90,20,145)" x="20" y="145" fill="#333" font-size="10" text-anchor="middle">Brightness / Luminosity (Absolute Magnitude)</text>
-      <text x="55" y="25" fill="#555" font-size="8" text-anchor="end">Bright</text>
-      <text x="55" y="270" fill="#555" font-size="8" text-anchor="end">Dim</text>
-
-      <!-- X axis arrow + label -->
+      <polygon points="68,15 72,5 76,15" fill="#333"/>
       <polygon points="548,268 558,272 548,276" fill="#333"/>
-      <text x="315" y="295" fill="#333" font-size="10" text-anchor="middle">Temperature (Spectral Type)</text>
-      <text x="80" y="287" fill="#555" font-size="8">Hot / Blue</text>
-      <text x="490" y="287" fill="#555" font-size="8">Cool / Red</text>
-
-      <!-- Spectral type labels -->
-      <text x="95"  y="268" fill="#777" font-size="9" text-anchor="middle">O</text>
-      <text x="163" y="268" fill="#777" font-size="9" text-anchor="middle">B</text>
-      <text x="231" y="268" fill="#777" font-size="9" text-anchor="middle">A</text>
-      <text x="299" y="268" fill="#777" font-size="9" text-anchor="middle">F</text>
-      <text x="367" y="268" fill="#777" font-size="9" text-anchor="middle">G</text>
-      <text x="435" y="268" fill="#777" font-size="9" text-anchor="middle">K</text>
-      <text x="503" y="268" fill="#777" font-size="9" text-anchor="middle">M</text>
-      <!-- Tick marks -->
-      <line x1="95"  y1="268" x2="95"  y2="274" stroke="#777" stroke-width="1"/>
-      <line x1="163" y1="268" x2="163" y2="274" stroke="#777" stroke-width="1"/>
-      <line x1="231" y1="268" x2="231" y2="274" stroke="#777" stroke-width="1"/>
-      <line x1="299" y1="268" x2="299" y2="274" stroke="#777" stroke-width="1"/>
-      <line x1="367" y1="268" x2="367" y2="274" stroke="#777" stroke-width="1"/>
-      <line x1="435" y1="268" x2="435" y2="274" stroke="#777" stroke-width="1"/>
-      <line x1="503" y1="268" x2="503" y2="274" stroke="#777" stroke-width="1"/>
-
-      <!-- MAIN SEQUENCE band (shaded) -->
-      <path d="M 90,28 Q 163,68 231,110 Q 299,155 367,192 Q 435,222 530,258" fill="none" stroke="#aaa" stroke-width="14" stroke-opacity="0.4" stroke-linecap="round"/>
-      <path d="M 90,28 Q 163,68 231,110 Q 299,155 367,192 Q 435,222 530,258" fill="none" stroke="#555" stroke-width="2"/>
-      <!-- Main sequence label -->
-      <text x="190" y="88" fill="#333" font-size="9" font-weight="bold" transform="rotate(-35,190,88)">Main Sequence</text>
-
-      <!-- GIANT BRANCH -->
-      <path d="M 367,192 Q 340,145 310,115 Q 285,90 265,78" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <text x="268" y="72" fill="#555" font-size="9">Giant Branch</text>
-
-      <!-- SUPERGIANT region -->
-      <ellipse cx="200" cy="42" rx="100" ry="16" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
-      <text x="140" y="46" fill="#555" font-size="9" font-weight="bold">SUPERGIANTS</text>
-
-      <!-- GIANT region -->
-      <ellipse cx="320" cy="95" rx="65" ry="14" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
-      <text x="272" y="99" fill="#555" font-size="9" font-weight="bold">GIANTS</text>
-
-      <!-- WHITE DWARF region -->
-      <ellipse cx="345" cy="252" rx="60" ry="10" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
-      <text x="302" y="256" fill="#555" font-size="9" font-weight="bold">WHITE DWARFS</text>
-
-      <!-- Named stars with dots -->
-      <circle cx="95"  cy="26"  r="5" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <text x="103" y="30" fill="#333" font-size="8">Rigel (blue supergiant)</text>
-
-      <circle cx="367" cy="190" r="5" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <text x="375" y="194" fill="#333" font-size="8">Sun (G2V)</text>
-
-      <circle cx="231" cy="110" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <text x="239" y="114" fill="#333" font-size="8">Sirius A</text>
-
-      <circle cx="435" cy="95"  r="7" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <text x="445" y="99" fill="#333" font-size="8">Betelgeuse</text>
-
-      <circle cx="335" cy="248" r="3" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <text x="343" y="248" fill="#333" font-size="8">Sirius B</text>
+      <text transform="rotate(-90,18,143)" x="18" y="143" fill="#333" font-size="9" text-anchor="middle">Luminosity / Absolute Magnitude (Bright → Dim)</text>
+      <text x="315" y="292" fill="#333" font-size="9" text-anchor="middle">Temperature: Hot (Blue) ←————————→ Cool (Red)</text>
+      <text x="82" y="268" fill="#777" font-size="8">O</text><text x="150" y="268" fill="#777" font-size="8">B</text>
+      <text x="218" y="268" fill="#777" font-size="8">A</text><text x="286" y="268" fill="#777" font-size="8">F</text>
+      <text x="354" y="268" fill="#777" font-size="8">G</text><text x="422" y="268" fill="#777" font-size="8">K</text>
+      <text x="490" y="268" fill="#777" font-size="8">M</text>
+      <!-- Main Sequence shaded band -->
+      <path d="M 88,25 Q 160,65 228,108 Q 296,153 364,190 Q 432,220 524,258" fill="none" stroke="#aaa" stroke-width="14" stroke-opacity="0.35" stroke-linecap="round"/>
+      <path d="M 88,25 Q 160,65 228,108 Q 296,153 364,190 Q 432,220 524,258" fill="none" stroke="#555" stroke-width="1.5"/>
+      <text x="200" y="85" fill="#333" font-size="9" font-weight="bold" transform="rotate(-35,200,85)">Main Sequence</text>
+      <!-- Giant branch -->
+      <path d="M 364,190 Q 338,143 308,112 Q 282,88 258,77" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="260" y="72" fill="#555" font-size="8.5">Giant Branch</text>
+      <!-- Horizontal branch (for globular clusters) -->
+      <path d="M 258,110 Q 310,112 360,113" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="280" y="106" fill="#777" font-size="7.5">Horizontal Branch</text>
+      <!-- Regions -->
+      <ellipse cx="200" cy="40" rx="100" ry="17" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="138" y="44" fill="#555" font-size="9" font-weight="bold">SUPERGIANTS</text>
+      <ellipse cx="310" cy="95" rx="62" ry="14" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="264" y="99" fill="#555" font-size="9" font-weight="bold">GIANTS</text>
+      <ellipse cx="345" cy="253" rx="58" ry="11" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="303" y="257" fill="#555" font-size="9" font-weight="bold">WHITE DWARFS</text>
+      <!-- Named stars -->
+      <circle cx="90" cy="23" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/><text x="98" y="27" fill="#333" font-size="8">Rigel (B8Ia)</text>
+      <circle cx="364" cy="188" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/><text x="372" y="192" fill="#333" font-size="8">☀ Sun (G2V)</text>
+      <circle cx="228" cy="108" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/><text x="236" y="112" fill="#333" font-size="8">Sirius A (A1V)</text>
+      <circle cx="432" cy="95" r="7" fill="#fff" stroke="#333" stroke-width="1.5"/><text x="442" y="99" fill="#333" font-size="8">Betelgeuse (M2Ia)</text>
+      <circle cx="338" cy="247" r="3" fill="#fff" stroke="#333" stroke-width="1.5"/><text x="346" y="248" fill="#333" font-size="8">Sirius B (DA)</text>
     </svg>
   </div>
 
   <h3>Main-Sequence Fitting</h3>
-  <p>To find the distance to a star cluster, plot the cluster's stars on an HR diagram using apparent magnitude on the y-axis. Then compare this to the standard main sequence plotted using absolute magnitude. The vertical shift needed to line them up equals the distance modulus (m − M), which you can then use to calculate the distance.</p>
+  <p>To find the distance to a star cluster, plot all its stars on an HR diagram using their <em>apparent</em> magnitudes on the y-axis. Compare this to the known standard main sequence (plotted in <em>absolute</em> magnitudes). The two curves have the same shape, but one is shifted vertically. The amount of vertical shift required to align them equals the distance modulus (m − M), which you then convert to distance.</p>
+  <p>This works because all stars in a cluster are at essentially the same distance from Earth, so the same distance modulus applies to all of them simultaneously.</p>
 
-  <h3>The Main-Sequence Turn-Off Point</h3>
-  <p>The turn-off point is where a cluster's stars begin to leave the main sequence and move toward the giant branch. Massive, luminous stars consume their fuel fastest and leave the main sequence first. The location of the turn-off point tells us the age of the cluster.</p>
+  <h3>The Main-Sequence Turn-Off Point &amp; Cluster Age</h3>
+  <p>The turn-off point is where a cluster's stars deviate from the main sequence and begin evolving toward the giant branch. This happens because <strong>more massive stars burn their hydrogen faster</strong> and leave the main sequence sooner. The more luminous (massive) stars turn off first; dimmer (less massive) stars persist on the main sequence longer.</p>
+  <p>The turn-off point acts as a clock: the stars currently turning off have a main-sequence lifetime equal to the cluster's age. By identifying the spectral type at the turn-off and knowing how long stars of that type live, we calculate the cluster's age precisely.</p>
 
   <div class="diagram">
-    <div class="dtitle">Turn-Off Point — Young vs. Old Cluster</div>
-    <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
-      <!-- LEFT: Young cluster -->
-      <text x="130" y="18" fill="#111" font-size="10" font-weight="bold" text-anchor="middle">YOUNG Cluster (Open)</text>
-      <line x1="38" y1="25" x2="38" y2="185" stroke="#333" stroke-width="1.5"/>
-      <line x1="38" y1="185" x2="220" y2="185" stroke="#333" stroke-width="1.5"/>
-      <text x="30" y="33"  fill="#555" font-size="8" text-anchor="end">Bright</text>
-      <text x="30" y="182" fill="#555" font-size="8" text-anchor="end">Dim</text>
-      <text x="42"  y="195" fill="#555" font-size="8">Hot</text>
-      <text x="195" y="195" fill="#555" font-size="8">Cool</text>
+    <div class="dtitle">Turn-Off Point — Young vs. Old Cluster Comparison</div>
+    <svg viewBox="0 0 580 195" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
+      <text x="130" y="17" fill="#111" font-size="10" font-weight="bold" text-anchor="middle">YOUNG Open Cluster</text>
+      <text x="130" y="27" fill="#555" font-size="8.5" text-anchor="middle">(e.g., Pleiades — few hundred million years)</text>
+      <line x1="38" y1="33" x2="38" y2="183" stroke="#333" stroke-width="1.5"/>
+      <line x1="38" y1="183" x2="218" y2="183" stroke="#333" stroke-width="1.5"/>
+      <text x="30" y="42" fill="#555" font-size="7.5" text-anchor="end">Bright</text>
+      <text x="30" y="180" fill="#555" font-size="7.5" text-anchor="end">Dim</text>
+      <path d="M 55,38 Q 88,72 112,105 Q 140,138 168,165" fill="none" stroke="#aaa" stroke-width="1.5"/>
+      <circle cx="55" cy="38" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="65" cy="50" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="77" cy="65" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="88" cy="80" r="5" fill="#333" stroke="#333" stroke-width="1.5"/>
+      <line x1="88" y1="80" x2="66" y2="56" stroke="#333" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="66" cy="54" r="4" fill="#333"/><circle cx="57" cy="46" r="5" fill="#333"/>
+      <text x="37" y="76" fill="#111" font-size="7.5" font-weight="bold">← Turn-off</text>
+      <text x="37" y="85" fill="#111" font-size="7.5">HIGH (young)</text>
+      <circle cx="112" cy="105" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="135" cy="133" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="158" cy="158" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="95" y="148" fill="#333" font-size="7.5">Bright O,B,A stars</text>
+      <text x="95" y="158" fill="#333" font-size="7.5">still on MS → YOUNG</text>
 
-      <!-- Main sequence young -->
-      <path d="M 55,32 Q 85,68 108,100 Q 140,135 168,165" fill="none" stroke="#999" stroke-width="1.5"/>
-      <!-- Lots of stars still on MS (bright ones still present) -->
-      <circle cx="55"  cy="32"  r="5" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="65"  cy="45"  r="5" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="76"  cy="60"  r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <!-- Turn-off point (HIGH = young) -->
-      <circle cx="86"  cy="76"  r="5" fill="#333"/>
-      <line x1="86" y1="76" x2="65" y2="55" stroke="#333" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <circle cx="65"  cy="53"  r="4" fill="#333"/>
-      <circle cx="57"  cy="46"  r="5" fill="#333"/>
-      <text x="40"  y="72" fill="#111" font-size="8" font-weight="bold">← Turn-off</text>
-      <text x="40"  y="82" fill="#111" font-size="8">   point HIGH</text>
-      <!-- More dim stars below -->
-      <circle cx="108" cy="100" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="130" cy="128" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="155" cy="152" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <text x="90" y="148" fill="#444" font-size="8">Most bright stars</text>
-      <text x="90" y="158" fill="#444" font-size="8">still here → YOUNG</text>
+      <line x1="285" y1="25" x2="285" y2="188" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
 
-      <!-- DIVIDER -->
-      <line x1="290" y1="15" x2="290" y2="190" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
-
-      <!-- RIGHT: Old cluster -->
-      <text x="430" y="18" fill="#111" font-size="10" font-weight="bold" text-anchor="middle">OLD Cluster (Globular)</text>
-      <line x1="328" y1="25" x2="328" y2="185" stroke="#333" stroke-width="1.5"/>
-      <line x1="328" y1="185" x2="555" y2="185" stroke="#333" stroke-width="1.5"/>
-      <text x="320" y="33"  fill="#555" font-size="8" text-anchor="end">Bright</text>
-      <text x="320" y="182" fill="#555" font-size="8" text-anchor="end">Dim</text>
-      <text x="332"  y="195" fill="#555" font-size="8">Hot</text>
-      <text x="530"  y="195" fill="#555" font-size="8">Cool</text>
-
-      <!-- Only dim stars remain on MS -->
-      <path d="M 380,110 Q 410,132 435,155" fill="none" stroke="#999" stroke-width="1.5"/>
-      <circle cx="380" cy="110" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="395" cy="122" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="414" cy="136" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <circle cx="435" cy="155" r="4" fill="#ddd" stroke="#333" stroke-width="1.5"/>
-      <!-- Turn-off point (LOW = old) -->
-      <circle cx="380" cy="110" r="5" fill="#333"/>
-      <line x1="380" y1="110" x2="360" y2="85" stroke="#333" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <circle cx="360" cy="82"  r="5" fill="#333"/>
-      <circle cx="350" cy="67"  r="5" fill="#333"/>
-      <text x="330"  y="105" fill="#111" font-size="8" font-weight="bold">← Turn-off</text>
-      <text x="330"  y="115" fill="#111" font-size="8">   point LOW</text>
-      <!-- Giant branch -->
-      <path d="M 360,82 Q 345,62 340,48" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <!-- Bright stars gone -->
-      <text x="355" y="40" fill="#aaa" font-size="8">(bright stars</text>
-      <text x="355" y="50" fill="#aaa" font-size="8"> burned out)</text>
-      <text x="380" y="170" fill="#444" font-size="8">Only dim stars left</text>
-      <text x="380" y="180" fill="#444" font-size="8">→ OLD</text>
+      <text x="432" y="17" fill="#111" font-size="10" font-weight="bold" text-anchor="middle">OLD Globular Cluster</text>
+      <text x="432" y="27" fill="#555" font-size="8.5" text-anchor="middle">(e.g., M13 — ~12 billion years)</text>
+      <line x1="330" y1="33" x2="330" y2="183" stroke="#333" stroke-width="1.5"/>
+      <line x1="330" y1="183" x2="545" y2="183" stroke="#333" stroke-width="1.5"/>
+      <text x="322" y="42" fill="#555" font-size="7.5" text-anchor="end">Bright</text>
+      <text x="322" y="180" fill="#555" font-size="7.5" text-anchor="end">Dim</text>
+      <path d="M 382,112 Q 410,133 435,152" fill="none" stroke="#aaa" stroke-width="1.5"/>
+      <circle cx="382" cy="112" r="5" fill="#333"/>
+      <line x1="382" y1="112" x2="360" y2="85" stroke="#333" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="360" cy="83" r="5" fill="#333"/><circle cx="349" cy="67" r="5" fill="#333"/>
+      <path d="M 360,83 Q 345,62 340,48" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="333" y="105" fill="#111" font-size="7.5" font-weight="bold">← Turn-off</text>
+      <text x="333" y="114" fill="#111" font-size="7.5">LOW (old)</text>
+      <circle cx="395" cy="122" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="414" cy="138" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="435" cy="152" r="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="348" y="45" fill="#aaa" font-size="7.5">(bright stars burned</text>
+      <text x="348" y="54" fill="#aaa" font-size="7.5"> out long ago)</text>
+      <text x="390" y="168" fill="#333" font-size="7.5">Only dim F,G,K stars</text>
+      <text x="390" y="178" fill="#333" font-size="7.5">remain on MS → VERY OLD</text>
     </svg>
   </div>
 
-  <h3>Open vs. Globular Clusters</h3>
-  <table>
-    <thead><tr><th></th><th>Open Clusters</th><th>Globular Clusters</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Size</strong></td><td>Hundreds–thousands of stars</td><td>Tens of thousands–millions of stars</td></tr>
-      <tr><td><strong>Location</strong></td><td>Galactic disk/spiral arms</td><td>Galactic halo (spherical distribution)</td></tr>
-      <tr><td><strong>Age</strong></td><td>Young — millions to a few billion years</td><td>Old — 10–13 billion years</td></tr>
-      <tr><td><strong>Turn-off point</strong></td><td>HIGH on HR diagram (bright stars present)</td><td>LOW on HR diagram (only dim stars remain)</td></tr>
-      <tr><td><strong>Age determination</strong></td><td>✔ Easier — clear, sharp turn-off</td><td>Harder — complex HR diagram</td></tr>
-      <tr><td><strong>Examples</strong></td><td>Pleiades, Hyades</td><td>M13, Omega Centauri</td></tr>
-    </tbody>
-  </table>
-
+  <div class="cols">
+    <div class="col-box">
+      <h4>Open Clusters</h4>
+      <ul>
+        <li>Hundreds–thousands of stars, loosely bound</li>
+        <li>Found in the galactic disk and spiral arms</li>
+        <li>Young — millions to a few billion years old</li>
+        <li>Turn-off point HIGH on HR diagram</li>
+        <li>Examples: Pleiades, Hyades, NGC 3532</li>
+        <li><strong>Easier to determine age</strong> — sharp, clear turn-off</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h4>Globular Clusters</h4>
+      <ul>
+        <li>Tens of thousands to millions of stars, tightly packed sphere</li>
+        <li>Found in the galactic halo, orbiting the Milky Way center</li>
+        <li>Old — 10 to 13 billion years</li>
+        <li>Turn-off point LOW on HR diagram</li>
+        <li>Examples: M13, Omega Centauri, 47 Tucanae</li>
+        <li>Harder to age — horizontal branch and other evolved populations complicate analysis</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- ══ PAGE 4: SPECTROSCOPIC PARALLAX ══ -->
+<!-- ══════════════════════════════════════════════
+     PAGE 5: SPECTROSCOPIC PARALLAX & PAYNE
+══════════════════════════════════════════════ -->
 <div class="page">
+  <div class="sec">Rung 4 — Spectroscopic Parallax &amp; Cecilia Payne</div>
 
-  <div class="sec">Rung 4 — Spectroscopic Parallax</div>
+  <div class="note">Critical note: "Spectroscopic parallax" does not involve measuring a parallax angle. The name is misleading — the method uses spectral analysis, not geometry. It is called "parallax" only because it accomplishes the same goal: finding distance.</div>
 
-  <p class="note">Important: The term "spectroscopic parallax" is misleading. No parallax angle is measured. The method uses the star's spectrum to determine its absolute magnitude, then applies the distance modulus. It is called "parallax" only because it serves the same purpose — finding distance.</p>
+  <h3>The Problem It Solves</h3>
+  <p>For a single star not part of a cluster, main-sequence fitting doesn't work (we need many stars). If the star is farther than ~1,000 light-years, trigonometric parallax fails. The solution is to read the star's absolute magnitude M directly from its spectrum, then apply the distance modulus.</p>
 
-  <h3>Why We Need It</h3>
-  <p>For a single star not in a cluster, main-sequence fitting doesn't work. If the star is too far away, the parallax angle is too small to measure. Spectroscopic parallax solves this by reading the star's true brightness from its spectrum.</p>
-
-  <h3>How It Works</h3>
-
+  <h3>How It Works — Step by Step</h3>
   <div class="diagram">
-    <div class="dtitle">Spectroscopic Parallax — Step by Step</div>
+    <div class="dtitle">Spectroscopic Parallax — Full Process</div>
     <svg viewBox="0 0 580 130" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
-      <defs>
-        <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <polygon points="0,0 8,3 0,6" fill="#333"/>
-        </marker>
-      </defs>
-
-      <!-- Step boxes -->
-      <!-- Step 1 -->
-      <rect x="8"   y="30" width="90" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="53"  y="53" fill="#333" font-size="8.5" text-anchor="middle">Step 1</text>
-      <text x="53"  y="65" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">Observe the</text>
-      <text x="53"  y="76" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">star's spectrum</text>
-
-      <line x1="98" y1="60" x2="113" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
-
-      <!-- Step 2 -->
-      <rect x="113" y="30" width="100" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="163"  y="53" fill="#333" font-size="8.5" text-anchor="middle">Step 2</text>
-      <text x="163"  y="65" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">Find spectral type</text>
-      <text x="163"  y="76" fill="#111" font-size="8.5" text-anchor="middle">(O B A F G K M)</text>
-      <text x="163"  y="86" fill="#555" font-size="7.5" text-anchor="middle">= tells you temperature</text>
-
-      <line x1="213" y1="60" x2="228" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
-
-      <!-- Step 3 -->
-      <rect x="228" y="30" width="105" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="280"  y="53" fill="#333" font-size="8.5" text-anchor="middle">Step 3</text>
-      <text x="280"  y="65" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">Find luminosity class</text>
-      <text x="280"  y="76" fill="#111" font-size="8.5" text-anchor="middle">(I–V: supergiant</text>
-      <text x="280"  y="86" fill="#111" font-size="8.5" text-anchor="middle">to main sequence)</text>
-
-      <line x1="333" y1="60" x2="348" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
-
-      <!-- Step 4 -->
-      <rect x="348" y="30" width="100" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="398"  y="53" fill="#333" font-size="8.5" text-anchor="middle">Step 4</text>
-      <text x="398"  y="65" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">Look up M on</text>
-      <text x="398"  y="76" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">HR diagram</text>
-
-      <line x1="448" y1="60" x2="463" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
-
-      <!-- Step 5 -->
-      <rect x="463" y="30" width="108" height="60" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>
-      <text x="517"  y="53" fill="#333" font-size="8.5" text-anchor="middle">Step 5</text>
-      <text x="517"  y="65" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">Use m − M</text>
-      <text x="517"  y="76" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">to get distance!</text>
-
-      <!-- Labels above -->
-      <text x="53"  y="20" fill="#777" font-size="7.5" text-anchor="middle">observe</text>
-      <text x="163" y="20" fill="#777" font-size="7.5" text-anchor="middle">classify</text>
-      <text x="280" y="20" fill="#777" font-size="7.5" text-anchor="middle">classify</text>
-      <text x="398" y="20" fill="#777" font-size="7.5" text-anchor="middle">find M</text>
-      <text x="517" y="20" fill="#777" font-size="7.5" text-anchor="middle">calculate</text>
+      <defs><marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#333"/></marker></defs>
+      <rect x="8" y="28" width="92" height="68" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="54" y="52" fill="#333" font-size="8.5" text-anchor="middle" font-weight="bold">Step 1</text>
+      <text x="54" y="63" fill="#333" font-size="8" text-anchor="middle">Observe star's</text>
+      <text x="54" y="73" fill="#333" font-size="8" text-anchor="middle">spectrum</text>
+      <text x="54" y="83" fill="#555" font-size="7.5" text-anchor="middle">(absorption lines)</text>
+      <line x1="100" y1="62" x2="115" y2="62" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="115" y="28" width="100" height="68" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="165" y="52" fill="#333" font-size="8.5" text-anchor="middle" font-weight="bold">Step 2</text>
+      <text x="165" y="63" fill="#333" font-size="8" text-anchor="middle">Identify spectral</text>
+      <text x="165" y="73" fill="#333" font-size="8" text-anchor="middle">type (O B A F G K M)</text>
+      <text x="165" y="83" fill="#555" font-size="7.5" text-anchor="middle">= temperature</text>
+      <line x1="215" y1="62" x2="230" y2="62" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="230" y="28" width="105" height="68" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="283" y="52" fill="#333" font-size="8.5" text-anchor="middle" font-weight="bold">Step 3</text>
+      <text x="283" y="63" fill="#333" font-size="8" text-anchor="middle">Find luminosity class</text>
+      <text x="283" y="73" fill="#333" font-size="8" text-anchor="middle">(I–V) from line</text>
+      <text x="283" y="83" fill="#555" font-size="7.5" text-anchor="middle">widths &amp; strength</text>
+      <line x1="335" y1="62" x2="350" y2="62" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="350" y="28" width="100" height="68" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="400" y="52" fill="#333" font-size="8.5" text-anchor="middle" font-weight="bold">Step 4</text>
+      <text x="400" y="63" fill="#333" font-size="8" text-anchor="middle">Look up M on</text>
+      <text x="400" y="73" fill="#333" font-size="8" text-anchor="middle">HR diagram</text>
+      <text x="400" y="83" fill="#555" font-size="7.5" text-anchor="middle">(type + class → M)</text>
+      <line x1="450" y1="62" x2="465" y2="62" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="465" y="28" width="108" height="68" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="519" y="52" fill="#333" font-size="8.5" text-anchor="middle" font-weight="bold">Step 5</text>
+      <text x="519" y="63" fill="#333" font-size="8" text-anchor="middle">Measure m,</text>
+      <text x="519" y="73" fill="#333" font-size="8" text-anchor="middle">apply distance</text>
+      <text x="519" y="83" fill="#333" font-size="8" text-anchor="middle">modulus → d</text>
     </svg>
   </div>
 
   <h3>Luminosity Classes</h3>
   <table>
-    <thead><tr><th>Class</th><th>Type of Star</th><th>Example</th><th>Absolute Magnitude (approx.)</th></tr></thead>
+    <thead><tr><th>Class</th><th>Type</th><th>Key Features</th><th>Example</th><th>M (approx.)</th></tr></thead>
     <tbody>
-      <tr><td>I (Ia/Ib)</td><td>Supergiant — very large and bright</td><td>Betelgeuse</td><td>−5 to −7</td></tr>
-      <tr><td>II</td><td>Bright Giant</td><td>Canopus</td><td>−2 to −4</td></tr>
-      <tr><td>III</td><td>Giant</td><td>Arcturus</td><td>0 to −2</td></tr>
-      <tr><td>IV</td><td>Subgiant</td><td>Procyon</td><td>+2 to +3</td></tr>
-      <tr><td>V</td><td>Main Sequence (Dwarf) — normal star</td><td>Sun (G2V)</td><td>+4.83</td></tr>
+      <tr><td><strong>Ia</strong></td><td>Luminous Supergiant</td><td>Extremely broad, strong lines; very extended atmosphere</td><td>Betelgeuse</td><td>−5 to −7</td></tr>
+      <tr><td><strong>Ib</strong></td><td>Less Luminous Supergiant</td><td>Similar to Ia but slightly narrower lines</td><td>Rigel</td><td>−5 to −6</td></tr>
+      <tr><td><strong>II</strong></td><td>Bright Giant</td><td>Moderately broad lines</td><td>Canopus</td><td>−2 to −4</td></tr>
+      <tr><td><strong>III</strong></td><td>Giant</td><td>Lines narrower than supergiants</td><td>Arcturus</td><td>0 to −2</td></tr>
+      <tr><td><strong>IV</strong></td><td>Subgiant</td><td>Intermediate between giant and MS</td><td>Procyon</td><td>+2 to +3</td></tr>
+      <tr><td><strong>V</strong></td><td>Main Sequence (Dwarf)</td><td>Narrow lines; pressure-broadened for hotter stars</td><td>Sun (G2V)</td><td>+4.83</td></tr>
     </tbody>
   </table>
 
-  <div class="sec">Cecilia Payne &amp; Why Her Work Matters</div>
-
   <div class="person">
     <div class="name">Cecilia Payne-Gaposchkin (1900–1979)</div>
-    <div class="dates">First Harvard Astronomy PhD · Thesis: Stellar Atmospheres (1925)</div>
-    <ul>
-      <li>Proved that spectral types (O B A F G K M) are caused by <strong>temperature differences</strong>, not different chemical compositions</li>
-      <li>Discovered that stars are made primarily of <strong>hydrogen and helium</strong> — a conclusion that contradicted prevailing assumptions</li>
-      <li>Henry Norris Russell pressured her to soften her conclusions; he later confirmed she was right and received much of the credit</li>
-      <li>Her work is the direct foundation of spectroscopic parallax: since spectral type = temperature, and temperature determines position on the HR diagram, we can read off absolute magnitude M from a star's spectrum alone</li>
-    </ul>
+    <div class="dates">Harvard PhD 1925 · Thesis: Stellar Atmospheres · First astronomy PhD at Radcliffe/Harvard</div>
+    <p><strong>Central discovery:</strong> Spectral types (O B A F G K M) reflect <em>temperature differences</em>, not composition differences. Stars are made primarily of hydrogen (~73%) and helium (~25%), with only trace amounts of heavier elements — completely contrary to what most scientists believed at the time.</p>
+    <p><strong>The controversy:</strong> Henry Norris Russell, the most prominent astronomer in America, reviewed her thesis and pressured her to state her conclusions were "almost certainly not real" — because they contradicted prevailing assumptions. She complied under pressure. Five years later, Russell reached the same conclusion independently and published it; he received much of the credit.</p>
+    <p><strong>Why it matters for spectroscopic parallax:</strong> Payne proved that spectral type = temperature, and temperature determines a star's position on the HR diagram. This means reading a star's spectrum tells us its temperature, which tells us its HR diagram position, which tells us its absolute magnitude M. The entire method of spectroscopic parallax depends on this logical chain that Payne established.</p>
   </div>
-
-  <p>Her thesis was later described as "the most brilliant PhD thesis ever written in astronomy."</p>
-
 </div>
 
-<!-- ══ PAGE 5: LEAVITT + GREAT DEBATE ══ -->
+<!-- ══════════════════════════════════════════════
+     PAGE 6: LEAVITT + THE GREAT DEBATE (EXPANDED)
+══════════════════════════════════════════════ -->
 <div class="page">
-
   <div class="sec">Rung 5 — Leavitt's Law &amp; Cepheid Variables</div>
 
-  <h3>What Are Cepheid Variables?</h3>
-  <p>Cepheid variables are pulsating giant stars that rhythmically brighten and dim on a regular, repeating schedule. They physically expand and contract. The time between peak brightnesses is the period, which ranges from about 1 to 100 days.</p>
+  <h3>Cepheid Variables</h3>
+  <p>Cepheid variables are pulsating giant and supergiant stars (typically 4–20 solar masses) that rhythmically expand and contract, causing their brightness to vary with an extremely regular period of 1–100 days. The pulsation mechanism involves a layer of helium in the star's atmosphere that alternately absorbs and releases radiation, driving the oscillation like a valve.</p>
 
   <div class="person">
     <div class="name">Henrietta Swan Leavitt (1868–1921)</div>
-    <div class="dates">Harvard "Computer" — analyzed glass photographic plates, paid 25 cents per hour</div>
-    <ul>
-      <li>Studied photographic plates of the Small Magellanic Cloud (SMC), a nearby dwarf galaxy</li>
-      <li>Because all SMC stars are at approximately the same distance from Earth, any difference in apparent brightness reflects a real difference in intrinsic luminosity</li>
-      <li>Discovered 25 Cepheid variables and found a clear pattern: <strong>longer period = greater luminosity</strong></li>
-      <li>Published in 1912. Discovered over 2,400 variable stars total. Nominated for a Nobel Prize (awarded posthumously — she had already died)</li>
-    </ul>
+    <div class="dates">Harvard "Computer" · Paid 25 cents per hour to analyze photographic plates</div>
+    <p><strong>The setting:</strong> Leavitt worked at Harvard College Observatory under Edward Pickering. She was not allowed to operate the telescope — her job was to analyze glass photographic plates and perform mathematical calculations. Women in her position were called "computers."</p>
+    <p><strong>The discovery:</strong> She studied plates of the <em>Small Magellanic Cloud (SMC)</em>, a dwarf galaxy approximately 200,000 light-years away. Because all SMC stars are at essentially the same distance from Earth, any difference in apparent magnitude directly reflects a difference in intrinsic luminosity — no distance correction needed. Among 1,777 variable stars she identified, 25 were Cepheids. In 1912, she published: <em>"It is worthy of notice that... the brighter variables have the longer periods."</em></p>
+    <p><strong>Leavitt's Law:</strong> The longer a Cepheid's pulsation period, the greater its intrinsic luminosity. This relationship is tight, consistent, and universal — the same Cepheid physics applies everywhere in the universe.</p>
+    <p><strong>Calibration requirement:</strong> Leavitt's Law originally gave only <em>relative</em> distances — it showed that one Cepheid is X times farther than another, but didn't give absolute distances. To get real distances, astronomers had to find nearby Cepheids whose distances were already known from trigonometric parallax, use those to calibrate the period-luminosity scale into absolute magnitudes, and then apply it everywhere else. This is a perfect example of lower rungs calibrating higher ones.</p>
   </div>
-
-  <p><strong>Leavitt's Law (Period-Luminosity Relation):</strong> The longer a Cepheid's pulsation period, the greater its intrinsic luminosity (absolute magnitude M). Measure the period, look up M, measure apparent magnitude m, and apply the distance modulus to find distance.</p>
 
   <div class="diagram">
-    <div class="dtitle">Leavitt's Law — Period vs. Luminosity</div>
-    <svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
-      <!-- Axes -->
-      <line x1="70" y1="15" x2="70" y2="155" stroke="#333" stroke-width="2"/>
-      <line x1="70" y1="155" x2="540" y2="155" stroke="#333" stroke-width="2"/>
-      <!-- Arrows -->
-      <polygon points="66,15 70,5 74,15" fill="#333"/>
-      <polygon points="530,151 540,155 530,159" fill="#333"/>
-
-      <!-- Y axis label -->
-      <text transform="rotate(-90,18,85)" x="18" y="85" fill="#333" font-size="9" text-anchor="middle">Absolute Magnitude (Luminosity)</text>
-      <text x="62" y="20"  fill="#555" font-size="8" text-anchor="end">Bright</text>
-      <text x="62" y="154" fill="#555" font-size="8" text-anchor="end">Dim</text>
-
-      <!-- X axis label -->
-      <text x="305" y="175" fill="#333" font-size="9" text-anchor="middle">Pulsation Period (days)</text>
-      <text x="90"  y="168" fill="#555" font-size="8">1 day</text>
-      <text x="175" y="168" fill="#555" font-size="8">3 days</text>
-      <text x="262" y="168" fill="#555" font-size="8">10 days</text>
-      <text x="357" y="168" fill="#555" font-size="8">30 days</text>
-      <text x="450" y="168" fill="#555" font-size="8">100 days</text>
-
-      <!-- Period-Luminosity trend line -->
-      <path d="M 90,138 Q 200,108 310,74 Q 420,44 525,22" fill="none" stroke="#333" stroke-width="2"/>
-
-      <!-- Data point circles -->
-      <circle cx="90"  cy="138" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="143" cy="121" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="200" cy="108" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="260" cy="90"  r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="310" cy="74"  r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="368" cy="58"  r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="428" cy="42"  r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="480" cy="30"  r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <circle cx="525" cy="22"  r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
-
-      <!-- Annotations -->
-      <text x="92"  y="150" fill="#555" font-size="8">Short period</text>
-      <text x="92"  y="158" fill="#555" font-size="8">= dimmer</text>
-      <text x="480" y="15"  fill="#333" font-size="8" font-weight="bold">Long period</text>
-      <text x="480" y="24"  fill="#333" font-size="8" font-weight="bold">= brighter</text>
+    <div class="dtitle">Leavitt's Law — Period vs. Absolute Magnitude</div>
+    <svg viewBox="0 0 560 175" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
+      <line x1="68" y1="13" x2="68" y2="148" stroke="#333" stroke-width="2"/>
+      <line x1="68" y1="148" x2="535" y2="148" stroke="#333" stroke-width="2"/>
+      <polygon points="64,13 68,3 72,13" fill="#333"/>
+      <polygon points="525,144 535,148 525,152" fill="#333"/>
+      <text transform="rotate(-90,18,80)" x="18" y="80" fill="#333" font-size="9" text-anchor="middle">Absolute Magnitude M (Brighter ↑)</text>
+      <text x="300" y="165" fill="#333" font-size="9" text-anchor="middle">Pulsation Period (days, log scale)</text>
+      <text x="85" y="162" fill="#777" font-size="8">1</text><text x="158" y="162" fill="#777" font-size="8">2</text>
+      <text x="238" y="162" fill="#777" font-size="8">5</text><text x="305" y="162" fill="#777" font-size="8">10</text>
+      <text x="378" y="162" fill="#777" font-size="8">30</text><text x="450" y="162" fill="#777" font-size="8">100</text>
+      <!-- Trend line -->
+      <path d="M 85,133 Q 195,103 308,70 Q 418,41 515,18" fill="none" stroke="#333" stroke-width="2"/>
+      <!-- Data points -->
+      <circle cx="85" cy="133" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="133" cy="121" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="195" cy="103" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="253" cy="87" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="308" cy="70" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="365" cy="55" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="418" cy="41" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="468" cy="29" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <circle cx="515" cy="18" r="4.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <!-- Labels -->
+      <text x="85" y="145" fill="#555" font-size="8">shorter →</text>
+      <text x="78" y="153" fill="#555" font-size="8">dimmer</text>
+      <text x="465" y="14" fill="#333" font-size="8" font-weight="bold">longer →</text>
+      <text x="465" y="23" fill="#333" font-size="8" font-weight="bold">brighter</text>
+      <!-- Annotation box -->
+      <rect x="140" y="75" width="130" height="35" rx="3" fill="#f8f8f8" stroke="#ccc" stroke-width="1"/>
+      <text x="205" y="89" fill="#333" font-size="8" text-anchor="middle">Measure period →</text>
+      <text x="205" y="100" fill="#333" font-size="8" text-anchor="middle">read off M from this graph</text>
     </svg>
   </div>
-
-  <h3>Calibrating Leavitt's Law</h3>
-  <p>To turn the period-luminosity relationship into actual distances (not just relative distances), astronomers had to find nearby Cepheids whose distances were already known from trigonometric parallax. Using those known distances plus observed apparent magnitudes, they calculated actual absolute magnitudes M for each period. This calibrated the law so that any Cepheid anywhere in the universe can yield a real distance. This is an example of a lower ladder rung (parallax) calibrating a higher one (Cepheids).</p>
-
-  <div class="sec">The Great Debate</div>
-
-  <p>In 1920, astronomers did not know the true scale of the universe. The central question was whether spiral "nebulae" — fuzzy patches in the sky — were gas clouds inside our own Milky Way, or separate galaxies far beyond it.</p>
-
-  <div class="cols">
-    <div>
-      <h4>Harlow Shapley — "Nebulae are inside the Milky Way"</h4>
-      <ul>
-        <li>Argued the Milky Way was enormous and essentially the whole universe</li>
-        <li>Was correct that the Sun is not at the center of the Milky Way</li>
-        <li>Was wrong about the overall scale of the universe</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Heber Curtis — "They are separate galaxies"</h4>
-      <ul>
-        <li>Argued spiral nebulae are distant "island universes" — galaxies in their own right</li>
-        <li>Pointed to dust lanes and nova brightness as evidence</li>
-        <li>Was correct — confirmed by Hubble in 1923–1924</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="person">
-    <div class="name">Edwin Hubble — How He Settled It (1923–1924)</div>
-    <div class="dates">Mount Wilson Observatory · 100-inch Hooker Telescope</div>
-    <ul>
-      <li>Identified Cepheid variable stars in the Andromeda "Nebula" (M31)</li>
-      <li>Applied Leavitt's Law to calculate the distance: approximately 900,000 light-years (modern value: 2.5 million light-years)</li>
-      <li>This placed Andromeda far beyond any possible boundary of the Milky Way, proving it is a separate, independent galaxy</li>
-      <li>Curtis was right. The universe contains billions of galaxies.</li>
-      <li>Hubble's discovery was only possible because of Leavitt's period-luminosity law</li>
-    </ul>
-  </div>
-
 </div>
 
-<!-- ══ PAGE 6: TYPE Ia + REFERENCE SHEET ══ -->
+<!-- ══════════════════════════════════════════════
+     PAGE 7: THE GREAT DEBATE — EXPANDED
+══════════════════════════════════════════════ -->
 <div class="page">
+  <div class="sec">The Great Debate — An In-Depth Account</div>
 
-  <div class="sec">Rung 6 — Type Ia Supernovae</div>
+  <div class="subsec">Historical Context (Pre-1920)</div>
+  <p>By the early 20th century, astronomers had built a reasonable picture of the Milky Way, but the universe beyond it was almost completely unknown. The central unresolved question was the nature of "spiral nebulae" — fuzzy, cloud-like objects visible through telescopes that showed spiral structure. Were they:</p>
+  <ul>
+    <li><strong>Option A:</strong> Gas clouds or small star clusters within our own Milky Way?</li>
+    <li><strong>Option B:</strong> Entirely separate "island universes" — galaxies like our own, at enormous distances?</li>
+  </ul>
+  <p>The debate had enormous implications. If Option B was correct, the universe was incomprehensibly larger than anyone had imagined, and the Milky Way was just one of countless galaxies. If Option A was correct, the Milky Way essentially was the universe.</p>
 
-  <h3>What Is a Type Ia Supernova?</h3>
-  <p>A Type Ia supernova occurs in a binary star system where a white dwarf gradually accretes (pulls in) mass from its companion star. When the white dwarf reaches <strong>1.4 solar masses — the Chandrasekhar limit</strong> — it undergoes a runaway thermonuclear explosion and is completely destroyed.</p>
+  <div class="subsec">The Debate (April 26, 1920)</div>
+  <p>On April 26, 1920, Harlow Shapley and Heber Curtis formally debated the question at the Smithsonian National Museum of Natural History in Washington, D.C. This became known as "The Great Debate" or the "Shapley-Curtis Debate."</p>
+
+  <div class="cols">
+    <div class="col-box">
+      <h4>Harlow Shapley — "The Milky Way IS the Universe"</h4>
+      <p><strong>Core argument:</strong> The Milky Way is far larger than previously thought (he had correctly measured its true scale using globular clusters), and spiral nebulae are small gas clouds within it or immediately beyond it.</p>
+      <p><strong>Evidence he used:</strong></p>
+      <ul>
+        <li>A Dutch astronomer (van Maanen) claimed to have measured rotation in the Andromeda spiral — if true, and if Andromeda were a distant galaxy, its outer edges would have to rotate faster than the speed of light. (This measurement was later shown to be erroneous.)</li>
+        <li>Some novae in spiral nebulae seemed too faint to be extragalactic</li>
+        <li>The distribution of nebulae seemed to avoid the galactic plane</li>
+      </ul>
+      <p><strong>What he got right:</strong> The Sun is not at the center of the Milky Way — it is in the outer regions, roughly 25,000 light-years from the galactic center. He determined this from the distribution of globular clusters.</p>
+      <p><strong>What he got wrong:</strong> The scale and structure of the universe — spiral nebulae are separate galaxies.</p>
+    </div>
+    <div class="col-box">
+      <h4>Heber Curtis — "Spiral Nebulae Are Island Universes"</h4>
+      <p><strong>Core argument:</strong> Spiral nebulae are independent galaxies like our own Milky Way, located at vast distances beyond the Milky Way.</p>
+      <p><strong>Evidence he used:</strong></p>
+      <ul>
+        <li><strong>Dark dust lanes:</strong> Spiral nebulae show dark dust lanes similar to what we observe in our own galaxy — suggesting they have the same structure as the Milky Way</li>
+        <li><strong>Nova brightness:</strong> Novae observed in spiral nebulae were much dimmer than novae in the Milky Way — if they were the same intrinsic brightness, the spiral nebulae must be much farther away</li>
+        <li><strong>Doppler shifts:</strong> Spiral nebulae showed large radial velocity shifts inconsistent with being local gas clouds</li>
+        <li>The Sun is near the center of the Milky Way (he was wrong about this, but right about the main question)</li>
+      </ul>
+      <p><strong>What he got right:</strong> The fundamental nature of spiral nebulae as separate galaxies — the most important question of the debate.</p>
+    </div>
+  </div>
+
+  <div class="subsec">The Resolution: Edwin Hubble (1923–1924)</div>
+  <div class="person">
+    <div class="name">Edwin Hubble (1889–1953)</div>
+    <div class="dates">Mount Wilson Observatory · 100-inch Hooker Telescope (then the world's largest)</div>
+    <p><strong>The discovery:</strong> In 1923–1924, Hubble photographed the Andromeda Nebula (M31) with the 100-inch Hooker Telescope on Mount Wilson, California — powerful enough to resolve individual stars in Andromeda's outer regions. He identified several Cepheid variable stars within Andromeda.</p>
+    <p><strong>Applying Leavitt's Law:</strong> By measuring the periods of these Cepheids and using the calibrated period-luminosity relationship, Hubble calculated their absolute magnitudes M. Comparing to their observed apparent magnitudes m, he applied the distance modulus and calculated Andromeda's distance: approximately <strong>900,000 light-years</strong> (the modern value is 2.537 million light-years — Hubble's estimate was off because the period-luminosity calibration at the time used a mix of Cepheid types; this was corrected by Walter Baade in the 1950s).</p>
+    <p><strong>The implication:</strong> At nearly 1 million light-years, Andromeda was far beyond any possible boundary of the Milky Way, even using Shapley's greatly expanded estimate of the Milky Way's size (~300,000 light-years). Andromeda was definitively a separate, independent galaxy.</p>
+    <p><strong>Curtis was right.</strong> The universe contains billions of galaxies. The Milky Way is one ordinary galaxy among countless others. This was arguably the most significant expansion of humanity's understanding of the universe's scale in history.</p>
+  </div>
 
   <div class="diagram">
-    <div class="dtitle">Type Ia Supernova — Why All Have the Same Brightness</div>
-    <svg viewBox="0 0 580 155" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
-      <defs>
-        <marker id="a5" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <polygon points="0,0 8,3 0,6" fill="#333"/>
-        </marker>
-      </defs>
-
-      <!-- Stage 1 -->
-      <text x="100" y="18" fill="#111" font-size="9.5" font-weight="bold" text-anchor="middle">Stage 1: Accretion</text>
-      <!-- Companion star -->
-      <circle cx="55"  cy="80" r="25" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="55" y="77" fill="#333" font-size="8" text-anchor="middle">Companion</text>
-      <text x="55" y="87" fill="#333" font-size="8" text-anchor="middle">Star</text>
-      <!-- White dwarf -->
-      <circle cx="148" cy="80" r="16" fill="#fff" stroke="#333" stroke-width="1.5"/>
-      <text x="148" y="77" fill="#333" font-size="7" text-anchor="middle">White</text>
-      <text x="148" y="86" fill="#333" font-size="7" text-anchor="middle">Dwarf</text>
-      <!-- Gas flow arrow -->
-      <path d="M 80,68 Q 113,50 132,68" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#a5)"/>
-      <text x="106" y="47" fill="#555" font-size="7.5" text-anchor="middle">gas flows over</text>
-      <text x="155" y="60" fill="#555" font-size="7">mass growing...</text>
-
-      <!-- Divider -->
-      <line x1="200" y1="20" x2="200" y2="140" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
-
-      <!-- Stage 2 -->
-      <text x="295" y="18" fill="#111" font-size="9.5" font-weight="bold" text-anchor="middle">Stage 2: At the Limit</text>
-      <circle cx="295" cy="80" r="17" fill="#fff" stroke="#333" stroke-width="2"/>
-      <text x="295" y="77" fill="#333" font-size="7" text-anchor="middle">White</text>
-      <text x="295" y="86" fill="#333" font-size="7" text-anchor="middle">Dwarf</text>
-      <text x="295" y="110" fill="#111" font-size="8.5" text-anchor="middle" font-weight="bold">= 1.4 M☉</text>
-      <text x="295" y="122" fill="#555" font-size="8" text-anchor="middle">Chandrasekhar</text>
-      <text x="295" y="132" fill="#555" font-size="8" text-anchor="middle">Limit reached!</text>
-      <!-- Explosion arrow -->
-      <line x1="350" y1="80" x2="375" y2="80" stroke="#333" stroke-width="2" marker-end="url(#a5)"/>
-      <text x="362" y="74" fill="#555" font-size="8">BOOM</text>
-
-      <!-- Divider -->
-      <line x1="390" y1="20" x2="390" y2="140" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
-
-      <!-- Stage 3 -->
-      <text x="485" y="18" fill="#111" font-size="9.5" font-weight="bold" text-anchor="middle">Stage 3: Explosion</text>
-      <!-- Explosion rings -->
-      <circle cx="485" cy="80" r="42" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="2,2"/>
-      <circle cx="485" cy="80" r="28" fill="none" stroke="#999" stroke-width="1.5"/>
-      <circle cx="485" cy="80" r="14" fill="#eee" stroke="#555" stroke-width="1.5"/>
-      <text x="485" y="84" fill="#111" font-size="18" text-anchor="middle">✦</text>
-      <text x="485" y="138" fill="#111" font-size="8" text-anchor="middle" font-weight="bold">Always same mass → same brightness</text>
-      <text x="485" y="148" fill="#555" font-size="8" text-anchor="middle">M ≈ −19.3 every time</text>
+    <div class="dtitle">The Chain of Discovery That Settled the Great Debate</div>
+    <svg viewBox="0 0 580 80" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
+      <defs><marker id="a6" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#555"/></marker></defs>
+      <rect x="5" y="18" width="88" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="49" y="36" fill="#333" font-size="8" text-anchor="middle" font-weight="bold">Leavitt (1912)</text>
+      <text x="49" y="47" fill="#555" font-size="7.5" text-anchor="middle">Period-luminosity</text>
+      <text x="49" y="57" fill="#555" font-size="7.5" text-anchor="middle">law discovered</text>
+      <line x1="93" y1="40" x2="108" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="108" y="18" width="95" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="155" y="36" fill="#333" font-size="8" text-anchor="middle" font-weight="bold">Calibration</text>
+      <text x="155" y="47" fill="#555" font-size="7.5" text-anchor="middle">Nearby Cepheids</text>
+      <text x="155" y="57" fill="#555" font-size="7.5" text-anchor="middle">measured by parallax</text>
+      <line x1="203" y1="40" x2="218" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="218" y="18" width="100" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="268" y="36" fill="#333" font-size="8" text-anchor="middle" font-weight="bold">Hubble (1923)</text>
+      <text x="268" y="47" fill="#555" font-size="7.5" text-anchor="middle">Finds Cepheids</text>
+      <text x="268" y="57" fill="#555" font-size="7.5" text-anchor="middle">in Andromeda</text>
+      <line x1="318" y1="40" x2="333" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="333" y="18" width="100" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="383" y="36" fill="#333" font-size="8" text-anchor="middle" font-weight="bold">Distance modulus</text>
+      <text x="383" y="47" fill="#555" font-size="7.5" text-anchor="middle">d ≈ 900,000 ly</text>
+      <text x="383" y="57" fill="#555" font-size="7.5" text-anchor="middle">(Andromeda)</text>
+      <line x1="433" y1="40" x2="448" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="448" y="18" width="125" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="510" y="36" fill="#111" font-size="8" text-anchor="middle" font-weight="bold">Great Debate settled</text>
+      <text x="510" y="47" fill="#333" font-size="7.5" text-anchor="middle">Curtis was right —</text>
+      <text x="510" y="57" fill="#333" font-size="7.5" text-anchor="middle">universe has galaxies</text>
     </svg>
   </div>
 
-  <h3>Why Type Ia Supernovae Are Useful for Distance</h3>
-  <p>Because the Chandrasekhar limit (1.4 solar masses) is set by quantum mechanics and is the same everywhere in the universe, every Type Ia supernova explodes with the same amount of fuel and releases the same peak energy. This makes them <strong>standard candles</strong> — objects with a known, consistent absolute magnitude (M ≈ −19.3). Observe the apparent magnitude m, apply the distance modulus, and you can find distances to galaxies billions of light-years away.</p>
-  <p>Type II supernovae (core collapse of massive stars) have variable brightness and cannot be used for distance measurement.</p>
+  <div class="callout">
+    <strong>Key insight for the exam:</strong> The Great Debate was not just a scientific disagreement — its resolution required an entire chain of prior work. Hubble could not have settled the debate without Leavitt's Law. Leavitt's Law could not give absolute distances without calibration via trigonometric parallax. Every rung of the ladder was necessary. And the woman who provided the essential tool — Leavitt — was paid 25 cents per hour and never received a Nobel Prize.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 8: TYPE Ia + REFERENCE SHEET
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sec">Rung 6 — Type Ia Supernovae &amp; Standard Candles</div>
+
+  <h3>What Is a Type Ia Supernova?</h3>
+  <p>A Type Ia supernova occurs in a binary star system containing a <strong>white dwarf</strong> — the dense, Earth-sized remnant of a dead star. The white dwarf accretes (pulls in) mass from its companion star via gravity. As its mass increases, internal pressure and temperature rise. When it reaches <strong>1.4 solar masses — the Chandrasekhar limit</strong> — the pressure from degenerate electrons can no longer support the star against gravity. Carbon fusion ignites throughout the entire white dwarf nearly simultaneously in a runaway thermonuclear explosion. The white dwarf is completely destroyed; no remnant remains.</p>
+
+  <div class="diagram">
+    <div class="dtitle">Type Ia Mechanism — Why All Explosions Are Identical</div>
+    <svg viewBox="0 0 580 148" xmlns="http://www.w3.org/2000/svg" style="font-family:Arial,sans-serif; background:#fff;">
+      <defs><marker id="a7" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#333"/></marker></defs>
+      <text x="98" y="16" fill="#111" font-size="9" font-weight="bold" text-anchor="middle">Stage 1: Mass Transfer</text>
+      <circle cx="52" cy="75" r="24" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="52" y="72" fill="#333" font-size="7.5" text-anchor="middle">Companion</text>
+      <text x="52" y="82" fill="#333" font-size="7.5" text-anchor="middle">Star</text>
+      <circle cx="146" cy="75" r="15" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <text x="146" y="72" fill="#333" font-size="7" text-anchor="middle">White</text>
+      <text x="146" y="81" fill="#333" font-size="7" text-anchor="middle">Dwarf</text>
+      <path d="M 76,62 Q 110,44 131,60" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#a7)"/>
+      <text x="103" y="42" fill="#555" font-size="7.5" text-anchor="middle">gas flows over</text>
+      <text x="152" y="57" fill="#333" font-size="7">growing...</text>
+      <line x1="196" y1="18" x2="196" y2="136" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="293" y="16" fill="#111" font-size="9" font-weight="bold" text-anchor="middle">Stage 2: At 1.4 M☉</text>
+      <circle cx="293" cy="77" r="16" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="293" y="74" fill="#333" font-size="7" text-anchor="middle">White</text>
+      <text x="293" y="83" fill="#333" font-size="7" text-anchor="middle">Dwarf</text>
+      <text x="293" y="104" fill="#333" font-size="9" text-anchor="middle" font-weight="bold">= 1.4 M☉</text>
+      <text x="293" y="116" fill="#555" font-size="8" text-anchor="middle">Chandrasekhar Limit</text>
+      <text x="293" y="128" fill="#555" font-size="8" text-anchor="middle">electrons can't hold it</text>
+      <line x1="345" y1="77" x2="362" y2="77" stroke="#333" stroke-width="2" marker-end="url(#a7)"/>
+      <text x="354" y="70" fill="#333" font-size="8">BOOM</text>
+      <line x1="390" y1="18" x2="390" y2="136" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="485" y="16" fill="#111" font-size="9" font-weight="bold" text-anchor="middle">Stage 3: Explosion</text>
+      <circle cx="485" cy="77" r="44" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="2,3"/>
+      <circle cx="485" cy="77" r="30" fill="none" stroke="#aaa" stroke-width="1.5"/>
+      <circle cx="485" cy="77" r="15" fill="#eee" stroke="#555" stroke-width="1.5"/>
+      <text x="485" y="81" fill="#333" font-size="18" text-anchor="middle">✦</text>
+      <text x="485" y="130" fill="#333" font-size="8.5" text-anchor="middle" font-weight="bold">Always same mass → always same brightness</text>
+      <text x="485" y="141" fill="#555" font-size="8" text-anchor="middle">Peak M ≈ −19.3 (5 billion × Sun)</text>
+    </svg>
+  </div>
+
+  <div class="cols">
+    <div class="col-box">
+      <h4>Why the Chandrasekhar Limit Makes Them Consistent</h4>
+      <p>The 1.4 M☉ limit is determined by quantum mechanics (specifically the Pauli exclusion principle governing electron degeneracy pressure) — it is the same everywhere in the universe, at all times. Because every Type Ia explodes at <em>exactly</em> the same mass, the same amount of fuel (carbon/oxygen) undergoes thermonuclear fusion, releasing the same total energy. This produces a consistent peak absolute magnitude that doesn't vary significantly.</p>
+    </div>
+    <div class="col-box">
+      <h4>Why This Is So Powerful</h4>
+      <ul>
+        <li>Peak M ≈ −19.3 (about 5 billion times the Sun)</li>
+        <li>Visible across billions of light-years</li>
+        <li>Spectrum confirms Type Ia (no hydrogen lines — white dwarfs have no hydrogen envelope)</li>
+        <li>Used in the 1990s to discover dark energy and accelerating expansion (2011 Nobel Prize)</li>
+        <li>Extends the distance ladder to the edge of the observable universe</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="sec">Master Reference Sheet</div>
 
   <div class="cols">
-    <div>
-      <h4>Core Formulas</h4>
-      <div class="formula" style="font-size:12pt; margin:6px 0;">d = 1 ÷ p<span class="sub">parallax: d (parsecs), p (arcseconds)</span></div>
-      <div class="formula" style="font-size:12pt; margin:6px 0;">m − M = 5 log(d) − 5<span class="sub">distance modulus</span></div>
-      <div class="formula" style="font-size:12pt; margin:6px 0;">d = 10^((m−M+5)÷5)<span class="sub">→ distance in parsecs</span></div>
-      <h4 style="margin-top:12px;">Key Numbers</h4>
+    <div class="col-box">
+      <h4>The Three Core Formulas</h4>
+      <div class="formula" style="font-size:11pt; margin:5px 0;">d = 1 ÷ p<div class="sub">parallax: d (pc), p (arcseconds)</div></div>
+      <div class="formula" style="font-size:11pt; margin:5px 0;">m − M = 5 log(d) − 5<div class="sub">distance modulus</div></div>
+      <div class="formula" style="font-size:11pt; margin:5px 0;">d = 10^((m−M+5)÷5)<div class="sub">→ distance in parsecs</div></div>
+    </div>
+    <div class="col-box">
+      <h4>Key Numbers</h4>
       <table>
-        <tr><td>1 parsec</td><td>3.26 light-years</td></tr>
-        <tr><td>m−M = 5</td><td>100 pc away</td></tr>
-        <tr><td>m−M = 10</td><td>1,000 pc away</td></tr>
-        <tr><td>m−M = 15</td><td>10,000 pc away</td></tr>
+        <tr><td>1 parsec</td><td><strong>3.26 light-years</strong></td></tr>
+        <tr><td>1 kpc</td><td>1,000 pc = 3,260 ly</td></tr>
+        <tr><td>1 Mpc</td><td>1,000,000 pc = 3.26 million ly</td></tr>
+        <tr><td>m−M = 5</td><td>100 pc</td></tr>
+        <tr><td>m−M = 10</td><td>1,000 pc</td></tr>
+        <tr><td>m−M = 15</td><td>10,000 pc</td></tr>
+        <tr><td>m−M = 20</td><td>100,000 pc</td></tr>
         <tr><td>Chandrasekhar limit</td><td>1.4 M☉</td></tr>
         <tr><td>Type Ia peak M</td><td>≈ −19.3</td></tr>
-      </table>
-    </div>
-    <div>
-      <h4>Key People</h4>
-      <table>
-        <thead><tr><th>Person</th><th>Contribution</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Leavitt</strong></td><td>Period-luminosity law (1912) — allows distance to any galaxy with a Cepheid</td></tr>
-          <tr><td><strong>Payne</strong></td><td>Spectral type = temperature; stars = H + He — foundation of spectroscopic parallax</td></tr>
-          <tr><td><strong>Hubble</strong></td><td>Found Cepheids in Andromeda (1923–24) — settled Great Debate</td></tr>
-          <tr><td><strong>Shapley</strong></td><td>Great Debate: nebulae inside Milky Way — WRONG about scale</td></tr>
-          <tr><td><strong>Curtis</strong></td><td>Great Debate: nebulae are separate galaxies — CORRECT</td></tr>
-        </tbody>
-      </table>
-      <h4 style="margin-top:12px;">Method Ranges</h4>
-      <table>
-        <thead><tr><th>Method</th><th>Max Range</th></tr></thead>
-        <tbody>
-          <tr><td>Trig. Parallax</td><td>~1,000 ly</td></tr>
-          <tr><td>Main-Seq Fitting</td><td>~50,000 ly</td></tr>
-          <tr><td>Spectroscopic Parallax</td><td>~10,000 ly</td></tr>
-          <tr><td>Cepheids / Leavitt's Law</td><td>~100 million ly</td></tr>
-          <tr><td>Type Ia Supernovae</td><td>&gt;1 billion ly</td></tr>
-        </tbody>
+        <tr><td>Andromeda distance</td><td>~2.5 million ly</td></tr>
       </table>
     </div>
   </div>
 
-  <h3>Things to Remember for the Exam</h3>
-  <ul>
-    <li>"Spectroscopic parallax" does not involve measuring a parallax angle — it uses spectral analysis</li>
-    <li>A turn-off point LOW on the HR diagram means the cluster is OLD (bright stars burned out)</li>
-    <li>Open clusters are easier to determine ages for than globular clusters</li>
-    <li>Larger m − M means the star is farther away</li>
-    <li>Leavitt's Law must be calibrated using parallax distances to nearby Cepheids</li>
-    <li>Payne proved spectral type = temperature, not chemical composition</li>
-    <li>Type Ia supernovae always explode at 1.4 M☉ — so they always have the same peak brightness</li>
-    <li>Hubble used Leavitt's Law to prove the Great Debate was won by Curtis</li>
-  </ul>
+  <h3>Key People Summary</h3>
+  <table>
+    <thead><tr><th>Person</th><th>Contribution</th><th>Critical Significance</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Leavitt</strong></td><td>Period-luminosity law for Cepheids (1912)</td><td>Makes Cepheid distances possible; foundation for resolving the Great Debate</td></tr>
+      <tr><td><strong>Payne</strong></td><td>Spectral type = temperature; stars = H + He (1925)</td><td>Foundation of spectroscopic parallax; explains why spectra determine M</td></tr>
+      <tr><td><strong>Hubble</strong></td><td>Cepheids in Andromeda → 900,000 ly distance (1923–24)</td><td>Proved Curtis right; established the universe contains billions of galaxies</td></tr>
+      <tr><td><strong>Shapley</strong></td><td>Sun not at center of Milky Way; Milky Way IS universe (debate)</td><td>Right about Sun's position; wrong about spiral nebulae</td></tr>
+      <tr><td><strong>Curtis</strong></td><td>Spiral nebulae are separate "island universes" (debate)</td><td>Fundamentally correct — confirmed by Hubble</td></tr>
+    </tbody>
+  </table>
 
-  <p style="text-align:center; margin-top:16px; font-size:9.5pt; color:#555; border-top:1px solid #ccc; padding-top:10px;">
+  <h3>Method Summary with Ranges and Requirements</h3>
+  <table>
+    <thead><tr><th>Method</th><th>Max Range</th><th>How M Is Known</th><th>Key Requirement</th><th>Pioneered by</th></tr></thead>
+    <tbody>
+      <tr><td>Trigonometric Parallax</td><td>~1,000 ly</td><td>Geometry — no M needed</td><td>Angular shift must be measurable</td><td>Hipparchus, refined over centuries</td></tr>
+      <tr><td>Main-Sequence Fitting</td><td>~50,000 ly</td><td>HR diagram shift = m−M</td><td>Star must be in a cluster</td><td>Hertzsprung, Russell</td></tr>
+      <tr><td>Spectroscopic Parallax</td><td>~10,000 ly</td><td>Spectral type + luminosity class</td><td>Payne's classification; single star OK</td><td>Payne (theoretical basis)</td></tr>
+      <tr><td>Cepheid Variables</td><td>~100 million ly</td><td>Period → M via Leavitt's Law</td><td>Cepheid must be identifiable</td><td>Leavitt (1912), calibrated later</td></tr>
+      <tr><td>Type Ia Supernovae</td><td>&gt;1 billion ly</td><td>Always M ≈ −19.3 (physics)</td><td>Type Ia identification from spectrum</td><td>Multiple teams, 1990s</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top:12px;">
+    <strong>Exam reminders:</strong> "Spectroscopic parallax" involves NO parallax angle — misleading name, uses spectra instead. &nbsp;·&nbsp; Turn-off LOW = cluster is OLD. &nbsp;·&nbsp; Open clusters are easier to age than globular clusters. &nbsp;·&nbsp; m−M larger = farther. &nbsp;·&nbsp; Leavitt's Law needs parallax calibration. &nbsp;·&nbsp; Payne: spectral type = temperature, not composition. &nbsp;·&nbsp; Type Ia always explodes at 1.4 M☉. &nbsp;·&nbsp; Curtis won the Great Debate; Hubble proved it using Leavitt's Law.
+  </div>
+  <p style="text-align:center; margin-top:14px; font-size:9pt; color:#666; border-top:1px solid #ccc; padding-top:10px;">
     Good luck. &nbsp;·&nbsp; Calculator + The Glass Universe + Binder of Notes
   </p>
 </div>

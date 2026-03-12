@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE GAP — Capoeira Micro Immersion</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono&display=swap');
+
+:root {
+  --ink: #1a1a1a;
+  --ink2: #2e2e2e;
+  --ink3: #4a4a4a;
+  --gold: #b8922a;
+  --gold-light: #d4ac4e;
+  --gold-bg: #fdf8ee;
+  --cream: #fafaf7;
+  --white: #ffffff;
+  --rule: #e0d8c8;
+  --sidebar: #f4f0e8;
+  --dark: #111111;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 14px; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+@media print {
+  .page-break { page-break-before: always; }
+  .no-break { page-break-inside: avoid; }
+  body { font-size: 11px; }
+}
+
+.cover {
+  background: #0a0a0a;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px 80px 56px;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: 'CAPOEIRA';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.015);
+  letter-spacing: -8px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 28px;
+}
+.cover-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.5px;
+}
+.cover-brand span { color: var(--gold-light); }
+.cover-series {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+.cover-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 0 48px;
+}
+.cover-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 28px;
+}
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 112px;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -5px;
+  color: white;
+  margin-bottom: 12px;
+}
+.cover-title-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: -1px;
+  margin-bottom: 48px;
+}
+.cover-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 36px; }
+.cover-intro {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  max-width: 540px;
+  line-height: 1.65;
+  margin-bottom: 56px;
+}
+.cover-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  max-width: 640px;
+}
+.cover-stat { background: #0a0a0a; padding: 24px 20px; }
+.cover-stat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+}
+.cover-stat-l {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+.cover-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cover-note {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.35);
+  max-width: 420px;
+  line-height: 1.75;
+  font-style: italic;
+}
+.cover-contact {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
+}
+
+.doc-page { max-width: 840px; margin: 0 auto; padding: 72px 64px; }
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 8px;
+}
+.eyebrow-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.eyebrow-rule { flex: 1; height: 1px; background: var(--rule); }
+
+h1 { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 900; line-height: 1.0; letter-spacing: -1.5px; color: var(--ink); margin-bottom: 28px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 14px; margin-top: 32px; }
+h4 { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink2); margin-bottom: 8px; }
+p { color: var(--ink3); line-height: 1.82; margin-bottom: 16px; font-size: 13.5px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+.dark-block {
+  background: var(--dark);
+  padding: 52px 56px;
+  margin: 40px 0;
+}
+.dark-block-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+.dark-block blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.55;
+  color: white;
+  margin: 0 0 24px 0;
+  font-weight: 400;
+}
+.dark-block p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.82; }
+
+.framework-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 36px 0;
+}
+.fw-cell { background: var(--cream); padding: 32px 28px; }
+.fw-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.fw-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.fw-body { font-size: 12.5px; color: var(--ink3); line-height: 1.75; }
+
+.teacher-wrap {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  border: 1px solid var(--rule);
+  margin: 36px 0;
+}
+.teacher-left {
+  background: var(--dark);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.teacher-name-block { }
+.t-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.t-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  line-height: 1.7;
+}
+.t-lineage {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.22);
+  text-transform: uppercase;
+  line-height: 1.9;
+}
+.teacher-right { padding: 36px 40px; }
+.teacher-right p { font-size: 13px; color: var(--ink3); line-height: 1.85; }
+.cred-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+.cred-cell { background: var(--sidebar); padding: 14px 16px; }
+.cred-l {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+.cred-v { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+.day-block {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  border: 1px solid var(--rule);
+  margin-bottom: 14px;
+}
+.day-block.accent-gold { border-left: 3px solid var(--gold); }
+.day-block.accent-dark { border-left: 3px solid var(--dark); }
+.d-side {
+  background: var(--sidebar);
+  padding: 24px 20px;
+  border-right: 1px solid var(--rule);
+}
+.d-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 2px;
+}
+.d-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  color: var(--ink3);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+.d-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.d-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  text-transform: uppercase;
+  line-height: 1.9;
+}
+.d-body { padding: 24px 30px; }
+.d-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.d-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.d-desc { font-size: 12.5px; color: var(--ink3); line-height: 1.82; margin-bottom: 14px; }
+.d-desc:last-child { margin-bottom: 0; }
+.sessions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+.sess {
+  background: var(--sidebar);
+  padding: 12px 14px;
+  border-left: 2px solid var(--gold);
+}
+.sess-time {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3px;
+}
+.sess-title { font-size: 11.5px; font-weight: 600; color: var(--ink2); line-height: 1.35; }
+.sess-sub { font-size: 10.5px; color: var(--ink3); line-height: 1.5; margin-top: 3px; }
+.d-callout {
+  background: var(--gold-bg);
+  border-left: 3px solid var(--gold);
+  padding: 13px 16px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+.service-block {
+  background: #1a1a2e;
+  color: white;
+  padding: 48px 52px;
+  margin: 36px 0;
+}
+.service-block .s-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 18px;
+}
+.service-block .s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+.service-block p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.85; }
+
+.logistics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 28px 0;
+}
+.lg-cell { background: var(--cream); padding: 22px 26px; }
+.lg-l {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.lg-v { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.lg-sub { font-size: 11.5px; color: var(--ink3); margin-top: 4px; line-height: 1.5; }
+
+.include-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 24px 0;
+}
+.inc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--sidebar);
+  padding: 14px 16px;
+}
+.inc-mark { color: var(--gold); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.inc-text { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+.inc-text strong { font-size: 12.5px; display: block; margin-bottom: 2px; }
+
+.closing {
+  background: var(--dark);
+  color: white;
+  min-height: 55vh;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.closing-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -2.5px;
+  color: white;
+  margin-bottom: 28px;
+}
+.closing-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+  max-width: 460px;
+  line-height: 1.65;
+  margin-bottom: 48px;
+}
+.closing-contacts { display: flex; gap: 48px; }
+.cc-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  display: block;
+  margin-bottom: 5px;
+}
+.cc-val {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+}
+.closing-footer {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.closing-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1px;
+}
+.closing-footer-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">THE <span>GAP</span></div>
+    <span class="cover-series">Micro Immersion Series · Discipline No. 02</span>
+  </div>
+
+  <div class="cover-main">
+    <span class="cover-eyebrow">Capoeira Angola · Salvador, Bahia, Brazil</span>
+    <div class="cover-title">Capo-<br>eira.</div>
+    <div class="cover-title-sub">10 Days in Bahia.</div>
+    <div class="cover-rule"></div>
+    <p class="cover-intro">Capoeira is not a fight — it's a conversation. Two people in a roda (circle) reading each other, expressing themselves through movement, music, and the threat of violence that never quite lands. Born in the slave communities of colonial Brazil as a disguised martial art practiced as dance. 400 years old. Still practiced in the same streets.</p>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <span class="cover-stat-n">10</span>
+        <span class="cover-stat-l">Days</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">8</span>
+        <span class="cover-stat-l">Spots</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">2×</span>
+        <span class="cover-stat-l">Daily</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">400</span>
+        <span class="cover-stat-l">Years</span>
+      </div>
+      <div class="cover-stat">
+        <span class="cover-stat-n">$2,800</span>
+        <span class="cover-stat-l">All-In</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <p class="cover-note">No prior capoeira or martial arts experience required. No Portuguese required. The only requirement: show up to the roda, listen to the berimbau, and move honestly. The conversation will find you.</p>
+    <span class="cover-contact">apply@bridgethegap.com</span>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Philosophy</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>A fight that looks<br>like a dance.</h1>
+
+  <p>Capoeira was created by enslaved Africans in Brazil, beginning in the early 17th century. Forbidden from practicing martial arts by their captors, they disguised combat training as dance. Two people would ginga — a constant side-to-side swaying movement — while the berimbau dictated the tempo and the energy of the game. The kicks and sweeps were hidden in the movement. The weapons were the same as the art.</p>
+
+  <p>What resulted was something unique in the history of martial arts: a fighting system that is simultaneously music, dance, acrobatics, and combat philosophy. You cannot separate them. The berimbau tells you how fast to play, how much power to use, how much to trust your opponent. The ginga keeps you in constant motion so nothing is ever a fixed target. The au (cartwheel) and macaco (back handspring) are both evasions and attacks. The roda — the circle of practitioners who clap, sing, and watch — is the theater in which all of this unfolds.</p>
+
+  <p>Capoeira Angola, the older style taught at GCAP, is different from the more athletic Regional style practiced in most gyms worldwide. Angola is slower, closer to the ground, more cunning. The Mestre is not trying to impress you with acrobatics — he is trying to read you, confuse you, and invite you to make a mistake. Every movement is a question. Your response is your answer. The quality of the conversation is the quality of the practice.</p>
+
+  <div class="dark-block">
+    <span class="dark-block-tag">The Gap · Core Belief</span>
+    <blockquote>"The roda is 400 years old and it is still going. In the same streets, with the same berimbau, between two people who are trying to understand each other through movement. That continuity — the fact that this is exactly what it was — is the rarest thing in the world."</blockquote>
+    <p>Every discipline in THE GAP framework is chosen because it teaches something that cannot be learned in a classroom. Capoeira teaches you to read another person's intentions through their body, to disguise your own, and to stay present in the constant negotiation of the roda. These skills — perception, deception, presence, play — transfer everywhere.</p>
+  </div>
+
+  <h2>The Pelourinho</h2>
+
+  <p>GCAP — Grupo Capoeira Angola Pelourinho — is based in the Pelourinho district of Salvador, the oldest African-Brazilian neighborhood in the Americas. The Pelourinho is where the slave markets were. It is where the terreiros (Candomblé temples) have been operating for 200 years. It is where Mestre Pastinha ran his famous academy in the 1960s — the same lineage that flows through Mestre Moraes to GCAP today. The streets are cobblestone and color. The music comes from open windows at night. The history is present in the air in a way that does not require explanation.</p>
+
+  <p>To train capoeira in the Pelourinho is to train it in the place it was born and where it survived. That is not a backdrop. It is the context that makes everything else mean something.</p>
+
+  <div class="framework-grid">
+    <div class="fw-cell">
+      <div class="fw-num">01</div>
+      <div class="fw-name">Adventure + Adrenaline</div>
+      <p class="fw-body">Twice-daily capoeira training with Mestre Moraes and GCAP instructors. Live roda on Day 6 — full circle, berimbau playing, real partners. Beach training at Praia do Porto da Barra. The martial art is the adrenaline — a real grappling, striking, sweeping art dressed in dance.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">02</div>
+      <div class="fw-name">Travel + Encounter</div>
+      <p class="fw-body">Train inside a 400-year-old tradition in the neighborhood where it was born. Walk the Pelourinho at dawn. Observe a Candomblé ceremony. Cook Bahian food with a local family. The culture that produced capoeira is not separate from the practice — it is the practice.</p>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">03</div>
+      <div class="fw-name">Service + Giving Back</div>
+      <p class="fw-body">Day 9: join GCAP's youth program and train alongside the local children Mestre Moraes sponsors. You don't arrive with money — you arrive with what you've learned and give it back inside the roda. The program exists independently of you. It will exist after you leave.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- TEACHER -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Teacher</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+
+  <h1>Mestre Moraes<br>and GCAP.</h1>
+
+  <div class="teacher-wrap">
+    <div class="teacher-left">
+      <div class="teacher-name-block">
+        <div class="t-name">Mestre<br>Moraes</div>
+        <div class="t-tag">GCAP — Grupo Capoeira<br>Angola Pelourinho<br>Salvador, Bahia</div>
+      </div>
+      <div class="t-lineage">
+        Pedro Moraes Trindade<br>Founded GCAP 1980<br>Student of Mestre Pastinha<br>Lineage Since 1940s<br>Pelourinho District
+      </div>
+    </div>
+    <div class="teacher-right">
+      <p>Pedro Moraes Trindade — Mestre Moraes — founded GCAP (Grupo Capoeira Angola Pelourinho) in 1980 in the Pelourinho district of Salvador. He is a direct student of Mestre Pastinha, the grandmaster who spent his life preserving Capoeira Angola as a distinct tradition when modernizers were trying to replace it with a sportier, more athletic version. Mestre Pastinha died in 1981, nearly blind and broke, in a city that had torn down his academy to build a tourist attraction. Mestre Moraes carries his tradition forward.</p>
+      <p>GCAP is not a commercial academy. It operates as a community institution — training visiting students, yes, but primarily training children from the surrounding Pelourinho neighborhood, fully sponsored. Mestre Moraes has been doing this for over forty years. He is one of the most respected living Mestres of Capoeira Angola on earth. He is also, by all accounts, one of the most demanding teachers — not in terms of physical difficulty, but in terms of honesty. He wants the conversation in the roda to be real. If it isn't, he stops the game and shows you why.</p>
+      <p>The instructors at GCAP who work alongside Mestre Moraes have trained with him for decades. They carry the same tradition. When the Mestre is watching from the edge of the roda, everyone — instructors included — plays more carefully.</p>
+      <div class="cred-grid">
+        <div class="cred-cell">
+          <span class="cred-l">Founded</span>
+          <div class="cred-v">GCAP, 1980 · Pelourinho, Salvador</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Lineage</span>
+          <div class="cred-v">Student of Mestre Pastinha · Angola tradition</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Style</span>
+          <div class="cred-v">Capoeira Angola — the original form</div>
+        </div>
+        <div class="cred-cell">
+          <span class="cred-l">Youth Program</span>
+          <div class="cred-v">Pelourinho neighborhood children · fully sponsored</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What the training looks like</h2>
+
+  <p>Sessions begin on the floor of GCAP's academy in the Pelourinho — a room whose walls are covered with photographs of Mestre Pastinha, of rodas going back to the 1950s, of children who trained here and became Mestres themselves. The floor is hardwood and worn. The berimbau hangs on the wall. You start with the ginga.</p>
+
+  <p><strong>The ginga is everything.</strong> It is the constant swaying movement that keeps you in motion, out of a fixed stance, always presenting a moving target. It is also the medium through which all expression happens in capoeira — your entire personality is visible in your ginga. Are you relaxed or tense? Playful or aggressive? Honest or dishonest? The Mestre reads all of it. On the first day he will show you how the ginga looks when someone is afraid. He will also show you how it looks when someone is home.</p>
+
+  <p>From the ginga, the sessions build through the fundamental movements: the au (cartwheel, which is also an evasion), the ginga-esquiva (duck-and-weave combinations), the martelo (hammer kick), the meia-lua (crescent kick), and the rasteira (leg sweep — the most important and most misunderstood movement in Angola, which requires you to read your partner's weight shift before their foot is even in the air). The berimbau is present throughout every session, setting pace and energy.</p>
+
+  <div class="d-callout" style="border-left-color:var(--ink);background:var(--sidebar);">
+    <strong>On the berimbau:</strong> The berimbau is not background music. It is the conductor of the roda. A fast berimbau means a fast, aggressive game. A slow berimbau means a slow, close, deceptive game. One note means stop. Two notes means change partners. The practitioners sing in call-and-response as the game unfolds. If you don't understand the berimbau, you don't understand what's happening. Day 4 includes a dedicated berimbau lesson.
+  </div>
+</div>
+
+
+<!-- ITINERARY -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Days 1–6</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Learning to<br>speak the roda.</h1>
+  <p style="margin-bottom:32px;">The first six days build the technical foundation — the ginga, the primary attacks and evasions, the music — and culminate in the first live roda. By the time you enter the circle on Day 6, you will know enough to have a real conversation. The conversation will still confuse you. That's correct.</p>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">01</span>
+      <span class="d-label">Arrival</span>
+      <div class="d-name">Salvador</div>
+      <div class="d-meta">No training<br>Pelourinho walk<br>Group dinner<br>Early sleep</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Orientation</div>
+      <div class="d-title">Arrive in Salvador. Walk the Pelourinho at dusk. Understand where you are.</div>
+      <p class="d-desc">Transfer from Salvador International Airport to accommodation in the Pelourinho district. Check in, drop gear. Walk the neighborhood: the cobblestones, the colonial architecture in yellow and blue and green, the terreiro doors, the smell of dendê oil from the acarajé stalls. This is the oldest African-Brazilian neighborhood in the Americas. The history is not in a museum. It's in the streets you're walking on. Group dinner at a Bahian restaurant the GCAP instructors use — moqueca, acarajé, vatapá. No phones at the table. Sleep early. Morning session starts at 7:00am.</p>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">02</span>
+      <span class="d-label">First Contact</span>
+      <div class="d-name">The Ginga</div>
+      <div class="d-meta">AM + PM Training<br>GCAP Academy<br>Pelourinho</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Foundation</div>
+      <div class="d-title">The Mestre watches how you stand before he teaches you anything.</div>
+      <p class="d-desc">First session at GCAP's academy in the Pelourinho. The Mestre introduces the ginga — the constant swaying movement that is the foundation of everything. No kicks. No sweeps. Just this: moving, always, never still, your whole body expressing something. The ginga reveals everything about your state of mind. Tense students ginga like they're waiting for a bus. Relaxed students ginga like they belong here. The Mestre can see the difference from across the room.</p>
+      <p class="d-desc">Afternoon: the au — the capoeira cartwheel, which is simultaneously a way to move across the floor, an evasion from a kick, and a position from which you can attack. Not a gymnastics cartwheel. Lower, slower, watching your partner the entire time. Evening: GCAP Academy overview, lineage history with one of the senior instructors. The photographs on the wall.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Ginga Foundation</div><div class="sess-sub">Stance, movement, rhythm, no-pause rule</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Au + Esquiva</div><div class="sess-sub">Capoeira cartwheel as evasion</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Lineage Session</div><div class="sess-sub">History of GCAP, Mestre Pastinha, Angola</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">03</span>
+      <span class="d-label">The Kicks</span>
+      <div class="d-name">Primary Weapons</div>
+      <div class="d-meta">AM + PM Training<br>Mercado Modelo<br>Bahia Bay</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Foundation</div>
+      <div class="d-title">Meia-lua. Martelo. The kicks that built capoeira for 400 years.</div>
+      <p class="d-desc">First full double-session day. Morning: the meia-lua de frente (front crescent kick — the most fundamental attack in capoeira Angola), the martelo (hammer kick from a standing position), and how they are set up through the ginga. Nothing is thrown from a static position. Every kick emerges from movement and returns to movement. This is what makes capoeira Angola impossible to defend against with traditional martial arts training — there is no chambering, no telegraphing, no wind-up.</p>
+      <p class="d-desc">Evening: Mercado Modelo on the lower city waterfront, one of the oldest marketplaces in Brazil. The bay at sunset. This is the water where the slave ships arrived. The Bahia de Todos os Santos — Bay of All Saints. It is the largest bay in Brazil. It is also where the first capoeiristas looked out from the Pelourinho. That geography matters.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Meia-Lua + Martelo</div><div class="sess-sub">Primary attack mechanics from the ginga</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Combinations</div><div class="sess-sub">Ginga–attack–ginga sequences</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Mercado Modelo</div><div class="sess-sub">Lower city, the bay, the history</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">04</span>
+      <span class="d-label">The Music</span>
+      <div class="d-name">Berimbau Day</div>
+      <div class="d-meta">AM Training<br>Berimbau Lesson<br>Candomblé Evening</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Culture + Encounter</div>
+      <div class="d-title">You cannot understand the roda until you understand the berimbau.</div>
+      <p class="d-desc">Morning training: the rasteira — the leg sweep that defines Capoeira Angola. The rasteira is not a brute-force takedown. It is a theft: you wait for the moment your partner's weight is committed forward, then you remove the foot they were about to step onto. It requires reading the other person's balance before they themselves have committed to it. It is the most Angolan thing in capoeira — all patience and perception, disguised as something casual.</p>
+      <p class="d-desc">Afternoon: dedicated berimbau lesson with a GCAP instructor. How to hold it, how to strike the wire, how the different notes are produced — the open tone (solto), the closed buzz (preso), the high tone. What each combination of notes communicates in the roda. How to read what the berimbau is asking for. You will play berimbau in the roda on Day 10.</p>
+      <p class="d-desc">Evening: observation of a Candomblé ceremony at a terreiro in Salvador — one of the African-Brazilian religious traditions that shares roots with capoeira. Candomblé is not a tourist performance. The access is through GCAP's community relationships. Observe quietly. No photos. The orixás (spirits) have nothing to do with your phone.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Rasteira — The Sweep</div><div class="sess-sub">Reading weight, timing, patience</div></div>
+        <div class="sess"><span class="sess-time">14:00–16:00</span><div class="sess-title">Berimbau Lesson</div><div class="sess-sub">All notes, roda language, practice</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Candomblé Ceremony</div><div class="sess-sub">Observe. No phones.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">05</span>
+      <span class="d-label">Beach Training</span>
+      <div class="d-name">Porto da Barra</div>
+      <div class="d-meta">AM Training<br>Beach Session<br>Cook with Family</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Adventure + Encounter</div>
+      <div class="d-title">Take the ginga to the sand. Then cook Bahian food with the people who invented it.</div>
+      <p class="d-desc">Morning: Praia do Porto da Barra — Salvador's most beloved urban beach, where the calmer inner-bay waters meet the ocean. The GCAP instructors train here sometimes; the sand changes everything. On sand, the ginga requires more force. The au demands more commitment. Falling is softer but recovering is harder. The beach session is also visible — passers-by stop to watch. That's its own lesson in performing the art in public, in the place it came from.</p>
+      <p class="d-desc">Evening: cook traditional Bahian food with a local family connected to GCAP for twenty years. Vatapá from scratch — dried shrimp, peanuts, cashews, coconut milk, dendê oil, fresh bread torn by hand. Moqueca made the traditional Bahian way, not the São Paulo way. The family feeds you the way they feed themselves. The conversation is in Portuguese and body language and shared work over a hot stove.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Technique Review</div><div class="sess-sub">All movements connected in sequence</div></div>
+        <div class="sess"><span class="sess-time">10:30–12:30</span><div class="sess-title">Beach Training</div><div class="sess-sub">Porto da Barra — ginga on sand</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Home Cook</div><div class="sess-sub">Bahian family — vatapá and moqueca</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">06</span>
+      <span class="d-label">The Roda</span>
+      <div class="d-name">First Circle</div>
+      <div class="d-meta">AM Training<br>Live Roda 20:00<br>GCAP Academy</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">The Real Thing</div>
+      <div class="d-title">The roda begins. The berimbau dictates. The circle watches. Two people talk.</div>
+      <p class="d-desc">First live roda at GCAP. This is not a demonstration. This is the actual practice: practitioners form a circle, the berimbau and atabaque drum set the energy, two people enter from the foot of the berimbau, bow, and begin the conversation. You play with an instructor who will calibrate the game to what you know — but will not go easy in the way that makes it false. The roda has its own ethics. Disrespecting a partner, playing too aggressively, refusing to acknowledge a good move — these are violations the circle notices.</p>
+      <p class="d-desc">What the roda teaches that drills cannot: how to stay present when someone is actually responding to you. In drills, you already know what's coming. In the roda, you don't. The ginga either happens or it doesn't. You either see the rasteira coming or you don't. There is no simulation of this feeling. You have to be inside it.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Pre-Roda Preparation</div><div class="sess-sub">All techniques, partner reading drills</div></div>
+        <div class="sess"><span class="sess-time">16:00–17:00</span>
+        <div class="sess-title">Rest + Stretch</div><div class="sess-sub">Prepare body and mind</div></div>
+        <div class="sess"><span class="sess-time">20:00</span><div class="sess-title">Live Roda</div><div class="sess-sub">GCAP Academy · Berimbau, drum, circle</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ITINERARY DAYS 7-10 -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">The Itinerary · Days 7–10</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>The conversation<br>deepens.</h1>
+  <p style="margin-bottom:32px;">The second half is where the practice becomes personal. You stop executing techniques and start playing. The difference is that playing requires you to be present — to respond to what is actually in front of you, not to what you planned. Day 9 is the service day. Day 10 is the final roda.</p>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">07</span>
+      <span class="d-label">Rest Day</span>
+      <div class="d-name">Rio Vermelho</div>
+      <div class="d-meta">No Training<br>Neighborhood Walk<br>Ocean Swim</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Rest + City</div>
+      <div class="d-title">No training. Salvador is a city and today you live in it.</div>
+      <p class="d-desc">No training today. Rio Vermelho neighborhood — a fishing village that became a bohemian district, walking distance from the beach. The Mercado de Peixe (fish market) opens at dawn: tuna the size of a door being unloaded from boats while the orixás are honored with flowers in the water. Praia de Amaralina for a swim — rougher surf than Porto da Barra, facing the open Atlantic. Lunch at a beachside barraca: fresh fish, ice-cold Brahma, your feet in the sand.</p>
+      <p class="d-desc">The rest day is not tourism. It is recovery — the body needs it after six days of twice-daily training. It is also context: you are training in a living city with a specific history, and the only way to understand that context is to be inside it. Move slowly today. Eat well. Sleep long.</p>
+      <div class="d-callout">
+        <strong>Why rest is non-negotiable:</strong> Capoeira Angola demands a specific kind of body awareness — the ability to be loose and responsive, not tight and mechanical. That quality disappears when you're fatigued. The rest day is what allows the second week of training to build on the first, rather than just degrading it.
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break">
+    <div class="d-side">
+      <span class="d-num">08</span>
+      <span class="d-label">Reading</span>
+      <div class="d-name">Partner Work</div>
+      <div class="d-meta">AM + PM Training<br>Advanced Roda<br>Night Pelourinho</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Depth</div>
+      <div class="d-title">Stop thinking about what to do. Start reading what's actually happening.</div>
+      <p class="d-desc">The Mestre identifies one thing to fix in each person's game — and it will be the same thing in different forms: you are planning instead of reading. In Capoeira Angola, planning is a liability. The moment you decide what kick you're going to throw, your partner has already felt it in your body. The Mestre's correction is consistent and patient: slow down, watch the hips, wait. The kick will present itself.</p>
+      <p class="d-desc">Extended partner drills focused on reading weight transfer — the fundamental skill the rasteira demands. Evening: the Pelourinho at night. Street rodas happen spontaneously in the squares. Find one. Watch how different from the academy it looks — faster, showier, less Angola, more performance. Notice what the berimbau is doing. Notice what the academic training has taught you to see that you couldn't have seen a week ago.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Reading Drills</div><div class="sess-sub">Weight transfer, anticipation, stillness</div></div>
+        <div class="sess"><span class="sess-time">16:00–18:00</span><div class="sess-title">Advanced Roda</div><div class="sess-sub">Longer games, varied partners</div></div>
+        <div class="sess"><span class="sess-time">Evening</span><div class="sess-title">Pelourinho at Night</div><div class="sess-sub">Street rodas, observation, walk</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block no-break accent-gold">
+    <div class="d-side">
+      <span class="d-num">09</span>
+      <span class="d-label">Service Day</span>
+      <div class="d-name">GCAP Youth</div>
+      <div class="d-meta">Full Day<br>Youth Program<br>Train + Give Back</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Service + Giving Back</div>
+      <div class="d-title">Train with the children. Contribute to something that was here before you arrived.</div>
+      <p class="d-desc">GCAP has run a youth program in the Pelourinho for over forty years — training children from the surrounding neighborhood, fully sponsored, in the same tradition Mestre Moraes received from Mestre Pastinha. These children train seriously. Some of them will become instructors. Some will become Mestres. Today you train alongside them.</p>
+      <p class="d-desc">The session is led by the GCAP instructors. You warm up together. You practice the ginga together. The children will be watching how you move — with the unselfconscious scrutiny children have — and some of them will correct you, silently, by doing it better. That's not embarrassing. That's the whole point of being here: to be in a place where the tradition is real and living, and to add your presence to it, and to leave something behind in the room.</p>
+      <p class="d-desc">Lunch with the GCAP community. Afternoon: free time in the Pelourinho. Return to the academy in the evening for a final debrief with an instructor about what you observed in the children's training versus your own.</p>
+    </div>
+  </div>
+
+  <div class="service-block">
+    <span class="s-tag">Why service is not optional</span>
+    <div class="s-title">Capoeira survived because communities passed it on. You are inside that chain.</div>
+    <p>Mestre Pastinha spent his final years fighting to preserve Capoeira Angola when the world wanted something flashier. Mestre Moraes spent forty years building GCAP so the tradition could continue to the next generation. The children in the youth program are that next generation. When you train alongside them, you are not doing charity — you are participating in the mechanism of transmission that kept this art alive through slavery, prohibition, and modernization. That is not a small thing to be part of, even for one day.</p>
+  </div>
+
+  <div class="day-block no-break accent-dark">
+    <div class="d-side">
+      <span class="d-num">10</span>
+      <span class="d-label">Final Roda</span>
+      <div class="d-name">Closing Circle</div>
+      <div class="d-meta">AM Training<br>Final Roda 20:00<br>Depart Tomorrow</div>
+    </div>
+    <div class="d-body">
+      <div class="d-tag">Closing</div>
+      <div class="d-title">The last roda. You play berimbau. Then you play in the circle. The Mestre watches.</div>
+      <p class="d-desc">Morning: full technical review — every movement learned, every combination, at speed, with a partner who will push back. The Mestre does final individual corrections: one thing, clearly stated, to carry home. In the afternoon: rest, stretch, pack. The city in the afternoon light.</p>
+      <p class="d-desc">Evening: the closing roda at GCAP. The full ceremony: berimbau tuned and hanging, atabaque drum, the GCAP instructors and Mestre present. Each group member plays at least one game in the roda — against an instructor calibrated to challenge exactly what they know. Some group members play berimbau, conducting the game they're not in. The Mestre sits at the foot of the berimbau and watches. When he nods, it means something you will understand by now. Departure the following morning.</p>
+      <div class="sessions">
+        <div class="sess"><span class="sess-time">07:00–09:00</span><div class="sess-title">Full Technical Review</div><div class="sess-sub">Every movement, at speed, with partners</div></div>
+        <div class="sess"><span class="sess-time">Afternoon</span><div class="sess-title">Rest + Pack</div><div class="sess-sub">The city in the afternoon light</div></div>
+        <div class="sess"><span class="sess-time">20:00</span><div class="sess-title">Closing Roda</div><div class="sess-sub">Full ceremony · Mestre present · Berimbau</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGISTICS -->
+<div class="doc-page page-break">
+  <div class="section-eyebrow">
+    <span class="eyebrow-tag">Logistics · What's Included · How to Apply</span>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <h1>Everything you need<br>to know.</h1>
+
+  <div class="logistics-grid">
+    <div class="lg-cell">
+      <span class="lg-l">Location</span>
+      <div class="lg-v">Salvador, Bahia, Brazil</div>
+      <div class="lg-sub">Training base: GCAP Academy, Pelourinho district · 6km from Salvador International (SSA)</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Duration</span>
+      <div class="lg-v">10 Days</div>
+      <div class="lg-sub">Arrive Day 1 evening · Depart Day 11 morning</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Group Size</span>
+      <div class="lg-v">8 spots</div>
+      <div class="lg-sub">Intentionally small. Mestre Moraes knows your game by Day 3.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Investment</span>
+      <div class="lg-v">$2,800</div>
+      <div class="lg-sub">All-inclusive except international flights and travel insurance.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Age Range</span>
+      <div class="lg-v">17–24</div>
+      <div class="lg-sub">No prior capoeira or martial arts experience required.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Fitness Baseline</span>
+      <div class="lg-v">Reasonably active</div>
+      <div class="lg-sub">Able to move freely and sustain 90 minutes of activity. No gymnastic background required.</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Training Schedule</span>
+      <div class="lg-v">2× daily, 6 days</div>
+      <div class="lg-sub">07:00–09:00 AM · 16:00–18:00 PM · Day 7 off (Rio Vermelho rest day)</div>
+    </div>
+    <div class="lg-cell">
+      <span class="lg-l">Apply</span>
+      <div class="lg-v">apply@bridgethegap.com</div>
+      <div class="lg-sub">Brief note on who you are and why this immersion. Response within 48 hours.</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:40px;margin-bottom:20px;">What's included</h2>
+  <div class="include-grid">
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>All capoeira training</strong>10 days with Mestre Moraes and GCAP instructors. All equipment provided.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Accommodation</strong>Private rooms in the Pelourinho district, walking distance to GCAP Academy.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Daily meals</strong>Breakfast and lunch near academy. Group dinners together. Bahian food throughout.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Two live rodas</strong>Days 6 and 10. Full ceremony — berimbau, atabaque drum, circle, Mestre present.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Berimbau lesson</strong>Day 4. You learn to play the instrument that conducts the entire art.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Candomblé ceremony observation</strong>Day 4 evening. Through GCAP's community relationships. Not a tourist performance.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Beach training session</strong>Day 5 — Praia do Porto da Barra. The Atlantic, the sand, the same view the first capoeiristas had.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Home cook — Bahian family</strong>Day 5 evening. Vatapá and moqueca from scratch with a family GCAP has known for 20 years.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>GCAP Youth Program — service day</strong>Day 9. Full day alongside the children Mestre Moraes sponsors. Lunch with the community.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Pelourinho immersion</strong>Daily life in the oldest African-Brazilian neighborhood in the Americas. The context is everything.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Mercado Modelo visit</strong>Day 3 evening. The lower city waterfront market and Bahia Bay at sunset.</div>
+    </div>
+    <div class="inc-item">
+      <span class="inc-mark">✦</span>
+      <div class="inc-text"><strong>Airport transfers</strong>Day 1 arrival pickup and Day 11 departure drop-off at Salvador International (SSA).</div>
+    </div>
+  </div>
+
+  <h3>What to bring</h3>
+  <p>Lightweight athletic shorts and t-shirts — you will train in heat and humidity. Bare feet or capoeira shoes (the academy will have some available to borrow). Sandals. A water bottle. The academy provides all training equipment. Pack light. The Pelourinho's streets are narrow and cobblestoned — large luggage is a problem.</p>
+
+  <h3>What is not included</h3>
+  <p>International flights to and from Salvador (SSA). Travel insurance — required. Personal spending in markets and restaurants. Portuguese phrasebook or app — optional but appreciated.</p>
+</div>
+
+
+<!-- CLOSING -->
+<div class="closing page-break">
+  <div>
+    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:36px;">The Gap · Micro Immersion Series · Capoeira Angola · Salvador</span>
+    <div class="closing-h">8 spots.<br>Salvador.<br>Enter the roda.</div>
+    <p class="closing-sub">You don't need to know how to fight. You don't need to know how to dance. You need to be willing to stand in the circle, move honestly, and have a conversation with someone who is very good at reading you. The 10 days will do the rest.</p>
+    <div class="closing-contacts">
+      <div>
+        <span class="cc-label">Register Interest / Apply</span>
+        <span class="cc-val">apply@bridgethegap.com</span>
+      </div>
+      <div>
+        <span class="cc-label">Program Website</span>
+        <span class="cc-val">bridgethegap.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="closing-footer">
+    <div class="closing-logo">THE GAP</div>
+    <span class="closing-footer-tag">Bridge The Gap · Capoeira Angola · Salvador, Bahia, Brazil</span>
+  </div>
+</div>
+
+</body>
+</html>
